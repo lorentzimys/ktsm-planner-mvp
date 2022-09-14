@@ -1,4 +1,4 @@
-.App {
+/* .App {
 	height: 100%;
 	width: 100%;
 	position: absolute;
@@ -16,18 +16,13 @@
   .App-logo {
     animation: App-logo-float infinite 3s ease-in-out;
   }
-}
+} */
 
 .app-container {
 	width: 100%;
 	overflow: hidden;
 	position: absolute;
 	height: 100%;
-	&.__button-container {
-		display: flex;
-		column-gap: 20px;
-		row-gap: 20px;
-	}
 }
 
 .app-header {
@@ -36,15 +31,23 @@
   align-items: center;
   justify-content: center;
 	height: 30vh;
+	background-color: #D1C4E9;
   font-size: calc(10px + 2vmin);
+	.button-container {
+		display: flex;
+		flex-direction: column;
+		column-gap: 20px;
+		row-gap: 20px;
+	}
 }
+
 
 .App-link {
   color: rgb(112, 76, 182);
 }
 
 
-.main {
+.app-main {
 	&-container {
 		flex: 1;
 	}

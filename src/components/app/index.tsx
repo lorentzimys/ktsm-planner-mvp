@@ -1,8 +1,8 @@
-import React from 'react';
-
+import React, { useState } from 'react';
+import { clsx } from 'clsx';
 import { FrappeGantt, ViewMode } from 'frappe-gantt-react';
 
-import './index.scss';
+import './index.css';
 
 const tasks: any[] = [
   {
@@ -79,25 +79,43 @@ const tasks: any[] = [
   },
 ]
 
-
-
 function App() {
+  const [activeView, setActiveView] = useState<'grid' | 'gantt'>('grid');
+  const handleGridOpen = () => {
+    setActiveView('grid');
+  }
+
+  const handleGanttOpen = () => {
+    setActiveView('gantt');
+  }
 
   return (
-    <div className="App">
-      <header className="App-header">
-        Header
+    <div className="app-container">
+      <header className="app-header">
+        <div className="button-container">
+          <button className="button" onClick={handleGridOpen}>Выбор партий</button>
+          <button className="button" onClick={handleGanttOpen}>План производства</button>
+        </div>
       </header>
-      <main className='main-container'>
-      <FrappeGantt
-          tasks={tasks}
-          viewMode={ViewMode.Day}
-          onClick={task => console.log(task)}
-          onDateChange={(task, start, end) => console.log(task, start, end)}
-          onProgressChange={(task, progress) => console.log(task, progress)}
-          onTasksChange={tasks => console.log(tasks)}
-        />
-      </main>
+      <main className='app-main'>
+        <div className={clsx({
+          hidden: activeView !== 'grid'
+        })}>
+          <div>Grid</div>
+        </div>
+        <div className={clsx({
+          hidden: activeView !== 'gantt'
+        })}>
+          <FrappeGantt
+              tasks={tasks}
+              viewMode={ViewMode.Day}
+              onClick={task => console.log(task)}
+              onDateChange={(task, start, end) => console.log(task, start, end)}
+              onProgressChange={(task, progress) => console.log(task, progress)}
+              onTasksChange={tasks => console.log(tasks)}
+            />
+        </div>
+        </main>
     </div>
   );
 }
