@@ -1,0 +1,422 @@
+[
+	{
+	  "id": "632393eca91a51195f2a59e0",
+	  "nomenclature": {
+		"index": 0,
+		"name": "Wong Jones"
+	  },
+	  "equipment": "NaN",
+	  "batchNo": 5846,
+	  "probeNo": 951,
+	  "weight": 283,
+	  "weightNet": 594,
+	  "unit": "pound",
+	  "packageType": "Bag",
+	  "chlorideWeight": 245,
+	  "containmentDM": [
+		{
+		  "name": "Pt",
+		  "value": 190
+		},
+		{
+		  "name": "Pd",
+		  "value": 287
+		},
+		{
+		  "name": "Rh",
+		  "value": 310
+		},
+		{
+		  "name": "Ir",
+		  "value": 177
+		},
+		{
+		  "name": "Ru",
+		  "value": 205
+		},
+		{
+		  "name": "Os",
+		  "value": 321
+		},
+		{
+		  "name": "Au",
+		  "value": 195
+		},
+		{
+		  "name": "Ag",
+		  "value": 305
+		},
+		{
+		  "name": "Re",
+		  "value": 324
+		}
+	  ],
+	  "containmentNBE": [
+		{
+		  "name": "Fe",
+		  "value": 209
+		}
+	  ],
+	  "value": 218
+	},
+	{
+	  "id": "632393ec7700211c51785c60",
+	  "nomenclature": {
+		"index": 1,
+		"name": "Flowers Lowery"
+	  },
+	  "equipment": "NaN",
+	  "batchNo": 8522,
+	  "probeNo": 271,
+	  "weight": 445,
+	  "weightNet": 941,
+	  "unit": "pound",
+	  "packageType": "Case",
+	  "chlorideWeight": 979,
+	  "containmentDM": [
+		{
+		  "name": "Pt",
+		  "value": 195
+		},
+		{
+		  "name": "Pd",
+		  "value": 131
+		},
+		{
+		  "name": "Rh",
+		  "value": 266
+		},
+		{
+		  "name": "Ir",
+		  "value": 200
+		},
+		{
+		  "name": "Ru",
+		  "value": 314
+		},
+		{
+		  "name": "Os",
+		  "value": 352
+		},
+		{
+		  "name": "Au",
+		  "value": 211
+		},
+		{
+		  "name": "Ag",
+		  "value": 170
+		},
+		{
+		  "name": "Re",
+		  "value": 373
+		}
+	  ],
+	  "containmentNBE": [
+		{
+		  "name": "Fe",
+		  "value": 133
+		}
+	  ],
+	  "value": 556
+	},
+	{
+	  "id": "632393ec77b480d6255ae240",
+	  "nomenclature": {
+		"index": 2,
+		"name": "Virgie Walls"
+	  },
+	  "equipment": "NaN",
+	  "batchNo": 4145,
+	  "probeNo": 876,
+	  "weight": 460,
+	  "weightNet": 971,
+	  "unit": "cm",
+	  "packageType": "Bag",
+	  "chlorideWeight": 419,
+	  "containmentDM": [
+		{
+		  "name": "Pt",
+		  "value": 338
+		},
+		{
+		  "name": "Pd",
+		  "value": 143
+		},
+		{
+		  "name": "Rh",
+		  "value": 173
+		},
+		{
+		  "name": "Ir",
+		  "value": 282
+		},
+		{
+		  "name": "Ru",
+		  "value": 101
+		},
+		{
+		  "name": "Os",
+		  "value": 141
+		},
+		{
+		  "name": "Au",
+		  "value": 311
+		},
+		{
+		  "name": "Ag",
+		  "value": 234
+		},
+		{
+		  "name": "Re",
+		  "value": 352
+		}
+	  ],
+	  "containmentNBE": [
+		{
+		  "name": "Fe",
+		  "value": 226
+		}
+	  ],
+	  "value": 291
+	},
+	{
+	  "id": "632393ec72d1cbf34c948d93",
+	  "nomenclature": {
+		"index": 3,
+		"name": "Combs Barlow"
+	  },
+	  "equipment": "NaN",
+	  "batchNo": 3183,
+	  "probeNo": 231,
+	  "weight": 196,
+	  "weightNet": 643,
+	  "unit": "pound",
+	  "packageType": "Bag",
+	  "chlorideWeight": 263,
+	  "containmentDM": [
+		{
+		  "name": "Pt",
+		  "value": 284
+		},
+		{
+		  "name": "Pd",
+		  "value": 156
+		},
+		{
+		  "name": "Rh",
+		  "value": 146
+		},
+		{
+		  "name": "Ir",
+		  "value": 314
+		},
+		{
+		  "name": "Ru",
+		  "value": 189
+		},
+		{
+		  "name": "Os",
+		  "value": 125
+		},
+		{
+		  "name": "Au",
+		  "value": 186
+		},
+		{
+		  "name": "Ag",
+		  "value": 243
+		},
+		{
+		  "name": "Re",
+		  "value": 179
+		}
+	  ],
+	  "containmentNBE": [
+		{
+		  "name": "Fe",
+		  "value": 171
+		}
+	  ],
+	  "value": 538
+	},
+	{
+	  "id": "632393ecc0d4fc12c5259f88",
+	  "nomenclature": {
+		"index": 4,
+		"name": "Brenda Hull"
+	  },
+	  "equipment": "NaN",
+	  "batchNo": 4531,
+	  "probeNo": 476,
+	  "weight": 288,
+	  "weightNet": 493,
+	  "unit": "cm",
+	  "packageType": "Bottle",
+	  "chlorideWeight": 457,
+	  "containmentDM": [
+		{
+		  "name": "Pt",
+		  "value": 326
+		},
+		{
+		  "name": "Pd",
+		  "value": 353
+		},
+		{
+		  "name": "Rh",
+		  "value": 179
+		},
+		{
+		  "name": "Ir",
+		  "value": 293
+		},
+		{
+		  "name": "Ru",
+		  "value": 220
+		},
+		{
+		  "name": "Os",
+		  "value": 215
+		},
+		{
+		  "name": "Au",
+		  "value": 216
+		},
+		{
+		  "name": "Ag",
+		  "value": 359
+		},
+		{
+		  "name": "Re",
+		  "value": 202
+		}
+	  ],
+	  "containmentNBE": [
+		{
+		  "name": "Fe",
+		  "value": 120
+		}
+	  ],
+	  "value": 958
+	},
+	{
+	  "id": "632393ec81598473cc2e528d",
+	  "nomenclature": {
+		"index": 5,
+		"name": "Lacy Lamb"
+	  },
+	  "equipment": "NaN",
+	  "batchNo": 1375,
+	  "probeNo": 279,
+	  "weight": 630,
+	  "weightNet": 159,
+	  "unit": "pound",
+	  "packageType": "Bottle",
+	  "chlorideWeight": 948,
+	  "containmentDM": [
+		{
+		  "name": "Pt",
+		  "value": 218
+		},
+		{
+		  "name": "Pd",
+		  "value": 258
+		},
+		{
+		  "name": "Rh",
+		  "value": 143
+		},
+		{
+		  "name": "Ir",
+		  "value": 395
+		},
+		{
+		  "name": "Ru",
+		  "value": 273
+		},
+		{
+		  "name": "Os",
+		  "value": 183
+		},
+		{
+		  "name": "Au",
+		  "value": 104
+		},
+		{
+		  "name": "Ag",
+		  "value": 185
+		},
+		{
+		  "name": "Re",
+		  "value": 337
+		}
+	  ],
+	  "containmentNBE": [
+		{
+		  "name": "Fe",
+		  "value": 224
+		}
+	  ],
+	  "value": 796
+	},
+	{
+	  "id": "632393ec9c97bdad22702aee",
+	  "nomenclature": {
+		"index": 6,
+		"name": "Terri Ray"
+	  },
+	  "equipment": "NaN",
+	  "batchNo": 4830,
+	  "probeNo": 140,
+	  "weight": 654,
+	  "weightNet": 896,
+	  "unit": "cm",
+	  "packageType": "Bag",
+	  "chlorideWeight": 282,
+	  "containmentDM": [
+		{
+		  "name": "Pt",
+		  "value": 277
+		},
+		{
+		  "name": "Pd",
+		  "value": 209
+		},
+		{
+		  "name": "Rh",
+		  "value": 163
+		},
+		{
+		  "name": "Ir",
+		  "value": 400
+		},
+		{
+		  "name": "Ru",
+		  "value": 169
+		},
+		{
+		  "name": "Os",
+		  "value": 213
+		},
+		{
+		  "name": "Au",
+		  "value": 309
+		},
+		{
+		  "name": "Ag",
+		  "value": 334
+		},
+		{
+		  "name": "Re",
+		  "value": 251
+		}
+	  ],
+	  "containmentNBE": [
+		{
+		  "name": "Fe",
+		  "value": 352
+		}
+	  ],
+	  "value": 686
+	}
+  ]

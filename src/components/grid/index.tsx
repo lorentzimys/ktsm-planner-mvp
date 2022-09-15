@@ -8,59 +8,35 @@ import {
   getPaginationRowModel,
   Table,
   useReactTable,
-  createColumnHelper
+  createColumnHelper,
+  IdentifiedColumnDef
 } from '@tanstack/react-table'
+import { useSelector } from 'react-redux';
+import { IDataState } from '../../store/dataSlice';
 
 import './index.css';
 
-const columnHelper = createColumnHelper<any>()
+const columnHelper = createColumnHelper<any>();
 
-const columns = [
-  columnHelper.accessor('selected', {
-    cell: info => <input type="checkbox"
-      onChange={info.row.getToggleSelectedHandler()}
-      checked={info.row.getIsSelected()}
-    />,
-  }),
-  columnHelper.accessor('id', {
-    cell: info => info.getValue(),
-    // footer: info => info.column.id,
-  }),
-  // columnHelper.accessor(row => row.lastName, {
-  //   id: 'lastName',
-  //   cell: info => <i>{info.getValue()}</i>,
-  //   header: () => <span>Last Name</span>,
-  //   footer: info => info.column.id,
-  // }),
-  columnHelper.accessor('name', {
-    header: () => 'Name',
-    cell: info => info.renderValue(),
-    // footer: info => info.column.id,
-  }),
-  columnHelper.accessor('start', {
-    header: () => 'Start',
-    cell: info => info.getValue(),
-    // footer: info => info.column.id,
-  }),
-  columnHelper.accessor('end', {
-    header: 'End',
-    cell: info => info.getValue(),
-    // footer: info => info.column.id,
-  }),
-  columnHelper.accessor('progress', {
-    header: 'Progress',
-    cell: info => info.getValue(),
-    // footer: info => info.column.id,
-  }),
-]
+const Grid = () => {
+  const [rowSelection, setRowSelection] = React.useState({});
+  // const [globalFilter, setGlobalFilter] = React.useState('');
+  const data = useSelector(({ data }: { data: IDataState }) => data.value);
 
-const Grid = (props: { data: any; }) => {
-  const [rowSelection, setRowSelection] = React.useState({})
-  const [globalFilter, setGlobalFilter] = React.useState('')
-  
+  const getColumns = () => (
+    Object.entries(data && data.length ? data[0] : {}).map(([colName, colValue]) => (
+      columnHelper.accessor(colName, {
+        header: colName,
+        cell: info => typeof info.getValue() !== 'object' ? info.getValue() : "",
+      })
+    ))
+  )
+
+  console.log(getColumns());
+
   const table = useReactTable({
-    data: props.data,
-    columns,
+    data: data || [],
+    columns: getColumns(),
     state: {
       rowSelection,
     },
@@ -68,12 +44,9 @@ const Grid = (props: { data: any; }) => {
     getCoreRowModel: getCoreRowModel(),
   });
   
-  const handleRerender = React.useCallback(() => { 
-    console.log(table, table.getAllColumns());
-  }, [table]);
-
-
-  console.log(table);
+  // const handleRerender = React.useCallback(() => { 
+  //   console.log(table, table.getAllColumns());
+  // }, [table]);
 
   return (
     <div className="flex flex-col">
@@ -127,9 +100,6 @@ const Grid = (props: { data: any; }) => {
         {Object.keys(rowSelection).length} of{' '}
         {table.getPreFilteredRowModel().rows.length} Total Rows Selected
       </div>
-      <button onClick={handleRerender} className="border p-2">
-        Rerender
-      </button>
     </div>
   )
 }

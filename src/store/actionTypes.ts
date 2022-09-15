@@ -1,0 +1,1 @@
+export const FILE_LOAD_SUCCESS = 'FILE_LOAD_SUCCESS';

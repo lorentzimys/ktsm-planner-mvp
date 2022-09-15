@@ -1,11 +1,15 @@
 import React, { useState } from 'react';
 import { clsx } from 'clsx';
 import { FrappeGantt, ViewMode } from 'frappe-gantt-react';
+import { AppHeader } from '../AppHeader';
+import { AppFooter } from '../AppFooter';
 
-import Grid from '../grid';
+import Grid from '../Grid';
 
-import DownloadIcon from '../../img/icons/download.svg';
+// import DownloadIcon from '../../img/icons/download.svg';
 import './index.css';
+import { useSelector } from 'react-redux';
+import { IDataState } from '../../store/dataSlice';
 
 const tasks: any[] = [
   {
@@ -86,6 +90,7 @@ const tasks: any[] = [
 
 function App() {
   const [activeView, setActiveView] = useState<'grid' | 'gantt'>('grid');
+  
  
   const handleGridOpen = () => {
     setActiveView('grid');
@@ -95,35 +100,41 @@ function App() {
     setActiveView('gantt');
   }
 
+  const handleImportFile = (e) => {
+    console.log(e);
+  }
+
   return (
     <div className="app-container">
-      <header className="app-header">
-        <div>Загрузите план</div>
-        <div className='icon-container'><img src={DownloadIcon}></img></div>
-        <div className="button-container">
-          <button className="button btn-primary" onClick={handleGridOpen}>Выбор партий</button>
-          <button className="button" onClick={handleGanttOpen}>План производства</button>
-        </div>
-      </header>
-      <main className='app-main'>
-        <div className={clsx({
+      <AppHeader
+          handleGridOpen={handleGridOpen}
+          handleGanttOpen={handleGanttOpen}
+      />
+      <main className='flex flex-col flex-1 w-[100%]'>
+        <div className={clsx(['flex', 'flex-col'],{
           hidden: activeView !== 'grid'
         })}>
-          <Grid data={tasks} />
+          {/* <Grid data={data || []} /> */}
+          <Grid />
         </div>
         <div className={clsx({
           hidden: activeView !== 'gantt'
         })}>
-          <FrappeGantt
-              tasks={tasks}
+          {/* <FrappeGantt
+              tasks={[]}
               viewMode={ViewMode.Day}
               onClick={task => console.log(task)}
               onDateChange={(task, start, end) => console.log(task, start, end)}
               onProgressChange={(task, progress) => console.log(task, progress)}
               onTasksChange={tasks => console.log(tasks)}
-            />
+            /> */}
         </div>
-        </main>
+      </main>
+      <AppFooter
+        handleImport={ (e) => handleImportFile(e) }
+        handleRefresh={() => void(null)}
+        handlePlan={() => void(null) }
+      />
     </div>
   );
 }
