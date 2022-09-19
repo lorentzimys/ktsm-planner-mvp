@@ -2,7 +2,7 @@ import React, { memo, useRef, useCallback, useEffect, useState } from "react";
 import { useAppDispatch } from '../../hooks/hooks';
 import { uploadData } from './../../store/dataSlice';
 import MonacoEditor from 'react-monaco-editor';
-import classnames from 'classnames';
+import clsx from 'clsx';
 
 import importFile from "../../mocks/import.json";
 
@@ -57,7 +57,7 @@ export const StatusBar = () => {
 
   return (
     <div className={
-      classnames("status-bar", {
+      clsx("status-bar", {
         "status-bar--active": statusBarOpen
       })
     }>
@@ -65,7 +65,7 @@ export const StatusBar = () => {
         <small className="status-bar__heading">Строка состояния</small>
         <span
           className={
-            classnames("status-bar__toggle-button", {
+            clsx("status-bar__toggle-button", {
               "status-bar__toggle-button--active": statusBarOpen
             })
           }
