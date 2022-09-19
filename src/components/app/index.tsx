@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { clsx } from 'clsx';
 import { FrappeGantt, ViewMode } from 'frappe-gantt-react';
 import { AppHeader } from '../AppHeader';
-import { AppFooter } from '../AppFooter';
 import addDays from 'date-fns/addDays'
 
 import Grid from '../Grid';
@@ -12,6 +11,7 @@ import { useSelector } from 'react-redux';
 import { IDataState } from '../../store/dataSlice';
 
 import './index.css';
+import { StatusBar } from '../StatusBar';
 
 function App() {
   const [activeView, setActiveView] = useState<'grid' | 'gantt'>('grid');
@@ -70,11 +70,7 @@ function App() {
           )}
         </div>
       </main>
-      <AppFooter
-        handleImport={ (e) => handleImportFile(e) }
-        handleRefresh={() => void(null)}
-        handlePlan={() => void(null) }
-      />
+      <StatusBar />
     </div>
   );
 }
