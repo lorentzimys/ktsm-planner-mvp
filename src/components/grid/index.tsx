@@ -43,19 +43,15 @@ const Grid = () => {
     onRowSelectionChange: setRowSelection,
     getCoreRowModel: getCoreRowModel(),
   });
-  
-  // const handleRerender = React.useCallback(() => { 
-  //   console.log(table, table.getAllColumns());
-  // }, [table]);
 
   return (
     <div className="flex flex-col">
       <table className="table">
         <thead>
           {table.getHeaderGroups().map(headerGroup => (
-            <tr key={headerGroup.id}>
+            <tr className="table__header-row" key={headerGroup.id}>
               {headerGroup.headers.map(header => (
-                <th key={header.id}>
+                <th className="table__cell" key={header.id}>
                   {header.isPlaceholder
                     ? null
                     : flexRender(
@@ -69,9 +65,9 @@ const Grid = () => {
         </thead>
         <tbody>
           {table.getRowModel().rows.map(row => (
-            <tr key={row.id}>
+            <tr  className="table__header-row" key={row.id}>
               {row.getVisibleCells().map(cell => (
-                <td key={cell.id}>
+                <td className="table__cell"  key={cell.id}>
                   {flexRender(cell.column.columnDef.cell, cell.getContext())}
                 </td>
               ))}

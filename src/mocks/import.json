@@ -60,6 +60,66 @@
 	  "value": 218
 	},
 	{
+		"id": "632393eca91a51195f2a59e0",
+		"nomenclature": {
+		  "index": 0,
+		  "name": "SDDSDASD"
+		},
+		"equipment": "NaN",
+		"batchNo": 5846,
+		"probeNo": 951,
+		"weight": 283,
+		"weightNet": 594,
+		"unit": "pound",
+		"packageType": "Bag",
+		"chlorideWeight": 245,
+		"containmentDM": [
+		  {
+			"name": "Pt",
+			"value": 190
+		  },
+		  {
+			"name": "Pd",
+			"value": 287
+		  },
+		  {
+			"name": "Rh",
+			"value": 310
+		  },
+		  {
+			"name": "Ir",
+			"value": 177
+		  },
+		  {
+			"name": "Ru",
+			"value": 205
+		  },
+		  {
+			"name": "Os",
+			"value": 321
+		  },
+		  {
+			"name": "Au",
+			"value": 195
+		  },
+		  {
+			"name": "Ag",
+			"value": 305
+		  },
+		  {
+			"name": "Re",
+			"value": 324
+		  }
+		],
+		"containmentNBE": [
+		  {
+			"name": "Fe",
+			"value": 209
+		  }
+		],
+		"value": 218
+	  },
+	{
 	  "id": "632393ec7700211c51785c60",
 	  "nomenclature": {
 		"index": 1,

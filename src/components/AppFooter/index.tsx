@@ -23,7 +23,6 @@ export const AppFooter = ({ handleImport, handleRefresh, handlePlan }) => {
       filereader.onload = e => {
         const data = JSON.parse(e.target?.result as string);
         dispatch(uploadData(data));
-        console.log(JSON.parse(e.target?.result as string));
       };
       filereader.readAsText(file as Blob);
     }

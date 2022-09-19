@@ -1,0 +1,14 @@
+.table {
+	overflow: scroll;
+	&__header{
+		&-row {
+			text-align: left;
+			&__cell {
+				@apply pl-0 p-4;
+			}
+		}
+	}
+	&__cell {
+		@apply pl-2 p-4;
+	}
+}
