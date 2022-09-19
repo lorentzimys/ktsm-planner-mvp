@@ -46,12 +46,12 @@ const Grid = () => {
 
   return (
     <div className="flex flex-col">
-      <table className="table">
-        <thead>
+      <table className="table table--striped">
+        <thead className="table__header">
           {table.getHeaderGroups().map(headerGroup => (
             <tr className="table__header-row" key={headerGroup.id}>
               {headerGroup.headers.map(header => (
-                <th className="table__cell" key={header.id}>
+                <th className="table__header-cell" key={header.id}>
                   {header.isPlaceholder
                     ? null
                     : flexRender(
@@ -63,11 +63,11 @@ const Grid = () => {
             </tr>
           ))}
         </thead>
-        <tbody>
+        <tbody className="table__body">
           {table.getRowModel().rows.map(row => (
-            <tr  className="table__header-row" key={row.id}>
+            <tr  className="table__body-row" key={row.id}>
               {row.getVisibleCells().map(cell => (
-                <td className="table__cell"  key={cell.id}>
+                <td className="table__body-cell"  key={cell.id}>
                   {flexRender(cell.column.columnDef.cell, cell.getContext())}
                 </td>
               ))}

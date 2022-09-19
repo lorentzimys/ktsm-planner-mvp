@@ -1,14 +1,36 @@
 .table {
 	overflow: scroll;
-	&__header{
-		&-row {
-			text-align: left;
-			&__cell {
-				@apply pl-0 p-4;
+	@apply table-auto;
+	&--striped {
+		.table__header {
+			tr {
+				@apply bg-slate-300;
+			}
+		}
+
+		.table__body {
+			tr:nth-child(odd) {
+				@apply bg-slate-200;
 			}
 		}
 	}
-	&__cell {
-		@apply pl-2 p-4;
+
+	&__header{
+		&-row {
+			text-align: left;
+		}
+		&-cell {
+			@apply p-2 pt-1 pb-1 font-semibold;
+			@apply border dark:border-slate-400 text-slate-800  text-left;
+		}
+	}
+	&__body {
+		&-row {
+
+		}
+		&-cell {
+			@apply p-2;
+			@apply w-1/2 border  dark:border-slate-400 text-slate-900  text-left;
+		}
 	}
 }
