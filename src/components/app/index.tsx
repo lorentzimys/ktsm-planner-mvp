@@ -1,7 +1,7 @@
 import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
-import { HomeScreen, PlanningScreen } from '../../screens/';
+import { HomeScreen, PlanningScreen } from '../../screens';
 
 import { AppHeader } from '../AppHeader';
 import { StatusBar } from '../StatusBar';
