@@ -1,4 +1,4 @@
-import React from "react";
+import React, {memo} from "react";
 import {
   Column,
   ColumnDef,
@@ -8,35 +8,24 @@ import {
   getPaginationRowModel,
   Table,
   useReactTable,
-  createColumnHelper,
   IdentifiedColumnDef
 } from '@tanstack/react-table'
+
 import { useSelector } from 'react-redux';
 import { IDataState } from '../../store/dataSlice';
 
-import './index.css';
+import { columnsConfig } from "./columnsConfig";
 
-const columnHelper = createColumnHelper<any>();
+import './index.css';
 
 const Grid = () => {
   const [rowSelection, setRowSelection] = React.useState({});
   // const [globalFilter, setGlobalFilter] = React.useState('');
   const data = useSelector(({ data }: { data: IDataState }) => data.value);
 
-  const getColumns = () => (
-    Object.entries(data && data.length ? data[0] : {}).map(([colName, colValue]) => (
-      columnHelper.accessor(colName, {
-        header: colName,
-        cell: info => typeof info.getValue() !== 'object' ? info.getValue() : "",
-      })
-    ))
-  )
-
-  console.log(getColumns());
-
   const table = useReactTable({
     data: data || [],
-    columns: getColumns(),
+    columns: columnsConfig,
     state: {
       rowSelection,
     },
@@ -51,7 +40,7 @@ const Grid = () => {
           {table.getHeaderGroups().map(headerGroup => (
             <tr className="table__header-row" key={headerGroup.id}>
               {headerGroup.headers.map(header => (
-                <th className="table__header-cell" key={header.id}>
+                <th className="table__header-cell"  key={header.id} colSpan={header.colSpan }>
                   {header.isPlaceholder
                     ? null
                     : flexRender(
@@ -91,13 +80,15 @@ const Grid = () => {
           ))}
         </tfoot>
       </table>
-      <div className="h-4" />
-      <div>
-        {Object.keys(rowSelection).length} of{' '}
-        {table.getPreFilteredRowModel().rows.length} Total Rows Selected
+      <div className="flex gap-2 ">
+        <span className="">Выбрано</span>
+        <span className="font-semibold">
+          {Object.keys(rowSelection).length} из{' '}
+          {table.getPreFilteredRowModel().rows.length} 
+        </span>
       </div>
     </div>
   )
 }
 
-export default Grid;
+export default memo(Grid);

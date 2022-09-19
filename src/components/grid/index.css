@@ -16,6 +16,9 @@
 	}
 
 	&__header{
+		&-group-row {
+			text-align: center;
+		}
 		&-row {
 			text-align: left;
 		}
