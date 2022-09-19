@@ -45,8 +45,8 @@ export const AppFooter = ({ handleImport, handleRefresh, handlePlan }) => {
     <footer className='flex flex-col items-start justify-center p-10 bg-slate-500'>
       <div className='flex flex-row flex-1 gap-2 w-[100%]'>
         <UploadButton />
-        <button className='button' onClick={handleRefresh}>Обновить партии</button>
-        <button className='button flex ml-auto' onClick={handlePlan}>Планирование</button>
+        {/* <button className='button' onClick={handleRefresh}>Обновить партии</button> */}
+        <button className='button flex ml-auto' onClick={handlePlan}>Запустить планирование</button>
       </div>
     </footer>
   )
