@@ -22,19 +22,17 @@ export const PlanningScreen = () => {
   )
 
   return (
-    <>
-      <div>
-        { data && data.length && (
-          <FrappeGantt
-            tasks={mapDataToTasks()}
-            viewMode={ViewMode.Day}
-            onClick={task => console.log(task)}
-            onDateChange={(task, start, end) => console.log(task, start, end)}
-            onProgressChange={(task, progress) => console.log(task, progress)}
-            onTasksChange={tasks => console.log(tasks)}
-          />
-        )}
-      </div>
-    </>
+    <div>
+      { data && data.length && (
+        <FrappeGantt
+          tasks={mapDataToTasks()}
+          viewMode={ViewMode.Day}
+          onClick={task => console.log(task)}
+          onDateChange={(task, start, end) => console.log(task, start, end)}
+          onProgressChange={(task, progress) => console.log(task, progress)}
+          onTasksChange={tasks => console.log(tasks)}
+        />
+      )}
+    </div>
   )
 };
