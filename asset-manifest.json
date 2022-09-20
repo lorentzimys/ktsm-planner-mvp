@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/kcm_planner_mvp/static/css/main.e4322315.css",
+    "main.js": "/kcm_planner_mvp/static/js/main.0ef50f29.js",
+    "static/js/787.50b7b37f.chunk.js": "/kcm_planner_mvp/static/js/787.50b7b37f.chunk.js",
+    "static/media/codicon.ttf": "/kcm_planner_mvp/static/media/codicon.b797181c93b3755f4fa1.ttf",
+    "index.html": "/kcm_planner_mvp/index.html",
+    "main.e4322315.css.map": "/kcm_planner_mvp/static/css/main.e4322315.css.map",
+    "main.0ef50f29.js.map": "/kcm_planner_mvp/static/js/main.0ef50f29.js.map",
+    "787.50b7b37f.chunk.js.map": "/kcm_planner_mvp/static/js/787.50b7b37f.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.e4322315.css",
+    "static/js/main.0ef50f29.js"
+  ]
+}
