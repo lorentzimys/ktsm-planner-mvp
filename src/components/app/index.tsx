@@ -5,6 +5,7 @@ import { HomeScreen, PlanningScreen } from '../../screens';
 
 import { AppHeader } from '../AppHeader';
 import { StatusBar } from '../StatusBar';
+import { Stepper } from '../Stepper';
 
 import './index.css';
 
@@ -14,6 +15,7 @@ function App() {
       <div className="app-container">
         <AppHeader />
         <main className='flex flex-col flex-1 w-[100%]'>
+          <Stepper />
           <Routes>
             <Route path="/" element={<HomeScreen />} />
             <Route path="/planning" element={<PlanningScreen />} />
