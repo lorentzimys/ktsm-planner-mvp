@@ -1,11 +1,12 @@
 import { HomePage  } from "./Home";
 import { PlanningPage } from "./Planning";
 import WelcomePage from "./Welcome";
-import NomenclaturePage from "./Nomenclature";
+import { ImportNomenclaturePage, SelectNomenclaturePage } from "./Nomenclature";
 
 export {
   HomePage,
   PlanningPage,
   WelcomePage,
-  NomenclaturePage
+  ImportNomenclaturePage,
+  SelectNomenclaturePage
 };

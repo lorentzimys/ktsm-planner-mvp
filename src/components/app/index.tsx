@@ -5,8 +5,9 @@ import WizardLayout from '../../layouts/Wizard';
 import {
   HomePage,
   PlanningPage,
-  NomenclaturePage,
-  WelcomePage
+  WelcomePage,
+  ImportNomenclaturePage,
+  SelectNomenclaturePage
 } from '../../pages';
 
 import { WizardStep } from '../../store/wizardSlice';
@@ -21,8 +22,8 @@ function App() {
       </Route>
       <Route path="/plan" element={<WizardLayout />}>
         {/* <Route index element={<HomePage />}></Route> */}
-        <Route path={`/plan/${WizardStep.ImportNomenclature}`} element={<NomenclaturePage />}></Route>
-        <Route path={`/plan/${WizardStep.SelectNomenclature}`} element={<NomenclaturePage />}></Route>
+        <Route path={`/plan/${WizardStep.ImportNomenclature}`} element={<ImportNomenclaturePage />}></Route>
+        <Route path={`/plan/${WizardStep.SelectNomenclature}`} element={<SelectNomenclaturePage />}></Route>
         <Route path={`/plan/${WizardStep.Resources}`} element={<HomePage />}></Route>
         <Route path={`/plan/${WizardStep.Planning}`} element={<PlanningPage />}></Route>
         {/* <Route path="*" element={<ErrorPage />} /> */}

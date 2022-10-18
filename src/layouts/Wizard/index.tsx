@@ -4,14 +4,22 @@ import { Outlet, useNavigate } from "react-router-dom"
 import { Stepper } from "../../components/Stepper";
 import { useAppDispatch } from "../../hooks/hooks";
 
-import { prevStep, nextStep, WizardStep } from "../../store/wizardSlice";
+import {
+  prevStep,
+  nextStep,
+  goToStep,
+  WizardStep,
+  clearWizardState
+} from "../../store/wizardSlice";
 
 const WizardLayout = () => {
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
   const currentStep = useSelector(({ wizard }: any) => wizard.currentStep);
+  const nomenclatureData = useSelector(({ wizard }: any) => wizard.nomenclatureData);
 
   const handleExit = () => {
+    dispatch(clearWizardState())
     navigate("/", { replace: true });
   }
 
@@ -27,8 +35,14 @@ const WizardLayout = () => {
     navigate(`/plan/${Object.values(WizardStep)[currentStep]}`);
   }, [currentStep]);
 
+  useEffect(() => {
+    if (nomenclatureData !== null) {
+      dispatch(goToStep(1));
+    }
+  }, [nomenclatureData])
+
   return (
-    <div className="flex flex-1 flex-col">
+    <div className="flex flex-1 flex-col overflow-hidden">
       <Stepper />
       <div className="grow flex">
         <Outlet />

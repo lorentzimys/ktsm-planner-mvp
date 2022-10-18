@@ -14,7 +14,7 @@ export const Stepper = () => {
           Object.values(WizardStep).map((step, i) => {
             const className = clsx("stepper-step", { "stepper-active": currentStep === i });
             return (
-              <Link to={step} className={className}>
+              <Link key={i} to={step} className={className}>
                 <div className="stepper-head">
                   <span className="stepper-head-icon">{i + 1}</span>
                   {/* <span className="stepper-head-text">

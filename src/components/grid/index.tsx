@@ -21,7 +21,7 @@ import './index.css';
 const Grid = () => {
   const [rowSelection, setRowSelection] = React.useState({});
   // const [globalFilter, setGlobalFilter] = React.useState('');
-  const data = useSelector(({ data }: { data: IDataState }) => data.value);
+  const data = useSelector(({ wizard }: any) => wizard.nomenclatureData);
 
   const table = useReactTable({
     data: data || [],
@@ -34,7 +34,7 @@ const Grid = () => {
   });
 
   return (
-    <div className="flex flex-col">
+    <div className="flex flex-col overflow-auto">
       <table className="table table--striped">
         <thead className="table__header">
           {table.getHeaderGroups().map(headerGroup => (
