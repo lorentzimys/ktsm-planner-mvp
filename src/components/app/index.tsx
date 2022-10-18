@@ -1,15 +1,15 @@
-import React from 'react';
-import { BrowserRouter, Routes, Route, HashRouter, Outlet } from 'react-router-dom';
+import React, { Routes, Route } from 'react-router-dom';
 import AppLayout from '../../layouts/App';
 import WizardLayout from '../../layouts/Wizard';
 
-import { HomePage, PlanningPage, NomenclaturePage } from '../../pages';
-import ErrorPage from '../../pages/Error';
-import { WelcomePage } from '../../pages/Welcome';
+import {
+  HomePage,
+  PlanningPage,
+  NomenclaturePage,
+  WelcomePage
+} from '../../pages';
 
-import { AppHeader } from '../AppHeader';
-import { StatusBar } from '../StatusBar';
-import { STEPS, Stepper } from '../Stepper';
+import { WizardStep } from '../../store/wizardSlice';
 
 import './index.css';
 
@@ -21,10 +21,10 @@ function App() {
       </Route>
       <Route path="/plan" element={<WizardLayout />}>
         {/* <Route index element={<HomePage />}></Route> */}
-        <Route path={`/plan/${STEPS.IMPORT_NOMENCLATURE}`} element={<NomenclaturePage />}></Route>
-        <Route path={`/plan/${STEPS.SELECT_NOMENCLATURE}`} element={<NomenclaturePage />}></Route>
-        <Route path={`/plan/${STEPS.RESOURCES}`} element={<HomePage />}></Route>
-        <Route path={`/plan/${STEPS.RUN_PLANNING}`} element={<PlanningPage />}></Route>
+        <Route path={`/plan/${WizardStep.ImportNomenclature}`} element={<NomenclaturePage />}></Route>
+        <Route path={`/plan/${WizardStep.SelectNomenclature}`} element={<NomenclaturePage />}></Route>
+        <Route path={`/plan/${WizardStep.Resources}`} element={<HomePage />}></Route>
+        <Route path={`/plan/${WizardStep.Planning}`} element={<PlanningPage />}></Route>
         {/* <Route path="*" element={<ErrorPage />} /> */}
         {/* <Redirect to="/plan/nomenclature" /> */}
       </Route>

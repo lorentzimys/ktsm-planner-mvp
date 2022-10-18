@@ -1,11 +1,13 @@
 import { configureStore, ThunkAction, Action } from '@reduxjs/toolkit';
 import { dataSlice } from './dataSlice';
+import { wizardSlice } from './wizardSlice';
 
 export type TAppStore = typeof store;
 
 export const store = configureStore({
   reducer: {
     data: dataSlice.reducer,
+    wizard: wizardSlice.reducer,
   },
 });
 

@@ -1,21 +1,35 @@
-import React from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import clsx from 'clsx';
+import { useSelector } from 'react-redux';
+import { Link } from 'react-router-dom'
 
-export const STEPS = {
-  IMPORT_NOMENCLATURE: 'importNomenclature',
-  SELECT_NOMENCLATURE: 'selectNomenclature',
-  RESOURCES: 'resources',
-  RUN_PLANNING: 'runPlanning'
-};
+import { WizardStep } from '../../store/wizardSlice'; 
 
 export const Stepper = () => {
-  const location = useLocation();
+  const currentStep = useSelector(({ wizard }: any) => wizard.currentStep);
 
-  console.log(location);
   return (
     <nav>
       <ul className="stepper" data-mdb-stepper="stepper">
-        <Link to={STEPS.IMPORT_NOMENCLATURE} className="stepper-step stepper-active">
+        {
+          Object.values(WizardStep).map((step, i) => {
+            const className = clsx("stepper-step", { "stepper-active": currentStep === i });
+            return (
+              <Link to={step} className={className}>
+                <div className="stepper-head">
+                  <span className="stepper-head-icon">{i + 1}</span>
+                  {/* <span className="stepper-head-text">
+                    <span>Загрузка<br/>номенклатуры</span>
+                  </span> */}
+                </div>
+                {/* <div className="stepper-content">
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
+                  magna aliqua.
+                </div> */}
+              </Link>
+            )
+          })
+        }
+        {/* <Link to={STEPS.IMPORT_NOMENCLATURE} className="stepper-step stepper-active">
           <div className="stepper-head">
             <span className="stepper-head-icon"> 1 </span>
             <span className="stepper-head-text">
@@ -56,7 +70,7 @@ export const Stepper = () => {
           <div className="stepper-content">
             Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
           </div>
-        </Link>
+        </Link> */}
       </ul>
     </nav>
   )

@@ -1,7 +1,6 @@
-import React, { useState, useCallback, useRef, useEffect } from 'react';
-import './index.scss';
+import { useState, useCallback, useRef, useEffect } from 'react';
 
-export const UploadButton = ({ onUpload }) => {
+export const UploadButton = ({ onUpload, className = '' }) => {
   const fileInputRef = useRef<HTMLInputElement>(null);
   const [file, setFile] = useState<File | null>(null);
 
@@ -24,7 +23,7 @@ export const UploadButton = ({ onUpload }) => {
   }, [file, onUpload]);
 
   return (
-    <div className='upload'>
+    <div className={className} onClick={handleFileUpload}>
       <input
         ref={fileInputRef}
         type="file"
@@ -32,7 +31,7 @@ export const UploadButton = ({ onUpload }) => {
         style={{ display: 'none' }}
         onChange={onFileChanged}
       />
-      <button className='upload__button' onClick={handleFileUpload}>Импорт .json</button>
+      <span className='cursor-default'>Импорт .json</span>
     </div>
   )
 
