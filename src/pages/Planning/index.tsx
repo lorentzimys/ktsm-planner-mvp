@@ -5,7 +5,7 @@ import addDays from 'date-fns/addDays'
 import { useSelector } from 'react-redux';
 import { IDataState } from '../../store/dataSlice';
 
-export const PlanningScreen = () => {
+export const PlanningPage = () => {
   const data = useSelector(({ data }: { data: IDataState }) => data.value);
 
   const mapDataToTasks = () => (
@@ -23,6 +23,7 @@ export const PlanningScreen = () => {
 
   return (
     <div>
+      Planning
       { data && data.length && (
         <FrappeGantt
           tasks={mapDataToTasks()}

@@ -20,6 +20,21 @@ code {
     monospace;
 }
 
+#root {
+	position: absolute;
+	left: 0;
+	top: 0;
+	height: 100%;
+	width: 100%;
+	display: flex;
+	/*
+	align-items: center;
+	justify-content: center;
+	flex: 1;
+	flex-direction: column;
+	*/
+}
+
 .button {
 	@apply inline-flex justify-center rounded-md border border-transparent bg-blue-100 px-4 py-2 text-sm font-medium text-blue-900 hover:bg-blue-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500;
 }

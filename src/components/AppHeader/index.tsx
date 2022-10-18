@@ -4,6 +4,7 @@ import { useAppDispatch } from '../../hooks/hooks';
 import { uploadData } from '../../store/dataSlice';
 import { UploadButton } from '../UploadButton';
 
+
 export const AppHeader = () => {
   const dispatch = useAppDispatch();
   const handleUpload = useCallback(e => {
