@@ -4,22 +4,23 @@ import addDays from 'date-fns/addDays'
 
 import { useSelector } from 'react-redux';
 import { IDataState } from '../../store/dataSlice';
+import { RootState } from "../../store";
 
 export const PlanningPage = () => {
-  const data = useSelector(({ data }: { data: IDataState }) => data.value);
+  const data = useSelector((state: RootState) => state.wizard.nomenclature);
 
-  const mapDataToTasks = () => (
-    data.map(d => ({
-      id: d.id,
-      name: d.nomenclature.name,
+  const mapDataToTasks = (): any => {
+    return data ? data.map(d => ({
+      id: d.item_id,
+      name: d.item_desc,
       start: new Date(),
       end: addDays(new Date(), 10),
       progress: 0,
-    // custom_class?: string;
-    // setDependencies(value: string[]): void;
-    // dependencies: string;
-    }))
-  )
+      // custom_class?: string;
+      // setDependencies(value: string[]): void;
+      // dependencies: string;
+    })) : []
+  };
 
   return (
     <div>

@@ -34,13 +34,15 @@ export interface WizardState {
   currentStep: number,
   nomenclature: Array<any> | null,
   operations: Array<any> | null,
+  planningAllowed: boolean,
 }
 
 const initialState: WizardState = {
   steps: Object.values(WizardStep),
   currentStep: 0,
   nomenclature: null,
-  operations: null
+  operations: null,
+  planningAllowed: false
 };
 
 
@@ -70,6 +72,7 @@ export const wizardSlice = createSlice({
     clearWizardState: (state) => {
       state.currentStep = 0;
       state.nomenclature = null;
+      state.operations = null;
     }
   },
 });
