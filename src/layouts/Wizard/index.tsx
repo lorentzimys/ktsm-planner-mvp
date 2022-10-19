@@ -1,77 +1,40 @@
 import { useEffect } from "react";
 import { useSelector } from "react-redux";
-import { Outlet, useNavigate } from "react-router-dom"
+import { Outlet, useLocation, useNavigate } from "react-router-dom"
+import { CSSTransition } from "react-transition-group";
+
 import { Stepper } from "../../components/Stepper";
+import WizardToolbar from "../../components/WizardToolbar";
 import { useAppDispatch } from "../../hooks/hooks";
 
-import {
-  prevStep,
-  nextStep,
-  goToStep,
-  WizardStep,
-  clearWizardState
-} from "../../store/wizardSlice";
+import { goToStep, WizardStep } from "../../store/wizard/slice";
 
 const WizardLayout = () => {
   const dispatch = useAppDispatch();
+  const location = useLocation();
   const navigate = useNavigate();
   const currentStep = useSelector(({ wizard }: any) => wizard.currentStep);
-  const nomenclatureData = useSelector(({ wizard }: any) => wizard.nomenclatureData);
-
-  const handleExit = () => {
-    dispatch(clearWizardState())
-    navigate("/", { replace: true });
-  }
-
-  const handlePrev = () => {
-    dispatch(prevStep());
-  }
-  
-  const handleNext = () => {
-    dispatch(nextStep());
-  }
+  const nomenclature = useSelector(({ wizard }: any) => wizard.nomenclature);
   
   useEffect(() => {
-    navigate(`/plan/${Object.values(WizardStep)[currentStep]}`);
+    navigate(`/plan/${Object.values(WizardStep)[currentStep].id}`);
   }, [currentStep]);
 
   useEffect(() => {
-    if (nomenclatureData !== null) {
+    if (nomenclature !== null) {
       dispatch(goToStep(1));
     }
-  }, [nomenclatureData])
+  }, [nomenclature])
 
   return (
     <div className="flex flex-1 flex-col overflow-hidden">
       <Stepper />
       <div className="grow flex">
-        <Outlet />
+        <CSSTransition key={location.key} classNames="fade" timeout={300}>
+          <Outlet />
+        </CSSTransition>
       </div>
-      <div className="flex flex-row justify-between p-4">
-        <button
-          onClick={handleExit}
-          className="inline-block px-6 py-2.5 bg-blue-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out"
-        >
-          Выход
-        </button>
-        <div className="gap-x-2 flex">
-          <button
-            onClick={handlePrev}
-            className="inline-block px-6 py-2.5 bg-blue-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out">
-            Назад
-          </button>
-          <button
-            onClick={handleNext}
-            className="inline-block px-6 py-2.5 bg-blue-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out">
-            Далее
-          </button>
-          <button
-            // onClick={}
-            className="inline-block px-6 py-2.5 bg-blue-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out">
-            Планирование
-          </button>
-        </div>
-      </div>
+      <WizardToolbar />
     </div>
   )
 }

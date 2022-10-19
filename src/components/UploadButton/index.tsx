@@ -1,6 +1,6 @@
 import { useState, useCallback, useRef, useEffect } from 'react';
 
-export const UploadButton = ({ onUpload, className = '' }) => {
+export const UploadButton = ({ text, onUpload, className = '' }) => {
   const fileInputRef = useRef<HTMLInputElement>(null);
   const [file, setFile] = useState<File | null>(null);
 
@@ -31,7 +31,7 @@ export const UploadButton = ({ onUpload, className = '' }) => {
         style={{ display: 'none' }}
         onChange={onFileChanged}
       />
-      <span className='cursor-default'>Импорт .json</span>
+      <span className='cursor-default'>{text}</span>
     </div>
   )
 

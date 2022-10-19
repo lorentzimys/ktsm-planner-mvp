@@ -22,7 +22,7 @@ export const AppHeader = () => {
       <div className='flex gap-2'>
         <Link className='button' to="/">Выбор партий</Link>
         <Link className='button' to="/planning">План производства</Link>
-        <UploadButton onUpload={handleUpload} />
+        <UploadButton text='Импорт JSON' onUpload={handleUpload} />
         <button className='button flex ml-auto' onClick={handlePlan}>Запустить планирование</button>
       </div>
     </header>

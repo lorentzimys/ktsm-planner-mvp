@@ -1,6 +1,6 @@
 import { configureStore, ThunkAction, Action } from '@reduxjs/toolkit';
 import { dataSlice } from './dataSlice';
-import { wizardSlice } from './wizardSlice';
+import { wizardSlice } from './wizard/slice';
 
 export type TAppStore = typeof store;
 

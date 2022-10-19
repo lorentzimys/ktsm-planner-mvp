@@ -11,17 +11,17 @@ import {
   IdentifiedColumnDef
 } from '@tanstack/react-table'
 
-import { useSelector } from 'react-redux';
-import { IDataState } from '../../store/dataSlice';
+// import { useSelector } from 'react-redux';
+// import { IDataState } from '../../store/dataSlice';
 
-import { columnsConfig } from "./columnsConfig";
+// import { columnsConfig } from "./columnsConfig";
 
 import './index.css';
 
-const Grid = () => {
+const Grid = ({ data, columnsConfig }) => {
   const [rowSelection, setRowSelection] = React.useState({});
   // const [globalFilter, setGlobalFilter] = React.useState('');
-  const data = useSelector(({ wizard }: any) => wizard.nomenclatureData);
+  // const data = useSelector(({ wizard }: any) => wizard.nomenclature);
 
   const table = useReactTable({
     data: data || [],
