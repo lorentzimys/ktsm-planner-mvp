@@ -4,27 +4,31 @@
 	&--striped {
 		.table__header {
 			tr {
-				@apply bg-slate-300;
+				@apply bg-blue-300;
 			}
 		}
 
 		.table__body {
 			tr:nth-child(odd) {
-				@apply bg-slate-200;
+				@apply bg-blue-50;
 			}
 		}
 	}
 
 	&__header{
+		position: sticky;
+		top: 0;
 		&-group-row {
 			text-align: center;
 		}
 		&-row {
+			box-shadow: 1px 1px gray;
 			text-align: left;
 		}
 		&-cell {
+			font-size: 14px;
 			@apply p-2 pt-1 pb-1 font-semibold;
-			@apply border dark:border-slate-400 text-slate-800  text-left;
+			@apply border  dark:border-slate-400 bg-blue-200 text-slate-800  text-left;
 		}
 	}
 	&__body {
@@ -32,6 +36,7 @@
 
 		}
 		&-cell {
+			font-size: 12px;
 			@apply p-2;
 			@apply w-1/2 border  dark:border-slate-400 text-slate-900  text-left;
 		}

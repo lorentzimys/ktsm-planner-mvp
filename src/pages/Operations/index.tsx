@@ -6,9 +6,12 @@ import { RootState } from "../../store";
 const OpeationsPage = () => {
   const data = useSelector((state: RootState) => state.wizard.operations);
 
+  console.log(data);
   return (
     <div className='flex flex-1 overflow-hidden'>
-      <Grid data={data} columnsConfig={operationsColumnsConfig} />
+      {data && (
+        <Grid data={data} columnsConfig={operationsColumnsConfig} />
+      )}
     </div>
   );
 }

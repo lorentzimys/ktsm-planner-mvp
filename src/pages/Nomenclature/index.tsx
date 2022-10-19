@@ -9,7 +9,11 @@ const SelectNomenclaturePage = () => {
 
   return (
     <div className='flex flex-1 overflow-hidden'>
-      <Grid data={data} columnsConfig={nomenclatureColumnsConfig} />
+      {
+        data && (
+          <Grid data={data} columnsConfig={nomenclatureColumnsConfig} />
+        )
+      }
     </div>
   );
 }

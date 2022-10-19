@@ -3,7 +3,7 @@ import { UploadButton } from '../../components/UploadButton';
 import { useAppDispatch } from '../../hooks/hooks';
 
 import imgUrl from '../../img/icons/json2.svg';
-import { uploadNomenclature } from '../../store/wizard/slice';
+import { uploadNomenclature, uploadOperations } from '../../store/wizard/slice';
 
 const ImportNomenclaturePage = () => {
   const dispatch = useAppDispatch();
@@ -15,7 +15,7 @@ const ImportNomenclaturePage = () => {
 
   const handleUploadOperations = useCallback(e => {
     const data = JSON.parse(e.target?.result as string);
-    dispatch(uploadNomenclature(data));
+    dispatch(uploadOperations(data));
   }, []);
 
   return (
@@ -38,7 +38,7 @@ const ImportNomenclaturePage = () => {
         />
         <UploadButton
           text='Загрузить состояние операций'
-          onUpload={handleUploadNomenclature}
+          onUpload={handleUploadOperations}
           className=" text-center inline-block px-6 py-2.5 bg-blue-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out"
         />
       </div>

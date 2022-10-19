@@ -6,10 +6,10 @@ const columnHelper = createColumnHelper<any>();
 export const nomenclatureColumnsConfig = [
   columnHelper.group({
     id: 'nomenclature',
-    header: 'Номер',
+    header: 'Номенклатура',
     columns: [
-      columnHelper.accessor('id', {
-        header: 'item_id',
+      columnHelper.accessor('item_id', {
+        header: 'Номер',
         cell: info => info.getValue(),
       }),
       columnHelper.accessor('item_desc', {
@@ -18,269 +18,227 @@ export const nomenclatureColumnsConfig = [
       }),
     ],
   }),
-  columnHelper.group({
-    id: 'equipment',
-    columns: [
-      columnHelper.accessor('equipment', {
-        header: 'Оборудование',
-        cell: info => info.getValue(),
-      }),
-    ],
-  }),
-  columnHelper.accessor('batchNo', {
+  // columnHelper.group({
+  //   id: 'equipment',
+  //   columns: [
+  //     columnHelper.accessor('equipment', {
+  //       header: 'Оборудование',
+  //       cell: info => info.getValue(),
+  //     }),
+  //   ],
+  // }),
+  columnHelper.accessor('lot', {
     cell: info => info.getValue(),
     header: 'Партия №',
   }),
-  columnHelper.accessor('probeNo', {
+  columnHelper.accessor('ent', {
     cell: info => info.getValue(),
-    header: '№ пробы',
+    header: 'Участок',
   }),
-  columnHelper.accessor('weight', {
+  columnHelper.accessor('qty', {
     cell: info => info.getValue(),
-    header: 'масса/объем',
+    header: 'Кол-во',
   }),
-  columnHelper.accessor('weightNet', {
+  columnHelper.accessor('qty_dry', {
     cell: info => info.getValue(),
-    header: 'масса сухая',
+    header: 'Масса/объем',
   }),
-  columnHelper.accessor('unit', {
+  columnHelper.accessor('uom', {
     cell: info => info.getValue(),
-    header: 'единица измерения',
+    header: 'Единица измерения',
   }),
-  columnHelper.accessor('packageType', {
+  columnHelper.accessor('uom', {
     cell: info => info.getValue(),
-    header: 'тара',
+    header: 'Единица измерения',
   }),
-  columnHelper.accessor('chlorideWeight', {
+  columnHelper.accessor('summa_DM', {
     cell: info => info.getValue(),
-    header: 'хлорид (%/масса)',
+    header: 'Стоимость партии',
   }),
-  columnHelper.group({
-    id: 'containmentDM',
-    header: 'Содержание ДМ, %г/л',
-    columns: [
-      columnHelper.accessor(
-        row => get(find(row.containmentDM, ['name', 'Pt']), 'value'),
-        {
-          header: 'Pt',
-          cell: info => info.getValue(),
-        }
-      ),
-      columnHelper.accessor(
-        row => get(find(row.containmentDM, ['name', 'Pd']), 'value'),
-        {
-          header: 'Pd',
-          cell: info => info.getValue(),
-        }
-      ),
-      columnHelper.accessor(
-        row => get(find(row.containmentDM, ['name', 'Rh']), 'value'),
-        {
-          header: 'Rh',
-          cell: info => info.getValue(),
-        }
-      ),
-      columnHelper.accessor(
-        row => get(find(row.containmentDM, ['name', 'Ir']), 'value'),
-        {
-          header: 'Ir',
-          cell: info => info.getValue(),
-        }
-      ),
-      columnHelper.accessor(
-        row => get(find(row.containmentDM, ['name', 'Ru']), 'value'),
-        {
-          header: 'Ru',
-          cell: info => info.getValue(),
-        }
-      ),
-      columnHelper.accessor(
-        row => get(find(row.containmentDM, ['name', 'Os']), 'value'),
-        {
-          header: 'Os',
-          cell: info => info.getValue(),
-        }
-      ),
-      columnHelper.accessor(
-        row => get(find(row.containmentDM, ['name', 'Au']), 'value'),
-        {
-          header: 'Au',
-          cell: info => info.getValue(),
-        }
-      ),
-      columnHelper.accessor(
-        row => get(find(row.containmentDM, ['name', 'Ag']), 'value'),
-        {
-          header: 'Ag',
-          cell: info => info.getValue(),
-        }
-      ),
-      columnHelper.accessor(
-        row => get(find(row.containmentDM, ['name', 'Re']), 'value'),
-        {
-          header: 'Re',
-          cell: info => info.getValue(),
-        }
-      ),
-    ],
-  }),
-  columnHelper.group({
-    id: 'containmentNBE',
-    header: 'Содержание НБЭ',
-    columns: [
-      columnHelper.accessor(
-        row => get(find(row.containmentNBE, ['name', 'Fe']), 'value'),
-        {
-          header: 'Fe',
-          cell: info => info.getValue(),
-        }
-      ),
-    ],
-  }),
-  columnHelper.accessor('value', {
-    header: 'ценность (руб/кг)',
+  columnHelper.accessor('Pt', {
     cell: info => info.getValue(),
-  }
-  )
+    header: '% Pt в партии',
+  }),
+  columnHelper.accessor('Pt_HCH', {
+    cell: info => info.getValue(),
+    header: 'Масса Pt в партии',
+  }),
+  columnHelper.accessor('Pd', {
+    cell: info => info.getValue(),
+    header: '% Pd в партии',
+  }),
+  // columnHelper.accessor('weight', {
+  //   cell: info => info.getValue(),
+  //   header: 'масса/объем',
+  // }),
+  // columnHelper.accessor('weightNet', {
+  //   cell: info => info.getValue(),
+  //   header: 'масса сухая',
+  // }),
+  // columnHelper.accessor('unit', {
+  //   cell: info => info.getValue(),
+  //   header: 'единица измерения',
+  // }),
+  // columnHelper.accessor('packageType', {
+  //   cell: info => info.getValue(),
+  //   header: 'тара',
+  // }),
+  // columnHelper.accessor('chlorideWeight', {
+  //   cell: info => info.getValue(),
+  //   header: 'хлорид (%/масса)',
+  // }),
+  // columnHelper.group({
+  //   id: 'containmentDM',
+  //   header: 'Содержание ДМ, %г/л',
+  //   columns: [
+  //     columnHelper.accessor(
+  //       row => get(find(row.containmentDM, ['name', 'Pt']), 'value'),
+  //       {
+  //         header: 'Pt',
+  //         cell: info => info.getValue(),
+  //       }
+  //     ),
+  //     columnHelper.accessor(
+  //       row => get(find(row.containmentDM, ['name', 'Pd']), 'value'),
+  //       {
+  //         header: 'Pd',
+  //         cell: info => info.getValue(),
+  //       }
+  //     ),
+  //     columnHelper.accessor(
+  //       row => get(find(row.containmentDM, ['name', 'Rh']), 'value'),
+  //       {
+  //         header: 'Rh',
+  //         cell: info => info.getValue(),
+  //       }
+  //     ),
+  //     columnHelper.accessor(
+  //       row => get(find(row.containmentDM, ['name', 'Ir']), 'value'),
+  //       {
+  //         header: 'Ir',
+  //         cell: info => info.getValue(),
+  //       }
+  //     ),
+  //     columnHelper.accessor(
+  //       row => get(find(row.containmentDM, ['name', 'Ru']), 'value'),
+  //       {
+  //         header: 'Ru',
+  //         cell: info => info.getValue(),
+  //       }
+  //     ),
+  //     columnHelper.accessor(
+  //       row => get(find(row.containmentDM, ['name', 'Os']), 'value'),
+  //       {
+  //         header: 'Os',
+  //         cell: info => info.getValue(),
+  //       }
+  //     ),
+  //     columnHelper.accessor(
+  //       row => get(find(row.containmentDM, ['name', 'Au']), 'value'),
+  //       {
+  //         header: 'Au',
+  //         cell: info => info.getValue(),
+  //       }
+  //     ),
+  //     columnHelper.accessor(
+  //       row => get(find(row.containmentDM, ['name', 'Ag']), 'value'),
+  //       {
+  //         header: 'Ag',
+  //         cell: info => info.getValue(),
+  //       }
+  //     ),
+  //     columnHelper.accessor(
+  //       row => get(find(row.containmentDM, ['name', 'Re']), 'value'),
+  //       {
+  //         header: 'Re',
+  //         cell: info => info.getValue(),
+  //       }
+  //     ),
+  //   ],
+  // }),
+  // columnHelper.group({
+  //   id: 'containmentNBE',
+  //   header: 'Содержание НБЭ',
+  //   columns: [
+  //     columnHelper.accessor(
+  //       row => get(find(row.containmentNBE, ['name', 'Fe']), 'value'),
+  //       {
+  //         header: 'Fe',
+  //         cell: info => info.getValue(),
+  //       }
+  //     ),
+  //   ],
+  // }),
+  // columnHelper.accessor('value', {
+  //   header: 'ценность (руб/кг)',
+  //   cell: info => info.getValue(),
+  // }
+  // )
 ];
 
 export const operationsColumnsConfig = [
-  columnHelper.group({
-    id: 'nomenclature',
-    header: 'Номер',
-    columns: [
-      columnHelper.accessor('id', {
-        header: 'item_id',
-        cell: info => info.getValue(),
-      }),
-      columnHelper.accessor('item_desc', {
-        cell: info => info.getValue(),
-        header: 'Наименование',
-      }),
-    ],
-  }),
-  columnHelper.group({
-    id: 'equipment',
-    columns: [
-      columnHelper.accessor('equipment', {
-        header: 'Оборудование',
-        cell: info => info.getValue(),
-      }),
-    ],
-  }),
-  columnHelper.accessor('batchNo', {
+  columnHelper.accessor('ent_id', {
     cell: info => info.getValue(),
-    header: 'Партия №',
+    header: 'ent_id',
   }),
-  columnHelper.accessor('probeNo', {
+  columnHelper.accessor('ent_desc', {
     cell: info => info.getValue(),
-    header: '№ пробы',
+    header: 'ent_desc',
   }),
-  columnHelper.accessor('weight', {
+  columnHelper.accessor('wo_id', {
     cell: info => info.getValue(),
-    header: 'масса/объем',
+    header: 'wo_id',
   }),
-  columnHelper.accessor('weightNet', {
+  columnHelper.accessor('wo_desc', {
     cell: info => info.getValue(),
-    header: 'масса сухая',
+    header: 'wo_desc',
   }),
-  columnHelper.accessor('unit', {
+  columnHelper.accessor('wo_state', {
     cell: info => info.getValue(),
-    header: 'единица измерения',
+    header: 'wo_state',
   }),
-  columnHelper.accessor('packageType', {
+  columnHelper.accessor('oper_row_id', {
     cell: info => info.getValue(),
-    header: 'тара',
+    header: 'oper_row_id',
   }),
-  columnHelper.accessor('chlorideWeight', {
+  columnHelper.accessor('oper_desc', {
     cell: info => info.getValue(),
-    header: 'хлорид (%/масса)',
+    header: 'oper_desc',
   }),
-  columnHelper.group({
-    id: 'containmentDM',
-    header: 'Содержание ДМ, %г/л',
-    columns: [
-      columnHelper.accessor(
-        row => get(find(row.containmentDM, ['name', 'Pt']), 'value'),
-        {
-          header: 'Pt',
-          cell: info => info.getValue(),
-        }
-      ),
-      columnHelper.accessor(
-        row => get(find(row.containmentDM, ['name', 'Pd']), 'value'),
-        {
-          header: 'Pd',
-          cell: info => info.getValue(),
-        }
-      ),
-      columnHelper.accessor(
-        row => get(find(row.containmentDM, ['name', 'Rh']), 'value'),
-        {
-          header: 'Rh',
-          cell: info => info.getValue(),
-        }
-      ),
-      columnHelper.accessor(
-        row => get(find(row.containmentDM, ['name', 'Ir']), 'value'),
-        {
-          header: 'Ir',
-          cell: info => info.getValue(),
-        }
-      ),
-      columnHelper.accessor(
-        row => get(find(row.containmentDM, ['name', 'Ru']), 'value'),
-        {
-          header: 'Ru',
-          cell: info => info.getValue(),
-        }
-      ),
-      columnHelper.accessor(
-        row => get(find(row.containmentDM, ['name', 'Os']), 'value'),
-        {
-          header: 'Os',
-          cell: info => info.getValue(),
-        }
-      ),
-      columnHelper.accessor(
-        row => get(find(row.containmentDM, ['name', 'Au']), 'value'),
-        {
-          header: 'Au',
-          cell: info => info.getValue(),
-        }
-      ),
-      columnHelper.accessor(
-        row => get(find(row.containmentDM, ['name', 'Ag']), 'value'),
-        {
-          header: 'Ag',
-          cell: info => info.getValue(),
-        }
-      ),
-      columnHelper.accessor(
-        row => get(find(row.containmentDM, ['name', 'Re']), 'value'),
-        {
-          header: 'Re',
-          cell: info => info.getValue(),
-        }
-      ),
-    ],
-  }),
-  columnHelper.group({
-    id: 'containmentNBE',
-    header: 'Содержание НБЭ',
-    columns: [
-      columnHelper.accessor(
-        row => get(find(row.containmentNBE, ['name', 'Fe']), 'value'),
-        {
-          header: 'Fe',
-          cell: info => info.getValue(),
-        }
-      ),
-    ],
-  }),
-  columnHelper.accessor('value', {
-    header: 'ценность (руб/кг)',
+  columnHelper.accessor('seq_no', {
     cell: info => info.getValue(),
-  }
-  )
+    header: 'seq_no',
+  }),
+  columnHelper.accessor('first_job_start_local', {
+    cell: info => info.getValue(),
+    header: 'first_job_start_local',
+  }),
+  columnHelper.accessor('job_start_local', {
+    cell: info => info.getValue(),
+    header: 'job_start_local',
+  }),
+  columnHelper.accessor('item_id', {
+    cell: info => info.getValue(),
+    header: 'item_id',
+  }),
+  columnHelper.accessor('item_desc', {
+    cell: info => info.getValue(),
+    header: 'item_desc',
+  }),
+  columnHelper.accessor('lot_no', {
+    cell: info => info.getValue(),
+    header: 'lot_no',
+  }),
+  columnHelper.accessor('qty_cons', {
+    cell: info => info.getValue(),
+    header: 'qty_cons',
+  }),
+  columnHelper.accessor('abbr_uom', {
+    cell: info => info.getValue(),
+    header: 'abbr_uom',
+  }),
+  columnHelper.accessor('oper_seq', {
+    cell: info => info.getValue(),
+    header: 'oper_seq',
+  }),
 ];

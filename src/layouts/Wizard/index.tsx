@@ -20,21 +20,25 @@ const WizardLayout = () => {
     navigate(`/plan/${Object.values(WizardStep)[currentStep].id}`);
   }, [currentStep]);
 
-  useEffect(() => {
-    if (nomenclature !== null) {
-      dispatch(goToStep(1));
-    }
-  }, [nomenclature])
+  // useEffect(() => {
+  //   if (nomenclature !== null) {
+  //     dispatch(goToStep(1));
+  //   }
+  // }, [nomenclature])
 
   return (
     <div className="flex flex-1 flex-col overflow-hidden">
-      <Stepper />
-      <div className="grow flex">
+      <div className="shadow-sm shadow-gray-400 z-900">
+        <Stepper />
+      </div>
+      <div className="flex flex-1 overflow-auto">
         <CSSTransition key={location.key} classNames="fade" timeout={300}>
           <Outlet />
         </CSSTransition>
       </div>
-      <WizardToolbar />
+      <div className="shadow-md shadow-gray-600 z-900">
+        <WizardToolbar />
+      </div>
     </div>
   )
 }
