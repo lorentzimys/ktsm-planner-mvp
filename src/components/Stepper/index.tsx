@@ -2,16 +2,19 @@ import clsx from 'clsx';
 import { useSelector } from 'react-redux';
 import { useAppDispatch } from '../../hooks/hooks';
 import { goToStep } from '../../store/wizard/slice';
-import { currentStep as currStep, currentStepItemSelector } from '../../store/wizard/selectors';
+import { canProceedSelector, currentStep as currStep } from '../../store/wizard/selectors';
 
 import { WizardStep } from '../../store/wizard/slice'; 
 
 export const Stepper = () => {
   const dispatch = useAppDispatch();
   const currentStep = useSelector(currStep);
-
+  const canProceed = useSelector(canProceedSelector);
+  
   const handleSelectStep = index => {
-    dispatch(goToStep(index));
+    if (canProceed) {
+      dispatch(goToStep(index));
+    }
   };
 
   return (

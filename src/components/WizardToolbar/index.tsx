@@ -6,7 +6,7 @@ import { useLocation, useNavigate } from "react-router-dom"
 
 import { useAppDispatch } from "../../hooks/hooks";
 import { RootState } from "../../store";
-import { currentStep as currStep } from "../../store/wizard/selectors";
+import { canProceedSelector, currentStep as currStep } from "../../store/wizard/selectors";
 
 import {
   prevStep,
@@ -28,16 +28,7 @@ const WizardToolbar = () => {
     }
   });
 
-  const canProceed = useSelector((state: RootState) => {
-    const currentStep = state.wizard.currentStep;
-    const nomenclature = state.wizard.nomenclature;
-
-    if ([0, 1, 2, 3].includes(currentStep) && nomenclature) {
-      return true;
-    }
-
-    return false;
-  })
+  const canProceed = useSelector(canProceedSelector);
 
   const handleExit = () => {
     // eslint-disable-next-line no-restricted-globals

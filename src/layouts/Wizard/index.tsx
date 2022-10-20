@@ -5,26 +5,17 @@ import { CSSTransition } from "react-transition-group";
 
 import { Stepper } from "../../components/Stepper";
 import WizardToolbar from "../../components/WizardToolbar";
-import { useAppDispatch } from "../../hooks/hooks";
 
-import { goToStep, WizardStep } from "../../store/wizard/slice";
+import { WizardStep } from "../../store/wizard/slice";
 
 const WizardLayout = () => {
-  const dispatch = useAppDispatch();
   const location = useLocation();
   const navigate = useNavigate();
   const currentStep = useSelector(({ wizard }: any) => wizard.currentStep);
-  const nomenclature = useSelector(({ wizard }: any) => wizard.nomenclature);
   
   useEffect(() => {
     navigate(`/plan/${Object.values(WizardStep)[currentStep].id}`);
   }, [currentStep]);
-
-  // useEffect(() => {
-  //   if (nomenclature !== null) {
-  //     dispatch(goToStep(1));
-  //   }
-  // }, [nomenclature])
 
   return (
     <div className="flex flex-1 flex-col overflow-hidden">
