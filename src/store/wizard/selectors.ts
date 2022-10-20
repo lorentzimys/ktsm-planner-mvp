@@ -1,13 +1,13 @@
 import { createSelector } from "reselect";
 import { RootState } from "..";
 
-export const currentStep = (state: RootState) => state.wizard.currentStep;
+export const currentStepSelector = (state: RootState) => state.wizard.currentStep;
 
-export const steps = (state: RootState) => state.wizard.steps;
+export const stepsSelector = (state: RootState) => state.wizard.steps;
 
 export const currentStepItemSelector = createSelector(
-  currentStep,
-  steps,
+  currentStepSelector,
+  stepsSelector,
   (currentStep, steps) => steps[currentStep]
 )
 

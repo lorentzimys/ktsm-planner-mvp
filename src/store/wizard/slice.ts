@@ -33,6 +33,7 @@ export interface WizardState {
   steps: Array<WizardStepItem>;
   currentStep: number,
   nomenclature: Array<any> | null,
+  nomenclatureFileName: string | null,
   operations: Array<any> | null,
   planningAllowed: boolean,
 }
@@ -41,10 +42,15 @@ const initialState: WizardState = {
   steps: Object.values(WizardStep),
   currentStep: 0,
   nomenclature: null,
+  nomenclatureFileName: null,
   operations: null,
   planningAllowed: false
 };
 
+interface UploadNomenclature {
+  data: any;
+  fileName: string;
+}
 
 export const wizardSlice = createSlice({
   name: 'wizard',
@@ -63,8 +69,9 @@ export const wizardSlice = createSlice({
       }
       state.currentStep = action.payload;
     },
-    uploadNomenclature: (state, action: PayloadAction<any>) => {
-      state.nomenclature = action.payload;
+    uploadNomenclature: (state, action: PayloadAction<UploadNomenclature>) => {
+      state.nomenclature = action.payload.data;
+      state.nomenclatureFileName = action.payload.fileName;
     },
     uploadOperations: (state, action: PayloadAction<any>) => {
       state.operations = action.payload;

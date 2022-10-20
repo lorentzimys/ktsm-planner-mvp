@@ -17,8 +17,10 @@ export const UploadButton = ({ text, onUpload, className = '' }) => {
   useEffect(() => {
     if (file) {
       const filereader = new FileReader();
+      (filereader as any).fileName = file.name;
       filereader.onload = onUpload;
       filereader.readAsText(file as Blob);
+      
     }
   }, [file, onUpload]);
 

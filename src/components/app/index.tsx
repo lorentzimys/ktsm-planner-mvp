@@ -20,25 +20,22 @@ function App() {
   const location = useLocation();
   
   return (
-    <TransitionGroup component={null}>
-      <Routes location={location}>
-        <Route path="/" element={<AppLayout />} >
-          <Route index element={<WelcomePage />}></Route>
-        </Route>
-        
-        <Route path="/plan" element={<WizardLayout />}>
-          {/* <Route index element={<HomePage />}></Route> */}
-          <Route path={`/plan/${WizardStep.Import.id}`} element={<ImportNomenclaturePage />}></Route>
-          <Route path={`/plan/${WizardStep.SelectNomenclature.id}`} element={<SelectNomenclaturePage />}></Route>
-          <Route path={`/plan/${WizardStep.SelectOperations.id}`} element={<OpeationsPage />}></Route>
-          <Route path={`/plan/${WizardStep.SelectResources.id}`} element={<HomePage />}></Route>
-          <Route path={`/plan/${WizardStep.Plan.id}`} element={<PlanningPage />}></Route>
-          {/* <Route path="*" element={<ErrorPage />} /> */}
-          {/* <Redirect to="/plan/nomenclature" /> */}
-        </Route>
-      </Routes>
-
-    </TransitionGroup>
+    <Routes location={location}>
+      <Route path="/" element={<AppLayout />} >
+        <Route index element={<WelcomePage />}></Route>
+      </Route>
+      
+      <Route path="/plan" element={<WizardLayout />}>
+        {/* <Route index element={<HomePage />}></Route> */}
+        <Route path={`/plan/${WizardStep.Import.id}`} element={<ImportNomenclaturePage />}></Route>
+        <Route path={`/plan/${WizardStep.SelectNomenclature.id}`} element={<SelectNomenclaturePage />}></Route>
+        <Route path={`/plan/${WizardStep.SelectOperations.id}`} element={<OpeationsPage />}></Route>
+        <Route path={`/plan/${WizardStep.SelectResources.id}`} element={<HomePage />}></Route>
+        <Route path={`/plan/${WizardStep.Plan.id}`} element={<PlanningPage />}></Route>
+        {/* <Route path="*" element={<ErrorPage />} /> */}
+        {/* <Redirect to="/plan/nomenclature" /> */}
+      </Route>
+    </Routes>
   )
 }
 

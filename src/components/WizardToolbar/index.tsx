@@ -6,7 +6,7 @@ import { useLocation, useNavigate } from "react-router-dom"
 
 import { useAppDispatch } from "../../hooks/hooks";
 import { RootState } from "../../store";
-import { canProceedSelector, currentStep as currStep } from "../../store/wizard/selectors";
+import { canProceedSelector, currentStepSelector as currStep } from "../../store/wizard/selectors";
 
 import {
   prevStep,

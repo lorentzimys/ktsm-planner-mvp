@@ -2,20 +2,38 @@ import clsx from 'clsx';
 import { useSelector } from 'react-redux';
 import { useAppDispatch } from '../../hooks/hooks';
 import { goToStep } from '../../store/wizard/slice';
-import { canProceedSelector, currentStep as currStep } from '../../store/wizard/selectors';
+import {
+  canProceedSelector,
+  currentStepSelector,
+  stepsSelector
+} from '../../store/wizard/selectors';
 
 import { WizardStep } from '../../store/wizard/slice'; 
+import { useLocation } from 'react-router-dom';
+import { useEffect } from 'react';
 
 export const Stepper = () => {
   const dispatch = useAppDispatch();
-  const currentStep = useSelector(currStep);
+  const currentStep = useSelector(currentStepSelector);
+  const steps = useSelector(stepsSelector);
   const canProceed = useSelector(canProceedSelector);
+  const location = useLocation();
   
   const handleSelectStep = index => {
     if (canProceed) {
       dispatch(goToStep(index));
     }
   };
+
+  useEffect(() => {
+    const pathname = location.pathname.split('/');
+    const stepName = pathname[pathname.length - 1];
+    const stepIndex = steps.findIndex(({ id }) => id === stepName);
+
+    if (stepIndex >= 0) {
+      dispatch(goToStep(stepIndex));
+    }
+  }, [location])
 
   return (
     <nav>
