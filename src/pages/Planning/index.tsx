@@ -5,6 +5,7 @@ import addDays from 'date-fns/addDays'
 import { useSelector } from 'react-redux';
 import { IDataState } from '../../store/dataSlice';
 import { RootState } from "../../store";
+import { KcmGantt } from "../../components/Gantt";
 
 export const PlanningPage = () => {
   const data = useSelector((state: RootState) => state.wizard.nomenclature);
@@ -24,8 +25,8 @@ export const PlanningPage = () => {
 
   return (
     <div>
-      Planning
-      { data && data.length && (
+      <KcmGantt />
+      {/* { data && data.length && (
         <FrappeGantt
           tasks={mapDataToTasks()}
           viewMode={ViewMode.Day}
@@ -34,7 +35,7 @@ export const PlanningPage = () => {
           onProgressChange={(task, progress) => console.log(task, progress)}
           onTasksChange={tasks => console.log(tasks)}
         />
-      )}
+      )} */}
     </div>
   )
 };
