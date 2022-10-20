@@ -2,6 +2,8 @@ import React from "react";
 import "gantt-task-react/dist/index.css";
 import { ViewMode } from "gantt-task-react";
 
+import './index.css';
+
 type ViewSwitcherProps = {
   isChecked: boolean;
   onViewListChange: (isChecked: boolean) => void;
@@ -14,47 +16,47 @@ export const ViewSwitcher: React.FC<ViewSwitcherProps> = ({
   isChecked,
 }) => {
   return (
-    <div className="ViewContainer">
+    <div className="ViewContainer flex flex-row gap-2">
       <button
-        className="Button"
+        className="gantt__button"
         onClick={() => onViewModeChange(ViewMode.Hour)}
       >
-        Hour
+        Час
       </button>
       <button
-        className="Button"
+        className="gantt__button"
         onClick={() => onViewModeChange(ViewMode.QuarterDay)}
       >
-        Quarter of Day
+        6 ч.
       </button>
       <button
-        className="Button"
+        className="gantt__button"
         onClick={() => onViewModeChange(ViewMode.HalfDay)}
       >
-        Half of Day
+        12 ч.
       </button>
-      <button className="Button" onClick={() => onViewModeChange(ViewMode.Day)}>
-        Day
+      <button className="gantt__button" onClick={() => onViewModeChange(ViewMode.Day)}>
+        День
       </button>
       <button
-        className="Button"
+        className="gantt__button"
         onClick={() => onViewModeChange(ViewMode.Week)}
       >
-        Week
+        Неделя
       </button>
       <button
-        className="Button"
+        className="gantt__button"
         onClick={() => onViewModeChange(ViewMode.Month)}
       >
-        Month
+        Месяц
       </button>
       <button
-        className="Button"
+        className="gantt__button"
         onClick={() => onViewModeChange(ViewMode.Year)}
       >
-        Year
+        Год
       </button>
-      <div className="Switch">
+      {/* <div className="Switch">
         <label className="Switch_Toggle">
           <input
             type="checkbox"
@@ -64,7 +66,7 @@ export const ViewSwitcher: React.FC<ViewSwitcherProps> = ({
           <span className="Slider" />
         </label>
         Show Task List
-      </div>
+      </div> */}
     </div>
   );
 };
