@@ -1,9 +1,15 @@
-import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { createAsyncThunk, createSlice, PayloadAction } from '@reduxjs/toolkit';
+import resources from '../../mocks/resources.json';
 
 export type WizardStepType = 'importData' | 'nomenclature' | 'operations' | 'resources' | 'plan';
 interface WizardStepItem {
-  id: WizardStepType,
-  value: string,
+  id: WizardStepType;
+  value: string;
+}
+
+interface ResourceItem {
+  id: number;
+  value: string;
 }
 
 export const WizardStep: Record<string, WizardStepItem> = {
@@ -35,6 +41,8 @@ export interface WizardState {
   nomenclature: Array<any> | null,
   nomenclatureFileName: string | null,
   operations: Array<any> | null,
+  operationsFileName: string | null,
+  resources: Array<ResourceItem> | null;
   planningAllowed: boolean,
 }
 
@@ -44,13 +52,23 @@ const initialState: WizardState = {
   nomenclature: null,
   nomenclatureFileName: null,
   operations: null,
+  operationsFileName: null,
+  resources: null,
   planningAllowed: false
 };
 
-interface UploadNomenclature {
+interface UploadAction {
   data: any;
   fileName: string;
 }
+
+export const fetchResources = createAsyncThunk(
+  'wizard/fetchResources',
+  async (_, { rejectWithValue }) => {
+    await setTimeout(() => { }, 200);
+    return resources;
+  }
+);
 
 export const wizardSlice = createSlice({
   name: 'wizard',
@@ -69,19 +87,29 @@ export const wizardSlice = createSlice({
       }
       state.currentStep = action.payload;
     },
-    uploadNomenclature: (state, action: PayloadAction<UploadNomenclature>) => {
+    uploadNomenclature: (state, action: PayloadAction<UploadAction>) => {
       state.nomenclature = action.payload.data;
       state.nomenclatureFileName = action.payload.fileName;
     },
-    uploadOperations: (state, action: PayloadAction<any>) => {
-      state.operations = action.payload;
+    uploadOperations: (state, action: PayloadAction<UploadAction>) => {
+      state.operations = action.payload.data;
+      state.operationsFileName = action.payload.fileName;
     },
+
     clearWizardState: (state) => {
       state.currentStep = 0;
       state.nomenclature = null;
       state.operations = null;
     }
   },
+  extraReducers: (builder) => {
+    // builder.addCase(fetchResources.pending, (state) => {
+    //   state.fetchingSettings = FetchState.Pending;
+    // });
+    builder.addCase(fetchResources.fulfilled, (state, action) => {
+      state.resources = action.payload;
+    });
+  }
 });
 
 export const {
@@ -90,5 +118,5 @@ export const {
   goToStep,
   clearWizardState,
   uploadNomenclature,
-  uploadOperations
+  uploadOperations,
 } = wizardSlice.actions;

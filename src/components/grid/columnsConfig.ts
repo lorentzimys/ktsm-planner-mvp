@@ -1,9 +1,8 @@
 import { createColumnHelper } from '@tanstack/react-table'
-import { find, get } from 'lodash';
 
 const columnHelper = createColumnHelper<any>();
 
-export const nomenclatureColumnsConfig = [
+export const nomenclatureColumns = [
   columnHelper.group({
     id: 'nomenclature',
     header: 'Номенклатура',
@@ -176,7 +175,7 @@ export const nomenclatureColumnsConfig = [
   // )
 ];
 
-export const operationsColumnsConfig = [
+export const operationsColumns = [
   columnHelper.accessor('ent_id', {
     cell: info => info.getValue(),
     header: 'ent_id',
@@ -240,5 +239,16 @@ export const operationsColumnsConfig = [
   columnHelper.accessor('oper_seq', {
     cell: info => info.getValue(),
     header: 'oper_seq',
+  }),
+];
+
+export const resourcesColumns = [
+  columnHelper.accessor('id', {
+    cell: info => info.getValue(),
+    header: 'id',
+  }),
+  columnHelper.accessor('value', {
+    cell: info => info.getValue(),
+    header: 'value',
   }),
 ];

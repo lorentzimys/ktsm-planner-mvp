@@ -1,7 +1,7 @@
 import ImportNomenclaturePage from "./Import";
 import Grid from "../../components/Grid";
 import { useSelector } from "react-redux";
-import { nomenclatureColumnsConfig } from "../../components/Grid/columnsConfig";
+import { nomenclatureColumns } from "../../components/Grid/columnsConfig";
 import { RootState } from "../../store";
 
 const SelectNomenclaturePage = () => {
@@ -11,7 +11,7 @@ const SelectNomenclaturePage = () => {
     <div className='flex flex-1 overflow-hidden'>
       {
         data && (
-          <Grid data={data} columnsConfig={nomenclatureColumnsConfig} />
+          <Grid data={data} columnsConfig={nomenclatureColumns} />
         )
       }
     </div>
