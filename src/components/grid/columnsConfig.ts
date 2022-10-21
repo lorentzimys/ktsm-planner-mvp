@@ -3,19 +3,19 @@ import { createColumnHelper } from '@tanstack/react-table'
 const columnHelper = createColumnHelper<any>();
 
 export const nomenclatureColumns = [
-  columnHelper.group({
-    id: 'nomenclature',
-    header: 'Номенклатура',
-    columns: [
-      columnHelper.accessor('item_id', {
-        header: 'Номер',
-        cell: info => info.getValue(),
-      }),
-      columnHelper.accessor('item_desc', {
-        cell: info => info.getValue(),
-        header: 'Наименование',
-      }),
-    ],
+  // columnHelper.group({
+  //   id: 'nomenclature',
+  //   header: 'Номенклатура',
+  //   columns: [
+  //   ],
+  // }),
+  columnHelper.accessor('item_id', {
+    header: 'Номер',
+    cell: info => info.getValue(),
+  }),
+  columnHelper.accessor('item_desc', {
+    cell: info => info.getValue(),
+    header: 'Наименование',
   }),
   // columnHelper.group({
   //   id: 'equipment',

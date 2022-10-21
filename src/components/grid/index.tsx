@@ -11,7 +11,11 @@ import {
   IdentifiedColumnDef
 } from '@tanstack/react-table'
 
-import { CheckboxHeaderCell, CheckboxRowCell } from "./components/Checkbox";
+import {
+  CheckboxHeaderCell,
+  CheckboxRowCell,
+  Filter
+} from "./components";
 
 import './index.css';
 
@@ -36,6 +40,8 @@ const Grid = ({ data, columnsConfig, useSelection = false }) => {
     },
     onRowSelectionChange: setRowSelection,
     getCoreRowModel: getCoreRowModel(),
+    getFilteredRowModel: getFilteredRowModel(),
+    getPaginationRowModel: getPaginationRowModel(),
   });
 
   return (
@@ -46,12 +52,18 @@ const Grid = ({ data, columnsConfig, useSelection = false }) => {
             <tr className="table__header-row" key={i}>
               {headerGroup.headers.map((header, i) => (
                 <th className="table__header-cell"  key={i} colSpan={header.colSpan }>
-                  {header.isPlaceholder
-                    ? null
-                    : flexRender(
-                        header.column.columnDef.header,
-                        header.getContext()
-                      )}
+                  {
+                    header.isPlaceholder
+                      ? null
+                      : flexRender(header.column.columnDef.header, header.getContext())
+                  }
+                  {
+                    header.column.getCanFilter() ? (
+                      <div>
+                        <Filter column={header.column} table={table} />
+                      </div>
+                    ) : null
+                  }
                 </th>
               ))}
             </tr>

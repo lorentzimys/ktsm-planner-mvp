@@ -1,6 +1,6 @@
 import React, { HTMLProps } from "react"
 
-export const IndeterminateCheckbox = ({
+const IndeterminateCheckbox = ({
   indeterminate,
   className = '',
   ...rest
