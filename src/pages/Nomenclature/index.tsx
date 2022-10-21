@@ -8,10 +8,10 @@ const SelectNomenclaturePage = () => {
   const data = useSelector((state: RootState) => state.wizard.nomenclature);
 
   return (
-    <div className='flex flex-1 overflow-hidden'>
+    <div className='flex flex-1 overflow-hidden m-8 border shadow-sm'>
       {
         data && (
-          <Grid data={data} columnsConfig={nomenclatureColumns} />
+          <Grid data={data} columnsConfig={nomenclatureColumns} useSelection />
         )
       }
     </div>

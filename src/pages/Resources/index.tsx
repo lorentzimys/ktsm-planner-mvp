@@ -17,12 +17,12 @@ export const ResourcesPage = () => {
   }, [resources])
 
   return (
-    <>
+    <div className="flex flex-1 flex-col justify-center place-content-center content-center items-center">
       {
         resources ?
           <Grid data={resources} columnsConfig={resourcesColumns} /> :
           <>Nothing to show</>
       }
-    </>
+    </div>
   );
 }

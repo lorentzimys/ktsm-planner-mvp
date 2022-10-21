@@ -8,8 +8,11 @@ interface WizardStepItem {
 }
 
 interface ResourceItem {
-  id: number;
-  value: string;
+  id: string;
+  code: string;
+  name: string;
+  volume: number;
+  isAvailable: boolean;
 }
 
 export const WizardStep: Record<string, WizardStepItem> = {

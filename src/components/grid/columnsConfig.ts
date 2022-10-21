@@ -245,10 +245,22 @@ export const operationsColumns = [
 export const resourcesColumns = [
   columnHelper.accessor('id', {
     cell: info => info.getValue(),
-    header: 'id',
+    header: 'Id',
   }),
-  columnHelper.accessor('value', {
+  columnHelper.accessor('code', {
     cell: info => info.getValue(),
-    header: 'value',
+    header: 'Код',
+  }),
+  columnHelper.accessor('name', {
+    cell: info => info.getValue(),
+    header: 'Наименовани',
+  }),
+  columnHelper.accessor('volume', {
+    cell: info => info.getValue(),
+    header: 'Объем',
+  }),
+  columnHelper.accessor('isAvailable', {
+    cell: info => info.getValue(),
+    header: 'Доступность',
   }),
 ];

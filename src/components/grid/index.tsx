@@ -11,21 +11,23 @@ import {
   IdentifiedColumnDef
 } from '@tanstack/react-table'
 
-// import { useSelector } from 'react-redux';
-// import { IDataState } from '../../store/dataSlice';
-
-// import { columnsConfig } from "./columnsConfig";
+import { CheckboxHeaderCell, CheckboxRowCell } from "./components/Checkbox";
 
 import './index.css';
 
-const Grid = ({ data, columnsConfig }) => {
+const Grid = ({ data, columnsConfig, useSelection = false }) => {
   const [rowSelection, setRowSelection] = React.useState({});
-  // const [globalFilter, setGlobalFilter] = React.useState('');
-  // const data = useSelector(({ wizard }: any) => wizard.nomenclature);
-
+  const columns = [
+    useSelection ? {
+      id: 'select',
+      header: CheckboxHeaderCell,
+      cell: CheckboxRowCell,
+    } : undefined,
+    ...columnsConfig,
+  ]
   const table = useReactTable({
     data: data || [],
-    columns: columnsConfig,
+    columns,
     state: {
       rowSelection,
     },
