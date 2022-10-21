@@ -1,4 +1,4 @@
-import React, {memo} from "react";
+import React, { memo } from "react";
 import {
   Column,
   ColumnDef,
@@ -16,7 +16,9 @@ import { CheckboxHeaderCell, CheckboxRowCell } from "./components/Checkbox";
 import './index.css';
 
 const Grid = ({ data, columnsConfig, useSelection = false }) => {
-  const [rowSelection, setRowSelection] = React.useState({});
+  const [rowSelection, setRowSelection] = React.useState(
+    data.map((_, i) => ({ [i]: true }))
+  );
   const columns = [
     useSelection ? {
       id: 'select',
@@ -25,6 +27,7 @@ const Grid = ({ data, columnsConfig, useSelection = false }) => {
     } : undefined,
     ...columnsConfig,
   ]
+
   const table = useReactTable({
     data: data || [],
     columns,
@@ -39,10 +42,10 @@ const Grid = ({ data, columnsConfig, useSelection = false }) => {
     <div className="flex flex-col overflow-auto">
       <table className="table table--striped">
         <thead className="table__header">
-          {table.getHeaderGroups().map(headerGroup => (
-            <tr className="table__header-row" key={headerGroup.id}>
-              {headerGroup.headers.map(header => (
-                <th className="table__header-cell"  key={header.id} colSpan={header.colSpan }>
+          {table.getHeaderGroups().map((headerGroup, i) => (
+            <tr className="table__header-row" key={i}>
+              {headerGroup.headers.map((header, i) => (
+                <th className="table__header-cell"  key={i} colSpan={header.colSpan }>
                   {header.isPlaceholder
                     ? null
                     : flexRender(
@@ -55,10 +58,10 @@ const Grid = ({ data, columnsConfig, useSelection = false }) => {
           ))}
         </thead>
         <tbody className="table__body">
-          {table.getRowModel().rows.map(row => (
-            <tr  className="table__body-row" key={row.id}>
-              {row.getVisibleCells().map(cell => (
-                <td className="table__body-cell"  key={cell.id}>
+          {table.getRowModel().rows.map((row, i) => (
+            <tr  className="table__body-row" key={i}>
+              {row.getVisibleCells().map((cell, i) => (
+                <td className="table__body-cell"  key={i}>
                   {flexRender(cell.column.columnDef.cell, cell.getContext())}
                 </td>
               ))}
@@ -66,10 +69,10 @@ const Grid = ({ data, columnsConfig, useSelection = false }) => {
           ))}
         </tbody>
         <tfoot>
-          {table.getFooterGroups().map(footerGroup => (
-            <tr key={footerGroup.id}>
-              {footerGroup.headers.map(header => (
-                <th key={header.id}>
+          {table.getFooterGroups().map((footerGroup, i) => (
+            <tr key={i}>
+              {footerGroup.headers.map((header, i) => (
+                <th key={i}>
                   {header.isPlaceholder
                     ? null
                     : flexRender(
