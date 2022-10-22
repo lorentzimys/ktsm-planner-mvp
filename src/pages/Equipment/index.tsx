@@ -1,39 +1,46 @@
-import React from "react";
+import React, { useCallback } from "react";
 import { useEffect } from "react";
 import { useSelector } from "react-redux"
 
 import { resourcesColumns } from "../../config/columnsConfig";
 
 import { RootState } from "../../store"
-import { fetchEquipment, FETCH_STATUS } from "../../store/wizard/slice";
+import { changeEquipmentSelection, fetchEquipment, FETCH_STATUS } from "../../store/wizard/slice";
 
 import { useAppDispatch } from "../../hooks/hooks";
 
 import Grid from "../../components/Grid";
+import { RowSelectionState } from "@tanstack/react-table";
 
 const wrapperClassNames = "flex flex-1 flex-col justify-center place-content-center content-center items-center overflow-hidden m-8 border shadow-sm";
 
 export const EquipmentPage = React.memo(() => {
   const dispatch = useAppDispatch();
-  const eqipment = useSelector((state: RootState) => state.wizard.equipment.data);
+  const equipment = useSelector((state: RootState) => state.wizard.equipment.data);
   const fetchStatus = useSelector((state: RootState) => state.wizard.equipment.status);
+  const selected = useSelector((state: RootState) => state.wizard.equipment.selected);
+  const handleRowSelectionChange = useCallback((rowSelection: RowSelectionState) => {
+    dispatch(changeEquipmentSelection(rowSelection));
+  }, []);
 
   useEffect(() => {
-    if (!eqipment) {
+    if (!equipment) {
       dispatch(fetchEquipment());
     }
-  }, [eqipment])
+  }, [equipment])
 
   return (
     <div className={wrapperClassNames}>
       {fetchStatus === FETCH_STATUS.PENDING && <>Загрузка данных...</>}
-      {fetchStatus === FETCH_STATUS.FULFILLED && (
+      {fetchStatus === FETCH_STATUS.FULFILLED && equipment !== null && (
         <Grid
-          data={eqipment}
+          data={equipment}
           useSelection={{
-            columnId: 'isAvailable'
+            columnId: 'isAvailable',
+            selectionState: selected
           }}
           columnsConfig={resourcesColumns}
+          onRowSelectionChange={handleRowSelectionChange}
         />
       )}
       {fetchStatus === FETCH_STATUS.REJECTED && <>Произошла ошибка</>}

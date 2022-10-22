@@ -1,30 +1,14 @@
-import { useState } from 'react';
 import Timeline from 'react-visjs-timeline';
-import { addDays } from 'date-fns/esm';
-// import { ViewSwitcher }  from './ViewSwitcher';
-// import operations from '../../mocks/chop4_1_1_oper.json';
+import { TimelineGroup, TimelineItem } from 'vis';
 
-// const tasks: Task[] = operations.map(o => ({
-//   start: new Date(o.first_job_start_local),
-//   end: addDays(new Date(o.first_job_start_local), Math.floor(Math.random() * 6) + 1),
-//   name: o.ent_desc,
-//   id: o.ent_id.toString() + Math.random(),
-//   type: 'task',
-//   progress: 0,
-//   isDisabled: false,
-//   styles: { progressColor: '#ffbb54', progressSelectedColor: '#ff9e0d' },
-// }));
 
 interface VisGanttProps {
-  data: VisGanttItem[];
+  data: {
+    groups: TimelineGroup[],
+    items: TimelineItem[],
+  };
   options?: any;
-}
-
-interface VisGanttItem {
-  start: Date,
-  end: Date,
-  content: string
-}
+};
 
 export const VisGantt = ({ data, options = undefined } : VisGanttProps) => {
 
@@ -47,7 +31,7 @@ export const VisGantt = ({ data, options = undefined } : VisGanttProps) => {
 
   return (
     <div className='w-full'>
-      <Timeline options={defaultOptions} items={data} />);
+      <Timeline options={defaultOptions} items={data.items} groups={data.groups} />);
     </div>
   );
 }

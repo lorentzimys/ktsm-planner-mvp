@@ -1,6 +1,11 @@
 import { createAsyncThunk, createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { RowSelectionState } from '@tanstack/react-table';
+import { at } from 'lodash';
+import { RootState } from '..';
 import { apiRoutes } from '../api';
 
+import schedulerData from '../../mocks/data.json';
+import { TimelineGroup, TimelineItem } from 'vis';
 export type FetchStatus = 'idle' | 'pending' | 'fulfilled' | 'rejected';
 
 export type WizardStepType = 'importData' | 'nomenclature' | 'operations' | 'resources' | 'plan';
@@ -24,7 +29,7 @@ export interface WizardState {
   nomenclature: {
     data: Array<any> | null,
     fileName: string | null,
-    selected: number[],
+    selected: RowSelectionState,
   },
   // nomenclatureFileName: string | null,
   operations: {
@@ -35,15 +40,18 @@ export interface WizardState {
   equipment: {
     status: FetchStatus,
     data: Array<EquipmentItem> | null,
-    selected: [],
+    selected: RowSelectionState,
   };
   plan: {
     status: FetchStatus,
-    data: any,
+    data: {
+      groups: TimelineGroup[],
+      items: TimelineItem[] 
+    },
   },
 }
 
-type UploadAction<T = any[] | null> = {
+type UploadAction<T = any[]> = {
   data: T;
   fileName: string;
 };
@@ -84,7 +92,7 @@ const initialState: WizardState = {
   nomenclature: {
     data: null,
     fileName: null,
-    selected: [],
+    selected: {},
   },
   operations:  {
     data: null,
@@ -93,11 +101,14 @@ const initialState: WizardState = {
   equipment: {
     status: 'idle',
     data: null,
-    selected: [],
+    selected: {},
   },
   plan: {
     status: 'idle',
-    data: null
+    data: {
+      groups: [],
+      items: []
+    }
   },
 };
 
@@ -116,8 +127,21 @@ export const fetchEquipment = createAsyncThunk(
 );
 
 export const runPlan = createAsyncThunk(
-  'wizars/runPlan',
-  async (state, { rejectWithValue }) => {
+  'wizard/runPlan',
+  async (_, { rejectWithValue, getState }) => {
+    const state = getState() as RootState;
+    console.log(at, state.wizard.nomenclature.data);
+    const meterials = at(
+      state.wizard.nomenclature.data || [],
+      Object.keys(state.wizard.nomenclature.selected) as any
+    );
+
+    const resources = at(
+      state.wizard.equipment.data || [],
+      Object.keys(state.wizard.equipment.selected) as any
+    );
+    return schedulerData[0].Schedule as any;
+    console.log(meterials, state.wizard.nomenclature.data, Object.keys(state.wizard.nomenclature.selected));
     const response = (await fetch(apiRoutes.runPlan, {
       method: "post",
       headers: {
@@ -125,17 +149,19 @@ export const runPlan = createAsyncThunk(
         'Content-Type': 'application/json'
       },
       body: JSON.stringify({
-      
+        Materials: meterials,
+        Resources: resources
       })
     }));
 
     const responseJson = await response.json();
     
     if (response.ok) {
-      return responseJson;
+      return schedulerData[0].Schedule;
+      //return responseJson;
     }
-    
-    return rejectWithValue(responseJson);
+    return schedulerData;
+    //return rejectWithValue(responseJson);
   }
 )
 
@@ -159,18 +185,27 @@ export const wizardSlice = createSlice({
     uploadNomenclature: (state, action: PayloadAction<UploadAction>) => {
       state.nomenclature = {
         ...action.payload,
-        selected: []
+        selected: action.payload.data.reduce((acc, curr, i) => {
+          acc[i] = true;
+          return acc;
+        }, {})
       }
     },
     uploadOperations: (state, action: PayloadAction<UploadAction>) => {
       state.operations = action.payload;
+    },
+    changeNomenclatureSelection: (state, action: PayloadAction<RowSelectionState>) => {
+      state.nomenclature.selected = action.payload;
+    },
+    changeEquipmentSelection: (state, action: PayloadAction<RowSelectionState>) => {
+      state.equipment.selected = action.payload;
     },
     clearWizardState: (state) => {
       state.currentStep = 0;
       state.nomenclature = {
         data: null,
         fileName: null,
-        selected: [],
+        selected: {},
       };
       state.operations = {
         data: null,
@@ -179,13 +214,17 @@ export const wizardSlice = createSlice({
       state.equipment = {
         status: 'idle',
         data: null,
-        selected: [],
+        selected: {},
       };
       state.plan = {
         status: 'idle',
-        data: null,
+        data: {
+          groups: [],
+          items: []
+        },
       };
     },
+
   },
   extraReducers: (builder) => {
     builder.addCase(fetchEquipment.pending, (state) => {
@@ -193,6 +232,10 @@ export const wizardSlice = createSlice({
     });
     builder.addCase(fetchEquipment.fulfilled, (state, action) => {
       state.equipment.data = action.payload;
+      state.equipment.selected = action.payload.reduce((acc, curr, i) => {
+        acc[i] = true;
+        return acc;
+      }, {});
       state.equipment.status = FETCH_STATUS.FULFILLED;
     });
     builder.addCase(fetchEquipment.rejected, (state) => {
@@ -219,4 +262,6 @@ export const {
   clearWizardState,
   uploadNomenclature,
   uploadOperations,
+  changeNomenclatureSelection,
+  changeEquipmentSelection,
 } = wizardSlice.actions;

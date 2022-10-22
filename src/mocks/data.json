@@ -1,0 +1,945 @@
+[
+	{
+		"Schedule": {
+			"groups": [
+				{
+					"id": "b31a0093-5c0a-4a41-98fa-5289fcf3ea88",
+					"content": "Реактор Рт 760 №1<br/>(1132)"
+				},
+				{
+					"id": "8c4f37cc-9b53-4449-b536-50a1857b3607",
+					"content": "Реактор Рт 760 №2<br/>(1133)"
+				},
+				{
+					"id": "45fe255b-ef12-43d5-b34e-289bc176c364",
+					"content": "Реактор Рт 760 №3<br/>(1134)"
+				},
+				{
+					"id": "ccbca034-8cd0-4c04-8bc5-1c33377ba00c",
+					"content": "Реактор Рт 760 №4<br/>(1135)"
+				},
+				{
+					"id": "f08063fc-8546-45ff-b9ff-e6ff5f637dd6",
+					"content": "Реактор Рт 760 №5<br/>(1136)"
+				},
+				{
+					"id": "afc5cc9c-8360-4477-a939-f8c0e9843a26",
+					"content": "Реактор Рт 760 №6<br/>(1137)"
+				},
+				{
+					"id": "06aa6a58-4025-42f6-9f1e-8460eab2b00b",
+					"content": "Емкость №2<br/>(1805)"
+				},
+				{
+					"id": "072a6383-595a-472d-ac71-b69e568390c2",
+					"content": "Latham №1<br/>(1121)"
+				},
+				{
+					"id": "f31d5348-23f6-4a75-b781-b28077faf309",
+					"content": "Емкость 8<br/>(1810)"
+				},
+				{
+					"id": "7fd6ed17-c0cd-4ce9-ae09-7b96e149f4ea",
+					"content": "Рт760 №1<br/>(1841)"
+				},
+				{
+					"id": "a5d36224-b546-4c3d-8baf-ccaaf6175d58",
+					"content": "Нутч фильтр 3<br/>(1821)"
+				},
+				{
+					"id": "fc5be897-074a-4b8c-824e-ce9b41206d45",
+					"content": "Рт760 №3<br/>(1843)"
+				},
+				{
+					"id": "3b09e07e-71a4-478a-87b9-24dcc0203852",
+					"content": "Рт760 №4<br/>(1844)"
+				},
+				{
+					"id": "d78cb269-b022-42a9-b85b-974508533eca",
+					"content": "Нутч фильтр 7<br/>(1825)"
+				},
+				{
+					"id": "db0f0618-c0a4-434d-a677-856c339fc017",
+					"content": "Нутч фильтр 8<br/>(1826)"
+				},
+				{
+					"id": "f7a275c8-58e2-4b3f-b540-4c03b15e0a48",
+					"content": "Емкость 2<br/>(1852)"
+				},
+				{
+					"id": "afc4b032-7a1b-4858-84ce-639164bf18ee",
+					"content": "Емкость 3<br/>(1854)"
+				}
+			],
+			"items": [
+				{
+					"id": "0097a879-ff4b-4141-a57d-f8dcf2ceca6e",
+					"group": "b31a0093-5c0a-4a41-98fa-5289fcf3ea88",
+					"start": "2022-10-20T00:00:00",
+					"end": "2022-10-20T00:10:00",
+					"content": "Загрузка<br/>(W=200) 900001506 Тяжелый сплав промпродуктов (0,61 rub/kg)",
+					"style": "background-color: rgba(56, 228, 108)"
+				},
+				{
+					"id": "43a01b64-a414-4483-bc1a-a01363f2b53a",
+					"group": "8c4f37cc-9b53-4449-b536-50a1857b3607",
+					"start": "2022-10-20T00:00:00",
+					"end": "2022-10-20T00:10:00",
+					"content": "Загрузка абс<br/>(W=200) 900001506 Тяжелый сплав промпродуктов (0,61 rub/kg)",
+					"style": "background-color: rgba(56, 228, 108)"
+				},
+				{
+					"id": "205bf9e9-bc1f-4cdc-abb9-0979e211de14",
+					"group": "b31a0093-5c0a-4a41-98fa-5289fcf3ea88",
+					"start": "2022-10-20T00:10:00",
+					"end": "2022-10-20T12:10:00",
+					"content": "Хлорирование<br/>(W=200) 900001506 Тяжелый сплав промпродуктов (0,61 rub/kg)",
+					"style": "background-color: rgba(56, 228, 108)"
+				},
+				{
+					"id": "90081ffb-dc3e-4bd4-b517-2bdafd0986ea",
+					"group": "8c4f37cc-9b53-4449-b536-50a1857b3607",
+					"start": "2022-10-20T00:10:00",
+					"end": "2022-10-20T12:10:00",
+					"content": "Абсорбирование<br/>(W=200) 900001506 Тяжелый сплав промпродуктов (0,61 rub/kg)",
+					"style": "background-color: rgba(56, 228, 108)"
+				},
+				{
+					"id": "f7274a42-5a23-4b15-b566-b9cba97f518f",
+					"group": "b31a0093-5c0a-4a41-98fa-5289fcf3ea88",
+					"start": "2022-10-20T12:10:00",
+					"end": "2022-10-20T12:20:00",
+					"content": "Выгрузка<br/>(W=500) 411_PulpTSPP Пульпа от ТСПП (1 rub/kg)",
+					"style": "background-color: rgba(56, 228, 108)"
+				},
+				{
+					"id": "b8a96ab4-3652-4183-a748-d4eef11398f4",
+					"group": "06aa6a58-4025-42f6-9f1e-8460eab2b00b",
+					"start": "2022-10-20T12:10:00",
+					"end": "2022-10-20T12:20:00",
+					"content": "Выгрузка<br/>(W=500) 411_PulpTSPP Пульпа от ТСПП (1 rub/kg)",
+					"style": "background-color: rgba(56, 228, 108)"
+				},
+				{
+					"id": "bb065470-3c58-497f-b08e-da2c1cd3d0c4",
+					"group": "072a6383-595a-472d-ac71-b69e568390c2",
+					"start": "2022-10-20T12:20:00",
+					"end": "2022-10-20T12:30:00",
+					"content": "Загрузка в фильтр<br/>(W=500) 411_PulpTSPP Пульпа от ТСПП (1 rub/kg)",
+					"style": "background-color: rgba(100, 115, 34)"
+				},
+				{
+					"id": "e59ce5a2-8535-42db-8476-70d5a4f59664",
+					"group": "06aa6a58-4025-42f6-9f1e-8460eab2b00b",
+					"start": "2022-10-20T12:20:00",
+					"end": "2022-10-20T12:30:00",
+					"content": "Загрузка в фильтр<br/>(W=500) 411_PulpTSPP Пульпа от ТСПП (1 rub/kg)",
+					"style": "background-color: rgba(100, 115, 34)"
+				},
+				{
+					"id": "8b8b0c6e-3301-4744-bdd1-ed8b49f3cd1b",
+					"group": "072a6383-595a-472d-ac71-b69e568390c2",
+					"start": "2022-10-20T12:30:00",
+					"end": "2022-10-20T13:00:00",
+					"content": "Фильтрация<br/>(W=500) 411_PulpTSPP Пульпа от ТСПП (1 rub/kg)",
+					"style": "background-color: rgba(100, 115, 34)"
+				},
+				{
+					"id": "7a13300c-c846-4b2a-a4d8-cd12d596ebd4",
+					"group": "072a6383-595a-472d-ac71-b69e568390c2",
+					"start": "2022-10-20T13:00:00",
+					"end": "2022-10-20T13:10:00",
+					"content": "Выгрузка из фильтра<br/>(W=400) 900001286 Растворы МПГ (1 rub/kg)",
+					"style": "background-color: rgba(100, 115, 34)"
+				},
+				{
+					"id": "735d38a1-65c1-465d-a13c-6dfe1d80c9d0",
+					"group": "f31d5348-23f6-4a75-b781-b28077faf309",
+					"start": "2022-10-20T13:00:00",
+					"end": "2022-10-20T13:10:00",
+					"content": "Выгрузка из фильтра<br/>(W=400) 900001286 Растворы МПГ (1 rub/kg)",
+					"style": "background-color: rgba(100, 115, 34)"
+				},
+				{
+					"id": "38caa814-fc0e-401c-a4b6-1ad9d30ec490",
+					"group": "45fe255b-ef12-43d5-b34e-289bc176c364",
+					"start": "2022-10-20T00:00:00",
+					"end": "2022-10-20T00:10:00",
+					"content": "Загрузка<br/>(W=200) 900001506 Тяжелый сплав промпродуктов (0,61 rub/kg)",
+					"style": "background-color: rgba(132, 95, 222)"
+				},
+				{
+					"id": "15888154-2ee7-4d3f-92e8-263e421e9b4d",
+					"group": "ccbca034-8cd0-4c04-8bc5-1c33377ba00c",
+					"start": "2022-10-20T00:00:00",
+					"end": "2022-10-20T00:10:00",
+					"content": "Загрузка абс<br/>(W=200) 900001506 Тяжелый сплав промпродуктов (0,61 rub/kg)",
+					"style": "background-color: rgba(132, 95, 222)"
+				},
+				{
+					"id": "c3efa345-2be2-42b0-a121-e982f1ec5dc9",
+					"group": "45fe255b-ef12-43d5-b34e-289bc176c364",
+					"start": "2022-10-20T00:10:00",
+					"end": "2022-10-20T12:10:00",
+					"content": "Хлорирование<br/>(W=200) 900001506 Тяжелый сплав промпродуктов (0,61 rub/kg)",
+					"style": "background-color: rgba(132, 95, 222)"
+				},
+				{
+					"id": "fb51ed2e-eb4b-4a66-b685-7d3453bc43d6",
+					"group": "ccbca034-8cd0-4c04-8bc5-1c33377ba00c",
+					"start": "2022-10-20T00:10:00",
+					"end": "2022-10-20T12:10:00",
+					"content": "Абсорбирование<br/>(W=200) 900001506 Тяжелый сплав промпродуктов (0,61 rub/kg)",
+					"style": "background-color: rgba(132, 95, 222)"
+				},
+				{
+					"id": "0765af62-c60f-45f4-9029-2d385031a0c0",
+					"group": "45fe255b-ef12-43d5-b34e-289bc176c364",
+					"start": "2022-10-20T12:30:00",
+					"end": "2022-10-20T12:40:00",
+					"content": "Выгрузка<br/>(W=500) 411_PulpTSPP Пульпа от ТСПП (1 rub/kg)",
+					"style": "background-color: rgba(132, 95, 222)"
+				},
+				{
+					"id": "cce9ce3b-81ae-4f77-8eb4-0a854441027a",
+					"group": "06aa6a58-4025-42f6-9f1e-8460eab2b00b",
+					"start": "2022-10-20T12:30:00",
+					"end": "2022-10-20T12:40:00",
+					"content": "Выгрузка<br/>(W=500) 411_PulpTSPP Пульпа от ТСПП (1 rub/kg)",
+					"style": "background-color: rgba(132, 95, 222)"
+				},
+				{
+					"id": "7517d5e9-f66f-438c-acd7-d630075f0a6c",
+					"group": "072a6383-595a-472d-ac71-b69e568390c2",
+					"start": "2022-10-20T13:10:00",
+					"end": "2022-10-20T13:20:00",
+					"content": "Загрузка в фильтр<br/>(W=500) 411_PulpTSPP Пульпа от ТСПП (1 rub/kg)",
+					"style": "background-color: rgba(83, 72, 254)"
+				},
+				{
+					"id": "4ef26d2a-7e74-4a54-9c97-da3e4d96edee",
+					"group": "06aa6a58-4025-42f6-9f1e-8460eab2b00b",
+					"start": "2022-10-20T13:10:00",
+					"end": "2022-10-20T13:20:00",
+					"content": "Загрузка в фильтр<br/>(W=500) 411_PulpTSPP Пульпа от ТСПП (1 rub/kg)",
+					"style": "background-color: rgba(83, 72, 254)"
+				},
+				{
+					"id": "b59289ec-2979-410a-be08-aa5a6be3826e",
+					"group": "072a6383-595a-472d-ac71-b69e568390c2",
+					"start": "2022-10-20T13:20:00",
+					"end": "2022-10-20T14:50:00",
+					"content": "Фильтрация<br/>(W=500) 411_PulpTSPP Пульпа от ТСПП (1 rub/kg)",
+					"style": "background-color: rgba(83, 72, 254)"
+				},
+				{
+					"id": "1f63ed7e-f82c-476e-a64f-df556d5adc88",
+					"group": "072a6383-595a-472d-ac71-b69e568390c2",
+					"start": "2022-10-20T14:50:00",
+					"end": "2022-10-20T15:00:00",
+					"content": "Выгрузка из фильтра<br/>(W=400) 900001286 Растворы МПГ (1 rub/kg)",
+					"style": "background-color: rgba(83, 72, 254)"
+				},
+				{
+					"id": "7e7dd4cf-3596-451c-8b5b-2f2ee75807fa",
+					"group": "f31d5348-23f6-4a75-b781-b28077faf309",
+					"start": "2022-10-20T14:50:00",
+					"end": "2022-10-20T15:00:00",
+					"content": "Выгрузка из фильтра<br/>(W=400) 900001286 Растворы МПГ (1 rub/kg)",
+					"style": "background-color: rgba(83, 72, 254)"
+				},
+				{
+					"id": "e10ef516-a750-467d-8a85-f08d4e058cf4",
+					"group": "7fd6ed17-c0cd-4ce9-ae09-7b96e149f4ea",
+					"start": "2022-10-20T15:00:00",
+					"end": "2022-10-20T15:10:00",
+					"content": "Погрузка в реактор<br/>(W=500) 900001286 Растворы МПГ (1 rub/kg)",
+					"style": "background-color: rgba(205, 15, 252)"
+				},
+				{
+					"id": "90c7bd5d-5634-4a8d-8b83-9940c7cbd151",
+					"group": "f31d5348-23f6-4a75-b781-b28077faf309",
+					"start": "2022-10-20T15:00:00",
+					"end": "2022-10-20T15:10:00",
+					"content": "Погрузка в реактор<br/>(W=500) 900001286 Растворы МПГ (1 rub/kg)",
+					"style": "background-color: rgba(205, 15, 252)"
+				},
+				{
+					"id": "16822c74-60b8-4d50-8fc1-b017ae7e17dc",
+					"group": "7fd6ed17-c0cd-4ce9-ae09-7b96e149f4ea",
+					"start": "2022-10-20T15:10:00",
+					"end": "2022-10-20T17:10:00",
+					"content": "Гидролиз<br/>(W=500) 900001286 Растворы МПГ (1 rub/kg)",
+					"style": "background-color: rgba(205, 15, 252)"
+				},
+				{
+					"id": "55d6367d-a350-4422-9355-9aaf4c6cc217",
+					"group": "7fd6ed17-c0cd-4ce9-ae09-7b96e149f4ea",
+					"start": "2022-10-20T17:10:00",
+					"end": "2022-10-20T17:20:00",
+					"content": "Выгрузка на цементацию<br/>(W=500) 900028404 Р-р от хлорирования на МПГ (1 rub/kg)",
+					"style": "background-color: rgba(205, 15, 252)"
+				},
+				{
+					"id": "ca1fcf78-1e7e-4127-a545-65039bc4bfc2",
+					"group": "fc5be897-074a-4b8c-824e-ce9b41206d45",
+					"start": "2022-10-20T17:10:00",
+					"end": "2022-10-20T17:20:00",
+					"content": "Выгрузка на цементацию<br/>(W=500) 900028404 Р-р от хлорирования на МПГ (1 rub/kg)",
+					"style": "background-color: rgba(205, 15, 252)"
+				},
+				{
+					"id": "a5ae64da-c082-4d07-8ca6-de9ae57b7e70",
+					"group": "7fd6ed17-c0cd-4ce9-ae09-7b96e149f4ea",
+					"start": "2022-10-20T17:20:00",
+					"end": "2022-10-20T17:30:00",
+					"content": "Выгрузка на фильтрацию<br/>(W=125) 411NCLiq_AfterNeutralizationPulp Пульпа после нейтрализации (1 rub/kg)",
+					"style": "background-color: rgba(205, 15, 252)"
+				},
+				{
+					"id": "603a97cf-dd83-4ece-a51d-b54c0f1d8a5b",
+					"group": "a5d36224-b546-4c3d-8baf-ccaaf6175d58",
+					"start": "2022-10-20T17:20:00",
+					"end": "2022-10-20T17:30:00",
+					"content": "Выгрузка на фильтрацию<br/>(W=125) 411NCLiq_AfterNeutralizationPulp Пульпа после нейтрализации (1 rub/kg)",
+					"style": "background-color: rgba(205, 15, 252)"
+				},
+				{
+					"id": "d679eb65-625b-4fb6-850e-9333e2ee0bd8",
+					"group": "fc5be897-074a-4b8c-824e-ce9b41206d45",
+					"start": "2022-10-20T17:20:00",
+					"end": "2022-10-20T19:26:00",
+					"content": "Цементирование<br/>(W=500) 900028404 Р-р от хлорирования на МПГ (1 rub/kg)",
+					"style": "background-color: rgba(111, 198, 187)"
+				},
+				{
+					"id": "c06bc74e-fa33-4d4e-a2a8-c52cfc3fbee3",
+					"group": "fc5be897-074a-4b8c-824e-ce9b41206d45",
+					"start": "2022-10-20T19:26:00",
+					"end": "2022-10-20T19:50:00",
+					"content": "Проба<br/>(W=500) 411CAUDV_AfterCementation Пульпа после цементации золота (1 rub/kg)",
+					"style": "background-color: rgba(111, 198, 187)"
+				},
+				{
+					"id": "3cd339ff-4af7-4825-8f23-61bfba24322c",
+					"group": "fc5be897-074a-4b8c-824e-ce9b41206d45",
+					"start": "2022-10-20T19:50:00",
+					"end": "2022-10-20T20:00:00",
+					"content": "Выгрузка на фильтрацию<br/>(W=250) 411CAUDV_AfterCementation Пульпа после цементации золота (1 rub/kg)",
+					"style": "background-color: rgba(111, 198, 187)"
+				},
+				{
+					"id": "042a5607-c227-400e-b99e-61508b5c59cb",
+					"group": "d78cb269-b022-42a9-b85b-974508533eca",
+					"start": "2022-10-20T19:50:00",
+					"end": "2022-10-20T20:00:00",
+					"content": "Выгрузка на фильтрацию<br/>(W=250) 411CAUDV_AfterCementation Пульпа после цементации золота (1 rub/kg)",
+					"style": "background-color: rgba(111, 198, 187)"
+				},
+				{
+					"id": "f5f214c4-a4cc-4050-b19d-5f54675ba90c",
+					"group": "fc5be897-074a-4b8c-824e-ce9b41206d45",
+					"start": "2022-10-20T20:00:00",
+					"end": "2022-10-20T20:10:00",
+					"content": "Выгрузка на фильтрацию<br/>(W=250) 411CAUDV_AfterCementation Пульпа после цементации золота (1 rub/kg)",
+					"style": "background-color: rgba(111, 198, 187)"
+				},
+				{
+					"id": "b06b1a14-ce98-4afb-9016-2962b0838b3c",
+					"group": "db0f0618-c0a4-434d-a677-856c339fc017",
+					"start": "2022-10-20T20:00:00",
+					"end": "2022-10-20T20:10:00",
+					"content": "Выгрузка на фильтрацию<br/>(W=250) 411CAUDV_AfterCementation Пульпа после цементации золота (1 rub/kg)",
+					"style": "background-color: rgba(111, 198, 187)"
+				},
+				{
+					"id": "4daf8fd3-d0c4-4fd2-b638-a7118e6c4ff4",
+					"group": "d78cb269-b022-42a9-b85b-974508533eca",
+					"start": "2022-10-20T20:00:00",
+					"end": "2022-10-20T22:00:00",
+					"content": "Фильтрация (цементации)<br/>(W=250) 411CAUDV_AfterCementation Пульпа после цементации золота (1 rub/kg)",
+					"style": "background-color: rgba(82, 209, 24)"
+				},
+				{
+					"id": "f6ebc827-6df5-4794-a50e-09c893a4ab15",
+					"group": "d78cb269-b022-42a9-b85b-974508533eca",
+					"start": "2022-10-20T22:00:00",
+					"end": "2022-10-20T22:10:00",
+					"content": "Выгрузка на отстой<br/>(W=250) 900028404 Р-р от хлорирования на МПГ (1 rub/kg)",
+					"style": "background-color: rgba(82, 209, 24)"
+				},
+				{
+					"id": "3eb4b73a-e934-4417-870a-53a32fef9cce",
+					"group": "f7a275c8-58e2-4b3f-b540-4c03b15e0a48",
+					"start": "2022-10-20T22:00:00",
+					"end": "2022-10-20T22:10:00",
+					"content": "Выгрузка на отстой<br/>(W=250) 900028404 Р-р от хлорирования на МПГ (1 rub/kg)",
+					"style": "background-color: rgba(82, 209, 24)"
+				},
+				{
+					"id": "7eb2a460-9e27-4768-8da8-3a30c3693ca6",
+					"group": "db0f0618-c0a4-434d-a677-856c339fc017",
+					"start": "2022-10-20T20:10:00",
+					"end": "2022-10-20T22:10:00",
+					"content": "Фильтрация (цементации)<br/>(W=250) 411CAUDV_AfterCementation Пульпа после цементации золота (1 rub/kg)",
+					"style": "background-color: rgba(112, 177, 39)"
+				},
+				{
+					"id": "36d348f4-bf1e-4aa7-8afa-3be2b88a0737",
+					"group": "db0f0618-c0a4-434d-a677-856c339fc017",
+					"start": "2022-10-20T22:10:00",
+					"end": "2022-10-20T22:20:00",
+					"content": "Выгрузка на отстой<br/>(W=250) 900028404 Р-р от хлорирования на МПГ (1 rub/kg)",
+					"style": "background-color: rgba(112, 177, 39)"
+				},
+				{
+					"id": "ec5b8733-2892-4838-b22b-598db212cb31",
+					"group": "f7a275c8-58e2-4b3f-b540-4c03b15e0a48",
+					"start": "2022-10-20T22:10:00",
+					"end": "2022-10-20T22:20:00",
+					"content": "Выгрузка на отстой<br/>(W=250) 900028404 Р-р от хлорирования на МПГ (1 rub/kg)",
+					"style": "background-color: rgba(112, 177, 39)"
+				},
+				{
+					"id": "7499289e-6979-4b6d-a119-7ee33efce444",
+					"group": "f08063fc-8546-45ff-b9ff-e6ff5f637dd6",
+					"start": "2022-10-20T00:00:00",
+					"end": "2022-10-20T00:10:00",
+					"content": "Загрузка<br/>(W=200) 900001506 Тяжелый сплав промпродуктов (0,61 rub/kg)",
+					"style": "background-color: rgba(141, 211, 90)"
+				},
+				{
+					"id": "4188e6b9-9a74-4e92-86fd-3ec1a240daed",
+					"group": "afc5cc9c-8360-4477-a939-f8c0e9843a26",
+					"start": "2022-10-20T00:00:00",
+					"end": "2022-10-20T00:10:00",
+					"content": "Загрузка абс<br/>(W=200) 900001506 Тяжелый сплав промпродуктов (0,61 rub/kg)",
+					"style": "background-color: rgba(141, 211, 90)"
+				},
+				{
+					"id": "29c9e894-bb8c-484d-a679-7bd5134fe4eb",
+					"group": "f08063fc-8546-45ff-b9ff-e6ff5f637dd6",
+					"start": "2022-10-20T00:10:00",
+					"end": "2022-10-20T12:10:00",
+					"content": "Хлорирование<br/>(W=200) 900001506 Тяжелый сплав промпродуктов (0,61 rub/kg)",
+					"style": "background-color: rgba(141, 211, 90)"
+				},
+				{
+					"id": "b22ce9fa-2d74-46e9-a471-8b0a4be4a59c",
+					"group": "afc5cc9c-8360-4477-a939-f8c0e9843a26",
+					"start": "2022-10-20T00:10:00",
+					"end": "2022-10-20T12:10:00",
+					"content": "Абсорбирование<br/>(W=200) 900001506 Тяжелый сплав промпродуктов (0,61 rub/kg)",
+					"style": "background-color: rgba(141, 211, 90)"
+				},
+				{
+					"id": "ee49c7af-3de1-45a9-bcc8-58b463e0ce8d",
+					"group": "f08063fc-8546-45ff-b9ff-e6ff5f637dd6",
+					"start": "2022-10-20T13:20:00",
+					"end": "2022-10-20T13:30:00",
+					"content": "Выгрузка<br/>(W=500) 411_PulpTSPP Пульпа от ТСПП (1 rub/kg)",
+					"style": "background-color: rgba(141, 211, 90)"
+				},
+				{
+					"id": "3b27090d-5d36-43a5-a3a0-ebd30d219d6f",
+					"group": "06aa6a58-4025-42f6-9f1e-8460eab2b00b",
+					"start": "2022-10-20T13:20:00",
+					"end": "2022-10-20T13:30:00",
+					"content": "Выгрузка<br/>(W=500) 411_PulpTSPP Пульпа от ТСПП (1 rub/kg)",
+					"style": "background-color: rgba(141, 211, 90)"
+				},
+				{
+					"id": "6e0b1827-ef62-4b6a-9b4f-bb63973298b0",
+					"group": "072a6383-595a-472d-ac71-b69e568390c2",
+					"start": "2022-10-20T15:00:00",
+					"end": "2022-10-20T15:10:00",
+					"content": "Загрузка в фильтр<br/>(W=500) 411_PulpTSPP Пульпа от ТСПП (1 rub/kg)",
+					"style": "background-color: rgba(54, 73, 238)"
+				},
+				{
+					"id": "8b9a3502-3cf5-41f0-a1e3-65ed86258e6d",
+					"group": "06aa6a58-4025-42f6-9f1e-8460eab2b00b",
+					"start": "2022-10-20T15:00:00",
+					"end": "2022-10-20T15:10:00",
+					"content": "Загрузка в фильтр<br/>(W=500) 411_PulpTSPP Пульпа от ТСПП (1 rub/kg)",
+					"style": "background-color: rgba(54, 73, 238)"
+				},
+				{
+					"id": "a2333fc3-c38c-445e-a4c5-e74780fee115",
+					"group": "072a6383-595a-472d-ac71-b69e568390c2",
+					"start": "2022-10-20T15:10:00",
+					"end": "2022-10-20T17:10:00",
+					"content": "Фильтрация<br/>(W=500) 411_PulpTSPP Пульпа от ТСПП (1 rub/kg)",
+					"style": "background-color: rgba(54, 73, 238)"
+				},
+				{
+					"id": "8b1e6ca8-e72f-4357-b3fd-4ced97d682bf",
+					"group": "072a6383-595a-472d-ac71-b69e568390c2",
+					"start": "2022-10-20T17:10:00",
+					"end": "2022-10-20T17:20:00",
+					"content": "Выгрузка из фильтра<br/>(W=400) 900001286 Растворы МПГ (1 rub/kg)",
+					"style": "background-color: rgba(54, 73, 238)"
+				},
+				{
+					"id": "b76d2074-c860-4269-8297-aaa5f970bce8",
+					"group": "f31d5348-23f6-4a75-b781-b28077faf309",
+					"start": "2022-10-20T17:10:00",
+					"end": "2022-10-20T17:20:00",
+					"content": "Выгрузка из фильтра<br/>(W=400) 900001286 Растворы МПГ (1 rub/kg)",
+					"style": "background-color: rgba(54, 73, 238)"
+				},
+				{
+					"id": "ad467444-9644-4081-b53f-7fe3e9c165ac",
+					"group": "072a6383-595a-472d-ac71-b69e568390c2",
+					"start": "2022-10-20T17:20:00",
+					"end": "2022-10-20T19:20:00",
+					"content": "Обслуживание (end)<br/>(W=500) 411_PulpTSPP Пульпа от ТСПП (1 rub/kg)",
+					"style": "background-color: rgba(54, 73, 238)"
+				},
+				{
+					"id": "481d4ee3-7d9c-4b77-9939-b48b718ebc39",
+					"group": "7fd6ed17-c0cd-4ce9-ae09-7b96e149f4ea",
+					"start": "2022-10-20T17:30:00",
+					"end": "2022-10-20T17:40:00",
+					"content": "Погрузка в реактор<br/>(W=500) 900001286 Растворы МПГ (1 rub/kg)",
+					"style": "background-color: rgba(195, 232, 125)"
+				},
+				{
+					"id": "41d535e3-5542-4c06-8257-eb0b0299f6e2",
+					"group": "f31d5348-23f6-4a75-b781-b28077faf309",
+					"start": "2022-10-20T17:30:00",
+					"end": "2022-10-20T17:40:00",
+					"content": "Погрузка в реактор<br/>(W=500) 900001286 Растворы МПГ (1 rub/kg)",
+					"style": "background-color: rgba(195, 232, 125)"
+				},
+				{
+					"id": "c05f1fb0-1650-4690-80ed-50ff2fe9c666",
+					"group": "7fd6ed17-c0cd-4ce9-ae09-7b96e149f4ea",
+					"start": "2022-10-20T17:40:00",
+					"end": "2022-10-20T19:40:00",
+					"content": "Гидролиз<br/>(W=500) 900001286 Растворы МПГ (1 rub/kg)",
+					"style": "background-color: rgba(195, 232, 125)"
+				},
+				{
+					"id": "39679eba-6442-4094-ae55-b96d2114676a",
+					"group": "7fd6ed17-c0cd-4ce9-ae09-7b96e149f4ea",
+					"start": "2022-10-20T20:10:00",
+					"end": "2022-10-20T20:20:00",
+					"content": "Выгрузка на цементацию<br/>(W=500) 900028404 Р-р от хлорирования на МПГ (1 rub/kg)",
+					"style": "background-color: rgba(195, 232, 125)"
+				},
+				{
+					"id": "35924d62-b840-4389-ab2c-d5470fa55c45",
+					"group": "fc5be897-074a-4b8c-824e-ce9b41206d45",
+					"start": "2022-10-20T20:10:00",
+					"end": "2022-10-20T20:20:00",
+					"content": "Выгрузка на цементацию<br/>(W=500) 900028404 Р-р от хлорирования на МПГ (1 rub/kg)",
+					"style": "background-color: rgba(195, 232, 125)"
+				},
+				{
+					"id": "948886ea-9ca4-4b9f-bf1a-79f1139072bc",
+					"group": "7fd6ed17-c0cd-4ce9-ae09-7b96e149f4ea",
+					"start": "2022-10-20T20:20:00",
+					"end": "2022-10-20T20:30:00",
+					"content": "Выгрузка на фильтрацию<br/>(W=125) 411NCLiq_AfterNeutralizationPulp Пульпа после нейтрализации (1 rub/kg)",
+					"style": "background-color: rgba(195, 232, 125)"
+				},
+				{
+					"id": "15cdf018-ab88-42e3-a9e4-93e73135c24e",
+					"group": "a5d36224-b546-4c3d-8baf-ccaaf6175d58",
+					"start": "2022-10-20T20:20:00",
+					"end": "2022-10-20T20:30:00",
+					"content": "Выгрузка на фильтрацию<br/>(W=125) 411NCLiq_AfterNeutralizationPulp Пульпа после нейтрализации (1 rub/kg)",
+					"style": "background-color: rgba(195, 232, 125)"
+				},
+				{
+					"id": "e69e1f8d-c37c-4ad5-8fa1-6daa933f1591",
+					"group": "a5d36224-b546-4c3d-8baf-ccaaf6175d58",
+					"start": "2022-10-20T20:30:00",
+					"end": "2022-10-20T22:30:00",
+					"content": "Фильтрация (гидролиза)<br/>(W=250) 411NCLiq_AfterNeutralizationPulp Пульпа после нейтрализации (1 rub/kg)",
+					"style": "background-color: rgba(1, 201, 180)"
+				},
+				{
+					"id": "3b8d4d7c-aeb4-4e22-b747-b7af5f3405a1",
+					"group": "a5d36224-b546-4c3d-8baf-ccaaf6175d58",
+					"start": "2022-10-20T22:30:00",
+					"end": "2022-10-20T22:40:00",
+					"content": "Выгрузка на цементацию<br/>(W=250) 900028404 Р-р от хлорирования на МПГ (1 rub/kg)",
+					"style": "background-color: rgba(1, 201, 180)"
+				},
+				{
+					"id": "8b245af7-7805-4e5b-8c3a-0874b7a226a0",
+					"group": "3b09e07e-71a4-478a-87b9-24dcc0203852",
+					"start": "2022-10-20T22:30:00",
+					"end": "2022-10-20T22:40:00",
+					"content": "Выгрузка на цементацию<br/>(W=250) 900028404 Р-р от хлорирования на МПГ (1 rub/kg)",
+					"style": "background-color: rgba(1, 201, 180)"
+				},
+				{
+					"id": "a99e5389-2dde-469c-b12b-cd7ed4755f5b",
+					"group": "fc5be897-074a-4b8c-824e-ce9b41206d45",
+					"start": "2022-10-20T20:20:00",
+					"end": "2022-10-20T22:26:00",
+					"content": "Цементирование<br/>(W=500) 900028404 Р-р от хлорирования на МПГ (1 rub/kg)",
+					"style": "background-color: rgba(16, 145, 54)"
+				},
+				{
+					"id": "e5499dc6-d5b7-4354-b0da-d35d5bdaac53",
+					"group": "fc5be897-074a-4b8c-824e-ce9b41206d45",
+					"start": "2022-10-20T22:26:00",
+					"end": "2022-10-20T22:50:00",
+					"content": "Проба<br/>(W=500) 411CAUDV_AfterCementation Пульпа после цементации золота (1 rub/kg)",
+					"style": "background-color: rgba(16, 145, 54)"
+				},
+				{
+					"id": "dcc5989a-e510-455f-b44a-3724d22a743f",
+					"group": "fc5be897-074a-4b8c-824e-ce9b41206d45",
+					"start": "2022-10-20T22:50:00",
+					"end": "2022-10-20T23:00:00",
+					"content": "Выгрузка на фильтрацию<br/>(W=250) 411CAUDV_AfterCementation Пульпа после цементации золота (1 rub/kg)",
+					"style": "background-color: rgba(16, 145, 54)"
+				},
+				{
+					"id": "92fd7ac2-bec1-4f52-a817-c3d5001ea68b",
+					"group": "d78cb269-b022-42a9-b85b-974508533eca",
+					"start": "2022-10-20T22:50:00",
+					"end": "2022-10-20T23:00:00",
+					"content": "Выгрузка на фильтрацию<br/>(W=250) 411CAUDV_AfterCementation Пульпа после цементации золота (1 rub/kg)",
+					"style": "background-color: rgba(16, 145, 54)"
+				},
+				{
+					"id": "5a36859f-a8bc-438a-b1b7-40381af33ac1",
+					"group": "fc5be897-074a-4b8c-824e-ce9b41206d45",
+					"start": "2022-10-20T23:00:00",
+					"end": "2022-10-20T23:10:00",
+					"content": "Выгрузка на фильтрацию<br/>(W=250) 411CAUDV_AfterCementation Пульпа после цементации золота (1 rub/kg)",
+					"style": "background-color: rgba(16, 145, 54)"
+				},
+				{
+					"id": "7d3c5a8d-cbdf-4c3e-a8de-ffde6f7fa481",
+					"group": "db0f0618-c0a4-434d-a677-856c339fc017",
+					"start": "2022-10-20T23:00:00",
+					"end": "2022-10-20T23:10:00",
+					"content": "Выгрузка на фильтрацию<br/>(W=250) 411CAUDV_AfterCementation Пульпа после цементации золота (1 rub/kg)",
+					"style": "background-color: rgba(16, 145, 54)"
+				},
+				{
+					"id": "7eaa7c08-2625-4c3b-84aa-4fcd8b99ba77",
+					"group": "d78cb269-b022-42a9-b85b-974508533eca",
+					"start": "2022-10-20T23:00:00",
+					"end": "2022-10-21T01:00:00",
+					"content": "Фильтрация (цементации)<br/>(W=250) 411CAUDV_AfterCementation Пульпа после цементации золота (1 rub/kg)",
+					"style": "background-color: rgba(81, 4, 79)"
+				},
+				{
+					"id": "cc0c8f39-cbb3-42e0-9720-d251d8f4b0e7",
+					"group": "d78cb269-b022-42a9-b85b-974508533eca",
+					"start": "2022-10-21T01:00:00",
+					"end": "2022-10-21T01:10:00",
+					"content": "Выгрузка на отстой<br/>(W=250) 900028404 Р-р от хлорирования на МПГ (1 rub/kg)",
+					"style": "background-color: rgba(81, 4, 79)"
+				},
+				{
+					"id": "3bba081d-9e84-49af-bc6e-ccac57a3be7b",
+					"group": "f7a275c8-58e2-4b3f-b540-4c03b15e0a48",
+					"start": "2022-10-21T01:00:00",
+					"end": "2022-10-21T01:10:00",
+					"content": "Выгрузка на отстой<br/>(W=250) 900028404 Р-р от хлорирования на МПГ (1 rub/kg)",
+					"style": "background-color: rgba(81, 4, 79)"
+				},
+				{
+					"id": "570b3efb-d67a-449c-a1c2-f7ee7b3fb927",
+					"group": "db0f0618-c0a4-434d-a677-856c339fc017",
+					"start": "2022-10-20T23:10:00",
+					"end": "2022-10-21T01:10:00",
+					"content": "Фильтрация (цементации)<br/>(W=250) 411CAUDV_AfterCementation Пульпа после цементации золота (1 rub/kg)",
+					"style": "background-color: rgba(90, 152, 171)"
+				},
+				{
+					"id": "f964e86b-13ea-4dc4-b596-44104de04c7f",
+					"group": "db0f0618-c0a4-434d-a677-856c339fc017",
+					"start": "2022-10-21T01:10:00",
+					"end": "2022-10-21T01:20:00",
+					"content": "Выгрузка на отстой<br/>(W=250) 900028404 Р-р от хлорирования на МПГ (1 rub/kg)",
+					"style": "background-color: rgba(90, 152, 171)"
+				},
+				{
+					"id": "2bf29c6e-83ce-497a-b0e4-2071e573d1fd",
+					"group": "f7a275c8-58e2-4b3f-b540-4c03b15e0a48",
+					"start": "2022-10-21T01:10:00",
+					"end": "2022-10-21T01:20:00",
+					"content": "Выгрузка на отстой<br/>(W=250) 900028404 Р-р от хлорирования на МПГ (1 rub/kg)",
+					"style": "background-color: rgba(90, 152, 171)"
+				},
+				{
+					"id": "51941ece-9482-48aa-93a1-194582ae737c",
+					"group": "f7a275c8-58e2-4b3f-b540-4c03b15e0a48",
+					"start": "2022-10-21T01:20:00",
+					"end": "2022-10-21T03:20:00",
+					"content": "Отстой<br/>(W=1000) 900028404 Р-р от хлорирования на МПГ (1 rub/kg)",
+					"style": "background-color: rgba(103, 194, 3)"
+				},
+				{
+					"id": "ca0a8585-3a20-4450-a14a-9abd26134824",
+					"group": "f7a275c8-58e2-4b3f-b540-4c03b15e0a48",
+					"start": "2022-10-21T03:20:00",
+					"end": "2022-10-21T03:30:00",
+					"content": "Выгрузка для накопления<br/>(W=1000) 900001286 Растворы МПГ (1 rub/kg)",
+					"style": "background-color: rgba(103, 194, 3)"
+				},
+				{
+					"id": "129e7970-8bf9-406c-ab12-00f5487bb86c",
+					"group": "afc4b032-7a1b-4858-84ce-639164bf18ee",
+					"start": "2022-10-21T03:20:00",
+					"end": "2022-10-21T03:30:00",
+					"content": "Выгрузка для накопления<br/>(W=1000) 900001286 Растворы МПГ (1 rub/kg)",
+					"style": "background-color: rgba(103, 194, 3)"
+				},
+				{
+					"id": "d2906727-ea3b-4782-8e5a-1c1eb14eeb38",
+					"group": "afc4b032-7a1b-4858-84ce-639164bf18ee",
+					"start": "2022-10-21T03:30:00",
+					"end": "2022-10-21T03:40:00",
+					"content": "Опустошение<br/>(W=1000) 900001286 Растворы МПГ (1 rub/kg)",
+					"style": "background-color: rgba(82, 168, 36)"
+				},
+				{
+					"id": "6a8ed6a6-27fd-4eac-a26d-05b6871e6202",
+					"group": "b31a0093-5c0a-4a41-98fa-5289fcf3ea88",
+					"start": "2022-10-20T12:20:00",
+					"end": "2022-10-20T12:30:00",
+					"content": "Загрузка<br/>(W=200) 900001506 Тяжелый сплав промпродуктов (0,61 rub/kg)",
+					"style": "background-color: rgba(202, 152, 100)"
+				},
+				{
+					"id": "3e7a13f8-1ab4-4426-a0ec-0584f2ea6ee2",
+					"group": "b31a0093-5c0a-4a41-98fa-5289fcf3ea88",
+					"start": "2022-10-20T12:30:00",
+					"end": "2022-10-21T00:30:00",
+					"content": "Хлорирование<br/>(W=200) 900001506 Тяжелый сплав промпродуктов (0,61 rub/kg)",
+					"style": "background-color: rgba(202, 152, 100)"
+				},
+				{
+					"id": "a0075cab-5577-465e-b017-d8b84075240c",
+					"group": "8c4f37cc-9b53-4449-b536-50a1857b3607",
+					"start": "2022-10-20T12:30:00",
+					"end": "2022-10-21T00:30:00",
+					"content": "Абсорбирование<br/>(W=200) 900001506 Тяжелый сплав промпродуктов (0,61 rub/kg)",
+					"style": "background-color: rgba(202, 152, 100)"
+				},
+				{
+					"id": "827f6468-cd4b-4404-8894-38bde83edfc5",
+					"group": "b31a0093-5c0a-4a41-98fa-5289fcf3ea88",
+					"start": "2022-10-21T00:30:00",
+					"end": "2022-10-21T00:40:00",
+					"content": "Выгрузка<br/>(W=500) 411_PulpTSPP Пульпа от ТСПП (1 rub/kg)",
+					"style": "background-color: rgba(202, 152, 100)"
+				},
+				{
+					"id": "0105779e-f55b-41d8-99cb-a700dddce81e",
+					"group": "06aa6a58-4025-42f6-9f1e-8460eab2b00b",
+					"start": "2022-10-21T00:30:00",
+					"end": "2022-10-21T00:40:00",
+					"content": "Выгрузка<br/>(W=500) 411_PulpTSPP Пульпа от ТСПП (1 rub/kg)",
+					"style": "background-color: rgba(202, 152, 100)"
+				},
+				{
+					"id": "2372121c-91cc-4995-b38e-8dd1d5b276a4",
+					"group": "072a6383-595a-472d-ac71-b69e568390c2",
+					"start": "2022-10-21T00:40:00",
+					"end": "2022-10-21T00:50:00",
+					"content": "Загрузка в фильтр<br/>(W=500) 411_PulpTSPP Пульпа от ТСПП (1 rub/kg)",
+					"style": "background-color: rgba(178, 141, 221)"
+				},
+				{
+					"id": "4732a4d8-1e65-48b1-8573-b75846da7f93",
+					"group": "06aa6a58-4025-42f6-9f1e-8460eab2b00b",
+					"start": "2022-10-21T00:40:00",
+					"end": "2022-10-21T00:50:00",
+					"content": "Загрузка в фильтр<br/>(W=500) 411_PulpTSPP Пульпа от ТСПП (1 rub/kg)",
+					"style": "background-color: rgba(178, 141, 221)"
+				},
+				{
+					"id": "85009d6d-1505-40a3-b12b-44430b9fb5d5",
+					"group": "072a6383-595a-472d-ac71-b69e568390c2",
+					"start": "2022-10-21T00:50:00",
+					"end": "2022-10-21T01:20:00",
+					"content": "Фильтрация<br/>(W=500) 411_PulpTSPP Пульпа от ТСПП (1 rub/kg)",
+					"style": "background-color: rgba(178, 141, 221)"
+				},
+				{
+					"id": "1e090e46-6d16-4404-80f9-cf4ef0bf7999",
+					"group": "072a6383-595a-472d-ac71-b69e568390c2",
+					"start": "2022-10-21T01:20:00",
+					"end": "2022-10-21T01:30:00",
+					"content": "Выгрузка из фильтра<br/>(W=400) 900001286 Растворы МПГ (1 rub/kg)",
+					"style": "background-color: rgba(178, 141, 221)"
+				},
+				{
+					"id": "fd59ff72-b3d1-4df5-91ec-fc81ffb4aa7f",
+					"group": "f31d5348-23f6-4a75-b781-b28077faf309",
+					"start": "2022-10-21T01:20:00",
+					"end": "2022-10-21T01:30:00",
+					"content": "Выгрузка из фильтра<br/>(W=400) 900001286 Растворы МПГ (1 rub/kg)",
+					"style": "background-color: rgba(178, 141, 221)"
+				},
+				{
+					"id": "432d5acc-9e51-492f-85ea-f3f0960701ca",
+					"group": "7fd6ed17-c0cd-4ce9-ae09-7b96e149f4ea",
+					"start": "2022-10-21T01:30:00",
+					"end": "2022-10-21T01:40:00",
+					"content": "Погрузка в реактор<br/>(W=500) 900001286 Растворы МПГ (1 rub/kg)",
+					"style": "background-color: rgba(189, 155, 146)"
+				},
+				{
+					"id": "f94c6762-2a7a-4550-9c4b-1f2afc9c75a7",
+					"group": "f31d5348-23f6-4a75-b781-b28077faf309",
+					"start": "2022-10-21T01:30:00",
+					"end": "2022-10-21T01:40:00",
+					"content": "Погрузка в реактор<br/>(W=500) 900001286 Растворы МПГ (1 rub/kg)",
+					"style": "background-color: rgba(189, 155, 146)"
+				},
+				{
+					"id": "0bd44d96-95a9-412f-9254-d1c17a107205",
+					"group": "7fd6ed17-c0cd-4ce9-ae09-7b96e149f4ea",
+					"start": "2022-10-21T01:40:00",
+					"end": "2022-10-21T03:40:00",
+					"content": "Гидролиз<br/>(W=500) 900001286 Растворы МПГ (1 rub/kg)",
+					"style": "background-color: rgba(189, 155, 146)"
+				},
+				{
+					"id": "1b7ef20f-6bcc-4272-a59a-717bb3a20619",
+					"group": "7fd6ed17-c0cd-4ce9-ae09-7b96e149f4ea",
+					"start": "2022-10-21T03:40:00",
+					"end": "2022-10-21T03:50:00",
+					"content": "Выгрузка на цементацию<br/>(W=500) 900028404 Р-р от хлорирования на МПГ (1 rub/kg)",
+					"style": "background-color: rgba(189, 155, 146)"
+				},
+				{
+					"id": "3e0cf2f4-d5b7-47b6-933d-b41b6eba18fb",
+					"group": "fc5be897-074a-4b8c-824e-ce9b41206d45",
+					"start": "2022-10-21T03:40:00",
+					"end": "2022-10-21T03:50:00",
+					"content": "Выгрузка на цементацию<br/>(W=500) 900028404 Р-р от хлорирования на МПГ (1 rub/kg)",
+					"style": "background-color: rgba(189, 155, 146)"
+				},
+				{
+					"id": "a541bf57-9d2f-4a2e-95f7-b2320996715f",
+					"group": "7fd6ed17-c0cd-4ce9-ae09-7b96e149f4ea",
+					"start": "2022-10-21T03:50:00",
+					"end": "2022-10-21T04:00:00",
+					"content": "Выгрузка на фильтрацию<br/>(W=125) 411NCLiq_AfterNeutralizationPulp Пульпа после нейтрализации (1 rub/kg)",
+					"style": "background-color: rgba(189, 155, 146)"
+				},
+				{
+					"id": "c0c4c1d2-0fb0-46f5-8d13-5e4ef1dd67c1",
+					"group": "a5d36224-b546-4c3d-8baf-ccaaf6175d58",
+					"start": "2022-10-21T03:50:00",
+					"end": "2022-10-21T04:00:00",
+					"content": "Выгрузка на фильтрацию<br/>(W=125) 411NCLiq_AfterNeutralizationPulp Пульпа после нейтрализации (1 rub/kg)",
+					"style": "background-color: rgba(189, 155, 146)"
+				},
+				{
+					"id": "91c929fa-c1e6-49b7-abde-d4719169db31",
+					"group": "fc5be897-074a-4b8c-824e-ce9b41206d45",
+					"start": "2022-10-21T03:50:00",
+					"end": "2022-10-21T05:56:00",
+					"content": "Цементирование<br/>(W=500) 900028404 Р-р от хлорирования на МПГ (1 rub/kg)",
+					"style": "background-color: rgba(48, 232, 25)"
+				},
+				{
+					"id": "5a16288e-a490-4583-b39e-824b148c373c",
+					"group": "fc5be897-074a-4b8c-824e-ce9b41206d45",
+					"start": "2022-10-21T05:56:00",
+					"end": "2022-10-21T06:20:00",
+					"content": "Проба<br/>(W=500) 411CAUDV_AfterCementation Пульпа после цементации золота (1 rub/kg)",
+					"style": "background-color: rgba(48, 232, 25)"
+				},
+				{
+					"id": "ceeb2d1f-73c0-48f5-b47c-6e777ec77393",
+					"group": "fc5be897-074a-4b8c-824e-ce9b41206d45",
+					"start": "2022-10-21T06:20:00",
+					"end": "2022-10-21T06:30:00",
+					"content": "Выгрузка на фильтрацию<br/>(W=250) 411CAUDV_AfterCementation Пульпа после цементации золота (1 rub/kg)",
+					"style": "background-color: rgba(48, 232, 25)"
+				},
+				{
+					"id": "9310f42e-c558-4ad1-94cd-87b0c4c8abf6",
+					"group": "d78cb269-b022-42a9-b85b-974508533eca",
+					"start": "2022-10-21T06:20:00",
+					"end": "2022-10-21T06:30:00",
+					"content": "Выгрузка на фильтрацию<br/>(W=250) 411CAUDV_AfterCementation Пульпа после цементации золота (1 rub/kg)",
+					"style": "background-color: rgba(48, 232, 25)"
+				},
+				{
+					"id": "274b3956-cb30-4a58-8117-cd75ae4c7af4",
+					"group": "fc5be897-074a-4b8c-824e-ce9b41206d45",
+					"start": "2022-10-21T06:30:00",
+					"end": "2022-10-21T06:40:00",
+					"content": "Выгрузка на фильтрацию<br/>(W=250) 411CAUDV_AfterCementation Пульпа после цементации золота (1 rub/kg)",
+					"style": "background-color: rgba(48, 232, 25)"
+				},
+				{
+					"id": "990f7b81-d09d-4101-b76d-760cacd34b77",
+					"group": "db0f0618-c0a4-434d-a677-856c339fc017",
+					"start": "2022-10-21T06:30:00",
+					"end": "2022-10-21T06:40:00",
+					"content": "Выгрузка на фильтрацию<br/>(W=250) 411CAUDV_AfterCementation Пульпа после цементации золота (1 rub/kg)",
+					"style": "background-color: rgba(48, 232, 25)"
+				},
+				{
+					"id": "fe3d10d7-5739-402e-9402-90c1e77d11ef",
+					"group": "d78cb269-b022-42a9-b85b-974508533eca",
+					"start": "2022-10-21T06:30:00",
+					"end": "2022-10-21T08:30:00",
+					"content": "Фильтрация (цементации)<br/>(W=250) 411CAUDV_AfterCementation Пульпа после цементации золота (1 rub/kg)",
+					"style": "background-color: rgba(170, 30, 116)"
+				},
+				{
+					"id": "a9a05e54-cd68-4184-ba2d-2f3b1cf5d46b",
+					"group": "d78cb269-b022-42a9-b85b-974508533eca",
+					"start": "2022-10-21T08:30:00",
+					"end": "2022-10-21T08:40:00",
+					"content": "Выгрузка на отстой<br/>(W=250) 900028404 Р-р от хлорирования на МПГ (1 rub/kg)",
+					"style": "background-color: rgba(170, 30, 116)"
+				},
+				{
+					"id": "1414ffa2-4879-4558-ad7f-49c9c5bc5996",
+					"group": "f7a275c8-58e2-4b3f-b540-4c03b15e0a48",
+					"start": "2022-10-21T08:30:00",
+					"end": "2022-10-21T08:40:00",
+					"content": "Выгрузка на отстой<br/>(W=250) 900028404 Р-р от хлорирования на МПГ (1 rub/kg)",
+					"style": "background-color: rgba(170, 30, 116)"
+				},
+				{
+					"id": "bc0ab1a7-90ea-48cb-961b-76c093455a4e",
+					"group": "db0f0618-c0a4-434d-a677-856c339fc017",
+					"start": "2022-10-21T06:40:00",
+					"end": "2022-10-21T08:40:00",
+					"content": "Фильтрация (цементации)<br/>(W=250) 411CAUDV_AfterCementation Пульпа после цементации золота (1 rub/kg)",
+					"style": "background-color: rgba(64, 205, 81)"
+				},
+				{
+					"id": "eb5d51f0-03a2-4866-baa7-0d87ddf098b6",
+					"group": "db0f0618-c0a4-434d-a677-856c339fc017",
+					"start": "2022-10-21T08:40:00",
+					"end": "2022-10-21T08:50:00",
+					"content": "Выгрузка на отстой<br/>(W=250) 900028404 Р-р от хлорирования на МПГ (1 rub/kg)",
+					"style": "background-color: rgba(64, 205, 81)"
+				},
+				{
+					"id": "89481668-fbbf-44bd-830f-b0d6d2ec5186",
+					"group": "f7a275c8-58e2-4b3f-b540-4c03b15e0a48",
+					"start": "2022-10-21T08:40:00",
+					"end": "2022-10-21T08:50:00",
+					"content": "Выгрузка на отстой<br/>(W=250) 900028404 Р-р от хлорирования на МПГ (1 rub/kg)",
+					"style": "background-color: rgba(64, 205, 81)"
+				}
+			],
+			"cost": {
+				"totalTime": "1.08:50:00"
+			}
+		}
+	}
+]

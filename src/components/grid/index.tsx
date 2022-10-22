@@ -1,10 +1,11 @@
-import React, { memo } from "react";
+import React, { memo, useEffect } from "react";
 import {
   ColumnDef,
   flexRender,
   getCoreRowModel,
   getFilteredRowModel,
   getPaginationRowModel,
+  RowSelectionState,
   useReactTable,
 } from '@tanstack/react-table'
 
@@ -21,13 +22,20 @@ interface GridProps {
   data: any,
   columnsConfig: ColumnDef<any, any>[],
   useSelection?: boolean |{
-    columnId: string
-  }
+    columnId?: string | null,
+    selectionState: RowSelectionState
+  },
+  onRowSelectionChange?: (rowSelection: RowSelectionState) => void;
 }
 
-const Grid = ({ data, columnsConfig, useSelection = false }: GridProps) => {
+const Grid = ({
+  data,
+  columnsConfig,
+  useSelection = false,
+  onRowSelectionChange
+}: GridProps) => {
   const [rowSelection, setRowSelection] = React.useState(
-    data ? data.map((_, i) => ({ [i]: true })) : []
+    useSelection && typeof useSelection === 'object' ? useSelection.selectionState : {}
   );
 
   const createColumns = () => {
@@ -41,8 +49,14 @@ const Grid = ({ data, columnsConfig, useSelection = false }: GridProps) => {
         });
 
         if (!selCol) {
-          console.error(`Incorrect selectionColumn config. No column with Id ${selCol} found`);
-          return columns;
+          return [
+            {
+              id: 'select',
+              header: CheckboxHeaderCell,
+              cell: CheckboxRowCell,
+            },
+            ...columns
+          ];
         }
 
         selCol.header = CheckboxHeaderCell;
@@ -74,6 +88,12 @@ const Grid = ({ data, columnsConfig, useSelection = false }: GridProps) => {
     getFilteredRowModel: getFilteredRowModel(),
     getPaginationRowModel: getPaginationRowModel(),
   });
+
+  useEffect(() => {
+    if (onRowSelectionChange) {
+      onRowSelectionChange(rowSelection);
+    }
+  }, [rowSelection]);
 
   return data ?
     <div className="flex flex-1 flex-col overflow-hidden">
