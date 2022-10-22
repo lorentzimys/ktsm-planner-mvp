@@ -15,7 +15,7 @@ const wrapperClassNames = "flex flex-1 flex-col justify-center place-content-cen
 
 export const EquipmentPage = React.memo(() => {
   const dispatch = useAppDispatch();
-  const eqipment = useSelector((state: RootState) => state.wizard.equipment.items);
+  const eqipment = useSelector((state: RootState) => state.wizard.equipment.data);
   const fetchStatus = useSelector((state: RootState) => state.wizard.equipment.status);
 
   useEffect(() => {

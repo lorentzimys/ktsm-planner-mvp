@@ -23,7 +23,8 @@ export interface WizardState {
   currentStep: number,
   nomenclature: {
     data: Array<any> | null,
-    fileName: string | null
+    fileName: string | null,
+    selected: number[],
   },
   // nomenclatureFileName: string | null,
   operations: {
@@ -33,7 +34,8 @@ export interface WizardState {
   // operationsFileName: string | null,
   equipment: {
     status: FetchStatus,
-    items: Array<EquipmentItem> | null
+    data: Array<EquipmentItem> | null,
+    selected: [],
   };
   plan: {
     status: FetchStatus,
@@ -82,6 +84,7 @@ const initialState: WizardState = {
   nomenclature: {
     data: null,
     fileName: null,
+    selected: [],
   },
   operations:  {
     data: null,
@@ -89,7 +92,8 @@ const initialState: WizardState = {
   },
   equipment: {
     status: 'idle',
-    items: null
+    data: null,
+    selected: [],
   },
   plan: {
     status: 'idle',
@@ -100,9 +104,14 @@ const initialState: WizardState = {
 export const fetchEquipment = createAsyncThunk(
   'wizard/equipment',
   async (_, { rejectWithValue }) => {
-    const equipment = await (await fetch(apiRoutes.equipment)).json();
-    const responseJson: { resources: EquipmentItem[] } = equipment as any;
-    return responseJson.resources;
+    const response = await fetch(apiRoutes.equipment);
+    const responseJson = await response.json();
+
+    if (response.ok) {
+      return responseJson.resources;
+    }
+
+    return rejectWithValue(responseJson);
   }
 );
 
@@ -121,7 +130,7 @@ export const runPlan = createAsyncThunk(
     }));
 
     const responseJson = await response.json();
-    console.log(responseJson);
+    
     if (response.ok) {
       return responseJson;
     }
@@ -148,7 +157,10 @@ export const wizardSlice = createSlice({
       state.currentStep = action.payload;
     },
     uploadNomenclature: (state, action: PayloadAction<UploadAction>) => {
-      state.nomenclature = action.payload;
+      state.nomenclature = {
+        ...action.payload,
+        selected: []
+      }
     },
     uploadOperations: (state, action: PayloadAction<UploadAction>) => {
       state.operations = action.payload;
@@ -158,10 +170,20 @@ export const wizardSlice = createSlice({
       state.nomenclature = {
         data: null,
         fileName: null,
+        selected: [],
       };
       state.operations = {
         data: null,
-        fileName: null
+        fileName: null,
+      };
+      state.equipment = {
+        status: 'idle',
+        data: null,
+        selected: [],
+      };
+      state.plan = {
+        status: 'idle',
+        data: null,
       };
     },
   },
@@ -170,7 +192,7 @@ export const wizardSlice = createSlice({
       state.equipment.status = FETCH_STATUS.PENDING;
     });
     builder.addCase(fetchEquipment.fulfilled, (state, action) => {
-      state.equipment.items = action.payload;
+      state.equipment.data = action.payload;
       state.equipment.status = FETCH_STATUS.FULFILLED;
     });
     builder.addCase(fetchEquipment.rejected, (state) => {
