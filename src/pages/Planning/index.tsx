@@ -1,41 +1,20 @@
 import React from "react";
-import { FrappeGantt, ViewMode } from 'frappe-gantt-react';
-import addDays from 'date-fns/addDays'
 
 import { useSelector } from 'react-redux';
-import { IDataState } from '../../store/dataSlice';
 import { RootState } from "../../store";
-import { KcmGantt } from "../../components/Gantt";
+import { VisGantt } from "../../components/Gantt";
+
+const centerContentClassName = "flex flex-1 flex-col justify-center place-content-center content-center items-center overflow-hidden m-8 border shadow-sm";
 
 export const PlanningPage = () => {
-  const data = useSelector((state: RootState) => state.wizard.nomenclature);
-
-  const mapDataToTasks = (): any => {
-    return data ? data.map(d => ({
-      id: d.item_id,
-      name: d.item_desc,
-      start: new Date(),
-      end: addDays(new Date(), 10),
-      progress: 0,
-      // custom_class?: string;
-      // setDependencies(value: string[]): void;
-      // dependencies: string;
-    })) : []
-  };
+  const data = useSelector((state: RootState) => state.wizard.plan.data);
+  const planningStatus = useSelector((state: RootState) => state.wizard.plan.status);
 
   return (
-    <div>
-      <KcmGantt />
-      {/* { data && data.length && (
-        <FrappeGantt
-          tasks={mapDataToTasks()}
-          viewMode={ViewMode.Day}
-          onClick={task => console.log(task)}
-          onDateChange={(task, start, end) => console.log(task, start, end)}
-          onProgressChange={(task, progress) => console.log(task, progress)}
-          onTasksChange={tasks => console.log(tasks)}
-        />
-      )} */}
+    <div className="flex flex-1">
+      {planningStatus === 'pending' && <div className={centerContentClassName}>Загрузка данных...</div>}
+      {planningStatus === 'fulfilled' && <VisGantt data={data}/>}
+      {planningStatus === 'rejected' && <div className={centerContentClassName}>Произошла ошибка...</div>}
     </div>
   )
 };

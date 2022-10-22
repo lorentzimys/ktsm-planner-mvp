@@ -1,5 +1,6 @@
 const commonUrl = '/api';
 
 export const apiRoutes = {
-  equipment: `${commonUrl}/equipments`
+  equipment: `${commonUrl}/equipments`,
+  runPlan: `${commonUrl}/start`
 }

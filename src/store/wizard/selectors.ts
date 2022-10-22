@@ -15,7 +15,7 @@ export const canProceedSelector = (state: RootState) => {
   const currentStep = state.wizard.currentStep;
   const nomenclature = state.wizard.nomenclature;
 
-  if ([0, 1, 2, 3].includes(currentStep) && nomenclature) {
+  if ([0, 1, 2].includes(currentStep) && nomenclature) {
     return true;
   }
 

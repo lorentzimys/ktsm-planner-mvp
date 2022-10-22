@@ -57,6 +57,10 @@ export interface WizardState {
     status: FetchStatus,
     items: Array<EquipmentItem> | null
   };
+  plan: {
+    status: FetchStatus,
+    data: any,
+  },
   planningAllowed: boolean,
 }
 
@@ -70,6 +74,10 @@ const initialState: WizardState = {
   equipment: {
     status: 'idle',
     items: null
+  },
+  plan: {
+    status: 'idle',
+    data: null
   },
   planningAllowed: false
 };
@@ -87,6 +95,30 @@ export const fetchEquipment = createAsyncThunk(
     return responseJson.resources;
   }
 );
+
+export const runPlan = createAsyncThunk(
+  'wizars/runPlan',
+  async (state, { rejectWithValue }) => {
+    const response = (await fetch(apiRoutes.runPlan, {
+      method: "post",
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+      
+      })
+    }));
+
+    const responseJson = await response.json();
+    console.log(responseJson);
+    if (response.ok) {
+      return responseJson;
+    }
+    
+    return rejectWithValue(responseJson);
+  }
+)
 
 export const wizardSlice = createSlice({
   name: 'wizard',
@@ -113,12 +145,11 @@ export const wizardSlice = createSlice({
       state.operations = action.payload.data;
       state.operationsFileName = action.payload.fileName;
     },
-
     clearWizardState: (state) => {
       state.currentStep = 0;
       state.nomenclature = null;
       state.operations = null;
-    }
+    },
   },
   extraReducers: (builder) => {
     builder.addCase(fetchEquipment.pending, (state) => {
@@ -130,6 +161,17 @@ export const wizardSlice = createSlice({
     });
     builder.addCase(fetchEquipment.rejected, (state) => {
       state.equipment.status = FETCH_STATUS.REJECTED;
+    });
+    
+    builder.addCase(runPlan.pending, (state) => {
+      state.plan.status = FETCH_STATUS.PENDING;
+    });
+    builder.addCase(runPlan.fulfilled, (state, action) => {
+      state.plan.data = action.payload;
+      state.plan.status = FETCH_STATUS.FULFILLED;
+    });
+    builder.addCase(runPlan.rejected, (state) => {
+      state.plan.status = FETCH_STATUS.REJECTED;
     });
   }
 });

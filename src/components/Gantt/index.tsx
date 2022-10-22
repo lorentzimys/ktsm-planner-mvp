@@ -1,58 +1,53 @@
-import { addDays } from 'date-fns/esm';
-import { Gantt, Task, EventOption, StylingOption, ViewMode, DisplayOption } from 'gantt-task-react';
-import { ViewSwitcher }  from './ViewSwitcher';
-import 'gantt-task-react/dist/index.css';
-import operations from '../../mocks/chop4_1_1_oper.json';
 import { useState } from 'react';
+import Timeline from 'react-visjs-timeline';
+import { addDays } from 'date-fns/esm';
+// import { ViewSwitcher }  from './ViewSwitcher';
+// import operations from '../../mocks/chop4_1_1_oper.json';
 
-// let tasks: Task[] = [
-//   {
-//     start: new Date(2020, 1, 1),
-//     end: new Date(2020, 1, 2),
-//     name: 'Idea',
-//     id: 'Task 0',
-//     type:'task',
-//     progress: 45,
-//     isDisabled: true,
-//     styles: { progressColor: '#ffbb54', progressSelectedColor: '#ff9e0d' },
-//   },
-// ];
+// const tasks: Task[] = operations.map(o => ({
+//   start: new Date(o.first_job_start_local),
+//   end: addDays(new Date(o.first_job_start_local), Math.floor(Math.random() * 6) + 1),
+//   name: o.ent_desc,
+//   id: o.ent_id.toString() + Math.random(),
+//   type: 'task',
+//   progress: 0,
+//   isDisabled: false,
+//   styles: { progressColor: '#ffbb54', progressSelectedColor: '#ff9e0d' },
+// }));
 
-const tasks: Task[] = operations.map(o => ({
-  start: new Date(o.first_job_start_local),
-  end: addDays(new Date(o.first_job_start_local), Math.floor(Math.random() * 6) + 1),
-  name: o.ent_desc,
-  id: o.ent_id.toString() + Math.random(),
-  type: 'task',
-  progress: 0,
-  isDisabled: false,
-  styles: { progressColor: '#ffbb54', progressSelectedColor: '#ff9e0d' },
-}));
+interface VisGanttProps {
+  data: VisGanttItem[];
+  options?: any;
+}
 
-export const KcmGantt = () => {
-  const [view, setView] = useState<ViewMode>(ViewMode.Day);
-  const [isChecked, setIsChecked] = useState(true);
-  let columnWidth = 65;
-  if (view === ViewMode.Year) {
-    columnWidth = 350;
-  } else if (view === ViewMode.Month) {
-    columnWidth = 300;
-  } else if (view === ViewMode.Week) {
-    columnWidth = 250;
+interface VisGanttItem {
+  start: Date,
+  end: Date,
+  content: string
+}
+
+export const VisGantt = ({ data, options = undefined } : VisGanttProps) => {
+
+  const defaultOptions = {
+    width: '100%',
+    height: '600px',
+    stack: false,
+    showMajorLabels: true,
+    showCurrentTime: true,
+    zoomMin: 1000000,
+    type: 'background',
+    format: {
+      minorLabels: {
+        minute: 'h:mma',
+        hour: 'ha'
+      }
+    },
+    ...options
   }
 
   return (
-    <>
-      <ViewSwitcher
-        onViewModeChange={viewMode => setView(viewMode)}
-        onViewListChange={setIsChecked}
-        isChecked={isChecked}
-      />
-      <Gantt
-        tasks={tasks}
-        viewMode={view}
-        columnWidth={columnWidth}
-      />
-    </>
-  )
+    <div className='w-full'>
+      <Timeline options={defaultOptions} items={data} />);
+    </div>
+  );
 }

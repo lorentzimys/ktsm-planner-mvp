@@ -47,7 +47,6 @@ const Grid = ({ data, columnsConfig, useSelection = false }: GridProps) => {
 
         selCol.header = CheckboxHeaderCell;
         selCol.cell = CheckboxRowCell;
-        console.log(selCol, columns);
         return columns;
       } else {
         return [
