@@ -1,13 +1,21 @@
 import { createAsyncThunk, createSlice, PayloadAction } from '@reduxjs/toolkit';
-import resources from '../../mocks/resources.json';
+import { apiRoutes } from '../api';
 
+export type FetchStatus = 'idle' | 'pending' | 'fulfilled' | 'rejected';
+
+export const FETCH_STATUS: Record<string, FetchStatus> = {
+  IDLE: 'idle',
+  PENDING: 'pending',
+  FULFILLED: 'fulfilled',
+  REJECTED: 'rejected'
+};
 export type WizardStepType = 'importData' | 'nomenclature' | 'operations' | 'resources' | 'plan';
 interface WizardStepItem {
   id: WizardStepType;
   value: string;
 }
 
-interface ResourceItem {
+interface EquipmentItem {
   id: string;
   code: string;
   name: string;
@@ -45,7 +53,10 @@ export interface WizardState {
   nomenclatureFileName: string | null,
   operations: Array<any> | null,
   operationsFileName: string | null,
-  resources: Array<ResourceItem> | null;
+  equipment: {
+    status: FetchStatus,
+    items: Array<EquipmentItem> | null
+  };
   planningAllowed: boolean,
 }
 
@@ -56,7 +67,10 @@ const initialState: WizardState = {
   nomenclatureFileName: null,
   operations: null,
   operationsFileName: null,
-  resources: null,
+  equipment: {
+    status: 'idle',
+    items: null
+  },
   planningAllowed: false
 };
 
@@ -65,11 +79,12 @@ interface UploadAction {
   fileName: string;
 }
 
-export const fetchResources = createAsyncThunk(
-  'wizard/fetchResources',
+export const fetchEquipment = createAsyncThunk(
+  'wizard/equipment',
   async (_, { rejectWithValue }) => {
-    await setTimeout(() => { }, 200);
-    return resources;
+    const equipment = await (await fetch(apiRoutes.equipment)).json();
+    const responseJson: { resources: EquipmentItem[] } = equipment as any;
+    return responseJson.resources;
   }
 );
 
@@ -106,11 +121,15 @@ export const wizardSlice = createSlice({
     }
   },
   extraReducers: (builder) => {
-    // builder.addCase(fetchResources.pending, (state) => {
-    //   state.fetchingSettings = FetchState.Pending;
-    // });
-    builder.addCase(fetchResources.fulfilled, (state, action) => {
-      state.resources = action.payload;
+    builder.addCase(fetchEquipment.pending, (state) => {
+      state.equipment.status = FETCH_STATUS.PENDING;
+    });
+    builder.addCase(fetchEquipment.fulfilled, (state, action) => {
+      state.equipment.items = action.payload;
+      state.equipment.status = FETCH_STATUS.FULFILLED;
+    });
+    builder.addCase(fetchEquipment.rejected, (state) => {
+      state.equipment.status = FETCH_STATUS.REJECTED;
     });
   }
 });

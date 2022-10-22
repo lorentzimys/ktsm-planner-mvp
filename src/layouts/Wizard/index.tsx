@@ -1,15 +1,15 @@
+import React from "react";
 import { useEffect } from "react";
 import { useSelector } from "react-redux";
-import { Outlet, useLocation, useNavigate } from "react-router-dom"
-import { CSSTransition } from "react-transition-group";
+import { Outlet, useNavigate } from "react-router-dom"
+
+import { WizardStep } from "../../store/wizard/slice";
 
 import { Stepper } from "../../components/Stepper";
 import WizardToolbar from "../../components/WizardToolbar";
 
-import { WizardStep } from "../../store/wizard/slice";
 
 const WizardLayout = () => {
-  const location = useLocation();
   const navigate = useNavigate();
   const currentStep = useSelector(({ wizard }: any) => wizard.currentStep);
   
@@ -23,9 +23,7 @@ const WizardLayout = () => {
         <Stepper />
       </div>
       <div className="flex flex-1 overflow-auto">
-        <CSSTransition key={location.key} classNames="fade" timeout={300}>
-          <Outlet />
-        </CSSTransition>
+        <Outlet />
       </div>
       <div className="shadow-md shadow-gray-600 z-900">
         <WizardToolbar />

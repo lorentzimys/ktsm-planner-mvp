@@ -1,6 +1,6 @@
 import Grid from "../../components/Grid";
 import { useSelector } from "react-redux";
-import { operationsColumns } from "../../components/Grid/columnsConfig";
+import { operationsColumns } from "../../config/columnsConfig";
 import { RootState } from "../../store";
 import { useAppDispatch } from "../../hooks/hooks";
 import { nextStep } from "../../store/wizard/slice";
@@ -15,9 +15,9 @@ const OpeationsPage = () => {
 
   console.log(data);
   return (
-    <div className='flex flex-1 overflow-hidden'>
+    <div className='flex flex-1 overflow-hidden m-8 border shadow-sm'>
       {data ? (
-        <Grid data={data} columnsConfig={operationsColumns} />
+        <Grid data={data} columnsConfig={operationsColumns}/>
       ) : 
       <div className="flex flex-1 flex-col gap-2 justify-center place-content-center content-center items-center">
           <span className="w-96 text-center">Данные о состоянии операций не были импортированы в планировщик, однако, Вы можете пропустить этот шаг</span>

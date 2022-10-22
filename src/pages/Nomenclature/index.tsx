@@ -1,7 +1,7 @@
 import ImportNomenclaturePage from "./Import";
 import Grid from "../../components/Grid";
 import { useSelector } from "react-redux";
-import { nomenclatureColumns } from "../../components/Grid/columnsConfig";
+import { nomenclatureColumns } from "../../config/columnsConfig";
 import { RootState } from "../../store";
 
 const SelectNomenclaturePage = () => {
@@ -9,11 +9,11 @@ const SelectNomenclaturePage = () => {
 
   return (
     <div className='flex flex-1 overflow-hidden m-8 border shadow-sm'>
-      {
-        data && (
-          <Grid data={data} columnsConfig={nomenclatureColumns} useSelection />
-        )
-      }
+      <Grid
+        data={data}
+        columnsConfig={nomenclatureColumns}
+        useSelection
+      />
     </div>
   );
 }

@@ -244,6 +244,11 @@ export const operationsColumns = [
 ];
 
 export const resourcesColumns = [
+  columnHelper.accessor('isAvailable', {
+    cell: info => info.getValue(),
+    enableColumnFilter: false,
+    header: 'Доступность',
+  }),
   columnHelper.accessor('id', {
     cell: info => info.getValue(),
     header: 'Id',
@@ -254,14 +259,11 @@ export const resourcesColumns = [
   }),
   columnHelper.accessor('name', {
     cell: info => info.getValue(),
-    header: 'Наименовани',
+    header: 'Наименованиe',
   }),
   columnHelper.accessor('volume', {
     cell: info => info.getValue(),
     header: 'Объем',
   }),
-  columnHelper.accessor('isAvailable', {
-    cell: info => info.getValue(),
-    header: 'Доступность',
-  }),
+
 ];

@@ -1,3 +1,4 @@
+import React from 'react';
 import clsx from 'clsx';
 import { useSelector } from 'react-redux';
 import { useAppDispatch } from '../../hooks/hooks';
@@ -12,7 +13,7 @@ import { WizardStep } from '../../store/wizard/slice';
 import { useLocation } from 'react-router-dom';
 import { useEffect } from 'react';
 
-export const Stepper = () => {
+export const Stepper = React.memo(() => {
   const dispatch = useAppDispatch();
   const currentStep = useSelector(currentStepSelector);
   const steps = useSelector(stepsSelector);
@@ -60,4 +61,4 @@ export const Stepper = () => {
       </ul>
     </nav>
   )
-}
+})

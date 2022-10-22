@@ -1,14 +1,11 @@
 import React, { memo } from "react";
 import {
-  Column,
   ColumnDef,
   flexRender,
   getCoreRowModel,
   getFilteredRowModel,
   getPaginationRowModel,
-  Table,
   useReactTable,
-  IdentifiedColumnDef
 } from '@tanstack/react-table'
 
 import {
@@ -20,22 +17,56 @@ import {
 
 import './index.css';
 
-const Grid = ({ data, columnsConfig, useSelection = false }) => {
+interface GridProps {
+  data: any,
+  columnsConfig: ColumnDef<any, any>[],
+  useSelection?: boolean |{
+    columnId: string
+  }
+}
+
+const Grid = ({ data, columnsConfig, useSelection = false }: GridProps) => {
   const [rowSelection, setRowSelection] = React.useState(
-    data.map((_, i) => ({ [i]: true }))
+    data ? data.map((_, i) => ({ [i]: true })) : []
   );
-  const columns = [
-    useSelection ? {
-      id: 'select',
-      header: CheckboxHeaderCell,
-      cell: CheckboxRowCell,
-    } : undefined,
-    ...columnsConfig,
-  ]
+
+  const createColumns = () => {
+    let columns = [...columnsConfig];
+
+    if (useSelection) {
+      if (typeof useSelection === 'object') {
+        const selColId = useSelection.columnId;
+        const selCol = columnsConfig.find((col: any) => {
+          return col.accessorKey ? col.accessorKey === selColId : false;
+        });
+
+        if (!selCol) {
+          console.error(`Incorrect selectionColumn config. No column with Id ${selCol} found`);
+          return columns;
+        }
+
+        selCol.header = CheckboxHeaderCell;
+        selCol.cell = CheckboxRowCell;
+        console.log(selCol, columns);
+        return columns;
+      } else {
+        return [
+          {
+            id: 'select',
+            header: CheckboxHeaderCell,
+            cell: CheckboxRowCell,
+          },
+          ...columns
+        ]
+      }
+      
+    }
+    return columns;
+  };
 
   const table = useReactTable({
     data: data || [],
-    columns,
+    columns: createColumns(),
     state: {
       rowSelection,
     },
@@ -45,9 +76,9 @@ const Grid = ({ data, columnsConfig, useSelection = false }) => {
     getPaginationRowModel: getPaginationRowModel(),
   });
 
-  return (
-    <div className="flex flex-col overflow-hidden">
-      <div  className="flex flex-col overflow-auto">
+  return data ?
+    <div className="flex flex-1 flex-col overflow-hidden">
+      <div  className="flex flex-1 flex-col overflow-auto">
         <table className="table table--striped">
           <thead className="table__header">
             {table.getHeaderGroups().map((headerGroup, i) => (
@@ -103,7 +134,7 @@ const Grid = ({ data, columnsConfig, useSelection = false }) => {
               </tr>
             ))}
           </tbody>
-          <tfoot>
+          {/* <tfoot>
             {table.getFooterGroups().map((footerGroup, i) => (
               <tr key={i}>
                 {footerGroup.headers.map((header, i) => (
@@ -118,17 +149,22 @@ const Grid = ({ data, columnsConfig, useSelection = false }) => {
                 ))}
               </tr>
             ))}
-          </tfoot>
+          </tfoot> */}
         </table>
       </div>
-      <div className="flex gap-2 py-1 px-2">
-        <Total
-          selectedLength={Object.keys(rowSelection).length}
-          totalLength={table.getPreFilteredRowModel().rows.length}
-        />
-      </div>
+      {useSelection && (
+        <div className="flex gap-2 py-1 px-2">
+          <Total
+            selectedLength={Object.keys(rowSelection).length}
+            totalLength={table.getPreFilteredRowModel().rows.length}
+          />
+        </div>
+      )}
     </div>
-  )
+    :
+    <div className="flex flex-1 flex-col justify-center place-content-center content-center items-center overflow-hidden">
+      Данные отсутствуют
+    </div>
 }
 
 export default memo(Grid);

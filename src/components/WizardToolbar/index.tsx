@@ -1,8 +1,5 @@
-import clsx from "clsx";
-import { stat } from "fs";
-import { useState } from "react";
+import React from "react";
 import { useSelector } from "react-redux";
-import { useLocation, useNavigate } from "react-router-dom"
 
 import { useAppDispatch } from "../../hooks/hooks";
 import { RootState } from "../../store";
@@ -36,7 +33,6 @@ const WizardToolbar = () => {
     if (procced) {
       dispatch(clearWizardState())
       dispatch(goToStep(0));
-      // navigate("/", { replace: true });
     }
   }
 
