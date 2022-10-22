@@ -11,6 +11,7 @@ export const nomenclatureColumns = [
   // }),
   columnHelper.accessor('item_id', {
     header: 'Номер',
+    size: 50,
     cell: info => info.getValue(),
   }),
   columnHelper.accessor('item_desc', {
