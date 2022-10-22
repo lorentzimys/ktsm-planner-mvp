@@ -3,13 +3,8 @@ import { apiRoutes } from '../api';
 
 export type FetchStatus = 'idle' | 'pending' | 'fulfilled' | 'rejected';
 
-export const FETCH_STATUS: Record<string, FetchStatus> = {
-  IDLE: 'idle',
-  PENDING: 'pending',
-  FULFILLED: 'fulfilled',
-  REJECTED: 'rejected'
-};
 export type WizardStepType = 'importData' | 'nomenclature' | 'operations' | 'resources' | 'plan';
+
 interface WizardStepItem {
   id: WizardStepType;
   value: string;
@@ -22,6 +17,41 @@ interface EquipmentItem {
   volume: number;
   isAvailable: boolean;
 }
+
+export interface WizardState {
+  steps: Array<WizardStepItem>;
+  currentStep: number,
+  nomenclature: {
+    data: Array<any> | null,
+    fileName: string | null
+  },
+  // nomenclatureFileName: string | null,
+  operations: {
+    data: Array<any> | null,
+    fileName: string | null
+  },
+  // operationsFileName: string | null,
+  equipment: {
+    status: FetchStatus,
+    items: Array<EquipmentItem> | null
+  };
+  plan: {
+    status: FetchStatus,
+    data: any,
+  },
+}
+
+type UploadAction<T = any[] | null> = {
+  data: T;
+  fileName: string;
+};
+
+export const FETCH_STATUS: Record<string, FetchStatus> = {
+  IDLE: 'idle',
+  PENDING: 'pending',
+  FULFILLED: 'fulfilled',
+  REJECTED: 'rejected'
+};
 
 export const WizardStep: Record<string, WizardStepItem> = {
   Import: {
@@ -46,31 +76,17 @@ export const WizardStep: Record<string, WizardStepItem> = {
   }
 }
 
-export interface WizardState {
-  steps: Array<WizardStepItem>;
-  currentStep: number,
-  nomenclature: Array<any> | null,
-  nomenclatureFileName: string | null,
-  operations: Array<any> | null,
-  operationsFileName: string | null,
-  equipment: {
-    status: FetchStatus,
-    items: Array<EquipmentItem> | null
-  };
-  plan: {
-    status: FetchStatus,
-    data: any,
-  },
-  planningAllowed: boolean,
-}
-
 const initialState: WizardState = {
   steps: Object.values(WizardStep),
   currentStep: 0,
-  nomenclature: null,
-  nomenclatureFileName: null,
-  operations: null,
-  operationsFileName: null,
+  nomenclature: {
+    data: null,
+    fileName: null,
+  },
+  operations:  {
+    data: null,
+    fileName: null,
+  },
   equipment: {
     status: 'idle',
     items: null
@@ -79,13 +95,7 @@ const initialState: WizardState = {
     status: 'idle',
     data: null
   },
-  planningAllowed: false
 };
-
-interface UploadAction {
-  data: any;
-  fileName: string;
-}
 
 export const fetchEquipment = createAsyncThunk(
   'wizard/equipment',
@@ -138,17 +148,21 @@ export const wizardSlice = createSlice({
       state.currentStep = action.payload;
     },
     uploadNomenclature: (state, action: PayloadAction<UploadAction>) => {
-      state.nomenclature = action.payload.data;
-      state.nomenclatureFileName = action.payload.fileName;
+      state.nomenclature = action.payload;
     },
     uploadOperations: (state, action: PayloadAction<UploadAction>) => {
-      state.operations = action.payload.data;
-      state.operationsFileName = action.payload.fileName;
+      state.operations = action.payload;
     },
     clearWizardState: (state) => {
       state.currentStep = 0;
-      state.nomenclature = null;
-      state.operations = null;
+      state.nomenclature = {
+        data: null,
+        fileName: null,
+      };
+      state.operations = {
+        data: null,
+        fileName: null
+      };
     },
   },
   extraReducers: (builder) => {

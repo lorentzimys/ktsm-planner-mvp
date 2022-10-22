@@ -1,5 +1,5 @@
 import clsx from 'clsx';
-import { useCallback, useEffect } from 'react';
+import { useCallback } from 'react';
 import { useSelector } from 'react-redux';
 import { UploadButton } from '../../components/UploadButton';
 import { useAppDispatch } from '../../hooks/hooks';
@@ -10,10 +10,10 @@ import { uploadNomenclature, uploadOperations } from '../../store/wizard/slice';
 
 const ImportNomenclaturePage = () => {
   const dispatch = useAppDispatch();
-  const nomenclatureLoaded = useSelector((state: RootState) => !!state.wizard.nomenclature);
-  const nomenclatureFileName = useSelector((state: RootState) => state.wizard.nomenclatureFileName);
-  const operationsLoaded = useSelector((state: RootState) => !!state.wizard.operations);
-  const operationsFileName = useSelector((state: RootState) => state.wizard.operationsFileName);
+  const nomenclatureLoaded = useSelector((state: RootState) => !!state.wizard.nomenclature.data);
+  const nomenclatureFileName = useSelector((state: RootState) => state.wizard.nomenclature.fileName);
+  const operationsLoaded = useSelector((state: RootState) => !!state.wizard.operations.data);
+  const operationsFileName = useSelector((state: RootState) => state.wizard.operations.fileName);
 
   const getUploadButtonCls = (loaded: boolean) => (
     clsx('text-center inline-block px-6 py-2.5 bg-blue-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out', {

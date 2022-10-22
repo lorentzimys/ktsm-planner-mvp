@@ -6,7 +6,7 @@ import { useAppDispatch } from "../../hooks/hooks";
 import { nextStep } from "../../store/wizard/slice";
 
 const OpeationsPage = () => {
-  const data = useSelector((state: RootState) => state.wizard.operations);
+  const data = useSelector((state: RootState) => state.wizard.operations.data);
   const dispatch = useAppDispatch();
 
   const handleSkipOperations = () => {
