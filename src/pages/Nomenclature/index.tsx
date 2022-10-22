@@ -1,17 +1,20 @@
-import ImportNomenclaturePage from "./Import";
-import Grid from "../../components/Grid";
-import { useSelector } from "react-redux";
-import { nomenclatureColumns } from "../../config/columnsConfig";
-import { RootState } from "../../store";
 import { useCallback } from "react";
+import { useSelector } from "react-redux";
 import { RowSelectionState } from "@tanstack/react-table";
-import { useAppDispatch } from "../../hooks/hooks";
+
+
+import { RootState } from "../../store";
 import { changeNomenclatureSelection } from "../../store/wizard/slice";
+import { nomenclatureColumns } from "../../config/columnsConfig";
+import { useAppDispatch } from "../../hooks/hooks";
+import Grid from "../../components/Grid";
+import ImportNomenclaturePage from "./Import";
 
 const SelectNomenclaturePage = () => {
+  const dispatch = useAppDispatch();
   const data = useSelector((state: RootState) => state.wizard.nomenclature.data);
   const selection = useSelector((state: RootState) => state.wizard.nomenclature.selected);
-  const dispatch = useAppDispatch();
+  
   const handleRowSelectionChange = useCallback((rowSelection: RowSelectionState) => {
     dispatch(changeNomenclatureSelection(rowSelection));
   }, []);

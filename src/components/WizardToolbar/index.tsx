@@ -1,5 +1,3 @@
-import React from "react";
-import { Root } from "react-dom/client";
 import { useSelector } from "react-redux";
 
 import { useAppDispatch } from "../../hooks/hooks";

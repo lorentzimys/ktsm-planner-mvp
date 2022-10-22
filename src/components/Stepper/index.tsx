@@ -1,17 +1,16 @@
-import React from 'react';
-import clsx from 'clsx';
+import React, { useEffect } from 'react';
 import { useSelector } from 'react-redux';
-import { useAppDispatch } from '../../hooks/hooks';
-import { goToStep } from '../../store/wizard/slice';
+import { useLocation } from 'react-router-dom';
+import clsx from 'clsx';
+
+import { WizardStep, goToStep } from '../../store/wizard/slice';
 import {
   canProceedSelector,
   currentStepSelector,
   stepsSelector
 } from '../../store/wizard/selectors';
 
-import { WizardStep } from '../../store/wizard/slice'; 
-import { useLocation } from 'react-router-dom';
-import { useEffect } from 'react';
+import { useAppDispatch } from '../../hooks/hooks';
 
 export const Stepper = React.memo(() => {
   const dispatch = useAppDispatch();

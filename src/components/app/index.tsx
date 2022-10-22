@@ -44,7 +44,6 @@ const App = () => (
         path={`/plan/${WizardStep.Plan.id}`}
         element={<PlanningPage />}
       />
-      {/* <Route path="*" element={<ErrorPage />} /> */}
       {/* <Redirect to="/plan/nomenclature" /> */}
     </Route>
   </Routes>

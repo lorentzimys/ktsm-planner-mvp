@@ -1,19 +1,19 @@
-import Grid from "../../components/Grid";
 import { useSelector } from "react-redux";
-import { operationsColumns } from "../../config/columnsConfig";
+
 import { RootState } from "../../store";
-import { useAppDispatch } from "../../hooks/hooks";
 import { nextStep } from "../../store/wizard/slice";
+import { operationsColumns } from "../../config/columnsConfig";
+import { useAppDispatch } from "../../hooks/hooks";
+import Grid from "../../components/Grid";
 
 const OpeationsPage = () => {
-  const data = useSelector((state: RootState) => state.wizard.operations.data);
   const dispatch = useAppDispatch();
+  const data = useSelector((state: RootState) => state.wizard.operations.data);
 
   const handleSkipOperations = () => {
     dispatch(nextStep());
   }
 
-  console.log(data);
   return (
     <div className='flex flex-1 overflow-hidden m-8 border shadow-sm'>
       {data ? (

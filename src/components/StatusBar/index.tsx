@@ -1,59 +1,22 @@
-import React, { memo, useRef, useCallback, useEffect, useState } from "react";
-import { useAppDispatch } from '../../hooks/hooks';
-import { uploadData } from './../../store/dataSlice';
+import { useRef, useCallback, useState } from "react";
 import MonacoEditor from 'react-monaco-editor';
+import { useAppDispatch } from '../../hooks/hooks';
 import clsx from 'clsx';
 
 import importFile from "../../mocks/import.json";
 
 import './index.scss';
 
-console.log(JSON);
-
 export const StatusBar = () => {
+  const dispatch = useAppDispatch();
   const fileInputRef = useRef<HTMLInputElement>(null);
   const [file, setFile] = useState<File | null>(null);
-  const dispatch = useAppDispatch();
   const [statusBarOpen, setStatusBarOpen] = useState<boolean>(true);
 
   const handleToggleStatusBar = useCallback(() => {
     console.log(statusBarOpen)
     setStatusBarOpen(!statusBarOpen);
   }, [statusBarOpen]);
-
-  // const onFileChanged = useCallback(e => {
-  //   setFile(e.target.files[0]);
-  // }, []);
-
-  // const handleFileUpload = useCallback(() => {
-  //   if (fileInputRef.current) {
-  //     fileInputRef.current.click();
-  //   }
-  // }, [fileInputRef]);
-
-  // useEffect(() => {
-  //   if (file) {
-  //     const filereader = new FileReader();
-  //     filereader.onload = e => {
-  //       const data = JSON.parse(e.target?.result as string);
-  //       dispatch(uploadData(data));
-  //     };
-  //     filereader.readAsText(file as Blob);
-  //   }
-  // }, [file]);
-
-  // const UploadButton = memo(() => (
-  //   <>
-  //     <input
-  //       ref={fileInputRef}
-  //       type="file"
-  //       accept="json"
-  //       style={{ display: 'none' }}
-  //       onChange={onFileChanged}
-  //     />
-  //     <button className='button' onClick={handleFileUpload}>Импорт .json</button>
-  //   </>
-  // ));
 
   return (
     <div className={
@@ -88,9 +51,6 @@ export const StatusBar = () => {
         // editorDidMount={::this.editorDidMount}
         />
       </div>
-      {/* <UploadButton /> */}
-      {/* <button className='button' onClick={handleRefresh}>Обновить партии</button> */}
-      {/* <button className='button flex ml-auto' onClick={handlePlan}>Запустить планирование</button> */}
     </div>
   );
 }

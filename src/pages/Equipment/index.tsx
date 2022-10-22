@@ -1,6 +1,7 @@
 import React, { useCallback } from "react";
 import { useEffect } from "react";
 import { useSelector } from "react-redux"
+import { RowSelectionState } from "@tanstack/react-table";
 
 import { resourcesColumns } from "../../config/columnsConfig";
 
@@ -10,7 +11,6 @@ import { changeEquipmentSelection, fetchEquipment, FETCH_STATUS } from "../../st
 import { useAppDispatch } from "../../hooks/hooks";
 
 import Grid from "../../components/Grid";
-import { RowSelectionState } from "@tanstack/react-table";
 
 const wrapperClassNames = "flex flex-1 flex-col justify-center place-content-center content-center items-center overflow-hidden m-8 border shadow-sm";
 
