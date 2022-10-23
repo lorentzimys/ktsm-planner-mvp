@@ -15,6 +15,7 @@ import './index.css';
 
 interface VisGanttProps {
   data: {
+    totalTime: string | null,
     groups: TimelineGroup[],
     items: TimelineItem[],
     legendItems: TimelineGroup[],
@@ -56,23 +57,31 @@ export const VisGantt = ({ data } : VisGanttProps) => {
   }
   const legendVisible = useSelector((state: RootState) => state.wizard.plan.showLegend);
 
-  const legendClassNames = clsx('p-4 w-2/12 overflow-hidden relative h-full collapse collapse-horizontal', {
+  const legendClassNames = clsx('p-4 w-2/12 overflow-hidden relative h-full collapse collapse-horizontal bg-neutral-200 shadow-sm', {
     'show': legendVisible
   });
 
   return (
-    <div className='flex flex-row flex-1'>
-      <div className='flex flex-col flex-1'>
-        <div className='p-2 flex flex-row gap-4 items-middle'>
-          <PlanVariantSelect />
-          <ToggleLegendButton />
+    <div className='flex flex-1 flex-col'>
+      <div className='flex flex-row flex-1'>
+        <div className='flex flex-col flex-1'>
+          <div className='w-full block h-full timeline__container'>
+            <Timeline options={defaultOptions} items={data.items} groups={data.groups} />
+          </div>
         </div>
-        <div className='w-full block h-full timeline__container'>
-          <Timeline options={defaultOptions} items={data.items} groups={data.groups} />
+        <div className={legendClassNames}>
+          <TimelineLegend items={data.legendItems} />
         </div>
       </div>
-      <div className={legendClassNames}>
-        <TimelineLegend items={data.legendItems} />
+      <div className='flex flex-row justify-between items-center bg-neutral-100'>
+          <div className='p-2 flex flex-row gap-4 items-middle'>
+            <PlanVariantSelect />
+            <ToggleLegendButton />
+          </div>
+          <div className='text-xs flex flex-row gap-1 my-1 mx-4 text-right items-center shadow-sm'>
+            Время планирования:<br/>
+            {data.totalTime}
+          </div>
       </div>
     </div>
   );

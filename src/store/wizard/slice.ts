@@ -47,6 +47,7 @@ export interface WizardState {
     showLegend: boolean,
     status: FetchStatus,
     data: {
+      totalTime: string | null,
       groups: TimelineGroup[],
       items: TimelineItem[],
       legendItems: TimelineGroup[],
@@ -159,11 +160,12 @@ export const runPlan = createAsyncThunk(
     
     if (response.ok) {
       // return schedulerData[0].Schedule;
-      return responseJson.map(({ groups, items, legendItems, table }) => ({
+      return responseJson.map(({ groups, items, legendItems, table, cost }) => ({
         groups,
         items,
         legendItems: legendItems,
-        table: table || []
+        table: table || [],
+        totalTime: cost.totalTime
       }));
     }
     //return schedulerData;

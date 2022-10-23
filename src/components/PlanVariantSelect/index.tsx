@@ -13,8 +13,8 @@ export const PlanVariantSelect = () => {
   }
 
   return (
-    <div className="flex flex-row gap-2">
-      <label>Вариант плана</label>
+    <div className="flex flex-row gap-2 items-center">
+      <label className='text-xs'>Вариант плана</label>
       <select
         defaultValue={selectedVariant as number}
         onChange={handleVariantChange}
@@ -23,8 +23,7 @@ export const PlanVariantSelect = () => {
         block
         px-2
         py-1
-        text-sm
-        font-normal
+        text-xs
         text-gray-700
         bg-white bg-clip-padding bg-no-repeat
         border border-solid border-gray-300
