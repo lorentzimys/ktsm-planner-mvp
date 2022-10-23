@@ -10,6 +10,7 @@ export type FetchStatus = 'idle' | 'pending' | 'fulfilled' | 'rejected';
 
 export type WizardStepType = 'importData' | 'nomenclature' | 'operations' | 'resources' | 'plan';
 
+export type ViewVariant = 'timeline' | 'table';
 interface WizardStepItem {
   id: WizardStepType;
   value: string;
@@ -22,6 +23,8 @@ interface EquipmentItem {
   volume: number;
   isAvailable: boolean;
 }
+
+
 
 export interface WizardState {
   steps: Array<WizardStepItem>;
@@ -43,6 +46,7 @@ export interface WizardState {
     selected: RowSelectionState,
   };
   plan: {
+    viewVariant: ViewVariant;
     selectedPlan: number | null,
     showLegend: boolean,
     status: FetchStatus,
@@ -109,6 +113,7 @@ const initialState: WizardState = {
     selected: {},
   },
   plan: {
+    viewVariant: 'timeline',
     selectedPlan: null,
     showLegend: false,
     status: 'idle',
@@ -231,6 +236,9 @@ export const wizardSlice = createSlice({
     },
     selectPlanVariant: (state, action) => {
       state.plan.selectedPlan = action.payload;
+    },
+    selectViewVariant: (state, action) => {
+      state.plan.viewVariant = action.payload;
     }
   },
   extraReducers: (builder) => {
@@ -273,5 +281,6 @@ export const {
   changeNomenclatureSelection,
   changeEquipmentSelection,
   toggleLegend,
-  selectPlanVariant
+  selectPlanVariant,
+  selectViewVariant
 } = wizardSlice.actions;

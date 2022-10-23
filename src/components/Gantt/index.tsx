@@ -6,6 +6,7 @@ import { TimelineGroup, TimelineItem } from 'vis';
 import { RootState } from '../../store';
 import { PlanVariantSelect } from '../PlanVariantSelect';
 import { ToggleLegendButton } from '../ToggleLegendButton';
+import { ViewVariantButtonGroup } from '../ViewVariantButtonGroup';
 
 import { ItemTemplate } from './components/ItemTemplate';
 import { TimelineLegend } from './components/TimelineLegend';
@@ -74,14 +75,17 @@ export const VisGantt = ({ data } : VisGanttProps) => {
         </div>
       </div>
       <div className='flex flex-row justify-between items-center bg-neutral-100'>
-          <div className='p-2 flex flex-row gap-4 items-middle'>
-            <PlanVariantSelect />
-            <ToggleLegendButton />
-          </div>
+        <div className='p-2 flex flex-row gap-4 items-middle'>
+          <ViewVariantButtonGroup />
+          <PlanVariantSelect />
+        </div>
+        <div className='flex flex-row gap-1'>
+          <ToggleLegendButton />
           <div className='text-xs flex flex-row gap-1 my-1 mx-4 text-right items-center shadow-sm'>
             Время планирования:<br/>
             {data.totalTime}
           </div>
+        </div>
       </div>
     </div>
   );

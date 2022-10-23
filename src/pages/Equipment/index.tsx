@@ -12,7 +12,7 @@ import { useAppDispatch } from "../../hooks/hooks";
 
 import Grid from "../../components/Grid";
 
-const wrapperClassNames = "flex flex-1 flex-col justify-center place-content-center content-center items-center overflow-hidden m-8 border shadow-sm";
+const wrapperClassNames = "flex flex-1 flex-col justify-center place-content-center content-center items-center overflow-hidden m-8";
 
 export const EquipmentPage = React.memo(() => {
   const dispatch = useAppDispatch();

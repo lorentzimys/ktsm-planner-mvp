@@ -20,7 +20,7 @@ const SelectNomenclaturePage = () => {
   }, []);
 
   return (
-    <div className='flex flex-1 overflow-hidden m-8 border shadow-sm'>
+    <div className='flex flex-1 overflow-hidden m-8'>
       <Grid
         data={data}
         columnsConfig={nomenclatureColumns}
