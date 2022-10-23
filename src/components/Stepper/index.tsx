@@ -12,7 +12,7 @@ import {
 
 import { useAppDispatch } from '../../hooks/hooks';
 
-export const Stepper = React.memo(() => {
+export const Stepper = () => {
   const dispatch = useAppDispatch();
   const currentStep = useSelector(currentStepSelector);
   const steps = useSelector(stepsSelector);
@@ -60,4 +60,4 @@ export const Stepper = React.memo(() => {
       </ul>
     </nav>
   )
-})
+}
