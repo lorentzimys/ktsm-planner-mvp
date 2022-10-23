@@ -1,7 +1,95 @@
-.gantt {
-	&__button {
-		font-size: 12px;
-		@apply px-4 py-1 bg-blue-100 my-2;
-		@apply text-center inline-block px-6 py-2.5 bg-blue-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out;
+.timeline__container > div {
+	height: 100%;
+	.vis-labelset .vis-label {
+			font-size: 12px;
+			height: 46px;
 	}
+	.vis-item {
+		top: 2px !important;
+		height: 42px;
+	}
+	.vis-item.trip {
+		background-color: gray;
+	}
+
+	.vis-item.tripOperation {
+			background-color: yellow;
+	}
+
+	.vis-item.tripSleep {
+			background-color: magenta;
+	}
+
+	.vis-item.tripWait {
+			background-color: blue;
+	}
+
+	.vis-item.modelOper {
+			height: 50px;
+	}
+
+	.vis-item.modelAct {
+			z-index: 2;
+	}
+
+	.vis-item.modelActGenerated {
+			background-color: lightgray;
+	}
+
+	.vis-item.vis-selected {
+			z-index: 3;
+	}
+
+	.vis-item.service {
+			background-color: yellow;
+	}
+
+	.vis-item.storage {
+			background-color: #ссс;
+	}
+
+	.vis-item.redDistance {
+			background-color: lightpink;
+			text-align: left;
+	}
+
+	.vis-item.vis-background.light {
+			/*background: rgba(213,221,246,0.4);*/
+			/*background: none;*/
+	}
+
+	.vis-item.vis-background.task {
+			background: #006400;
+			border: 2px solid yellow;
+			z-index: 0;
+	}
+
+	.vis-item.vis-background.task_even {
+			background: #00ff00;
+			border: 2px solid yellow;
+			z-index: 0;
+	}
+
+	.vis-item.vis-background.oper {
+			background: none;
+			border: 1px solid #cd5c5c;
+			z-index: 1;
+	}
+
+	.vis-item.vis-background.oper_even {
+			background: none;
+			border: 1px solid #ff0000;
+			z-index: 1;
+	}
+
+	/* .vis-timeline {
+			overflow: visible;
+	} */
+
+	.vis-labelset .vis-label .vis-inner {
+			padding: 2px;
+	}
+	.vis-item .vis-item-content {
+			padding: 2px;
+}
 }

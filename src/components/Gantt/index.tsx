@@ -1,6 +1,17 @@
+import clsx from 'clsx';
+import { createRoot } from 'react-dom/client';
+import { useSelector } from 'react-redux';
 import Timeline from 'react-visjs-timeline';
 import { TimelineGroup, TimelineItem } from 'vis';
+import { RootState } from '../../store';
+import { PlanVariantSelect } from '../PlanVariantSelect';
+import { ToggleLegendButton } from '../ToggleLegendButton';
 
+import { ItemTemplate } from './components/ItemTemplate';
+import { TimelineLegend } from './components/TimelineLegend';
+// import { ViewMode, ViewSwitcher } from './components/ViewSwitcher';
+
+import './index.css';
 
 interface VisGanttProps {
   data: {
@@ -10,28 +21,57 @@ interface VisGanttProps {
   options?: any;
 };
 
-export const VisGantt = ({ data, options = undefined } : VisGanttProps) => {
+export const VisGantt = ({ data } : VisGanttProps) => {
 
   const defaultOptions = {
     width: '100%',
-    height: '600px',
+    height: '100%',
     stack: false,
+    stackSubgroups: false,
+    locale: 'ru',
     showMajorLabels: true,
     showCurrentTime: true,
+    verticalScroll: true,
+    horizontalScroll: true,
+    zoomKey: 'ctrlKey',
     zoomMin: 1000000,
-    type: 'background',
+    type: 'range',
+    orientation: {
+      axis: 'top',
+      item: 'top'
+    },
     format: {
       minorLabels: {
         minute: 'h:mma',
         hour: 'ha'
       }
     },
-    ...options
+    template: function (item: TimelineItem, element: HTMLElement) {
+        if (!item) { return }
+        
+        return createRoot(element).render(<ItemTemplate item={item} />);
+    },
   }
+  const legendVisible = useSelector((state: RootState) => state.wizard.plan.showLegend);
+
+  const legendClassNames = clsx('p-4 w-2/12 overflow-hidden relative h-full collapse collapse-horizontal', {
+    'show': legendVisible
+  });
 
   return (
-    <div className='w-full'>
-      <Timeline options={defaultOptions} items={data.items} groups={data.groups} />);
+    <div className='flex flex-row flex-1'>
+      <div className='flex flex-col flex-1'>
+        <div className='p-2 flex flex-row gap-4 items-middle'>
+          <PlanVariantSelect />
+          <ToggleLegendButton />
+        </div>
+        <div className='w-full block h-full timeline__container'>
+          <Timeline options={defaultOptions} items={data.items} groups={data.groups} />
+        </div>
+      </div>
+      <div className={legendClassNames}>
+        <TimelineLegend groups={data.groups} items={data.items} />
+      </div>
     </div>
   );
 }

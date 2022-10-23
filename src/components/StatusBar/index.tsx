@@ -5,7 +5,7 @@ import clsx from 'clsx';
 
 import importFile from "../../mocks/import.json";
 
-import './index.scss';
+import './index.css';
 
 export const StatusBar = () => {
   const dispatch = useAppDispatch();

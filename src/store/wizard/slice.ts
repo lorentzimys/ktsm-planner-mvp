@@ -43,11 +43,13 @@ export interface WizardState {
     selected: RowSelectionState,
   };
   plan: {
+    selectedPlan: number | null,
+    showLegend: boolean,
     status: FetchStatus,
     data: {
       groups: TimelineGroup[],
       items: TimelineItem[] 
-    },
+    }[],
   },
 }
 
@@ -104,11 +106,10 @@ const initialState: WizardState = {
     selected: {},
   },
   plan: {
+    selectedPlan: null,
+    showLegend: false,
     status: 'idle',
-    data: {
-      groups: [],
-      items: []
-    }
+    data: []
   },
 };
 
@@ -130,7 +131,6 @@ export const runPlan = createAsyncThunk(
   'wizard/runPlan',
   async (_, { rejectWithValue, getState }) => {
     const state = getState() as RootState;
-    console.log(at, state.wizard.nomenclature.data);
     const meterials = at(
       state.wizard.nomenclature.data || [],
       Object.keys(state.wizard.nomenclature.selected) as any
@@ -140,8 +140,7 @@ export const runPlan = createAsyncThunk(
       state.wizard.equipment.data || [],
       Object.keys(state.wizard.equipment.selected) as any
     );
-    return schedulerData[0].Schedule as any;
-    console.log(meterials, state.wizard.nomenclature.data, Object.keys(state.wizard.nomenclature.selected));
+    // return [schedulerData[0].Schedule as any];
     const response = (await fetch(apiRoutes.runPlan, {
       method: "post",
       headers: {
@@ -157,11 +156,14 @@ export const runPlan = createAsyncThunk(
     const responseJson = await response.json();
     
     if (response.ok) {
-      return schedulerData[0].Schedule;
-      //return responseJson;
+      // return schedulerData[0].Schedule;
+      return responseJson.map(({ groups, items }) => ({
+        groups,
+        items
+      }));
     }
-    return schedulerData;
-    //return rejectWithValue(responseJson);
+    //return schedulerData;
+    return rejectWithValue(responseJson);
   }
 )
 
@@ -216,15 +218,14 @@ export const wizardSlice = createSlice({
         data: null,
         selected: {},
       };
-      state.plan = {
-        status: 'idle',
-        data: {
-          groups: [],
-          items: []
-        },
-      };
+      state.plan = { ...initialState.plan as any };
     },
-
+    toggleLegend: (state, action) => {
+      state.plan.showLegend = action.payload;
+    },
+    selectPlanVariant: (state, action) => {
+      state.plan.selectedPlan = action.payload;
+    }
   },
   extraReducers: (builder) => {
     builder.addCase(fetchEquipment.pending, (state) => {
@@ -247,6 +248,7 @@ export const wizardSlice = createSlice({
     });
     builder.addCase(runPlan.fulfilled, (state, action) => {
       state.plan.data = action.payload;
+      state.plan.selectedPlan = 0;
       state.plan.status = FETCH_STATUS.FULFILLED;
     });
     builder.addCase(runPlan.rejected, (state) => {
@@ -264,4 +266,6 @@ export const {
   uploadOperations,
   changeNomenclatureSelection,
   changeEquipmentSelection,
+  toggleLegend,
+  selectPlanVariant
 } = wizardSlice.actions;

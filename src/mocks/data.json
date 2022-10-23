@@ -4,71 +4,122 @@
 			"groups": [
 				{
 					"id": "b31a0093-5c0a-4a41-98fa-5289fcf3ea88",
-					"content": "Реактор Рт 760 №1<br/>(1132)"
+					"content": "Реактор Рт 760 №1<br/>(1132)",
+					"styles": {
+						"backgroundColor": "rgba(56, 228, 108)"
+					}
 				},
 				{
 					"id": "8c4f37cc-9b53-4449-b536-50a1857b3607",
-					"content": "Реактор Рт 760 №2<br/>(1133)"
+					"content": "Реактор Рт 760 №2<br/>(1133)",
+					"styles": {
+						"backgroundColor": "rgba(56, 228, 108)"
+					}
 				},
 				{
 					"id": "45fe255b-ef12-43d5-b34e-289bc176c364",
-					"content": "Реактор Рт 760 №3<br/>(1134)"
+					"content": "Реактор Рт 760 №3<br/>(1134)",
+					"styles": {
+						"backgroundColor": "rgba(56, 228, 108)"
+					}
 				},
 				{
 					"id": "ccbca034-8cd0-4c04-8bc5-1c33377ba00c",
-					"content": "Реактор Рт 760 №4<br/>(1135)"
+					"content": "Реактор Рт 760 №4<br/>(1135)",
+					"styles": {
+						"backgroundColor": "rgba(56, 228, 108)"
+					}
 				},
 				{
 					"id": "f08063fc-8546-45ff-b9ff-e6ff5f637dd6",
-					"content": "Реактор Рт 760 №5<br/>(1136)"
+					"content": "Реактор Рт 760 №5<br/>(1136)",
+					"styles": {
+						"backgroundColor": "rgba(56, 228, 108)"
+					}
 				},
 				{
 					"id": "afc5cc9c-8360-4477-a939-f8c0e9843a26",
-					"content": "Реактор Рт 760 №6<br/>(1137)"
+					"content": "Реактор Рт 760 №6<br/>(1137)",
+					"styles": {
+						"backgroundColor": "rgba(56, 228, 108)"
+					}
 				},
 				{
 					"id": "06aa6a58-4025-42f6-9f1e-8460eab2b00b",
-					"content": "Емкость №2<br/>(1805)"
+					"content": "Емкость №2<br/>(1805)",
+					"styles": {
+						"backgroundColor": "rgba(56, 228, 108)"
+					}
 				},
 				{
 					"id": "072a6383-595a-472d-ac71-b69e568390c2",
-					"content": "Latham №1<br/>(1121)"
+					"content": "Latham №1<br/>(1121)",
+					"styles": {
+						"backgroundColor": "rgba(56, 228, 108)"
+					}
 				},
 				{
 					"id": "f31d5348-23f6-4a75-b781-b28077faf309",
-					"content": "Емкость 8<br/>(1810)"
+					"content": "Емкость 8<br/>(1810)",
+					"styles": {
+						"backgroundColor": "rgba(56, 228, 108)"
+					}
 				},
 				{
 					"id": "7fd6ed17-c0cd-4ce9-ae09-7b96e149f4ea",
-					"content": "Рт760 №1<br/>(1841)"
+					"content": "Рт760 №1<br/>(1841)",
+					"styles": {
+						"backgroundColor": "rgba(56, 228, 108)"
+					}
 				},
 				{
 					"id": "a5d36224-b546-4c3d-8baf-ccaaf6175d58",
-					"content": "Нутч фильтр 3<br/>(1821)"
+					"content": "Нутч фильтр 3<br/>(1821)",
+					"styles": {
+						"backgroundColor": "rgba(56, 228, 108)"
+					}
 				},
 				{
 					"id": "fc5be897-074a-4b8c-824e-ce9b41206d45",
-					"content": "Рт760 №3<br/>(1843)"
+					"content": "Рт760 №3<br/>(1843)",
+					"styles": {
+						"backgroundColor": "rgba(56, 228, 108)"
+					}
 				},
 				{
 					"id": "3b09e07e-71a4-478a-87b9-24dcc0203852",
-					"content": "Рт760 №4<br/>(1844)"
+					"content": "Рт760 №4<br/>(1844)",
+					"styles": {
+						"backgroundColor": "rgba(56, 228, 108)"
+					}
 				},
 				{
 					"id": "d78cb269-b022-42a9-b85b-974508533eca",
-					"content": "Нутч фильтр 7<br/>(1825)"
+					"content": "Нутч фильтр 7<br/>(1825)",
+					"styles": {
+						"backgroundColor": "rgba(56, 228, 108)"
+					}
 				},
 				{
 					"id": "db0f0618-c0a4-434d-a677-856c339fc017",
-					"content": "Нутч фильтр 8<br/>(1826)"
+					"content": "Нутч фильтр 8<br/>(1826)",
+					"styles": {
+						"backgroundColor": "rgba(56, 228, 108)"
+					}
 				},
 				{
 					"id": "f7a275c8-58e2-4b3f-b540-4c03b15e0a48",
-					"content": "Емкость 2<br/>(1852)"
+					"content": "Емкость 2<br/>(1852)",
+					"styles": {
+						"backgroundColor": "rgba(56, 228, 108)"
+					}
 				},
 				{
 					"id": "afc4b032-7a1b-4858-84ce-639164bf18ee",
-					"content": "Емкость 3<br/>(1854)"
+					"content": "Емкость 3<br/>(1854)",
+					"styles": {
+						"backgroundColor": "rgba(56, 228, 108)"
+					}
 				}
 			],
 			"items": [
