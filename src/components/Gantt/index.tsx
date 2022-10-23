@@ -17,6 +17,8 @@ interface VisGanttProps {
   data: {
     groups: TimelineGroup[],
     items: TimelineItem[],
+    legendItems: TimelineGroup[],
+    table: any;
   };
   options?: any;
 };
@@ -70,7 +72,7 @@ export const VisGantt = ({ data } : VisGanttProps) => {
         </div>
       </div>
       <div className={legendClassNames}>
-        <TimelineLegend groups={data.groups} items={data.items} />
+        <TimelineLegend items={data.legendItems} />
       </div>
     </div>
   );

@@ -44,9 +44,9 @@
 			background-color: yellow;
 	}
 
-	.vis-item.storage {
+	/* .vis-item.storage {
 			background-color: #ссс;
-	}
+	} */
 
 	.vis-item.redDistance {
 			background-color: lightpink;
@@ -91,5 +91,5 @@
 	}
 	.vis-item .vis-item-content {
 			padding: 2px;
-}
+	}
 }

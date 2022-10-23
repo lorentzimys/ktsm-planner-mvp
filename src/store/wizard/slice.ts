@@ -4,7 +4,7 @@ import { at } from 'lodash';
 import { RootState } from '..';
 import { apiRoutes } from '../api';
 
-import schedulerData from '../../mocks/data.json';
+// import schedulerData from '../../mocks/data.json';
 import { TimelineGroup, TimelineItem } from 'vis';
 export type FetchStatus = 'idle' | 'pending' | 'fulfilled' | 'rejected';
 
@@ -48,7 +48,9 @@ export interface WizardState {
     status: FetchStatus,
     data: {
       groups: TimelineGroup[],
-      items: TimelineItem[] 
+      items: TimelineItem[],
+      legendItems: TimelineGroup[],
+      table: any;
     }[],
   },
 }
@@ -109,7 +111,7 @@ const initialState: WizardState = {
     selectedPlan: null,
     showLegend: false,
     status: 'idle',
-    data: []
+    data: [],
   },
 };
 
@@ -157,9 +159,11 @@ export const runPlan = createAsyncThunk(
     
     if (response.ok) {
       // return schedulerData[0].Schedule;
-      return responseJson.map(({ groups, items }) => ({
+      return responseJson.map(({ groups, items, legendItems, table }) => ({
         groups,
-        items
+        items,
+        legendItems: legendItems,
+        table: table || []
       }));
     }
     //return schedulerData;

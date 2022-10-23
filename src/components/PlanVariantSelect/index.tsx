@@ -9,13 +9,14 @@ export const PlanVariantSelect = () => {
   const selectedVariant = useSelector((state: RootState) => state.wizard.plan.selectedPlan);
   const totalVatiants = useSelector((state: RootState) => state.wizard.plan.data.length);
   const handleVariantChange = (e) => {
-    dispatch(selectPlanVariant(+e.target.value));
+    dispatch(selectPlanVariant(e.target.value-1));
   }
 
   return (
     <div className="flex flex-row gap-2">
       <label>Вариант плана</label>
       <select
+        defaultValue={selectedVariant as number}
         onChange={handleVariantChange}
         className="form-select form-select-sm
         appearance-none
@@ -38,7 +39,6 @@ export const PlanVariantSelect = () => {
             <option
               key={i}
               value={i + 1}
-              selected={selectedVariant === i}
             >
               {i + 1}
             </option>
