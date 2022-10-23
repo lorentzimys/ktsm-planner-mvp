@@ -19,13 +19,13 @@ const WizardLayout = () => {
 
   return (
     <div className="flex flex-1 flex-col overflow-hidden">
-      <div className="shadow-sm shadow-gray-400 z-900">
+      <div className="shadow-sm shadow-gray-400 z-50">
         <Stepper />
       </div>
       <div className="flex flex-1 overflow-auto">
         <Outlet />
       </div>
-      <div className="shadow-md shadow-gray-600 z-900">
+      <div className="shadow-md shadow-gray-600 z-50">
         <WizardToolbar />
       </div>
     </div>
