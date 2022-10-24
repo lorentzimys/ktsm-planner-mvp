@@ -1,4 +1,5 @@
 import clsx from 'clsx';
+import { useEffect, useRef } from 'react';
 import { createRoot } from 'react-dom/client';
 import { useSelector } from 'react-redux';
 import Timeline from 'react-visjs-timeline';
@@ -24,7 +25,8 @@ interface VisGanttProps {
   options?: any;
 };
 
-export const VisGantt = ({ data } : VisGanttProps) => {
+export const VisGantt = ({ data }: VisGanttProps) => {
+  const ganttRef = useRef();
 
   const defaultOptions = {
     width: '100%',
@@ -62,12 +64,24 @@ export const VisGantt = ({ data } : VisGanttProps) => {
     'show': legendVisible
   });
 
+  const handleZoomOut = () => {
+    (ganttRef.current as any).$el.zoomOut(0.5);
+  }
+
+  const handleZoomIn = () => {
+    (ganttRef.current as any).$el.zoomIn(0.5);
+  }
+
+  useEffect(() => {
+    console.log(ganttRef);
+  }, [])
+
   return (
     <div className='flex flex-1 flex-col'>
       <div className='flex flex-row flex-1'>
         <div className='flex flex-col flex-1'>
           <div className='w-full block h-full timeline__container'>
-            <Timeline options={defaultOptions} items={data.items} groups={data.groups} />
+            <Timeline ref={ganttRef} options={defaultOptions} items={data.items} groups={data.groups} />
           </div>
         </div>
         <div className={legendClassNames}>
@@ -80,19 +94,23 @@ export const VisGantt = ({ data } : VisGanttProps) => {
           <PlanVariantSelect />
         </div>
         <div className='flex flex-row gap-2 justify-items-center align-middle'>
-          {/* <div className='flex flex-row justify-items-center align-middle mr-4'>
-            <button title='Уменьшить масштаб' className='inline-block px-1 py-1 text-black-600 hover:text-blue-700  transition duration-150 ease-in-out'>
+          <div className='flex flex-row justify-items-center align-middle mr-4'>
+            <button
+              onClick={handleZoomOut}
+              title='Уменьшить масштаб' className='inline-block px-1 py-1 text-black-600 hover:text-blue-700  transition duration-150 ease-in-out'>
               <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-5 h-5">
                 <path strokeLinecap="round" strokeLinejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607zM13.5 10.5h-6" />
               </svg>
             </button>
-            <button title='Увеличить масштаб' className='inline-block px-1 py-1 text-black-600 hover:text-blue-700  transition duration-150 ease-in-out'>
+            <button
+              onClick={handleZoomIn}
+              title='Увеличить масштаб' className='inline-block px-1 py-1 text-black-600 hover:text-blue-700  transition duration-150 ease-in-out'>
               <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-5 h-5">
                 <path strokeLinecap="round" strokeLinejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607zM10.5 7.5v6m3-3h-6" />
               </svg>
             </button>
 
-          </div> */}
+          </div>
           <ToggleLegendButton />
 
           <div className='text-xs flex flex-row gap-1 my-1 mx-4 text-right items-center shadow-sm'>

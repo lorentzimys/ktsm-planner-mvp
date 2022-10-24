@@ -24,8 +24,6 @@ interface EquipmentItem {
   isAvailable: boolean;
 }
 
-
-
 export interface WizardState {
   steps: Array<WizardStepItem>;
   currentStep: number,
@@ -148,6 +146,8 @@ export const runPlan = createAsyncThunk(
       state.wizard.equipment.data || [],
       Object.keys(state.wizard.equipment.selected) as any
     );
+
+    
     // return [schedulerData[0].Schedule as any];
     const response = (await fetch(apiRoutes.runPlan, {
       method: "post",
@@ -157,7 +157,8 @@ export const runPlan = createAsyncThunk(
       },
       body: JSON.stringify({
         Materials: meterials,
-        Resources: resources
+        Resources: resources,
+        
       })
     }));
 
