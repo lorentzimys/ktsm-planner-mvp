@@ -67,6 +67,90 @@ export const nomenclatureColumns = [
     cell: info => info.getValue(),
     header: '% Pd в партии',
   }),
+  columnHelper.accessor("Pd", {
+    cell: info => info.getValue(),
+    header: "Pd"
+  }),
+  columnHelper.accessor("Pd_HCH", {
+    cell: info => info.getValue(),
+    header: "Pd_HCH"
+  }),
+  columnHelper.accessor("Rh", {
+    cell: info => info.getValue(),
+    header: "Rh"
+  }),
+  columnHelper.accessor("Rh_HCH", {
+    cell: info => info.getValue(),
+    header: "Rh_HCH"
+  }),
+  columnHelper.accessor("Ir", {
+    cell: info => info.getValue(),
+    header: "Ir"
+  }),
+  columnHelper.accessor("Ir_HCH", {
+    cell: info => info.getValue(),
+    header: "Ir_HCH"
+  }),
+  columnHelper.accessor("Ru", {
+    cell: info => info.getValue(),
+    header: "Ru"
+  }),
+  columnHelper.accessor("Ru_HCH", {
+    cell: info => info.getValue(),
+    header: "Ru_HCH"
+  }),
+  columnHelper.accessor("Os", {
+    cell: info => info.getValue(),
+    header: "Os"
+  }),
+  columnHelper.accessor("Os_HCH", {
+    cell: info => info.getValue(),
+    header: "Os_HCH"
+  }),
+  columnHelper.accessor("Au", {
+    cell: info => info.getValue(),
+    header: "Au"
+  }),
+  columnHelper.accessor("Au_HCH", {
+    cell: info => info.getValue(),
+    header: "Au_HCH"
+  }),
+  columnHelper.accessor("Ag", {
+    cell: info => info.getValue(),
+    header: "Ag"
+  }),
+  columnHelper.accessor("Ag_HCH", {
+    cell: info => info.getValue(),
+    header: "Ag_HCH"
+  }),
+  columnHelper.accessor("Re", {
+    cell: info => info.getValue(),
+    header: "Re"
+  }),
+  columnHelper.accessor("Re_HCH", {
+    cell: info => info.getValue(),
+    header: "Re_HCH"
+  }),
+  columnHelper.accessor("Fe", {
+    cell: info => info.getValue(),
+    header: "Fe"
+  }),
+  columnHelper.accessor("Fe_HCH", {
+    cell: info => info.getValue(),
+    header: "Fe_HCH"
+  }),
+  columnHelper.accessor("Chloride", {
+    cell: info => info.getValue(),
+    header: "Chloride"
+  }),
+  columnHelper.accessor("Chloride_HCH", {
+    cell: info => info.getValue(),
+    header: "Chloride_HCH"
+  }),
+  columnHelper.accessor("type_result", {
+    cell: info => info.getValue(),
+    header: "type_result"
+  }),
   // columnHelper.accessor('weight', {
   //   cell: info => info.getValue(),
   //   header: 'масса/объем',
