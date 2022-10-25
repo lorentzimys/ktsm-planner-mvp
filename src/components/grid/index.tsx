@@ -86,7 +86,7 @@ const Grid = ({
     onRowSelectionChange: setRowSelection,
     getCoreRowModel: getCoreRowModel(),
     getFilteredRowModel: getFilteredRowModel(),
-    getPaginationRowModel: getPaginationRowModel(),
+    // getPaginationRowModel: getPaginationRowModel(),
   });
 
   useEffect(() => {
@@ -133,7 +133,7 @@ const Grid = ({
             ))}
           </thead>
           <tbody className="table__body">
-            {table.getRowModel().rows.map((row, i) => (
+            {table.getRowModel().flatRows.map((row, i) => (
               <tr  className="table__body-row" key={i}>
                 {row.getVisibleCells().map((cell, i) => (
                   <td
