@@ -1,8 +1,8 @@
 import { useSelector } from "react-redux";
 
 import { useAppDispatch } from "../../hooks/hooks";
-import { RootState } from "../../store";
-import { canProceedSelector, currentStepSelector as currStep } from "../../store/wizard/selectors";
+import { RootState } from "@/store";
+import { canProceedSelector, currentStepSelector as currStep } from "@store/selectors";
 
 import {
   prevStep,
@@ -10,15 +10,15 @@ import {
   clearWizardState,
   goToStep,
   runPlan
-} from "../../store/wizard/slice";
+} from "@store/slice";
 
 const WizardToolbar = () => {
   const dispatch = useAppDispatch();
-  const planningAllowed = useSelector((state: RootState) => state.wizard.nomenclature);
-  const planningStatus = useSelector((state: RootState) => state.wizard.plan.status);
+  const planningAllowed = useSelector((state: RootState) => state.nomenclature);
+  const planningStatus = useSelector((state: RootState) => state.plan.status);
   const currentStep = useSelector(currStep);
   const prevText = useSelector((state: RootState) => {
-    const currentStep = state.wizard.currentStep;
+    const currentStep = state.currentStep;
     if (currentStep < 1) {
       return 'Заново';
     } else {

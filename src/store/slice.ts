@@ -1,8 +1,9 @@
 import { createAsyncThunk, createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { RowSelectionState } from '@tanstack/react-table';
 import { at } from 'lodash';
-import { RootState } from '..';
-import { apiRoutes } from '../api';
+import { RootState } from './index';
+import { apiRoutes } from '@utils/api';
+
 
 // import schedulerData from '../../mocks/data.json';
 import { TimelineGroup, TimelineItem } from 'vis';
@@ -138,13 +139,13 @@ export const runPlan = createAsyncThunk(
   async (_, { rejectWithValue, getState }) => {
     const state = getState() as RootState;
     const meterials = at(
-      state.wizard.nomenclature.data || [],
-      Object.keys(state.wizard.nomenclature.selected) as any
+      state.nomenclature.data || [],
+      Object.keys(state.nomenclature.selected) as any
     );
 
     const resources = at(
-      state.wizard.equipment.data || [],
-      Object.keys(state.wizard.equipment.selected) as any
+      state.equipment.data || [],
+      Object.keys(state.equipment.selected) as any
     );
 
     
@@ -179,7 +180,7 @@ export const runPlan = createAsyncThunk(
   }
 )
 
-export const wizardSlice = createSlice({
+export const appSlice = createSlice({
   name: 'wizard',
   initialState,
   reducers: {
@@ -284,4 +285,4 @@ export const {
   toggleLegend,
   selectPlanVariant,
   selectViewVariant
-} = wizardSlice.actions;
+} = appSlice.actions;

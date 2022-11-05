@@ -4,7 +4,7 @@ import { RowSelectionState } from "@tanstack/react-table";
 
 
 import { RootState } from "../../store";
-import { changeNomenclatureSelection } from "../../store/wizard/slice";
+import { changeNomenclatureSelection } from "@store/slice";
 import { nomenclatureColumns } from "../../config/columnsConfig";
 import { useAppDispatch } from "../../hooks/hooks";
 import Grid from "../../components/Grid";
@@ -12,8 +12,8 @@ import ImportNomenclaturePage from "./Import";
 
 const SelectNomenclaturePage = () => {
   const dispatch = useAppDispatch();
-  const data = useSelector((state: RootState) => state.wizard.nomenclature.data);
-  const selection = useSelector((state: RootState) => state.wizard.nomenclature.selected);
+  const data = useSelector((state: RootState) => state.nomenclature.data);
+  const selection = useSelector((state: RootState) => state.nomenclature.selected);
   
   const handleRowSelectionChange = useCallback((rowSelection: RowSelectionState) => {
     dispatch(changeNomenclatureSelection(rowSelection));

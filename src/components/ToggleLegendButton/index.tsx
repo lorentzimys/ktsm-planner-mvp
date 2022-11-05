@@ -1,13 +1,13 @@
 import { useSelector } from "react-redux";
 import { useAppDispatch } from "../../hooks/hooks"
-import { RootState } from "../../store";
-import { toggleLegend } from "../../store/wizard/slice";
+import { RootState } from "@/store";
+import { toggleLegend } from "@store/slice";
 
 interface ToggleLegendButtonProps {}
 
 export const ToggleLegendButton = (props: ToggleLegendButtonProps) => { 
   const dispatch = useAppDispatch();
-  const legendEnabled = useSelector((state: RootState) => state.wizard.plan.showLegend);
+  const legendEnabled = useSelector((state: RootState) => state.plan.showLegend);
 
   const handleLegendToggle = (e) => {
     dispatch(toggleLegend(e.target.checked));

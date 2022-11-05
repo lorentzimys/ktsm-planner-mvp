@@ -1,12 +1,12 @@
 import clsx from "clsx";
 import { useSelector } from "react-redux";
 import { useAppDispatch } from "../../hooks/hooks";
-import { RootState } from "../../store";
-import { selectViewVariant, ViewVariant } from '../../store/wizard/slice';
+import { RootState } from "@/store";
+import { selectViewVariant, ViewVariant } from '@store/slice';
 
 export const ViewVariantButtonGroup = () => {
   const dispatch = useAppDispatch();
-  const viewVariant = useSelector((state: RootState) => state.wizard.plan.viewVariant);
+  const viewVariant = useSelector((state: RootState) => state.plan.viewVariant);
   const handleViewVariantChange = (type: ViewVariant) => {
     dispatch(selectViewVariant(type));
   }

@@ -187,6 +187,9 @@ module.exports = function (webpackEnv) {
     return loaders;
   };
 
+  const appDirectory = fs.realpathSync(process.cwd());
+  const resolveApp = relativePath => path.resolve(appDirectory, relativePath);
+
   return {
     target: ['browserslist'],
     // Webpack noise constrained to errors and warnings
@@ -320,6 +323,10 @@ module.exports = function (webpackEnv) {
           'scheduler/tracing': 'scheduler/tracing-profiling',
         }),
         ...(modules.webpackAliases || {}),
+        '@': resolveApp('src'),
+        '@components': resolveApp('src/components'),
+        '@store': resolveApp('src/store'),
+        '@utils': resolveApp('src/utils'),
       },
       plugins: [
         // Prevents users from importing files from outside of src/ (or node_modules/).

@@ -1,13 +1,13 @@
 import { times } from "lodash";
 import { useSelector } from "react-redux";
 import { useAppDispatch } from "../../hooks/hooks";
-import { RootState } from "../../store";
-import { selectPlanVariant } from "../../store/wizard/slice";
+import { RootState } from "@/store";
+import { selectPlanVariant } from "@store/slice";
 
 export const PlanVariantSelect = () => {
   const dispatch = useAppDispatch();
-  const selectedVariant = useSelector((state: RootState) => state.wizard.plan.selectedPlan);
-  const totalVatiants = useSelector((state: RootState) => state.wizard.plan.data.length);
+  const selectedVariant = useSelector((state: RootState) => state.plan.selectedPlan);
+  const totalVatiants = useSelector((state: RootState) => state.plan.data.length);
   const handleVariantChange = (e) => {
     dispatch(selectPlanVariant(e.target.value-1));
   }

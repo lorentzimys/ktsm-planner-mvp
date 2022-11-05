@@ -3,15 +3,16 @@ import { useEffect } from "react";
 import { useSelector } from "react-redux";
 import { Outlet, useNavigate } from "react-router-dom"
 
-import { WizardStep } from "../../store/wizard/slice";
+import { WizardStep } from "@store/slice";
 
-import { Stepper } from "../../components/Stepper";
-import WizardToolbar from "../../components/WizardToolbar";
+import { Stepper } from "@components/Stepper";
+import WizardToolbar from "@components/WizardToolbar";
+import { RootState } from "@/store";
 
 
 const WizardLayout = () => {
   const navigate = useNavigate();
-  const currentStep = useSelector(({ wizard }: any) => wizard.currentStep);
+  const currentStep = useSelector((state: RootState) => state.currentStep);
   
   useEffect(() => {
     navigate(`/plan/${Object.values(WizardStep)[currentStep].id}`);

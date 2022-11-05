@@ -1,7 +1,7 @@
 import { useSelector } from "react-redux";
 
 import { RootState } from "../../store";
-import { nextStep, uploadOperations } from "../../store/wizard/slice";
+import { nextStep, uploadOperations } from "@store/slice";
 import { operationsColumns } from "../../config/columnsConfig";
 import { useAppDispatch } from "../../hooks/hooks";
 import Grid from "../../components/Grid";
@@ -11,9 +11,9 @@ import clsx from "clsx";
 
 const OpeationsPage = () => {
   const dispatch = useAppDispatch();
-  const data = useSelector((state: RootState) => state.wizard.operations.data);
-  const operationsLoaded = useSelector((state: RootState) => !!state.wizard.operations.data);
-  const operationsFileName = useSelector((state: RootState) => state.wizard.operations.fileName);
+  const data = useSelector((state: RootState) => state.operations.data);
+  const operationsLoaded = useSelector((state: RootState) => !!state.operations.data);
+  const operationsFileName = useSelector((state: RootState) => state.operations.fileName);
   const handleUploadOperations = useCallback(e => {
     dispatch(
       uploadOperations({

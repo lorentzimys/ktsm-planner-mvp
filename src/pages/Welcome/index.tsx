@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-import { WizardStep } from "../../store/wizard/slice";
+import { WizardStep } from "@store/slice";
 
 const WelcomePage = () => (
   <div className="flex flex-1 flex-col justify-center place-content-center content-center items-center">

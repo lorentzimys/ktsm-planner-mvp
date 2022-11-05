@@ -3,12 +3,12 @@ import { useSelector } from 'react-redux';
 import { useLocation } from 'react-router-dom';
 import clsx from 'clsx';
 
-import { WizardStep, goToStep } from '../../store/wizard/slice';
+import { WizardStep, goToStep } from '@store/slice';
 import {
   canProceedSelector,
   currentStepSelector,
   stepsSelector
-} from '../../store/wizard/selectors';
+} from '@store/selectors';
 
 import { useAppDispatch } from '../../hooks/hooks';
 
@@ -49,10 +49,6 @@ export const Stepper = () => {
                     <span>{step.value}</span>
                   </span>
                 </div>
-                {/* <div className="stepper-content">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-                  magna aliqua.
-                </div> */}
               </div>
             )
           })

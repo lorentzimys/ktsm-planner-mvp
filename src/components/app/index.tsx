@@ -12,7 +12,7 @@ import {
 import OpeationsPage from '../../pages/Operations';
 import { EquipmentPage } from '../../pages/Equipment';
 
-import { WizardStep } from '../../store/wizard/slice';
+import { WizardStep } from '@store/slice';
 
 import './index.css';
 

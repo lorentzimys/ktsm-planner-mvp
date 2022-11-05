@@ -7,16 +7,17 @@ import Grid from "../../components/Grid";
 import { resourcesColumns } from "../../config/columnsConfig";
 import { ViewVariantButtonGroup } from "../../components/ViewVariantButtonGroup";
 import { PlanVariantSelect } from "../../components/PlanVariantSelect";
+import { ViewVariantDropdown } from "../../components/ViewVariantDropdown";
 
 const centerContentClassName = "flex flex-1 flex-col justify-center place-content-center content-center items-center overflow-hidden";
 
 export const PlanningPage = () => {
   const data = useSelector((state: RootState) => {
-    const selectedPlan = state.wizard.plan.selectedPlan as number;
-    return state.wizard.plan.data[selectedPlan]
+    const selectedPlan = state.plan.selectedPlan as number;
+    return state.plan.data[selectedPlan]
   });
-  const viewVariant = useSelector((state: RootState) => state.wizard.plan.viewVariant);
-  const planningStatus = useSelector((state: RootState) => state.wizard.plan.status);
+  const viewVariant = useSelector((state: RootState) => state.plan.viewVariant);
+  const planningStatus = useSelector((state: RootState) => state.plan.status);
 
   return (
     <div className="flex flex-1">
@@ -31,7 +32,8 @@ export const PlanningPage = () => {
               </div>
               <div className='flex flex-row justify-between items-center bg-neutral-100'>
                 <div className='p-2 flex flex-row gap-4 items-middle'>
-                  <ViewVariantButtonGroup />
+                  {/* <ViewVariantButtonGroup /> */}
+                  <ViewVariantDropdown />
                   <PlanVariantSelect />
                 </div>
               </div>

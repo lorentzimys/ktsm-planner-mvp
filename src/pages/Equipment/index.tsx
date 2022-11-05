@@ -6,7 +6,7 @@ import { RowSelectionState } from "@tanstack/react-table";
 import { resourcesColumns } from "../../config/columnsConfig";
 
 import { RootState } from "../../store"
-import { changeEquipmentSelection, fetchEquipment, FETCH_STATUS } from "../../store/wizard/slice";
+import { changeEquipmentSelection, fetchEquipment, FETCH_STATUS } from "@store/slice";
 
 import { useAppDispatch } from "../../hooks/hooks";
 
@@ -16,9 +16,9 @@ const wrapperClassNames = "flex flex-1 flex-col justify-center place-content-cen
 
 export const EquipmentPage = React.memo(() => {
   const dispatch = useAppDispatch();
-  const equipment = useSelector((state: RootState) => state.wizard.equipment.data);
-  const fetchStatus = useSelector((state: RootState) => state.wizard.equipment.status);
-  const selected = useSelector((state: RootState) => state.wizard.equipment.selected);
+  const equipment = useSelector((state: RootState) => state.equipment.data);
+  const fetchStatus = useSelector((state: RootState) => state.equipment.status);
+  const selected = useSelector((state: RootState) => state.equipment.selected);
   const handleRowSelectionChange = useCallback((rowSelection: RowSelectionState) => {
     dispatch(changeEquipmentSelection(rowSelection));
   }, []);

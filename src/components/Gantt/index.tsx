@@ -2,12 +2,14 @@ import clsx from 'clsx';
 import { useEffect, useRef } from 'react';
 import { createRoot } from 'react-dom/client';
 import { useSelector } from 'react-redux';
-import Timeline from 'react-visjs-timeline';
 import { TimelineGroup, TimelineItem } from 'vis';
-import { RootState } from '../../store';
-import { PlanVariantSelect } from '../PlanVariantSelect';
-import { ToggleLegendButton } from '../ToggleLegendButton';
-import { ViewVariantButtonGroup } from '../ViewVariantButtonGroup';
+import Timeline from 'react-visjs-timeline';
+
+import { RootState } from '@/store';
+import { PlanVariantSelect } from '@components/PlanVariantSelect';
+import { ToggleLegendButton } from '@components/ToggleLegendButton';
+import { ViewVariantButtonGroup } from '@components/ViewVariantButtonGroup';
+import { ViewVariantDropdown } from '@components/ViewVariantDropdown';
 
 import { ItemTemplate } from './components/ItemTemplate';
 import { TimelineLegend } from './components/TimelineLegend';
@@ -58,7 +60,7 @@ export const VisGantt = ({ data }: VisGanttProps) => {
         return createRoot(element).render(<ItemTemplate item={item} />);
     },
   }
-  const legendVisible = useSelector((state: RootState) => state.wizard.plan.showLegend);
+  const legendVisible = useSelector((state: RootState) => state.plan.showLegend);
 
   const legendClassNames = clsx('p-4 w-2/12 overflow-hidden relative h-full collapse collapse-horizontal bg-neutral-200 shadow-sm', {
     'show': legendVisible
@@ -91,6 +93,7 @@ export const VisGantt = ({ data }: VisGanttProps) => {
       <div className='flex flex-row justify-between items-center bg-neutral-100'>
         <div className='p-2 flex flex-row gap-4 items-middle'>
           <ViewVariantButtonGroup />
+          {/* <ViewVariantDropdown /> */}
           <PlanVariantSelect />
         </div>
         <div className='flex flex-row gap-2 justify-items-center align-middle'>
