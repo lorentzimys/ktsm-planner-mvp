@@ -2,7 +2,7 @@ import { get, find } from 'lodash'
 import { RootState } from '@/store';
 import { selectViewVariant, ViewVariant, ViewVariantValue } from '@/store/slice';
 import { useSelector } from "react-redux";
-import { useAppDispatch } from "../../hooks";
+import { useAppDispatch } from "../../hooks/hooks";
 
 import styles from './styles.module.css';
 
@@ -61,8 +61,7 @@ export const ViewVariantDropdown = () => {
     <div className="flex justify-center">
       <div className="dropdown relative">
         <button
-          className={`${styles.Button} dropdown-toggle `}
-          type="button"
+          className={`${styles.Button} dropdown-toggle`}
           id="dropdownMenuButton1"
           data-bs-toggle="dropdown"
           aria-expanded="false"

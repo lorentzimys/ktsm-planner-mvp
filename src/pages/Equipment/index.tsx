@@ -8,7 +8,7 @@ import { resourcesColumns } from "@config/columnsConfig";
 import { RootState } from "@store"
 import { changeEquipmentSelection, fetchEquipment, FETCH_STATUS } from "@store/slice";
 import Grid from "@components/Grid";
-import { useAppDispatch } from "@hooks";
+import { useAppDispatch } from "@hooks/hooks";
 
 const wrapperClassNames = "flex flex-1 flex-col justify-center place-content-center content-center items-center overflow-hidden m-8";
 

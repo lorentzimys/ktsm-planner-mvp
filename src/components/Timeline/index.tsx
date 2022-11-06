@@ -12,6 +12,9 @@ import { TimelineLegend } from './components/TimelineLegend';
 
 import './index.css';
 
+import moment from 'moment-with-locales-es6';
+
+moment.locale('ru');
 interface VisTimelineProps {
   data: {
     totalTime: string | null,
@@ -25,6 +28,7 @@ interface VisTimelineProps {
 
 export const VisTimeline = forwardRef<Timeline, VisTimelineProps>(({ data }: VisTimelineProps, ref) => {
   const defaultOptions = {
+    moment: moment,
     width: '100%',
     height: '100%',
     stack: false,
@@ -44,8 +48,8 @@ export const VisTimeline = forwardRef<Timeline, VisTimelineProps>(({ data }: Vis
     },
     format: {
       minorLabels: {
-        minute: 'h:mma',
-        hour: 'ha'
+        minute: 'H:M',
+        hour: 'HH'
       }
     },
     template: function (item: TimelineItem, element: HTMLElement) {

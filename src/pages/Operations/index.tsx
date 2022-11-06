@@ -7,7 +7,7 @@ import { UploadButton } from "@components/UploadButton";
 import Grid from "@components/Grid";
 
 import { operationsColumns } from "@config/columnsConfig";
-import { useAppDispatch } from "@hooks";
+import { useAppDispatch } from "@hooks/hooks";
 
 import styles from './styles.module.css';
 

@@ -5,7 +5,7 @@ import { Timeline } from "vis";
 import { RootState } from "@store";
 import { runPlan } from "@store/slice";
 
-import { useAppDispatch } from "@hooks";
+import { useAppDispatch } from "@hooks/hooks";
 import { createColumnsConfigFromKeys } from "@config/columnsConfig";
 
 import Grid from "@components/Grid";

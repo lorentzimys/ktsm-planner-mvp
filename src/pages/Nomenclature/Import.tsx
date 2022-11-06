@@ -6,7 +6,7 @@ import { RootState } from '@/store';
 import { uploadNomenclature, uploadOperations } from '@store/slice';
 import { UploadButton } from '@components/UploadButton';
 
-import { useAppDispatch } from '@hooks';
+import { useAppDispatch } from '@hooks/hooks';
 import imgUrl from '../../img/icons/json2.svg';
 
 import styles from './styles.module.css';

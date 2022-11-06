@@ -1,6 +1,6 @@
 import { times } from "lodash";
 import { useSelector } from "react-redux";
-import { useAppDispatch } from "../../hooks";
+import { useAppDispatch } from "../../hooks/hooks";
 import { RootState } from "@/store";
 import { selectPlanVariant } from "@store/slice";
 import styles from "./styles.module.css";

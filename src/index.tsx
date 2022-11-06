@@ -3,20 +3,15 @@ import { Provider } from 'react-redux';
 import { BrowserRouter } from "react-router-dom";
 import 'tw-elements';
 
-import { store } from './store';
+import App from '@components/App';
+import { store } from '@store';
 
 import reportWebVitals from './reportWebVitals';
 
 import './index.css';
-import App from './components/App';
-
-// import "moment/locale/ru";
-// import moment from 'moment';
-// moment.locale('ru');
 
 const container = document.getElementById('root')!;
 const root = createRoot(container);
-//console.log(moment);
 
 root.render(
   <Provider store={store}>
