@@ -1,8 +1,9 @@
 import { times } from "lodash";
 import { useSelector } from "react-redux";
-import { useAppDispatch } from "../../hooks/hooks";
+import { useAppDispatch } from "../../hooks";
 import { RootState } from "@/store";
 import { selectPlanVariant } from "@store/slice";
+import styles from "./styles.module.css";
 
 export const PlanVariantSelect = () => {
   const dispatch = useAppDispatch();
@@ -18,21 +19,9 @@ export const PlanVariantSelect = () => {
       <select
         defaultValue={selectedVariant as number}
         onChange={handleVariantChange}
-        className="form-select form-select-sm
-        appearance-none
-        block
-        px-2
-        py-1
-        text-xs
-        text-gray-700
-        bg-white bg-clip-padding bg-no-repeat
-        border border-solid border-gray-300
-        rounded
-        transition
-        ease-in-out
-        m-0
-        focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none w-12"
-        aria-label=".form-select-sm example">
+        className={`${styles.VariantSelect} form-select form-select-sm`}
+        aria-label=".form-select-sm example"
+      >
         {
           times(totalVatiants, i => (
             <option
@@ -43,7 +32,7 @@ export const PlanVariantSelect = () => {
             </option>
           ))
         }
-        </select>
+      </select>
     </div>
   );
 }

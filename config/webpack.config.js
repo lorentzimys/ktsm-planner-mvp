@@ -325,8 +325,11 @@ module.exports = function (webpackEnv) {
         ...(modules.webpackAliases || {}),
         '@': resolveApp('src'),
         '@components': resolveApp('src/components'),
+        '@pages': resolveApp('src/pages'),
         '@store': resolveApp('src/store'),
         '@utils': resolveApp('src/utils'),
+        '@hooks': resolveApp('src/hooks'),
+        '@config': resolveApp('src/config'),
       },
       plugins: [
         // Prevents users from importing files from outside of src/ (or node_modules/).

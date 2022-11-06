@@ -4,7 +4,6 @@ import {
   flexRender,
   getCoreRowModel,
   getFilteredRowModel,
-  getPaginationRowModel,
   RowSelectionState,
   useReactTable,
 } from '@tanstack/react-table'
@@ -37,6 +36,12 @@ const Grid = ({
   const [rowSelection, setRowSelection] = React.useState(
     useSelection && typeof useSelection === 'object' ? useSelection.selectionState : {}
   );
+
+  const emptyData = (
+    <div className="flex-col page-content--center overflow-hidden">
+      Данные отсутствуют
+    </div>
+  )
 
   const createColumns = () => {
     let columns = [...columnsConfig];
@@ -97,7 +102,7 @@ const Grid = ({
 
   return data ?
     <div className="flex flex-1 flex-col overflow-hidden">
-      <div  className="flex flex-1 flex-col overflow-auto">
+      <div className="flex flex-1 flex-col overflow-auto border border-collapse border-gray-400">
         <table className="table table--striped">
           <thead className="table__header">
             {table.getHeaderGroups().map((headerGroup, i) => (
@@ -134,7 +139,7 @@ const Grid = ({
           </thead>
           <tbody className="table__body">
             {table.getRowModel().flatRows.map((row, i) => (
-              <tr  className="table__body-row" key={i}>
+              <tr className="table__body-row" key={i}>
                 {row.getVisibleCells().map((cell, i) => (
                   <td
                     {
@@ -153,6 +158,7 @@ const Grid = ({
               </tr>
             ))}
           </tbody>
+        
           {/* <tfoot>
             {table.getFooterGroups().map((footerGroup, i) => (
               <tr key={i}>
@@ -170,6 +176,9 @@ const Grid = ({
             ))}
           </tfoot> */}
         </table>
+        {
+          data.length === 0 && emptyData 
+        }
       </div>
       {useSelection && (
         <div className="flex gap-2 py-1 px-2">
@@ -180,10 +189,8 @@ const Grid = ({
         </div>
       )}
     </div>
-    :
-    <div className="flex flex-1 flex-col justify-center place-content-center content-center items-center overflow-hidden">
-      Данные отсутствуют
-    </div>
+    : emptyData
+   
 }
 
 export default memo(Grid);

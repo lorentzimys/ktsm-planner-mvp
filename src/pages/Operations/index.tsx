@@ -1,21 +1,19 @@
 import { useCallback } from "react";
 import { useSelector } from "react-redux";
-import clsx from "clsx";
 
 import { RootState } from "@/store";
 import { nextStep, uploadOperations } from "@store/slice";
 import { UploadButton } from "@components/UploadButton";
 import Grid from "@components/Grid";
 
-import { operationsColumns } from "../../config/columnsConfig";
-import { useAppDispatch } from "../../hooks/hooks";
+import { operationsColumns } from "@config/columnsConfig";
+import { useAppDispatch } from "@hooks";
 
 import styles from './styles.module.css';
 
 const OpeationsPage = () => {
   const dispatch = useAppDispatch();
   const data = useSelector((state: RootState) => state.operations.data);
-  const operationsLoaded = useSelector((state: RootState) => !!state.operations.data);
   const handleUploadOperations = useCallback(e => {
     dispatch(
       uploadOperations({
@@ -35,7 +33,7 @@ const OpeationsPage = () => {
       <div className="flex flex-row gap-2">
         <UploadButton
           onUpload={handleUploadOperations}
-          className={clsx(styles.Button, { [styles.ButtonLoaded]: operationsLoaded })}
+          className={styles.Button}
           text={<div className='flex flex-col'>Загрузить состояние операций</div>}
         />
         <button

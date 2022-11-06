@@ -9,7 +9,12 @@ export type FetchStatus = 'idle' | 'pending' | 'fulfilled' | 'rejected';
 
 export type WizardStepType = 'importData' | 'nomenclature' | 'operations' | 'resources' | 'plan';
 
-export type ViewVariant = 'timeline' | 'scrapPowderConversionInfo' | 'feConversionInfo' | 'consolidationInfo'; 
+export interface ViewVariant {
+  name: string,
+  value: ViewVariantValue
+}
+
+export type ViewVariantValue = 'timeline' | 'scrapPowderConversionInfo' | 'feConversionInfo' | 'consolidationInfo'; 
 interface WizardStepItem {
   id: WizardStepType;
   value: string;
@@ -41,7 +46,7 @@ export interface WizardState {
     selected: RowSelectionState,
   };
   plan: {
-    viewVariant: ViewVariant;
+    viewVariant: ViewVariantValue;
     selectedPlan: number | null,
     showLegend: boolean,
     status: FetchStatus,
@@ -50,7 +55,9 @@ export interface WizardState {
       groups: TimelineGroup[],
       items: TimelineItem[],
       legendItems: TimelineGroup[],
-      table: any;
+      feConversionInfo?: any[],
+      scrapPowderConversionInfo?: any[],
+      consolidationInfo?: any[],
     }[],
   },
 }
@@ -154,18 +161,27 @@ export const runPlan = createAsyncThunk(
       body: JSON.stringify({
         Materials: meterials,
         Resources: resources,
-        
       })
     }));
 
     const responseJson = await response.json();
     
     if (response.ok) {
-      return responseJson.map(({ groups, items, legendItems, table, cost }) => ({
+      return responseJson.map(({
         groups,
         items,
-        legendItems: legendItems,
-        table: table || [],
+        legendItems,
+        cost,
+        feConversionInfo,
+        scrapPowderConversionInfo,
+        consolidationInfo,
+      }) => ({
+        groups,
+        items,
+        legendItems,
+        feConversionInfo: feConversionInfo || [],
+        scrapPowderConversionInfo: scrapPowderConversionInfo || [],
+        consolidationInfo: consolidationInfo || [],
         totalTime: cost.totalTime
       }));
     }

@@ -15,7 +15,7 @@ const WizardLayout = () => {
   const currentStep = useSelector((state: RootState) => state.currentStep);
   
   useEffect(() => {
-    navigate(`/plan/${Object.values(WizardStep)[currentStep].id}`);
+    navigate(`/${Object.values(WizardStep)[currentStep].id}`);
   }, [currentStep]);
 
   return (

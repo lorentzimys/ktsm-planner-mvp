@@ -1,6 +1,6 @@
 import { useRef, useCallback, useState } from "react";
 import MonacoEditor from 'react-monaco-editor';
-import { useAppDispatch } from '../../hooks/hooks';
+import { useAppDispatch } from '../../hooks';
 import clsx from 'clsx';
 
 import importFile from "../../mocks/import.json";

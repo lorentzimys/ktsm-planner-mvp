@@ -1,0 +1,15 @@
+.VariantSelect {
+	@apply appearance-none;
+	@apply block;
+	@apply px-2;
+	@apply py-1;
+	@apply text-xs;
+	@apply text-gray-700;
+	@apply bg-white bg-clip-padding bg-no-repeat;
+	@apply border border-solid border-gray-300;
+	@apply rounded;
+	@apply transition;
+	@apply ease-in-out;
+	@apply m-0;
+	@apply focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none w-12;
+}

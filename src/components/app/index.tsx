@@ -1,50 +1,43 @@
-import React from 'react';
 import { Routes, Route } from 'react-router-dom'
-import AppLayout from '../../layouts/App';
-import WizardLayout from '../../layouts/Wizard';
-
 import {
   PlanningPage,
   WelcomePage,
   ImportNomenclaturePage,
-  SelectNomenclaturePage
-} from '../../pages';
-import OpeationsPage from '../../pages/Operations';
-import { EquipmentPage } from '../../pages/Equipment';
+  SelectNomenclaturePage,
+  EquipmentPage,
+  OpeationsPage
+} from '@pages';
 
 import { WizardStep } from '@store/slice';
+import WizardLayout from '@components/Wizard';
 
 import './index.css';
 
 const App = () => (
   <Routes>
-    <Route path="/" element={<AppLayout />} >
-      <Route index element={<WelcomePage />}></Route>
-    </Route>
+    <Route index element={<WelcomePage />}></Route>
     
-    <Route path="/plan" element={<WizardLayout />}>
-      {/* <Route index element={<HomePage />}></Route> */}
+    <Route path="/" element={<WizardLayout />}>
       <Route
-        path={`/plan/${WizardStep.Import.id}`}
+        path={`${WizardStep.Import.id}`}
         element={<ImportNomenclaturePage />}
       />
       <Route
-        path={`/plan/${WizardStep.SelectNomenclature.id}`}
+        path={`${WizardStep.SelectNomenclature.id}`}
         element={<SelectNomenclaturePage />}
       />
       <Route
-        path={`/plan/${WizardStep.SelectOperations.id}`}
+        path={`${WizardStep.SelectOperations.id}`}
         element={<OpeationsPage />}
       />
       <Route
-        path={`/plan/${WizardStep.SelectResources.id}`}
+        path={`${WizardStep.SelectResources.id}`}
         element={<EquipmentPage />}
       />
       <Route
-        path={`/plan/${WizardStep.Plan.id}`}
+        path={`/${WizardStep.Plan.id}`}
         element={<PlanningPage />}
       />
-      {/* <Redirect to="/plan/nomenclature" /> */}
     </Route>
   </Routes>
 )

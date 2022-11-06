@@ -35,6 +35,51 @@ code {
 	*/
 }
 
+@layer base {
+	.header {
+		@apply font-medium leading-tight;
+		&-1 {
+			@apply header;
+			@apply text-5xl;
+			@apply mb-5;
+		}
+		&-2 {
+			@apply header;
+			@apply text-4xl;
+			@apply mb-4;
+		}
+		&-3 {
+			@apply header;
+			@apply text-3xl;
+			@apply mb-3;
+		}
+		&-4 {
+			@apply header;
+			@apply text-2xl;
+			@apply mb-2;
+		}
+		&-5 {
+			@apply header;
+			@apply text-1xl;
+			@apply mb-1;
+		}
+		
+	}
+	/* .header-1 {
+		@apply font-medium leading-tight text-5xl;
+	}
+	.header-1 {
+		@apply font-medium leading-tight text-5xl;
+	}
+	.header-1 {
+		@apply font-medium leading-tight text-5xl;
+	}
+	.header-1 {
+		@apply font-medium leading-tight text-5xl;
+	} */
+
+}
+
 @layer components {
 	.page {
 		&-content {

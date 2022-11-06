@@ -1,20 +1,20 @@
 import { useRef } from "react";
 import { useSelector } from 'react-redux';
-
-import { RootState } from "@/store";
-import { useAppDispatch } from "../../hooks/hooks";
-import { VisTimeline } from "@/components/Timeline";
-import Grid from "@components/Grid";
-import { resourcesColumns } from "../../config/columnsConfig";
-import { PlanVariantSelect } from "@components/PlanVariantSelect";
-import { ViewVariantDropdown } from "@components/ViewVariantDropdown";
-import { runPlan } from "@/store/slice";
-
-import { PlanToolbar } from "@components/PlanToolbar";
 import { Timeline } from "vis";
-import { ZoomInButton } from "@/components/Timeline/components/ZoomInButton";
-import { ToggleLegendButton } from "@/components/Timeline/components/ToggleLegendButton";
-import { ZoomOutButton } from "@/components/Timeline/components/ZoomOutButton";
+
+import { RootState } from "@store";
+import { runPlan } from "@store/slice";
+
+import { useAppDispatch } from "@hooks";
+import { createColumnsConfigFromKeys } from "@config/columnsConfig";
+
+import Grid from "@components/Grid";
+import { VisTimeline } from "@components/Timeline";
+import { PlanToolbar } from "@components/PlanToolbar";
+import { getViewVariant } from '@components/ViewVariantDropdown';
+import { ZoomInButton } from "@components/Timeline/components/ZoomInButton";
+import { ZoomOutButton } from "@components/Timeline/components/ZoomOutButton";
+import { ToggleLegendButton } from "@components/Timeline/components/ToggleLegendButton";
 
 export const PlanningPage = () => {
   const dispatch = useAppDispatch();
@@ -50,20 +50,18 @@ export const PlanningPage = () => {
       )}
       {planningStatus === 'fulfilled' && (
         <div className="flex flex-1 flex-col">
-          {viewVariant === 'timeline' && <VisTimeline data={data} ref={ timelineRef } />}
-          {viewVariant === 'consolidationInfo' && (
-            <div className="flex flex-1 place-content-center self-center m-8">
-              <Grid data={data.table} columnsConfig={resourcesColumns} />
-            </div>
-          )}
-          {viewVariant === 'feConversionInfo' && (
-            <div className="flex flex-1 place-content-center self-center m-8">
-              <Grid data={data.table} columnsConfig={resourcesColumns} />
-            </div>
-          )}
-          {viewVariant === 'scrapPowderConversionInfo' && (
-            <div className="flex flex-1 place-content-center self-center m-8">
-              <Grid data={data.table} columnsConfig={resourcesColumns} />
+          {viewVariant === 'timeline' ? <VisTimeline data={data as any} ref={timelineRef} /> : (
+            <div className="flex flex-1 flex-col place-content-center self-center m-8 w-1/2">
+              <h2 className="header-4">{getViewVariant(viewVariant).name}</h2>
+              {(viewVariant === 'consolidationInfo' ||
+                viewVariant === 'feConversionInfo' ||
+                viewVariant === 'scrapPowderConversionInfo'
+              ) && (
+                <Grid
+                  data={data[viewVariant as any]}
+                  columnsConfig={createColumnsConfigFromKeys(data[viewVariant as any])}
+                />
+              )}
             </div>
           )}
           <PlanToolbar>

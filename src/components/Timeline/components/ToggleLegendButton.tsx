@@ -1,5 +1,5 @@
 import { useSelector } from "react-redux";
-import { useAppDispatch } from "../../../hooks/hooks"
+import { useAppDispatch } from "../../../hooks"
 import { RootState } from "@/store";
 import { toggleLegend } from "@store/slice";
 

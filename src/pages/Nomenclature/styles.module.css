@@ -4,6 +4,7 @@
 }
 
 .Button {
+	flex: 1;
 	@apply button;
 	@apply button__primary;
 	@apply button--small;
@@ -11,11 +12,13 @@
 }
 
 .ButtonLoaded {
+	flex: 1;
 	@apply button;
 	@apply button__success;
 }
 
 .SkipButton {
+	flex: 1;
 	@apply button;
 	@apply button--small;
 	@apply button--center;

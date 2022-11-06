@@ -28,7 +28,7 @@
 		&-cell {
 			font-size: 14px;
 			@apply p-2 pt-1 pb-1 font-semibold;
-			@apply border  dark:border-slate-400 bg-blue-200 text-slate-800  text-left;
+			@apply border border-collapse dark:border-slate-400 bg-blue-200 text-slate-800  text-left;
 		}
 	}
 	&__body {
@@ -38,7 +38,7 @@
 		&-cell {
 			font-size: 12px;
 			@apply p-2;
-			@apply w-1/2 border  dark:border-slate-400 text-slate-900  text-left;
+			@apply w-1/2 border border-collapse dark:border-slate-400 text-slate-900  text-left;
 		}
 	}
 }

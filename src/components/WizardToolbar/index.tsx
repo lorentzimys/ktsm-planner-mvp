@@ -1,6 +1,6 @@
 import { useSelector } from "react-redux";
 
-import { useAppDispatch } from "../../hooks/hooks";
+import { useAppDispatch } from "../../hooks";
 import { RootState } from "@/store";
 import { canProceedSelector, currentStepSelector as currStep } from "@store/selectors";
 

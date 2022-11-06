@@ -1,8 +1,7 @@
 {
   "name": "kcm_planner",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "private": true,
-  "homepage": "http://kcm-planner.ru.xsph.ru",
   "proxy": "http://45.131.98.203:8063",
   "dependencies": {
     "@babel/core": "^7.16.0",
@@ -97,7 +96,10 @@
     "extends": [
       "react-app",
       "react-app/jest"
-    ]
+    ],
+    "rules": {
+      "react-hooks/exhaustive-deps": "off"
+    }
   },
   "browserslist": {
     "production": [

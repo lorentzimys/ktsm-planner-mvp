@@ -10,7 +10,7 @@ import {
   stepsSelector
 } from '@store/selectors';
 
-import { useAppDispatch } from '../../hooks/hooks';
+import { useAppDispatch } from '../../hooks';
 
 export const Stepper = () => {
   const dispatch = useAppDispatch();

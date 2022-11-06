@@ -351,3 +351,13 @@ export const resourcesColumns = [
   }),
 
 ];
+
+export const createColumnsConfigFromKeys = (keys: string[], enableFilters = false) => {
+  return keys.map(k => (
+    columnHelper.accessor(k, {
+      cell: info => info.getValue(),
+      enableColumnFilter: enableFilters,
+      header: k,
+    })
+  ));
+}

@@ -1,12 +1,13 @@
 import { get, find } from 'lodash'
 import { RootState } from '@/store';
-import { selectViewVariant, ViewVariant } from '@/store/slice';
+import { selectViewVariant, ViewVariant, ViewVariantValue } from '@/store/slice';
 import { useSelector } from "react-redux";
-import { useAppDispatch } from "../../hooks/hooks";
+import { useAppDispatch } from "../../hooks";
 
 import styles from './styles.module.css';
 
-const variants: { name: string;  value: ViewVariant}[] = [
+
+export const ViewVariants: ViewVariant[] = [
   {
     name: 'Расписание',
     value: 'timeline'
@@ -24,6 +25,10 @@ const variants: { name: string;  value: ViewVariant}[] = [
     value: 'consolidationInfo'
   }
 ]
+
+export const getViewVariant = (value: ViewVariantValue): ViewVariant => {
+  return ViewVariants.find(item => item.value === value) as ViewVariant;
+};
 
 export const ViewVariantDropdown = () => {
   const dispatch = useAppDispatch();
@@ -62,14 +67,14 @@ export const ViewVariantDropdown = () => {
           data-bs-toggle="dropdown"
           aria-expanded="false"
         >
-          {get(find(variants, { value: viewVariant }), ['name'])}
+          {getViewVariant(viewVariant).name}
           {buttonIcon}
         </button>
         <ul
           aria-labelledby="dropdownMenuButton1"
           className={`${styles.Dropdown} dropdown-menu`}
         >
-          {variants.map(({value, name}) => (
+          {ViewVariants.map(({value, name}) => (
             <li
               key={value}
               data-id={value}
