@@ -1,0 +1,23 @@
+.Container {
+	@apply flex flex-col align-middle gap-2 p-10 border-dashed border-slate-700 border-2 w-1/2;
+	max-width: 600px;
+}
+
+.Button {
+	@apply button;
+	@apply button__primary;
+	@apply button--small;
+	@apply button--center;
+}
+
+.ButtonLoaded {
+	@apply button;
+	@apply button__success;
+}
+
+.SkipButton {
+	@apply button;
+	@apply button--small;
+	@apply button--center;
+	@apply button__secondary;
+}

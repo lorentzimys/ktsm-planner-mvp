@@ -82,7 +82,7 @@ export const WizardStep: Record<string, WizardStepItem> = {
   },
   SelectOperations: {
     id: 'operations',
-    value: 'Выбор операций'
+    value: 'Просмотр операций'
   },
   SelectResources: {
     id: 'resources',

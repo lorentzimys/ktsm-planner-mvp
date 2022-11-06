@@ -1,0 +1,18 @@
+.Button {
+	@apply button;
+	@apply button__primary;
+	@apply button--small;
+	@apply button--center;
+}
+
+.ButtonLoaded {
+	@apply button;
+	@apply button__success;
+}
+
+.SkipButton {
+	@apply button;
+	@apply button--small;
+	@apply button--center;
+	@apply button__secondary;
+}

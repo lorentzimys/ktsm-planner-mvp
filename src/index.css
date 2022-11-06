@@ -35,6 +35,39 @@ code {
 	*/
 }
 
-.button {
-	@apply inline-flex justify-center rounded-md border border-transparent bg-blue-100 px-4 py-2 text-sm font-medium text-blue-900 hover:bg-blue-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500;
+@layer components {
+	.page {
+		&-content {
+			&--center {
+				@apply flex flex-1 justify-center place-content-center content-center items-center
+			}
+		}
+	}
+
+	.button {
+		@apply flex font-medium leading-tight uppercase rounded shadow-md hover:shadow-lg focus:shadow-lg focus:outline-none focus:ring-0 active:shadow-lg;
+		@apply transition duration-150 ease-in-out;
+		&__primary {
+			@apply  bg-blue-600 text-white  hover:bg-blue-700 focus:bg-blue-700  active:bg-blue-800 
+		}
+		&__secondary {
+			@apply text-blue-600 hover:bg-gray-200;
+		}
+		&__success {
+			@apply bg-green-600 hover:bg-green-700 hover:shadow-lg focus:bg-green-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-green-800;
+		}
+		&--small {
+			@apply px-6 py-2.5 text-xs;
+		}
+		&--medium {
+			@apply px-8 py-4 text-sm;
+		}
+		&--center {
+			@apply justify-center text-center align-middle items-center;
+		}
+	}
 }
+
+/* .page-content--center {
+	@apply 
+} */
