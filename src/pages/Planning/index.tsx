@@ -59,7 +59,7 @@ export const PlanningPage = () => {
               ) && (
                 <Grid
                   data={data[viewVariant as any]}
-                  columnsConfig={createColumnsConfigFromKeys(Object.keys(data[viewVariant as any])[0] || {})}
+                  columnsConfig={createColumnsConfigFromKeys(Object.keys(data[viewVariant as any][0] || {}))}
                 />
               )}
             </div>
