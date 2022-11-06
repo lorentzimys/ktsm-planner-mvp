@@ -1,19 +1,20 @@
-import React from "react";
+import { useRef } from "react";
 import { useSelector } from 'react-redux';
 
 import { RootState } from "@/store";
 import { useAppDispatch } from "../../hooks/hooks";
-import { VisGantt } from "@components/Gantt";
+import { VisTimeline } from "@/components/Timeline";
 import Grid from "@components/Grid";
 import { resourcesColumns } from "../../config/columnsConfig";
-import { ViewVariantButtonGroup } from "@components/ViewVariantButtonGroup";
 import { PlanVariantSelect } from "@components/PlanVariantSelect";
 import { ViewVariantDropdown } from "@components/ViewVariantDropdown";
 import { runPlan } from "@/store/slice";
 
-const centerContentClassName = "flex flex-1 flex-col justify-center place-content-center content-center items-center overflow-hidden";
-
-
+import { PlanToolbar } from "@components/PlanToolbar";
+import { Timeline } from "vis";
+import { ZoomInButton } from "@/components/Timeline/components/ZoomInButton";
+import { ToggleLegendButton } from "@/components/Timeline/components/ToggleLegendButton";
+import { ZoomOutButton } from "@/components/Timeline/components/ZoomOutButton";
 
 export const PlanningPage = () => {
   const dispatch = useAppDispatch();
@@ -23,7 +24,7 @@ export const PlanningPage = () => {
   });
   const viewVariant = useSelector((state: RootState) => state.plan.viewVariant);
   const planningStatus = useSelector((state: RootState) => state.plan.status);
-
+  const timelineRef = useRef<Timeline>(null);
   const handlePlan = () => {
     dispatch(runPlan());
   }
@@ -36,7 +37,7 @@ export const PlanningPage = () => {
           <path strokeLinecap="round" strokeLinejoin="round" d="M5.25 5.653c0-.856.917-1.398 1.667-.986l11.54 6.348a1.125 1.125 0 010 1.971l-11.54 6.347a1.125 1.125 0 01-1.667-.985V5.653z" />
         </svg>
         Запустить планирование
-  </button>
+    </button>
   )
 
   return (
@@ -44,27 +45,45 @@ export const PlanningPage = () => {
       {planningStatus === 'idle' && (
         <div className="flex-col gap-2 page-content--center">{handlePlanButton}</div>
       )}
-      {planningStatus === 'pending' && <div className={centerContentClassName}>Загрузка данных...</div>}
+      {planningStatus === 'pending' && (
+        <div className="page-content--center">Загрузка данных...</div>
+      )}
       {planningStatus === 'fulfilled' && (
         <div className="flex flex-1 flex-col">
-          {viewVariant === 'timeline' && <VisGantt data={data} />}
-          {viewVariant === 'table' && (
-            <>
-              <div className="flex flex-1 place-content-center self-center m-8">
-                <Grid data={data.table} columnsConfig={resourcesColumns} />
-              </div>
-              <div className='flex flex-row justify-between items-center bg-neutral-100'>
-                <div className='p-2 flex flex-row gap-4 items-middle'>
-                  {/* <ViewVariantButtonGroup /> */}
-                  <ViewVariantDropdown />
-                  <PlanVariantSelect />
-                </div>
-              </div>
-            </>
+          {viewVariant === 'timeline' && <VisTimeline data={data} ref={ timelineRef } />}
+          {viewVariant === 'consolidationInfo' && (
+            <div className="flex flex-1 place-content-center self-center m-8">
+              <Grid data={data.table} columnsConfig={resourcesColumns} />
+            </div>
           )}
+          {viewVariant === 'feConversionInfo' && (
+            <div className="flex flex-1 place-content-center self-center m-8">
+              <Grid data={data.table} columnsConfig={resourcesColumns} />
+            </div>
+          )}
+          {viewVariant === 'scrapPowderConversionInfo' && (
+            <div className="flex flex-1 place-content-center self-center m-8">
+              <Grid data={data.table} columnsConfig={resourcesColumns} />
+            </div>
+          )}
+          <PlanToolbar>
+            {viewVariant === 'timeline' && (
+              <>
+                <div className='flex flex-row justify-items-center align-middle mr-4'>
+                  <ZoomOutButton ref={timelineRef} />
+                  <ZoomInButton ref={timelineRef} />
+                </div>
+                <ToggleLegendButton />
+                <div className='text-xs flex flex-row gap-1 my-1 mx-4 text-right items-center shadow-sm'>
+                  Время планирования:<br/>
+                  {data.totalTime}
+                </div>
+              </>  
+            )}
+          </PlanToolbar>
         </div>
       )}
-      {planningStatus === 'rejected' && <div className={centerContentClassName}>Произошла ошибка...</div>}
+      {planningStatus === 'rejected' && <div className="page-content--center">Произошла ошибка...</div>}
     </div>
   )
 };

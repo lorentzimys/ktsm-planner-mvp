@@ -4,14 +4,12 @@ import { at } from 'lodash';
 import { RootState } from './index';
 import { apiRoutes } from '@utils/api';
 
-
-// import schedulerData from '../../mocks/data.json';
 import { TimelineGroup, TimelineItem } from 'vis';
 export type FetchStatus = 'idle' | 'pending' | 'fulfilled' | 'rejected';
 
 export type WizardStepType = 'importData' | 'nomenclature' | 'operations' | 'resources' | 'plan';
 
-export type ViewVariant = 'timeline' | 'table';
+export type ViewVariant = 'timeline' | 'scrapPowderConversionInfo' | 'feConversionInfo' | 'consolidationInfo'; 
 interface WizardStepItem {
   id: WizardStepType;
   value: string;
@@ -33,12 +31,10 @@ export interface WizardState {
     fileName: string | null,
     selected: RowSelectionState,
   },
-  // nomenclatureFileName: string | null,
   operations: {
     data: Array<any> | null,
     fileName: string | null
   },
-  // operationsFileName: string | null,
   equipment: {
     status: FetchStatus,
     data: Array<EquipmentItem> | null,
@@ -149,7 +145,6 @@ export const runPlan = createAsyncThunk(
     );
 
     
-    // return [schedulerData[0].Schedule as any];
     const response = (await fetch(apiRoutes.runPlan, {
       method: "post",
       headers: {
@@ -166,7 +161,6 @@ export const runPlan = createAsyncThunk(
     const responseJson = await response.json();
     
     if (response.ok) {
-      // return schedulerData[0].Schedule;
       return responseJson.map(({ groups, items, legendItems, table, cost }) => ({
         groups,
         items,
@@ -175,7 +169,6 @@ export const runPlan = createAsyncThunk(
         totalTime: cost.totalTime
       }));
     }
-    //return schedulerData;
     return rejectWithValue(responseJson);
   }
 )
