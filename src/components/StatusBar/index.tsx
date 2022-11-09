@@ -1,6 +1,5 @@
-import { useRef, useCallback, useState } from "react";
+import { useCallback, useState } from "react";
 import MonacoEditor from 'react-monaco-editor';
-import { useAppDispatch } from '../../hooks/hooks';
 import clsx from 'clsx';
 
 import importFile from "../../mocks/import.json";
@@ -8,9 +7,6 @@ import importFile from "../../mocks/import.json";
 import './index.css';
 
 export const StatusBar = () => {
-  const dispatch = useAppDispatch();
-  const fileInputRef = useRef<HTMLInputElement>(null);
-  const [file, setFile] = useState<File | null>(null);
   const [statusBarOpen, setStatusBarOpen] = useState<boolean>(true);
 
   const handleToggleStatusBar = useCallback(() => {
