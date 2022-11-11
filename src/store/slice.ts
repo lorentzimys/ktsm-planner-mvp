@@ -151,6 +151,7 @@ export const runPlan = createAsyncThunk(
       Object.keys(state.equipment.selected) as any
     );
 
+    const operations = state.operations.data || [];
     
     const response = (await fetch(apiRoutes.runPlan, {
       method: "post",
@@ -161,6 +162,7 @@ export const runPlan = createAsyncThunk(
       body: JSON.stringify({
         Materials: meterials,
         Resources: resources,
+        Operations: operations,
       })
     }));
 
