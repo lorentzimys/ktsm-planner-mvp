@@ -91,35 +91,25 @@ export const PlanningPage = () => {
       )}
       {planningStatus === 'fulfilled' && (
         <div className="flex flex-1 flex-col">
-          {viewVariant === 'timeline' ?
-            <>
-              <div className="mx-4 my-2 flex flex-row justify-between items-center">
-                <h2 className="header-5 flex flex-col text-gray-800">
-                  <PlanVariantSelect />
-                  {/* <small className="text-[11px] leading-3">Вариант плана:</small>
-                  {data.name} */}
-                </h2>
-                <div className="flex">
-                  <PlanToolbar />
-                </div>
-              </div>
-              <VisTimeline data={data as any} ref={timelineRef} />
-            </> :
-            (
-            <div className="flex flex-1 flex-col place-content-center self-center m-8 w-1/2">
-              <h2 className="header-4">{getViewVariant(viewVariant).name}</h2>
-              {(viewVariant === 'consolidationInfo' ||
-                viewVariant === 'feConversionInfo' ||
-                viewVariant === 'scrapPowderConversionInfo'
-              ) && (
+          <div className="mx-4 my-2 flex flex-row justify-between items-center">
+            <h2 className="header-5 flex flex-col text-gray-800">
+              <PlanVariantSelect />
+            </h2>
+            <PlanToolbar />
+          </div>
+          {viewVariant === 'timeline' && <VisTimeline data={data as any} ref={timelineRef} />}
+          {(viewVariant === 'consolidationInfo' ||
+            viewVariant === 'feConversionInfo' ||
+            viewVariant === 'scrapPowderConversionInfo')
+            && (
+              <div className="flex flex-1 flex-col place-content-center self-center overflow-auto">
                 <Grid
                   data={(data.items)}
                   columnsConfig={createColumnsConfigFromKeys(Object.keys(data[viewVariant as any][0] || {}))}
                 />
-              )}
-            </div>
-          )}
-          {viewVariant === 'timeline' && (
+              </div>
+            )}
+          { viewVariant === 'timeline' && (
             <div className="flex flex-row justify-between px-3 py-1 bg-neutral-100">
               <div className='flex flex-row justify-items-center gap-4 align-middle'>
                 <div>

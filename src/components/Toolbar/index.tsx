@@ -85,9 +85,7 @@ const Toolbar = () => {
             Далее
           </button>
         </div>
-        <RefreshOntologyButton />
-        
-
+        {/* <RefreshOntologyButton /> */}
       </div>
       <div className="gap-x-2 flex">
         <button
