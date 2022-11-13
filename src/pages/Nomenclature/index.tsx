@@ -5,10 +5,10 @@ import { RowSelectionState } from "@tanstack/react-table";
 import { RootState } from "@/store";
 import { changeNomenclatureSelection, nextStep, uploadNomenclature } from "@store/slice";
 import Grid from "@components/Grid";
-import { UploadButton } from "@/components/UploadButton";
+import { UploadButton } from "@components/Buttons/UploadButton";
 
 import { nomenclatureColumns } from "../../config/columnsConfig";
-import { useAppDispatch } from "../../hooks/hooks";
+import { useAppDispatch } from "@hooks/hooks";
 
 import ImportNomenclaturePage from "./Import";
 

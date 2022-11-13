@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux';
 import { Timeline } from "vis";
 
 import { RootState } from "@store";
-import { runPlan } from "@store/slice";
+import { refreshOntology, runPlan } from "@store/slice";
 
 import { useAppDispatch } from "@hooks/hooks";
 import { createColumnsConfigFromKeys } from "@config/columnsConfig";
@@ -15,42 +15,97 @@ import { getViewVariant } from '@components/ViewVariantDropdown';
 import { ZoomInButton } from "@components/Timeline/components/ZoomInButton";
 import { ZoomOutButton } from "@components/Timeline/components/ZoomOutButton";
 import { ToggleLegendButton } from "@components/Timeline/components/ToggleLegendButton";
+import { PlanVariantSelect } from "@components/PlanVariantSelect";
+
+import Lottie from 'react-lottie';
+import * as calendarAnimation from './calendar-animation.json'
+import * as errorOccured from './error-occurred.json'
+
+const defaultOptions = {
+  loop: true,
+  autoplay: true, 
+  rendererSettings: {
+    preserveAspectRatio: 'xMidYMid slice'
+  }
+};
+
 
 export const PlanningPage = () => {
   const dispatch = useAppDispatch();
   const data = useSelector((state: RootState) => {
-    const selectedPlan = state.plan.selectedPlan as number;
-    return state.plan.data[selectedPlan]
+    return state.plan.data[state.plan.selectedPlan];
+  });
+  const ontologyLoaded = useSelector((state: RootState) => {
+    return state.ontology.status === 'fulfilled';
   });
   const viewVariant = useSelector((state: RootState) => state.plan.viewVariant);
   const planningStatus = useSelector((state: RootState) => state.plan.status);
+  const planningAllowed = useSelector((state: RootState) => {
+    return Boolean((state.nomenclature?.data?.length ?? false) &&
+      state.ontology.status !== 'pending' &&
+      planningStatus !== 'pending');
+
+  });
   const timelineRef = useRef<Timeline>(null);
-  const handlePlan = () => {
+  const handlePlan = async () => {
+    if (!ontologyLoaded) {
+      await dispatch(refreshOntology());
+    }
     dispatch(runPlan());
   }
 
-  const handlePlanButton = (
+  const HandlePlanButton = ({  children }) => (
     <button
       onClick={handlePlan}
-      className="button button__primary button--small">
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-4 h-4">
-          <path strokeLinecap="round" strokeLinejoin="round" d="M5.25 5.653c0-.856.917-1.398 1.667-.986l11.54 6.348a1.125 1.125 0 010 1.971l-11.54 6.347a1.125 1.125 0 01-1.667-.985V5.653z" />
-        </svg>
-        Запустить планирование
+      disabled={!planningAllowed}
+      className="disabled:opacity-50 gap-2 text-xs disabled:cursor-not-allowed button button__primary button--small"
+    >
+        { children }
     </button>
   )
 
   return (
     <div className="flex flex-1">
       {planningStatus === 'idle' && (
-        <div className="flex-col gap-2 page-content--center">{handlePlanButton}</div>
+        <div className="flex-col gap-2 page-content--center">
+          <HandlePlanButton>
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-4 h-4">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M5.25 5.653c0-.856.917-1.398 1.667-.986l11.54 6.348a1.125 1.125 0 010 1.971l-11.54 6.347a1.125 1.125 0 01-1.667-.985V5.653z" />
+            </svg>
+            Запустить планирование
+          </HandlePlanButton>
+        </div>
       )}
       {planningStatus === 'pending' && (
-        <div className="page-content--center">Загрузка данных...</div>
+        <div className="page-content--center flex flex-col gap-4">
+          <Lottie options={{
+              ...defaultOptions,
+              animationData: calendarAnimation,
+            }}
+            height={200}
+            width={200}
+            isStopped={false}
+            isPaused={false}/>
+          Подождите, строим план...
+        </div>
       )}
       {planningStatus === 'fulfilled' && (
         <div className="flex flex-1 flex-col">
-          {viewVariant === 'timeline' ? <VisTimeline data={data as any} ref={timelineRef} /> : (
+          {viewVariant === 'timeline' ?
+            <>
+              <div className="mx-4 my-2 flex flex-row justify-between items-center">
+                <h2 className="header-5 flex flex-col text-gray-800">
+                  <PlanVariantSelect />
+                  {/* <small className="text-[11px] leading-3">Вариант плана:</small>
+                  {data.name} */}
+                </h2>
+                <div className="flex">
+                  <PlanToolbar />
+                </div>
+              </div>
+              <VisTimeline data={data as any} ref={timelineRef} />
+            </> :
+            (
             <div className="flex flex-1 flex-col place-content-center self-center m-8 w-1/2">
               <h2 className="header-4">{getViewVariant(viewVariant).name}</h2>
               {(viewVariant === 'consolidationInfo' ||
@@ -58,30 +113,42 @@ export const PlanningPage = () => {
                 viewVariant === 'scrapPowderConversionInfo'
               ) && (
                 <Grid
-                  data={data[viewVariant as any]}
+                  data={(data.items)}
                   columnsConfig={createColumnsConfigFromKeys(Object.keys(data[viewVariant as any][0] || {}))}
                 />
               )}
             </div>
           )}
-          <PlanToolbar>
-            {viewVariant === 'timeline' && (
-              <>
-                <div className='flex flex-row justify-items-center align-middle mr-4'>
+          {viewVariant === 'timeline' && (
+            <div className="flex flex-row justify-between px-3 py-1 bg-neutral-100">
+              <div className='flex flex-row justify-items-center gap-4 align-middle'>
+                <div>
                   <ZoomOutButton ref={timelineRef} />
                   <ZoomInButton ref={timelineRef} />
                 </div>
                 <ToggleLegendButton />
-                <div className='text-xs flex flex-row gap-1 my-1 mx-4 text-right items-center shadow-sm'>
-                  Время планирования:<br/>
-                  {data.totalTime}
-                </div>
-              </>  
-            )}
-          </PlanToolbar>
+              </div>
+              <div className='text-xs flex flex-row my-1 gap-2 items-center'>
+                <span>Время планирования:</span>
+                {data?.totalTime ?? ''}
+              </div>
+            </div>
+          )}
         </div>
       )}
-      {planningStatus === 'rejected' && <div className="page-content--center">Произошла ошибка...</div>}
+      {planningStatus === 'rejected' && (
+        <div className="page-content--center flex flex-col gap-4">
+          <Lottie options={{
+                  ...defaultOptions,
+                  animationData: errorOccured,
+                }}
+                height={160}
+                width={160}
+                isStopped={false}
+            isPaused={false} />
+          Произошла ошибка...
+        </div>
+      )}
     </div>
   )
 };

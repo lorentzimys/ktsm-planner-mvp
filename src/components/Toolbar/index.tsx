@@ -9,14 +9,26 @@ import {
   nextStep,
   clearWizardState,
   goToStep,
-  runPlan
+  runPlan,
+  refreshOntology
 } from "@store/slice";
 
-const WizardToolbar = () => {
+import { RefreshOntologyButton } from "@components/Buttons/RefreshOntologyButton";
+import { RefreshIcon } from "@components/Icons/Refresh";
+import { StartIcon } from "@components/Icons/Start";
+
+const Toolbar = () => {
   const dispatch = useAppDispatch();
-  const planningAllowed = useSelector((state: RootState) => state.nomenclature);
-  const planningStatus = useSelector((state: RootState) => state.plan.status);
   const currentStep = useSelector(currStep);
+  const ontologyLoaded = useSelector((state: RootState) => {
+    return state.ontology.status === 'fulfilled';
+  });
+  const planningStatus = useSelector((state: RootState) => state.plan.status);
+  const planningAllowed = useSelector((state: RootState) => {
+    return Boolean((state.nomenclature?.data?.length ?? false) &&
+      state.ontology.status !== 'pending' &&
+      planningStatus !== 'pending');
+  });
   const prevText = useSelector((state: RootState) => {
     const currentStep = state.currentStep;
     if (currentStep < 1) {
@@ -49,37 +61,33 @@ const WizardToolbar = () => {
     dispatch(nextStep());
   }
 
-  const handlePlan = () => {
+  const handlePlan = async () => {
+    if (!ontologyLoaded) {
+      await dispatch(refreshOntology());
+    }
     dispatch(runPlan());
     dispatch(goToStep(4));
   }
 
-  const refreshIcon = (
-    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-4 h-4">
-      <path strokeLinecap="round" strokeLinejoin="round" d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0l3.181 3.183a8.25 8.25 0 0013.803-3.7M4.031 9.865a8.25 8.25 0 0113.803-3.7l3.181 3.182m0-4.991v4.99" />
-    </svg>
-  )
-
-  const startIcon = (
-    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-4 h-4">
-      <path strokeLinecap="round" strokeLinejoin="round" d="M5.25 5.653c0-.856.917-1.398 1.667-.986l11.54 6.348a1.125 1.125 0 010 1.971l-11.54 6.347a1.125 1.125 0 01-1.667-.985V5.653z" />
-    </svg>
-  )
-  
   return (
     <div className="flex flex-row justify-between p-2">
-      <div className="gap-x-2 flex">
-        <button
-          onClick={handlePrev}
-          className="button button__primary button--small">
-          {prevText}
-        </button>
-        <button
-          disabled={!canProceed}
-          onClick={handleNext}
-          className="disabled:opacity-50 disabled:cursor-not-allowed button button__primary button--small">
-          Далее
-        </button>
+      <div className="gap-x-4 flex">
+        <div className="gap-x-1 flex">
+          <button
+            onClick={handlePrev}
+            className="button button__primary button--small">
+            {prevText}
+          </button>
+          <button
+            disabled={!canProceed}
+            onClick={handleNext}
+            className="disabled:opacity-50 disabled:cursor-not-allowed button button__primary button--small">
+            Далее
+          </button>
+        </div>
+        <RefreshOntologyButton />
+        
+
       </div>
       <div className="gap-x-2 flex">
         <button
@@ -89,11 +97,11 @@ const WizardToolbar = () => {
           {
             planningStatus === 'idle' ?
               <>
-                {startIcon}
+                {<StartIcon />}
                 Запустить планирование
               </> :
               <>
-                {refreshIcon}
+                {<RefreshIcon />}
                 Перезапустить планирование
               </>
           }
@@ -103,4 +111,4 @@ const WizardToolbar = () => {
   )
 }
 
-export default WizardToolbar;
+export default Toolbar;

@@ -1,8 +1,10 @@
 .Button {
 	@apply button;
-	@apply button__primary;
+	@apply button__secondary;
 	@apply button--small;
 	@apply whitespace-nowrap;
+	box-shadow: none;
+	@apply py-2 px-2;
 }
 
 .Dropdown {
@@ -13,16 +15,17 @@
 	@apply text-base;
 	@apply z-50;
 	@apply float-left;
-	@apply py-2;
+	@apply py-1;
 	@apply list-none;
 	@apply text-left;
 	@apply rounded-lg;
-	@apply shadow-lg;
+	/* @apply shadow-lg; */
 	@apply mt-1;
 	@apply hidden;
 	@apply m-0;
 	@apply bg-clip-padding;
 	@apply border-none;
+
 }
 
 .DropdownItem {

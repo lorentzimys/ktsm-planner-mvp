@@ -12,6 +12,7 @@ import { TimelineLegend } from './components/TimelineLegend';
 
 import './index.css';
 
+
 import moment from 'moment-with-locales-es6';
 
 moment.locale('ru');
@@ -61,7 +62,7 @@ export const VisTimeline = forwardRef<Timeline, VisTimelineProps>(({ data }: Vis
 
   const legendVisible = useSelector((state: RootState) => state.plan.showLegend);
 
-  const legendClassNames = clsx('p-4 w-3/12 overflow-hidden relative h-full collapse-horizontal bg-neutral-200 shadow-sm', {
+  const legendClassNames = clsx('p-4 w-3/12  overflow-hidden relative h-full overflow-hidden collapse-horizontal bg-neutral-200 shadow-sm', {
     'show': legendVisible,
     'collapse': !legendVisible,
   });

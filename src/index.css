@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 :root {
-	--main-color: #4A148C;
+	--main-color: #01386f;
 }
 
 body {
@@ -60,10 +60,9 @@ code {
 		}
 		&-5 {
 			@apply header;
-			@apply text-1xl;
+			@apply text-lg;
 			@apply mb-1;
 		}
-		
 	}
 	/* .header-1 {
 		@apply font-medium leading-tight text-5xl;
@@ -93,16 +92,16 @@ code {
 		@apply flex font-medium leading-tight uppercase rounded shadow-md hover:shadow-lg focus:shadow-lg focus:outline-none focus:ring-0 active:shadow-lg;
 		@apply transition duration-150 ease-in-out;
 		&__primary {
-			@apply  bg-blue-600 text-white  hover:bg-blue-700 focus:bg-blue-700  active:bg-blue-800 
+			@apply  bg-blue-800 text-white  hover:bg-blue-700 focus:bg-blue-700  active:bg-blue-800 
 		}
 		&__secondary {
-			@apply text-blue-600 hover:bg-gray-200;
+			@apply text-blue-800 hover:bg-gray-200;
 		}
 		&__success {
 			@apply bg-green-600 hover:bg-green-700 hover:shadow-lg focus:bg-green-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-green-800;
 		}
 		&--small {
-			@apply px-6 py-2.5 text-xs;
+			@apply px-3 py-2 text-xs;
 		}
 		&--medium {
 			@apply px-8 py-4 text-sm;

@@ -1,10 +1,10 @@
 import { useSelector } from "react-redux";
 
+import { RootState } from "@/store";
 import { WizardStep } from "@store/slice";
 
 import { Stepper } from "@components/Stepper";
-import WizardToolbar from "@components/WizardToolbar";
-import { RootState } from "@/store";
+import Toolbar from "@components/Toolbar";
 import { EquipmentPage, ImportNomenclaturePage, OpeationsPage, PlanningPage, SelectNomenclaturePage } from "@pages";
 
 
@@ -16,7 +16,7 @@ const WizardLayout = () => {
       <div className="shadow-sm shadow-gray-400 z-50">
         <Stepper />
       </div>
-      <div className="flex flex-1 overflow-auto">
+      <div className="flex flex-1">
         {currentStep.id === WizardStep.Import.id && (<ImportNomenclaturePage />)} 
         {currentStep.id === WizardStep.SelectNomenclature.id && (<SelectNomenclaturePage />)} 
         {currentStep.id === WizardStep.SelectOperations.id && (<OpeationsPage />)} 
@@ -24,7 +24,7 @@ const WizardLayout = () => {
         {currentStep.id === WizardStep.Plan.id && (<PlanningPage />)} 
       </div>
       <div className="shadow-md shadow-gray-600 z-50">
-        <WizardToolbar />
+        <Toolbar />
       </div>
     </div>
   )

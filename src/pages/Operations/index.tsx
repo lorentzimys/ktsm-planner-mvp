@@ -3,7 +3,7 @@ import { useSelector } from "react-redux";
 
 import { RootState } from "@/store";
 import { nextStep, uploadOperations } from "@store/slice";
-import { UploadButton } from "@components/UploadButton";
+import { UploadButton } from "@components/Buttons/UploadButton";
 import Grid from "@components/Grid";
 
 import { operationsColumns } from "@config/columnsConfig";

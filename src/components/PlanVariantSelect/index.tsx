@@ -1,21 +1,23 @@
-import { times } from "lodash";
 import { useSelector } from "react-redux";
-import { useAppDispatch } from "../../hooks/hooks";
+import { map } from "lodash";
+
 import { RootState } from "@/store";
 import { selectPlanVariant } from "@store/slice";
+import { useAppDispatch } from "@/hooks/hooks";
+
 import styles from "./styles.module.css";
 
 export const PlanVariantSelect = () => {
   const dispatch = useAppDispatch();
   const selectedVariant = useSelector((state: RootState) => state.plan.selectedPlan);
-  const totalVatiants = useSelector((state: RootState) => state.plan.data.length);
+  const variants = useSelector((state: RootState) => state.plan.data);
   const handleVariantChange = (e) => {
-    dispatch(selectPlanVariant(e.target.value-1));
+    dispatch(selectPlanVariant(e.target.value));
   }
 
   return (
-    <div className="flex flex-row gap-2 items-center">
-      <label className='text-xs'>Вариант плана</label>
+    <>
+      <span className='text-[11px] text-xs leading-3'>Вариант плана</span>
       <select
         defaultValue={selectedVariant as number}
         onChange={handleVariantChange}
@@ -23,16 +25,13 @@ export const PlanVariantSelect = () => {
         aria-label=".form-select-sm example"
       >
         {
-          times(totalVatiants, i => (
-            <option
-              key={i}
-              value={i + 1}
-            >
-              {i + 1}
+          map(variants, (variant, i) => (
+            <option key={i} value={i}>
+              {variant.name}
             </option>
           ))
         }
       </select>
-    </div>
+    </>
   );
 }

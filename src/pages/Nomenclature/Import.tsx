@@ -4,7 +4,7 @@ import clsx from 'clsx';
 
 import { RootState } from '@/store';
 import { uploadNomenclature, uploadOperations } from '@store/slice';
-import { UploadButton } from '@components/UploadButton';
+import { UploadButton } from '@components/Buttons/UploadButton';
 
 import { useAppDispatch } from '@hooks/hooks';
 import imgUrl from '../../img/icons/json2.svg';
