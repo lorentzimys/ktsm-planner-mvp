@@ -20,9 +20,7 @@ const Toolbar = () => {
   const planningStatus = useSelector((state: RootState) => state.plan.status);
   const planningAllowed = useSelector((state: RootState) => {
     return Boolean(
-      (state.nomenclature?.data?.length ?? false) &&
-        state.ontology.status !== 'pending' &&
-        planningStatus !== 'pending',
+      (state.nomenclature?.data?.length ?? false) && state.ontology.status !== 'pending' && planningStatus !== 'pending'
     );
   });
   const prevText = useSelector((state: RootState) => {

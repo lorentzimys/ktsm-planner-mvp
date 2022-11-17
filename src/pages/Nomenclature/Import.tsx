@@ -23,7 +23,7 @@ const ImportNomenclaturePage = () => {
       uploadNomenclature({
         data: JSON.parse(e.target?.result as string),
         fileName: (e.target as any)?.fileName,
-      }),
+      })
     );
   }, []);
 
@@ -32,7 +32,7 @@ const ImportNomenclaturePage = () => {
       uploadOperations({
         data: JSON.parse(e.target?.result as string),
         fileName: (e.target as any)?.fileName,
-      }),
+      })
     );
   }, []);
 

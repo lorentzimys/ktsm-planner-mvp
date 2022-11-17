@@ -68,7 +68,7 @@ export const VisTimeline = forwardRef<Timeline, VisTimelineProps>(({ data }: Vis
     {
       show: legendVisible,
       collapse: !legendVisible,
-    },
+    }
   );
 
   return (

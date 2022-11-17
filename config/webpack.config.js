@@ -171,7 +171,7 @@ module.exports = function (webpackEnv) {
           options: {
             sourceMap: true,
           },
-        },
+        }
       );
     }
     return loaders;
@@ -410,7 +410,7 @@ module.exports = function (webpackEnv) {
                 ],
 
                 plugins: [isEnvDevelopment && shouldUseReactRefresh && require.resolve('react-refresh/babel')].filter(
-                  Boolean,
+                  Boolean
                 ),
                 // This is a feature of `babel-loader` for webpack (not Babel itself).
                 // It enables caching results in ./node_modules/.cache/babel-loader/
@@ -493,7 +493,7 @@ module.exports = function (webpackEnv) {
                     mode: 'icss',
                   },
                 },
-                'sass-loader',
+                'sass-loader'
               ),
               // Don't consider CSS imports dead code even if the
               // containing package claims to have no side effects.
@@ -514,7 +514,7 @@ module.exports = function (webpackEnv) {
                     getLocalIdent: getCSSModuleLocalIdent,
                   },
                 },
-                'sass-loader',
+                'sass-loader'
               ),
             },
             // "file" loader makes sure those assets get served by WebpackDevServer.
@@ -560,8 +560,8 @@ module.exports = function (webpackEnv) {
                   minifyURLs: true,
                 },
               }
-            : undefined,
-        ),
+            : undefined
+        )
       ),
       // Inlines the webpack runtime script. This script is too small to warrant
       // a network request.

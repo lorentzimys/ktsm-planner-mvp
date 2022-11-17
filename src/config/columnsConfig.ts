@@ -357,6 +357,6 @@ export const createColumnsConfigFromKeys = (keys: string[], enableFilters = fals
       cell: (info) => info.getValue(),
       enableColumnFilter: enableFilters,
       header: k,
-    }),
+    })
   );
 };

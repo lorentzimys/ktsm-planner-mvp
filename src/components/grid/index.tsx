@@ -26,7 +26,7 @@ interface GridProps {
 
 const Grid = ({ data, columnsConfig, useSelection = false, onRowSelectionChange }: GridProps) => {
   const [rowSelection, setRowSelection] = React.useState(
-    useSelection && typeof useSelection === 'object' ? useSelection.selectionState : {},
+    useSelection && typeof useSelection === 'object' ? useSelection.selectionState : {}
   );
 
   const emptyData = <div className="flex-col page-content--center overflow-hidden">Данные отсутствуют</div>;

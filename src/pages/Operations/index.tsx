@@ -19,7 +19,7 @@ const OpeationsPage = () => {
       uploadOperations({
         data: JSON.parse(e.target?.result as string),
         fileName: (e.target as any)?.fileName,
-      }),
+      })
     );
   }, []);
 

@@ -148,7 +148,7 @@ export const runPlan = createAsyncThunk('runPlan', async (_, { rejectWithValue, 
         consolidationInfo: consolidationInfo || [],
         totalTime: cost.totalTime,
         name,
-      }),
+      })
     );
   }
   return rejectWithValue(responseJson);

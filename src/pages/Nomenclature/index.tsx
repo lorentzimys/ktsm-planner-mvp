@@ -25,7 +25,7 @@ const SelectNomenclaturePage = () => {
       uploadNomenclature({
         data: JSON.parse(e.target?.result as string),
         fileName: (e.target as any)?.fileName,
-      }),
+      })
     );
   }, []);
 
