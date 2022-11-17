@@ -458,11 +458,17 @@ export const createColumnsConfigFromKeys = (
   keys: string[],
   enableFilters = false
 ) => {
-  return keys.map((k) =>
-    columnHelper.accessor(k, {
-      cell: (info) => info.getValue(),
-      enableColumnFilter: enableFilters,
-      header: k,
-    })
-  );
+  if (keys) {
+    return Object.entries(keys).map(([k, v]) =>
+      columnHelper.accessor(k.toString(), {
+        minSize: 80,
+        maxSize: 240,
+        cell: (info) => info.getValue(),
+        enableColumnFilter: enableFilters,
+        header: v.toString() || ' ',
+      })
+    );
+  }
+
+  return [];
 };

@@ -149,6 +149,7 @@ export const runPlan = createAsyncThunk(
           scrapPowderConversionInfo,
           consolidationInfo,
           name,
+          infos,
         }) => ({
           base64,
           groups,
@@ -159,6 +160,7 @@ export const runPlan = createAsyncThunk(
           consolidationInfo: consolidationInfo || [],
           totalTime: cost.totalTime,
           name,
+          infos,
         })
       );
     }

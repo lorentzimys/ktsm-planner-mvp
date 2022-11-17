@@ -44,7 +44,7 @@ interface PlanningResultInfo {
 
 interface PlannigResultTableInfo {
   columns: string[];
-  rows: string | number[];
+  rows: (string | number)[];
 }
 
 interface PlanningResults {

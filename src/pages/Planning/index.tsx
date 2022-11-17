@@ -6,7 +6,10 @@ import { RootState } from '@store';
 import { refreshOntology, runPlan } from '@store/slice';
 
 import { useAppDispatch } from '@hooks/hooks';
-import { infoColumns } from '@components/Grid/config/columnsConfig';
+import {
+  createColumnsConfigFromKeys,
+  infoColumns,
+} from '@components/Grid/config/columnsConfig';
 
 import Grid from '@components/Grid';
 import { VisTimeline } from '@components/Timeline';
@@ -53,8 +56,6 @@ export const PlanningPage = () => {
     }
     dispatch(runPlan());
   };
-
-  console.log(data);
 
   const HandlePlanButton = ({ children }) => (
     <button
@@ -117,6 +118,14 @@ export const PlanningPage = () => {
           </div>
           {viewVariant === 'timeline' && (
             <VisTimeline data={data as any} ref={timelineRef} />
+          )}
+          {viewVariant === 'timelineTable' && (
+            <div className="px-4 py-2 flex flex-1 flex-col w-full overflow-hidden">
+              <Grid
+                data={data.infos.rows}
+                columnsConfig={createColumnsConfigFromKeys(data.infos.columns)}
+              />
+            </div>
           )}
           {(viewVariant === 'consolidationInfo' ||
             viewVariant === 'feConversionInfo' ||
