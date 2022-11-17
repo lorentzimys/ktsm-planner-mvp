@@ -65,7 +65,7 @@ export const PlanningPage = () => {
   )
 
   return (
-    <div className="flex flex-1">
+    <div className="flex flex-1 w-full">
       {planningStatus === 'idle' && (
         <div className="flex-col gap-2 page-content--center">
           <HandlePlanButton>
@@ -90,7 +90,7 @@ export const PlanningPage = () => {
         </div>
       )}
       {planningStatus === 'fulfilled' && (
-        <div className="flex flex-1 flex-col">
+        <div className="flex flex-1 flex-col w-full">
           <div className="mx-4 my-2 flex flex-row justify-between items-center">
             <h2 className="header-5 flex flex-col text-gray-800">
               <PlanVariantSelect />
@@ -102,7 +102,7 @@ export const PlanningPage = () => {
             viewVariant === 'feConversionInfo' ||
             viewVariant === 'scrapPowderConversionInfo')
             && (
-              <div className="flex flex-1 flex-col place-content-center self-center overflow-auto">
+              <div className="px-4 py-2 flex flex-1 flex-col w-full overflow-hidden">
                 <Grid
                   data={(data.items)}
                   columnsConfig={createColumnsConfigFromKeys(Object.keys(data[viewVariant as any][0] || {}))}

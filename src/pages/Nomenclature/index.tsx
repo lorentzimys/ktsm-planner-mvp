@@ -57,7 +57,7 @@ const SelectNomenclaturePage = () => {
 
   return (
     nomenclatureLoaded ?
-      <div className='flex flex-1 overflow-hidden m-8'>
+      <div className='flex flex-1 overflow-hidden m-4'>
         <Grid
           data={data}
           columnsConfig={nomenclatureColumns}

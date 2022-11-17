@@ -75,7 +75,7 @@ const Toolbar = () => {
   }
 
   return (
-    <div className="flex flex-row justify-between p-2">
+    <div className="flex flex-row justify-between px-4 py-2">
       <div className="gap-x-4 flex">
         <div className="gap-x-1 flex">
           <button

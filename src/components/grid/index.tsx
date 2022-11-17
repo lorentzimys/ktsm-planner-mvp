@@ -102,7 +102,7 @@ const Grid = ({
 
   return data ?
     <div className="flex flex-1 flex-col overflow-hidden">
-      <div className="flex flex-1 flex-col overflow-auto border border-collapse border-gray-400">
+      <div className="flex flex-1 flex-col overflow-auto">
         <table className="table table--striped">
           <thead className="table__header">
             {table.getHeaderGroups().map((headerGroup, i) => (

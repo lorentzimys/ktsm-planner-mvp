@@ -10,7 +10,7 @@ import { changeEquipmentSelection, fetchEquipment, FETCH_STATUS } from "@store/s
 import Grid from "@components/Grid";
 import { useAppDispatch } from "@hooks/hooks";
 
-const wrapperClassNames = "flex flex-1 flex-col justify-center place-content-center content-center items-center overflow-hidden m-8";
+const wrapperClassNames = "flex flex-1 flex-col justify-center place-content-center content-center items-center overflow-hidden m-4";
 
 export const EquipmentPage = React.memo(() => {
   const dispatch = useAppDispatch();

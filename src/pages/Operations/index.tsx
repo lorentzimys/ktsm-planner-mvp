@@ -46,7 +46,7 @@ const OpeationsPage = () => {
   );
 
   return (
-    <div className='flex flex-1 overflow-hidden m-8'>
+    <div className='flex flex-1 overflow-hidden m-4'>
       {
         data ?
           <Grid data={data} columnsConfig={operationsColumns} /> :
