@@ -1,13 +1,22 @@
 type FetchStatus = 'idle' | 'pending' | 'fulfilled' | 'rejected';
 
-type ViewVariantValue = 'timeline' | 'scrapPowderConversionInfo' | 'feConversionInfo' | 'consolidationInfo';
+type ViewVariantValue =
+  | 'timeline'
+  | 'scrapPowderConversionInfo'
+  | 'feConversionInfo'
+  | 'consolidationInfo';
 
 interface ViewVariant {
   name: string;
   value: ViewVariantValue;
 }
 
-type StepType = 'importData' | 'nomenclature' | 'operations' | 'resources' | 'plan';
+type StepType =
+  | 'importData'
+  | 'nomenclature'
+  | 'operations'
+  | 'resources'
+  | 'plan';
 
 interface StepItem {
   id: StepType;

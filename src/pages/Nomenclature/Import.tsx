@@ -13,10 +13,18 @@ import styles from './styles.module.css';
 
 const ImportNomenclaturePage = () => {
   const dispatch = useAppDispatch();
-  const nomenclatureLoaded = useSelector((state: RootState) => !!state.nomenclature.data);
-  const nomenclatureFileName = useSelector((state: RootState) => state.nomenclature.fileName);
-  const operationsLoaded = useSelector((state: RootState) => !!state.operations.data);
-  const operationsFileName = useSelector((state: RootState) => state.operations.fileName);
+  const nomenclatureLoaded = useSelector(
+    (state: RootState) => !!state.nomenclature.data
+  );
+  const nomenclatureFileName = useSelector(
+    (state: RootState) => state.nomenclature.fileName
+  );
+  const operationsLoaded = useSelector(
+    (state: RootState) => !!state.operations.data
+  );
+  const operationsFileName = useSelector(
+    (state: RootState) => state.operations.fileName
+  );
 
   const handleUploadNomenclature = useCallback((e) => {
     dispatch(
@@ -44,9 +52,10 @@ const ImportNomenclaturePage = () => {
         </div>
         <div className="flex flex-1 items-center justify-center flex-col">
           <span>
-            Для того, чтобы приступить к планированию - необходимо загрузить первичные данные.
-            <br />В качестве первичных данных используется номенклатура оборудования, а так же опционально - текущее
-            состояние оборудования.
+            Для того, чтобы приступить к планированию - необходимо загрузить
+            первичные данные.
+            <br />В качестве первичных данных используется номенклатура
+            оборудования, а так же опционально - текущее состояние оборудования.
           </span>
         </div>
         <div className="flex flex-row flex-1 gap-2">
@@ -77,7 +86,9 @@ const ImportNomenclaturePage = () => {
               </div>
             }
             onUpload={handleUploadNomenclature}
-            className={clsx(styles.Button, { [styles.ButtonLoaded]: nomenclatureLoaded })}
+            className={clsx(styles.Button, {
+              [styles.ButtonLoaded]: nomenclatureLoaded,
+            })}
           />
           <UploadButton
             text={
@@ -106,7 +117,9 @@ const ImportNomenclaturePage = () => {
               </div>
             }
             onUpload={handleUploadOperations}
-            className={clsx(styles.Button, { [styles.ButtonLoaded]: operationsLoaded })}
+            className={clsx(styles.Button, {
+              [styles.ButtonLoaded]: operationsLoaded,
+            })}
           />
         </div>
       </div>

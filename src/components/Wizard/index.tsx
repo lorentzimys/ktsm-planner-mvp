@@ -5,10 +5,18 @@ import { WizardStep } from '@store/slice';
 
 import { Stepper } from '@components/Stepper';
 import Toolbar from '@components/Toolbar';
-import { EquipmentPage, ImportNomenclaturePage, OpeationsPage, PlanningPage, SelectNomenclaturePage } from '@pages';
+import {
+  EquipmentPage,
+  ImportNomenclaturePage,
+  OpeationsPage,
+  PlanningPage,
+  SelectNomenclaturePage,
+} from '@pages';
 
 const WizardLayout = () => {
-  const currentStep = useSelector((state: RootState) => state.steps[state.currentStep]);
+  const currentStep = useSelector(
+    (state: RootState) => state.steps[state.currentStep]
+  );
 
   return (
     <div className="flex flex-1 flex-col overflow-hidden">
@@ -17,7 +25,9 @@ const WizardLayout = () => {
       </div>
       <div className="flex flex-1 overflow-hidden">
         {currentStep.id === WizardStep.Import.id && <ImportNomenclaturePage />}
-        {currentStep.id === WizardStep.SelectNomenclature.id && <SelectNomenclaturePage />}
+        {currentStep.id === WizardStep.SelectNomenclature.id && (
+          <SelectNomenclaturePage />
+        )}
         {currentStep.id === WizardStep.SelectOperations.id && <OpeationsPage />}
         {currentStep.id === WizardStep.SelectResources.id && <EquipmentPage />}
         {currentStep.id === WizardStep.Plan.id && <PlanningPage />}

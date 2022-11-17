@@ -3,7 +3,11 @@ import { useSelector } from 'react-redux';
 import { RowSelectionState } from '@tanstack/react-table';
 
 import { RootState } from '@/store';
-import { changeNomenclatureSelection, nextStep, uploadNomenclature } from '@store/slice';
+import {
+  changeNomenclatureSelection,
+  nextStep,
+  uploadNomenclature,
+} from '@store/slice';
 import Grid from '@components/Grid';
 import { UploadButton } from '@components/Buttons/UploadButton';
 
@@ -17,8 +21,12 @@ import styles from './styles.module.css';
 const SelectNomenclaturePage = () => {
   const dispatch = useAppDispatch();
   const data = useSelector((state: RootState) => state.nomenclature.data);
-  const nomenclatureLoaded = useSelector((state: RootState) => !!state.nomenclature.data);
-  const selection = useSelector((state: RootState) => state.nomenclature.selected);
+  const nomenclatureLoaded = useSelector(
+    (state: RootState) => !!state.nomenclature.data
+  );
+  const selection = useSelector(
+    (state: RootState) => state.nomenclature.selected
+  );
 
   const handleUploadNomenclature = useCallback((e) => {
     dispatch(
@@ -33,13 +41,18 @@ const SelectNomenclaturePage = () => {
     dispatch(nextStep());
   };
 
-  const handleRowSelectionChange = useCallback((rowSelection: RowSelectionState) => {
-    dispatch(changeNomenclatureSelection(rowSelection));
-  }, []);
+  const handleRowSelectionChange = useCallback(
+    (rowSelection: RowSelectionState) => {
+      dispatch(changeNomenclatureSelection(rowSelection));
+    },
+    []
+  );
 
   const emptyBlock = (
     <div className="flex-col gap-2 page-content--center">
-      <span className="w-96 text-center">Данные о номенклатуре не были импортированы</span>
+      <span className="w-96 text-center">
+        Данные о номенклатуре не были импортированы
+      </span>
       <br />
       <div className="flex flex-row gap-2">
         <UploadButton

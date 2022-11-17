@@ -11,7 +11,10 @@ export const TimelineLegend: React.FC<TimelineLegendProps> = ({ items }) => (
     <div className="overflow-scroll absolute h-full w-full py-2">
       <div className="flex flex-col gap-2">
         {items.map((item) => (
-          <div className="flex flex-row leading-none items-center gap-2" key={item.id}>
+          <div
+            className="flex flex-row leading-none items-center gap-2"
+            key={item.id}
+          >
             <div
               css={item.style}
               style={{

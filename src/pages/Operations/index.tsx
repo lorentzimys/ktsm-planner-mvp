@@ -29,12 +29,16 @@ const OpeationsPage = () => {
 
   const emptyBlock = (
     <div className="flex-col gap-2 page-content--center">
-      <span className="w-96 text-center">Данные о состоянии операций не были импортированы</span>
+      <span className="w-96 text-center">
+        Данные о состоянии операций не были импортированы
+      </span>
       <div className="flex flex-row gap-2">
         <UploadButton
           onUpload={handleUploadOperations}
           className={styles.Button}
-          text={<div className="flex flex-col">Загрузить состояние операций</div>}
+          text={
+            <div className="flex flex-col">Загрузить состояние операций</div>
+          }
         />
         <button onClick={handleSkipOperations} className={styles.SkipButton}>
           Пропустить шаг
@@ -45,7 +49,11 @@ const OpeationsPage = () => {
 
   return (
     <div className="flex flex-1 overflow-hidden m-4">
-      {data ? <Grid data={data} columnsConfig={operationsColumns} /> : emptyBlock}
+      {data ? (
+        <Grid data={data} columnsConfig={operationsColumns} />
+      ) : (
+        emptyBlock
+      )}
     </div>
   );
 };

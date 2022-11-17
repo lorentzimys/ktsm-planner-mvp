@@ -41,7 +41,9 @@ export const PlanningPage = () => {
   const planningStatus = useSelector((state: RootState) => state.plan.status);
   const planningAllowed = useSelector((state: RootState) => {
     return Boolean(
-      (state.nomenclature?.data?.length ?? false) && state.ontology.status !== 'pending' && planningStatus !== 'pending'
+      (state.nomenclature?.data?.length ?? false) &&
+        state.ontology.status !== 'pending' &&
+        planningStatus !== 'pending'
     );
   });
   const timelineRef = useRef<Timeline>(null);
@@ -108,14 +110,18 @@ export const PlanningPage = () => {
             </h2>
             <PlanToolbar />
           </div>
-          {viewVariant === 'timeline' && <VisTimeline data={data as any} ref={timelineRef} />}
+          {viewVariant === 'timeline' && (
+            <VisTimeline data={data as any} ref={timelineRef} />
+          )}
           {(viewVariant === 'consolidationInfo' ||
             viewVariant === 'feConversionInfo' ||
             viewVariant === 'scrapPowderConversionInfo') && (
             <div className="px-4 py-2 flex flex-1 flex-col w-full overflow-hidden">
               <Grid
                 data={data.items}
-                columnsConfig={createColumnsConfigFromKeys(Object.keys(data[viewVariant as any][0] || {}))}
+                columnsConfig={createColumnsConfigFromKeys(
+                  Object.keys(data[viewVariant as any][0] || {})
+                )}
               />
             </div>
           )}

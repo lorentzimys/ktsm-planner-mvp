@@ -3,7 +3,10 @@ import Timeline from 'react-visjs-timeline';
 
 interface IVisTimelineZooOutButtonProps {}
 
-export const ZoomOutButton = forwardRef<Timeline, IVisTimelineZooOutButtonProps>((props, timelineRef) => {
+export const ZoomOutButton = forwardRef<
+  Timeline,
+  IVisTimelineZooOutButtonProps
+>((props, timelineRef) => {
   const handleZoomOut = () => {
     if (timelineRef != null && typeof timelineRef !== 'function') {
       timelineRef.current.$el.zoomOut(0.5);

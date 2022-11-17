@@ -12,9 +12,14 @@ type ViewSwitcherProps = {
   onViewModeChange: (viewMode: any) => void;
 };
 
-export const ViewSwitcher: React.FC<ViewSwitcherProps> = ({ onViewModeChange }) => (
+export const ViewSwitcher: React.FC<ViewSwitcherProps> = ({
+  onViewModeChange,
+}) => (
   <div className="flex items-center">
-    <div className="inline-flex shadow-md hover:shadow-lg focus:shadow-lg" role="group">
+    <div
+      className="inline-flex shadow-md hover:shadow-lg focus:shadow-lg"
+      role="group"
+    >
       <button
         type="button"
         onClick={() => onViewModeChange(ViewMode.Hour)}

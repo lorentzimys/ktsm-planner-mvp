@@ -9,7 +9,9 @@ import styles from './styles.module.css';
 
 export const PlanVariantSelect = () => {
   const dispatch = useAppDispatch();
-  const selectedVariant = useSelector((state: RootState) => state.plan.selectedPlan);
+  const selectedVariant = useSelector(
+    (state: RootState) => state.plan.selectedPlan
+  );
   const variants = useSelector((state: RootState) => state.plan.data);
   const handleVariantChange = (e) => {
     dispatch(selectPlanVariant(e.target.value));

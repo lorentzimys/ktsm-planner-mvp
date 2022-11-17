@@ -39,7 +39,12 @@ export const ViewVariantDropdown = () => {
   };
 
   const buttonPreIcon = (
-    <svg className="h-4 w-4 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+    <svg
+      className="h-4 w-4 text-blue-600"
+      fill="none"
+      viewBox="0 0 24 24"
+      stroke="currentColor"
+    >
       <path
         stroke-linecap="round"
         stroke-linejoin="round"
@@ -80,7 +85,10 @@ export const ViewVariantDropdown = () => {
           {getViewVariant(viewVariant).name}
           {buttonIcon}
         </button>
-        <ul aria-labelledby="dropdownMenuButton1" className={`${styles.Dropdown} dropdown-menu`}>
+        <ul
+          aria-labelledby="dropdownMenuButton1"
+          className={`${styles.Dropdown} dropdown-menu`}
+        >
           {ViewVariants.map(({ value, name }) => (
             <li
               key={value}

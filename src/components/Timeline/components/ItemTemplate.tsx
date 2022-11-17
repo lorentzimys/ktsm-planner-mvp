@@ -5,7 +5,9 @@ interface ItemTemplateProps {
   item: TimelineItem;
 }
 
-export const ItemTemplate: React.FC<ItemTemplateProps> = ({ item }: ItemTemplateProps) => {
+export const ItemTemplate: React.FC<ItemTemplateProps> = ({
+  item,
+}: ItemTemplateProps) => {
   return (
     <div
       className="text-xs overflow-hidden text-ellipsis inline-block w-full"

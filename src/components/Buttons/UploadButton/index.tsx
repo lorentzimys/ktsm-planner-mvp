@@ -25,7 +25,13 @@ export const UploadButton = ({ text, onUpload, className = '' }) => {
 
   return (
     <div className={className} onClick={handleFileUpload}>
-      <input ref={fileInputRef} type="file" accept="json" style={{ display: 'none' }} onChange={onFileChanged} />
+      <input
+        ref={fileInputRef}
+        type="file"
+        accept="json"
+        style={{ display: 'none' }}
+        onChange={onFileChanged}
+      />
       <span className="cursor-default">{text}</span>
     </div>
   );

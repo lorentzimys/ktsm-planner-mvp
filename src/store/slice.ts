@@ -92,75 +92,90 @@ const initialState: AppState = {
   },
 };
 
-export const fetchEquipment = createAsyncThunk('fetchEquipment', async (_, { rejectWithValue }) => {
-  const response = await fetch(apiRoutes.equipment);
-  const responseJson = await response.json();
+export const fetchEquipment = createAsyncThunk(
+  'fetchEquipment',
+  async (_, { rejectWithValue }) => {
+    const response = await fetch(apiRoutes.equipment);
+    const responseJson = await response.json();
 
-  if (response.ok) {
-    return responseJson.resources;
+    if (response.ok) {
+      return responseJson.resources;
+    }
+
+    return rejectWithValue(responseJson);
   }
+);
 
-  return rejectWithValue(responseJson);
-});
-
-export const runPlan = createAsyncThunk('runPlan', async (_, { rejectWithValue, getState }) => {
-  const state = getState() as RootState;
-  const meterials = at(state.nomenclature.data || [], Object.keys(state.nomenclature.selected) as any);
-
-  const resources = at(state.equipment.data || [], Object.keys(state.equipment.selected) as any);
-
-  const operations = state.operations.data || [];
-
-  const response = await fetch(apiRoutes.runPlan, {
-    method: 'post',
-    headers: {
-      Accept: 'application/json',
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify({
-      Materials: meterials,
-      Resources: resources,
-      Operations: operations,
-    }),
-  });
-
-  const responseJson = await response.json();
-
-  if (response.ok) {
-    return responseJson.map(
-      ({
-        base64,
-        groups,
-        items,
-        legendItems,
-        cost,
-        feConversionInfo,
-        scrapPowderConversionInfo,
-        consolidationInfo,
-        name,
-      }) => ({
-        base64,
-        groups,
-        items,
-        legendItems,
-        feConversionInfo: feConversionInfo || [],
-        scrapPowderConversionInfo: scrapPowderConversionInfo || [],
-        consolidationInfo: consolidationInfo || [],
-        totalTime: cost.totalTime,
-        name,
-      })
+export const runPlan = createAsyncThunk(
+  'runPlan',
+  async (_, { rejectWithValue, getState }) => {
+    const state = getState() as RootState;
+    const meterials = at(
+      state.nomenclature.data || [],
+      Object.keys(state.nomenclature.selected) as any
     );
-  }
-  return rejectWithValue(responseJson);
-});
 
-export const refreshOntology = createAsyncThunk('refreshOntology', async (_, { rejectWithValue }) => {
-  try {
-    await fetch(apiRoutes.refreshOntology);
-  } catch (e) {
-    return rejectWithValue(e);
+    const resources = at(
+      state.equipment.data || [],
+      Object.keys(state.equipment.selected) as any
+    );
+
+    const operations = state.operations.data || [];
+
+    const response = await fetch(apiRoutes.runPlan, {
+      method: 'post',
+      headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        Materials: meterials,
+        Resources: resources,
+        Operations: operations,
+      }),
+    });
+
+    const responseJson = await response.json();
+
+    if (response.ok) {
+      return responseJson.map(
+        ({
+          base64,
+          groups,
+          items,
+          legendItems,
+          cost,
+          feConversionInfo,
+          scrapPowderConversionInfo,
+          consolidationInfo,
+          name,
+        }) => ({
+          base64,
+          groups,
+          items,
+          legendItems,
+          feConversionInfo: feConversionInfo || [],
+          scrapPowderConversionInfo: scrapPowderConversionInfo || [],
+          consolidationInfo: consolidationInfo || [],
+          totalTime: cost.totalTime,
+          name,
+        })
+      );
+    }
+    return rejectWithValue(responseJson);
   }
-});
+);
+
+export const refreshOntology = createAsyncThunk(
+  'refreshOntology',
+  async (_, { rejectWithValue }) => {
+    try {
+      await fetch(apiRoutes.refreshOntology);
+    } catch (e) {
+      return rejectWithValue(e);
+    }
+  }
+);
 
 export const appSlice = createSlice({
   name: 'wizard',
@@ -170,7 +185,10 @@ export const appSlice = createSlice({
       state.currentStep = Math.max(state.currentStep - 1, 0);
     },
     nextStep: (state) => {
-      state.currentStep = Math.min(state.currentStep + 1, state.steps.length - 1);
+      state.currentStep = Math.min(
+        state.currentStep + 1,
+        state.steps.length - 1
+      );
     },
     goToStep: (state, action: PayloadAction<any>) => {
       if (action.payload > state.steps.length - 1 || action.payload < 0) {
@@ -191,10 +209,16 @@ export const appSlice = createSlice({
     uploadOperations: (state, action: PayloadAction<UploadAction>) => {
       state.operations = action.payload;
     },
-    changeNomenclatureSelection: (state, action: PayloadAction<RowSelectionState>) => {
+    changeNomenclatureSelection: (
+      state,
+      action: PayloadAction<RowSelectionState>
+    ) => {
       state.nomenclature.selected = action.payload;
     },
-    changeEquipmentSelection: (state, action: PayloadAction<RowSelectionState>) => {
+    changeEquipmentSelection: (
+      state,
+      action: PayloadAction<RowSelectionState>
+    ) => {
       state.equipment.selected = action.payload;
     },
     clearWizardState: (state) => {

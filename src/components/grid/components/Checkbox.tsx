@@ -13,7 +13,14 @@ const IndeterminateCheckbox = ({
     }
   }, [ref, indeterminate]);
 
-  return <input type="checkbox" ref={ref} className={className + ' cursor-pointer'} {...rest} />;
+  return (
+    <input
+      type="checkbox"
+      ref={ref}
+      className={className + ' cursor-pointer'}
+      {...rest}
+    />
+  );
 };
 
 export const CheckboxHeaderCell = React.memo(({ table }: any) => (

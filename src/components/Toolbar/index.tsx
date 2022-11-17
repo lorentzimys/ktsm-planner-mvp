@@ -2,9 +2,19 @@ import { useSelector } from 'react-redux';
 
 import { useAppDispatch } from '../../hooks/hooks';
 import { RootState } from '@/store';
-import { canProceedSelector, currentStepSelector as currStep } from '@store/selectors';
+import {
+  canProceedSelector,
+  currentStepSelector as currStep,
+} from '@store/selectors';
 
-import { prevStep, nextStep, clearWizardState, goToStep, runPlan, refreshOntology } from '@store/slice';
+import {
+  prevStep,
+  nextStep,
+  clearWizardState,
+  goToStep,
+  runPlan,
+  refreshOntology,
+} from '@store/slice';
 
 import { RefreshOntologyButton } from '@components/Buttons/RefreshOntologyButton';
 import { RefreshIcon } from '@components/Icons/Refresh';
@@ -20,7 +30,9 @@ const Toolbar = () => {
   const planningStatus = useSelector((state: RootState) => state.plan.status);
   const planningAllowed = useSelector((state: RootState) => {
     return Boolean(
-      (state.nomenclature?.data?.length ?? false) && state.ontology.status !== 'pending' && planningStatus !== 'pending'
+      (state.nomenclature?.data?.length ?? false) &&
+        state.ontology.status !== 'pending' &&
+        planningStatus !== 'pending'
     );
   });
   const prevText = useSelector((state: RootState) => {
@@ -40,7 +52,9 @@ const Toolbar = () => {
 
   const handleExit = () => {
     // eslint-disable-next-line no-restricted-globals
-    const procced = confirm('Текущая сессия планирования будет утеряна. Все равно продолжить?');
+    const procced = confirm(
+      'Текущая сессия планирования будет утеряна. Все равно продолжить?'
+    );
     if (procced) {
       dispatch(clearWizardState());
       dispatch(goToStep(0));
@@ -71,7 +85,10 @@ const Toolbar = () => {
     <div className="flex flex-row justify-between px-4 py-2">
       <div className="gap-x-4 flex">
         <div className="gap-x-1 flex">
-          <button onClick={handlePrev} className="button button__primary button--small">
+          <button
+            onClick={handlePrev}
+            className="button button__primary button--small"
+          >
             {prevText}
           </button>
           <button
@@ -90,7 +107,11 @@ const Toolbar = () => {
           disabled={!planningAllowed}
           className="disabled:opacity-50 gap-2 text-xs disabled:cursor-not-allowed button button__primary button--small"
         >
-          {planningStatus === 'idle' ? <StartIcon /> : <RefreshIcon className={classNames} />}
+          {planningStatus === 'idle' ? (
+            <StartIcon />
+          ) : (
+            <RefreshIcon className={classNames} />
+          )}
           Построить план
         </button>
       </div>

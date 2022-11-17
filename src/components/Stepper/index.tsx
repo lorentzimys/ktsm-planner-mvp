@@ -4,7 +4,11 @@ import { useLocation } from 'react-router-dom';
 import clsx from 'clsx';
 
 import { WizardStep, goToStep } from '@store/slice';
-import { canProceedSelector, currentStepSelector, stepsSelector } from '@store/selectors';
+import {
+  canProceedSelector,
+  currentStepSelector,
+  stepsSelector,
+} from '@store/selectors';
 
 import { useAppDispatch } from '../../hooks/hooks';
 
@@ -35,9 +39,15 @@ export const Stepper = () => {
     <nav>
       <ul className="stepper" data-mdb-stepper="stepper">
         {Object.values(WizardStep).map((step, i) => {
-          const className = clsx('stepper-step', { 'stepper-active': currentStep === i });
+          const className = clsx('stepper-step', {
+            'stepper-active': currentStep === i,
+          });
           return (
-            <div key={i} className={className} onClick={() => handleSelectStep(i)}>
+            <div
+              key={i}
+              className={className}
+              onClick={() => handleSelectStep(i)}
+            >
               <div className="stepper-head">
                 <span className="stepper-head-icon">{i + 1}</span>
                 <span className="stepper-head-text">

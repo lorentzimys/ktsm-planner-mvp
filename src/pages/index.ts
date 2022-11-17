@@ -3,4 +3,10 @@ import { ImportNomenclaturePage, SelectNomenclaturePage } from './Nomenclature';
 import { EquipmentPage } from './Equipment';
 import OpeationsPage from './Operations';
 
-export { PlanningPage, ImportNomenclaturePage, SelectNomenclaturePage, EquipmentPage, OpeationsPage };
+export {
+  PlanningPage,
+  ImportNomenclaturePage,
+  SelectNomenclaturePage,
+  EquipmentPage,
+  OpeationsPage,
+};

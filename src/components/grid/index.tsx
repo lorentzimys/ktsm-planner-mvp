@@ -8,7 +8,12 @@ import {
   useReactTable,
 } from '@tanstack/react-table';
 
-import { CheckboxHeaderCell, CheckboxRowCell, Filter, Total } from './components';
+import {
+  CheckboxHeaderCell,
+  CheckboxRowCell,
+  Filter,
+  Total,
+} from './components';
 
 import './index.css';
 
@@ -24,12 +29,23 @@ interface GridProps {
   onRowSelectionChange?: (rowSelection: RowSelectionState) => void;
 }
 
-const Grid = ({ data, columnsConfig, useSelection = false, onRowSelectionChange }: GridProps) => {
+const Grid = ({
+  data,
+  columnsConfig,
+  useSelection = false,
+  onRowSelectionChange,
+}: GridProps) => {
   const [rowSelection, setRowSelection] = React.useState(
-    useSelection && typeof useSelection === 'object' ? useSelection.selectionState : {}
+    useSelection && typeof useSelection === 'object'
+      ? useSelection.selectionState
+      : {}
   );
 
-  const emptyData = <div className="flex-col page-content--center overflow-hidden">Данные отсутствуют</div>;
+  const emptyData = (
+    <div className="flex-col page-content--center overflow-hidden">
+      Данные отсутствуют
+    </div>
+  );
 
   const createColumns = () => {
     let columns = [...columnsConfig];
@@ -105,7 +121,12 @@ const Grid = ({ data, columnsConfig, useSelection = false, onRowSelectionChange 
                       },
                     }}
                   >
-                    {header.isPlaceholder ? null : flexRender(header.column.columnDef.header, header.getContext())}
+                    {header.isPlaceholder
+                      ? null
+                      : flexRender(
+                          header.column.columnDef.header,
+                          header.getContext()
+                        )}
                     {header.column.getCanFilter() ? (
                       <div>
                         <Filter column={header.column} table={table} />

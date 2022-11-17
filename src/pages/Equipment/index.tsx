@@ -5,7 +5,11 @@ import { RowSelectionState } from '@tanstack/react-table';
 
 import { resourcesColumns } from '@config/columnsConfig';
 import { RootState } from '@store';
-import { changeEquipmentSelection, fetchEquipment, FETCH_STATUS } from '@store/slice';
+import {
+  changeEquipmentSelection,
+  fetchEquipment,
+  FETCH_STATUS,
+} from '@store/slice';
 import Grid from '@components/Grid';
 import { useAppDispatch } from '@hooks/hooks';
 
@@ -17,9 +21,12 @@ export const EquipmentPage = React.memo(() => {
   const data = useSelector((state: RootState) => state.equipment.data);
   const fetchStatus = useSelector((state: RootState) => state.equipment.status);
   const selected = useSelector((state: RootState) => state.equipment.selected);
-  const handleRowSelectionChange = useCallback((rowSelection: RowSelectionState) => {
-    dispatch(changeEquipmentSelection(rowSelection));
-  }, []);
+  const handleRowSelectionChange = useCallback(
+    (rowSelection: RowSelectionState) => {
+      dispatch(changeEquipmentSelection(rowSelection));
+    },
+    []
+  );
 
   const handleUpdateData = () => {
     dispatch(fetchEquipment());
@@ -35,7 +42,10 @@ export const EquipmentPage = React.memo(() => {
     <>
       <span>Данные оборудования отсутствуют</span>
       <br />
-      <button onClick={handleUpdateData} className="button button__primary button--small">
+      <button
+        onClick={handleUpdateData}
+        className="button button__primary button--small"
+      >
         Обновить данные
       </button>
     </>

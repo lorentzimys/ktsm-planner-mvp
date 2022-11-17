@@ -5,7 +5,9 @@ import { toggleLegend } from '@store/slice';
 
 export const ToggleLegendButton: React.FC = () => {
   const dispatch = useAppDispatch();
-  const legendEnabled = useSelector((state: RootState) => state.plan.showLegend);
+  const legendEnabled = useSelector(
+    (state: RootState) => state.plan.showLegend
+  );
 
   const handleLegendToggle = (e) => {
     dispatch(toggleLegend(e.target.checked));
@@ -14,7 +16,9 @@ export const ToggleLegendButton: React.FC = () => {
   return (
     <div className="flex self-center">
       <div className="form-check form-switch">
-        <label className="form-check-label inline-block text-gray-800">Легенда</label>
+        <label className="form-check-label inline-block text-gray-800">
+          Легенда
+        </label>
         <input
           checked={legendEnabled}
           onChange={handleLegendToggle}

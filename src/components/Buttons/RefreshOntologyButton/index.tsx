@@ -7,7 +7,9 @@ import { useSelector } from 'react-redux';
 
 export const RefreshOntologyButton = () => {
   const dispatch = useAppDispatch();
-  const ontologyPending = useSelector((state: RootState) => state.ontology.status === 'pending');
+  const ontologyPending = useSelector(
+    (state: RootState) => state.ontology.status === 'pending'
+  );
   const refreshDisallowed = useSelector((state: RootState) => {
     return ontologyPending || state.plan.status === 'pending';
   });
