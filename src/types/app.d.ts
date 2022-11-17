@@ -2,6 +2,7 @@ type FetchStatus = 'idle' | 'pending' | 'fulfilled' | 'rejected';
 
 type ViewVariantValue =
   | 'timeline'
+  | 'timelineTable'
   | 'scrapPowderConversionInfo'
   | 'feConversionInfo'
   | 'consolidationInfo';
@@ -9,6 +10,7 @@ type ViewVariantValue =
 interface ViewVariant {
   name: string;
   value: ViewVariantValue;
+  type: 'timeline' | 'table';
 }
 
 type StepType =

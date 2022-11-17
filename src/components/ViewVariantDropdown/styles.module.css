@@ -28,12 +28,12 @@
 }
 
 .DropdownItem {
+	@apply flex flex-1 flex-row gap-2;
   @apply cursor-pointer;
   @apply text-sm;
   @apply py-2;
   @apply px-4;
   @apply font-normal;
-  @apply block;
   @apply w-full;
   @apply whitespace-nowrap;
   @apply bg-transparent;
