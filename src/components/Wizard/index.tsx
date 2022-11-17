@@ -16,7 +16,7 @@ const WizardLayout = () => {
       <div className="shadow-sm shadow-gray-400 z-50">
         <Stepper />
       </div>
-      <div className="flex flex-1">
+      <div className="flex flex-1 overflow-hidden">
         {currentStep.id === WizardStep.Import.id && (<ImportNomenclaturePage />)} 
         {currentStep.id === WizardStep.SelectNomenclature.id && (<SelectNomenclaturePage />)} 
         {currentStep.id === WizardStep.SelectOperations.id && (<OpeationsPage />)} 

@@ -16,6 +16,7 @@ import {
 import { RefreshOntologyButton } from "@components/Buttons/RefreshOntologyButton";
 import { RefreshIcon } from "@components/Icons/Refresh";
 import { StartIcon } from "@components/Icons/Start";
+import clsx from "clsx";
 
 const Toolbar = () => {
   const dispatch = useAppDispatch();
@@ -37,6 +38,10 @@ const Toolbar = () => {
       return 'Назад'
     }
   });
+
+  const classNames = clsx("w-4 h-4", {
+    'animate-spin': planningStatus === 'pending'
+  })
 
   const canProceed = useSelector(canProceedSelector);
 
@@ -85,7 +90,7 @@ const Toolbar = () => {
             Далее
           </button>
         </div>
-        {/* <RefreshOntologyButton /> */}
+        <RefreshOntologyButton />
       </div>
       <div className="gap-x-2 flex">
         <button
@@ -94,15 +99,10 @@ const Toolbar = () => {
           className="disabled:opacity-50 gap-2 text-xs disabled:cursor-not-allowed button button__primary button--small">
           {
             planningStatus === 'idle' ?
-              <>
-                {<StartIcon />}
-                Запустить планирование
-              </> :
-              <>
-                {<RefreshIcon />}
-                Перезапустить планирование
-              </>
+                <StartIcon /> :
+                <RefreshIcon className={classNames} />
           }
+          Построить план
         </button>
       </div>
     </div>
