@@ -1,26 +1,26 @@
 .Container {
-	@apply flex flex-col align-middle gap-2 p-10 border-dashed border-slate-700 border-2 w-1/2;
-	max-width: 600px;
+  @apply flex flex-col align-middle gap-2 p-10 border-dashed border-slate-700 border-2 w-1/2;
+  max-width: 600px;
 }
 
 .Button {
-	flex: 1;
-	@apply button;
-	@apply button__primary;
-	@apply button--small;
-	@apply button--center;
+  flex: 1;
+  @apply button;
+  @apply button__primary;
+  @apply button--small;
+  @apply button--center;
 }
 
 .ButtonLoaded {
-	flex: 1;
-	@apply button;
-	@apply button__success;
+  flex: 1;
+  @apply button;
+  @apply button__success;
 }
 
 .SkipButton {
-	flex: 1;
-	@apply button;
-	@apply button--small;
-	@apply button--center;
-	@apply button__secondary;
+  flex: 1;
+  @apply button;
+  @apply button--small;
+  @apply button--center;
+  @apply button__secondary;
 }

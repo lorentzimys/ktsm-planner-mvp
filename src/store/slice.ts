@@ -1,8 +1,8 @@
-import { createAsyncThunk, createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { RowSelectionState } from "@tanstack/react-table";
-import { at } from "lodash";
-import { RootState } from "./index";
-import { apiRoutes } from "@utils/api";
+import { createAsyncThunk, createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { RowSelectionState } from '@tanstack/react-table';
+import { at } from 'lodash';
+import { RootState } from './index';
+import { apiRoutes } from '@utils/api';
 
 export interface AppState {
   steps: Array<StepItem>;
@@ -26,7 +26,7 @@ export interface AppState {
     selectedPlan: number;
     showLegend: boolean;
     status: FetchStatus;
-    data: PlanningResults[]
+    data: PlanningResults[];
   };
   ontology: {
     status: FetchStatus;
@@ -34,32 +34,32 @@ export interface AppState {
 }
 
 export const FETCH_STATUS: Record<string, FetchStatus> = {
-  IDLE: "idle",
-  PENDING: "pending",
-  FULFILLED: "fulfilled",
-  REJECTED: "rejected",
+  IDLE: 'idle',
+  PENDING: 'pending',
+  FULFILLED: 'fulfilled',
+  REJECTED: 'rejected',
 };
 
 export const WizardStep: Record<string, StepItem> = {
   Import: {
-    id: "importData",
-    value: "Импорт данных",
+    id: 'importData',
+    value: 'Импорт данных',
   },
   SelectNomenclature: {
-    id: "nomenclature",
-    value: "Выбор номенклатуры",
+    id: 'nomenclature',
+    value: 'Выбор номенклатуры',
   },
   SelectOperations: {
-    id: "operations",
-    value: "Просмотр операций",
+    id: 'operations',
+    value: 'Просмотр операций',
   },
   SelectResources: {
-    id: "resources",
-    value: "Выбор ресурсов",
+    id: 'resources',
+    value: 'Выбор ресурсов',
   },
   Plan: {
-    id: "plan",
-    value: "Планирование",
+    id: 'plan',
+    value: 'Планирование',
   },
 };
 
@@ -76,119 +76,101 @@ const initialState: AppState = {
     fileName: null,
   },
   equipment: {
-    status: "idle",
+    status: 'idle',
     data: null,
     selected: {},
   },
   plan: {
-    viewVariant: "timeline",
+    viewVariant: 'timeline',
     selectedPlan: 0,
     showLegend: false,
-    status: "idle",
+    status: 'idle',
     data: [],
   },
   ontology: {
-    status: "idle",
+    status: 'idle',
   },
 };
 
-export const fetchEquipment = createAsyncThunk(
-  "fetchEquipment",
-  async (_, { rejectWithValue }) => {
-    const response = await fetch(apiRoutes.equipment);
-    const responseJson = await response.json();
+export const fetchEquipment = createAsyncThunk('fetchEquipment', async (_, { rejectWithValue }) => {
+  const response = await fetch(apiRoutes.equipment);
+  const responseJson = await response.json();
 
-    if (response.ok) {
-      return responseJson.resources;
-    }
-
-    return rejectWithValue(responseJson);
+  if (response.ok) {
+    return responseJson.resources;
   }
-);
 
-export const runPlan = createAsyncThunk(
-  "runPlan",
-  async (_, { rejectWithValue, getState }) => {
-    const state = getState() as RootState;
-    const meterials = at(
-      state.nomenclature.data || [],
-      Object.keys(state.nomenclature.selected) as any
-    );
+  return rejectWithValue(responseJson);
+});
 
-    const resources = at(
-      state.equipment.data || [],
-      Object.keys(state.equipment.selected) as any
-    );
+export const runPlan = createAsyncThunk('runPlan', async (_, { rejectWithValue, getState }) => {
+  const state = getState() as RootState;
+  const meterials = at(state.nomenclature.data || [], Object.keys(state.nomenclature.selected) as any);
 
-    const operations = state.operations.data || [];
+  const resources = at(state.equipment.data || [], Object.keys(state.equipment.selected) as any);
 
-    const response = await fetch(apiRoutes.runPlan, {
-      method: "post",
-      headers: {
-        Accept: "application/json",
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        Materials: meterials,
-        Resources: resources,
-        Operations: operations,
+  const operations = state.operations.data || [];
+
+  const response = await fetch(apiRoutes.runPlan, {
+    method: 'post',
+    headers: {
+      Accept: 'application/json',
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({
+      Materials: meterials,
+      Resources: resources,
+      Operations: operations,
+    }),
+  });
+
+  const responseJson = await response.json();
+
+  if (response.ok) {
+    return responseJson.map(
+      ({
+        base64,
+        groups,
+        items,
+        legendItems,
+        cost,
+        feConversionInfo,
+        scrapPowderConversionInfo,
+        consolidationInfo,
+        name,
+      }) => ({
+        base64,
+        groups,
+        items,
+        legendItems,
+        feConversionInfo: feConversionInfo || [],
+        scrapPowderConversionInfo: scrapPowderConversionInfo || [],
+        consolidationInfo: consolidationInfo || [],
+        totalTime: cost.totalTime,
+        name,
       }),
-    });
-
-    const responseJson = await response.json();
-
-    if (response.ok) {
-      return responseJson.map(
-        ({
-          base64,
-          groups,
-          items,
-          legendItems,
-          cost,
-          feConversionInfo,
-          scrapPowderConversionInfo,
-          consolidationInfo,
-          name
-        }) => ({
-          base64,
-          groups,
-          items,
-          legendItems,
-          feConversionInfo: feConversionInfo || [],
-          scrapPowderConversionInfo: scrapPowderConversionInfo || [],
-          consolidationInfo: consolidationInfo || [],
-          totalTime: cost.totalTime,
-          name,
-        })
-      );
-    }
-    return rejectWithValue(responseJson);
+    );
   }
-);
+  return rejectWithValue(responseJson);
+});
 
-export const refreshOntology = createAsyncThunk(
-  "refreshOntology",
-  async (_, { rejectWithValue }) => {
-    try {
-      await fetch(apiRoutes.refreshOntology);
-    } catch (e) {
-      return rejectWithValue(e);
-    }
+export const refreshOntology = createAsyncThunk('refreshOntology', async (_, { rejectWithValue }) => {
+  try {
+    await fetch(apiRoutes.refreshOntology);
+  } catch (e) {
+    return rejectWithValue(e);
   }
-);
+});
 
 export const appSlice = createSlice({
-  name: "wizard",
+  name: 'wizard',
   initialState,
   reducers: {
     prevStep: (state) => {
       state.currentStep = Math.max(state.currentStep - 1, 0);
     },
     nextStep: (state) => {
-      state.currentStep = Math.min(
-        state.currentStep + 1,
-        state.steps.length - 1
-      );
+      state.currentStep = Math.min(state.currentStep + 1, state.steps.length - 1);
     },
     goToStep: (state, action: PayloadAction<any>) => {
       if (action.payload > state.steps.length - 1 || action.payload < 0) {
@@ -209,16 +191,10 @@ export const appSlice = createSlice({
     uploadOperations: (state, action: PayloadAction<UploadAction>) => {
       state.operations = action.payload;
     },
-    changeNomenclatureSelection: (
-      state,
-      action: PayloadAction<RowSelectionState>
-    ) => {
+    changeNomenclatureSelection: (state, action: PayloadAction<RowSelectionState>) => {
       state.nomenclature.selected = action.payload;
     },
-    changeEquipmentSelection: (
-      state,
-      action: PayloadAction<RowSelectionState>
-    ) => {
+    changeEquipmentSelection: (state, action: PayloadAction<RowSelectionState>) => {
       state.equipment.selected = action.payload;
     },
     clearWizardState: (state) => {
@@ -233,7 +209,7 @@ export const appSlice = createSlice({
         fileName: null,
       };
       state.equipment = {
-        status: "idle",
+        status: 'idle',
         data: null,
         selected: {},
       };

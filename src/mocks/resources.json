@@ -1,261 +1,261 @@
 [
-	{
-	  "id": "4070af8b-6bb7-430e-9ad7-6fd63585d24d",
-	  "code": "1132",
-	  "name": "Реактор Рт 760 №1",
-	  "volume": 200,
-	  "isAvailable": false
-	},
-	{
-	  "id": "3107fdfb-6c1d-48e2-9217-cb1ae4d23d7f",
-	  "code": "1133",
-	  "name": "Реактор Рт 760 №2",
-	  "volume": 200,
-	  "isAvailable": false
-	},
-	{
-	  "id": "213bad7a-b16e-4ede-9648-f2263ad7677f",
-	  "code": "1134",
-	  "name": "Реактор Рт 760 №3",
-	  "volume": 200,
-	  "isAvailable": false
-	},
-	{
-	  "id": "91ed9cf2-0e06-4fb2-9397-89d5250de6a5",
-	  "code": "1135",
-	  "name": "Реактор Рт 760 №4",
-	  "volume": 200,
-	  "isAvailable": false
-	},
-	{
-	  "id": "bc4189c0-1cf8-4832-9e04-8dabcab6c882",
-	  "code": "1136",
-	  "name": "Реактор Рт 760 №5",
-	  "volume": 200,
-	  "isAvailable": false
-	},
-	{
-	  "id": "330a8a58-9595-41e3-9adf-9195181d93c9",
-	  "code": "1137",
-	  "name": "Реактор Рт 760 №6",
-	  "volume": 200,
-	  "isAvailable": false
-	},
-	{
-	  "id": "7abec37e-0a00-4923-84be-f9ad03ccf45a",
-	  "code": "1805",
-	  "name": "Емкость №2",
-	  "volume": 1000,
-	  "isAvailable": false
-	},
-	{
-	  "id": "bfa0065a-bfb6-4d3c-8de5-02036727d87e",
-	  "code": "1806",
-	  "name": "Емкость №4",
-	  "volume": 1000,
-	  "isAvailable": false
-	},
-	{
-	  "id": "dad72135-f50f-4607-9a3d-0ca14c37d622",
-	  "code": "1807",
-	  "name": "Емкость №5",
-	  "volume": 1000,
-	  "isAvailable": false
-	},
-	{
-	  "id": "1bac0876-00bd-40fb-92e4-1a73f2e6c9d4",
-	  "code": "1808",
-	  "name": "Емкость №6",
-	  "volume": 1000,
-	  "isAvailable": false
-	},
-	{
-	  "id": "6050bf52-7e83-47e1-ac91-57866caadff5",
-	  "code": "1121",
-	  "name": "Latham №1",
-	  "volume": 500,
-	  "isAvailable": false
-	},
-	{
-	  "id": "0507f3b2-7fd9-4016-94cb-0a42571726ce",
-	  "code": "1122",
-	  "name": "Latham №2",
-	  "volume": 500,
-	  "isAvailable": false
-	},
-	{
-	  "id": "a3baa353-c88d-48cf-8b31-ab951950c220",
-	  "code": "5155",
-	  "name": "Нутч фильтр №6",
-	  "volume": 250,
-	  "isAvailable": false
-	},
-	{
-	  "id": "a7fe210b-2098-4653-b951-5a99164382c0",
-	  "code": "5156",
-	  "name": "Нутч фильтр №7",
-	  "volume": 250,
-	  "isAvailable": false
-	},
-	{
-	  "id": "25498205-4ed4-4430-8565-ee6f0ad3668b",
-	  "code": "5157",
-	  "name": "Нутч фильтр №8",
-	  "volume": 250,
-	  "isAvailable": false
-	},
-	{
-	  "id": "f933ec10-e70e-4aad-bca1-7d7ff1e5e365",
-	  "code": "5158",
-	  "name": "Нутч фильтр №9",
-	  "volume": 250,
-	  "isAvailable": false
-	},
-	{
-	  "id": "c9f34c33-53ba-4eb2-91c6-0c81aa18c70a",
-	  "code": "5159",
-	  "name": "Нутч фильтр №10",
-	  "volume": 250,
-	  "isAvailable": false
-	},
-	{
-	  "id": "8690c655-41d0-4159-aad7-5c24dc90ec98",
-	  "code": "1126",
-	  "name": "Нутч фильтр №11",
-	  "volume": 250,
-	  "isAvailable": false
-	},
-	{
-	  "id": "8d690ca3-02eb-4ac2-a756-86851c5eb925",
-	  "code": "1127",
-	  "name": "Нутч фильтр №12",
-	  "volume": 250,
-	  "isAvailable": false
-	},
-	{
-	  "id": "96ff5f76-2ae4-4f12-a546-3170537fcf59",
-	  "code": "5160",
-	  "name": "Нутч фильтр №13",
-	  "volume": 250,
-	  "isAvailable": false
-	},
-	{
-	  "id": "70ec0d8b-06fd-46d2-a63e-03f4d8934fad",
-	  "code": "1810",
-	  "name": "Емкость 8",
-	  "volume": 1000,
-	  "isAvailable": false
-	},
-	{
-	  "id": "03238cde-64e6-49b2-94e4-4174ca70e7a5",
-	  "code": "1841",
-	  "name": "Рт760 №1",
-	  "volume": 500,
-	  "isAvailable": false
-	},
-	{
-	  "id": "cbd76b6c-8fa0-4d77-8343-0deb4ed7ed72",
-	  "code": "1842",
-	  "name": "Рт760 №2",
-	  "volume": 500,
-	  "isAvailable": false
-	},
-	{
-	  "id": "0eccc43b-afc2-44cb-ba31-5f4571ca15f1",
-	  "code": "1821",
-	  "name": "Нутч фильтр 3",
-	  "volume": 250,
-	  "isAvailable": false
-	},
-	{
-	  "id": "09216945-02bb-433d-b88c-575fc98c1269",
-	  "code": "1822",
-	  "name": "Нутч фильтр 4",
-	  "volume": 250,
-	  "isAvailable": false
-	},
-	{
-	  "id": "f2cdee8d-1dec-40eb-8a41-4f7798efdd22",
-	  "code": "1823",
-	  "name": "Нутч фильтр 5",
-	  "volume": 250,
-	  "isAvailable": false
-	},
-	{
-	  "id": "d6254149-fc58-46e8-a694-b364eda1aca0",
-	  "code": "1824",
-	  "name": "Нутч фильтр 6",
-	  "volume": 250,
-	  "isAvailable": false
-	},
-	{
-	  "id": "a035e717-67b9-465d-9a1a-90153d9e68ec",
-	  "code": "1843",
-	  "name": "Рт760 №3",
-	  "volume": 500,
-	  "isAvailable": false
-	},
-	{
-	  "id": "effa9b1e-1283-4206-9dc8-1f59d552d875",
-	  "code": "1844",
-	  "name": "Рт760 №4",
-	  "volume": 500,
-	  "isAvailable": false
-	},
-	{
-	  "id": "98f78f38-d712-4104-97da-10665ee862b4",
-	  "code": "1825",
-	  "name": "Нутч фильтр 7",
-	  "volume": 250,
-	  "isAvailable": false
-	},
-	{
-	  "id": "a0afbe1f-e402-40aa-a506-ce8de96caa85",
-	  "code": "1826",
-	  "name": "Нутч фильтр 8",
-	  "volume": 250,
-	  "isAvailable": false
-	},
-	{
-	  "id": "d8b39752-7f0f-4924-a2e7-360efa0d6953",
-	  "code": "1827",
-	  "name": "Нутч фильтр 9",
-	  "volume": 250,
-	  "isAvailable": false
-	},
-	{
-	  "id": "357e7794-41b1-4305-9d36-06fbc87fcf3b",
-	  "code": "1828",
-	  "name": "Нутч фильтр 10",
-	  "volume": 250,
-	  "isAvailable": false
-	},
-	{
-	  "id": "e143f95b-cf6b-4c16-b06d-d31c35e89882",
-	  "code": "1852",
-	  "name": "Емкость 2",
-	  "volume": 1000,
-	  "isAvailable": false
-	},
-	{
-	  "id": "9068be3b-bf3a-432f-ad8e-ca4973322e25",
-	  "code": "1853",
-	  "name": "Емкость 2*",
-	  "volume": 1000,
-	  "isAvailable": false
-	},
-	{
-	  "id": "02ed0d2f-0d0d-4197-bff8-2360e9ce143d",
-	  "code": "1854",
-	  "name": "Емкость 3",
-	  "volume": 1000,
-	  "isAvailable": false
-	},
-	{
-	  "id": "7aac2239-1194-4693-a736-7841f3e953a6",
-	  "code": "1855",
-	  "name": "Емкость 3*",
-	  "volume": 1000,
-	  "isAvailable": false
-	}
-  ]
+  {
+    "id": "4070af8b-6bb7-430e-9ad7-6fd63585d24d",
+    "code": "1132",
+    "name": "Реактор Рт 760 №1",
+    "volume": 200,
+    "isAvailable": false
+  },
+  {
+    "id": "3107fdfb-6c1d-48e2-9217-cb1ae4d23d7f",
+    "code": "1133",
+    "name": "Реактор Рт 760 №2",
+    "volume": 200,
+    "isAvailable": false
+  },
+  {
+    "id": "213bad7a-b16e-4ede-9648-f2263ad7677f",
+    "code": "1134",
+    "name": "Реактор Рт 760 №3",
+    "volume": 200,
+    "isAvailable": false
+  },
+  {
+    "id": "91ed9cf2-0e06-4fb2-9397-89d5250de6a5",
+    "code": "1135",
+    "name": "Реактор Рт 760 №4",
+    "volume": 200,
+    "isAvailable": false
+  },
+  {
+    "id": "bc4189c0-1cf8-4832-9e04-8dabcab6c882",
+    "code": "1136",
+    "name": "Реактор Рт 760 №5",
+    "volume": 200,
+    "isAvailable": false
+  },
+  {
+    "id": "330a8a58-9595-41e3-9adf-9195181d93c9",
+    "code": "1137",
+    "name": "Реактор Рт 760 №6",
+    "volume": 200,
+    "isAvailable": false
+  },
+  {
+    "id": "7abec37e-0a00-4923-84be-f9ad03ccf45a",
+    "code": "1805",
+    "name": "Емкость №2",
+    "volume": 1000,
+    "isAvailable": false
+  },
+  {
+    "id": "bfa0065a-bfb6-4d3c-8de5-02036727d87e",
+    "code": "1806",
+    "name": "Емкость №4",
+    "volume": 1000,
+    "isAvailable": false
+  },
+  {
+    "id": "dad72135-f50f-4607-9a3d-0ca14c37d622",
+    "code": "1807",
+    "name": "Емкость №5",
+    "volume": 1000,
+    "isAvailable": false
+  },
+  {
+    "id": "1bac0876-00bd-40fb-92e4-1a73f2e6c9d4",
+    "code": "1808",
+    "name": "Емкость №6",
+    "volume": 1000,
+    "isAvailable": false
+  },
+  {
+    "id": "6050bf52-7e83-47e1-ac91-57866caadff5",
+    "code": "1121",
+    "name": "Latham №1",
+    "volume": 500,
+    "isAvailable": false
+  },
+  {
+    "id": "0507f3b2-7fd9-4016-94cb-0a42571726ce",
+    "code": "1122",
+    "name": "Latham №2",
+    "volume": 500,
+    "isAvailable": false
+  },
+  {
+    "id": "a3baa353-c88d-48cf-8b31-ab951950c220",
+    "code": "5155",
+    "name": "Нутч фильтр №6",
+    "volume": 250,
+    "isAvailable": false
+  },
+  {
+    "id": "a7fe210b-2098-4653-b951-5a99164382c0",
+    "code": "5156",
+    "name": "Нутч фильтр №7",
+    "volume": 250,
+    "isAvailable": false
+  },
+  {
+    "id": "25498205-4ed4-4430-8565-ee6f0ad3668b",
+    "code": "5157",
+    "name": "Нутч фильтр №8",
+    "volume": 250,
+    "isAvailable": false
+  },
+  {
+    "id": "f933ec10-e70e-4aad-bca1-7d7ff1e5e365",
+    "code": "5158",
+    "name": "Нутч фильтр №9",
+    "volume": 250,
+    "isAvailable": false
+  },
+  {
+    "id": "c9f34c33-53ba-4eb2-91c6-0c81aa18c70a",
+    "code": "5159",
+    "name": "Нутч фильтр №10",
+    "volume": 250,
+    "isAvailable": false
+  },
+  {
+    "id": "8690c655-41d0-4159-aad7-5c24dc90ec98",
+    "code": "1126",
+    "name": "Нутч фильтр №11",
+    "volume": 250,
+    "isAvailable": false
+  },
+  {
+    "id": "8d690ca3-02eb-4ac2-a756-86851c5eb925",
+    "code": "1127",
+    "name": "Нутч фильтр №12",
+    "volume": 250,
+    "isAvailable": false
+  },
+  {
+    "id": "96ff5f76-2ae4-4f12-a546-3170537fcf59",
+    "code": "5160",
+    "name": "Нутч фильтр №13",
+    "volume": 250,
+    "isAvailable": false
+  },
+  {
+    "id": "70ec0d8b-06fd-46d2-a63e-03f4d8934fad",
+    "code": "1810",
+    "name": "Емкость 8",
+    "volume": 1000,
+    "isAvailable": false
+  },
+  {
+    "id": "03238cde-64e6-49b2-94e4-4174ca70e7a5",
+    "code": "1841",
+    "name": "Рт760 №1",
+    "volume": 500,
+    "isAvailable": false
+  },
+  {
+    "id": "cbd76b6c-8fa0-4d77-8343-0deb4ed7ed72",
+    "code": "1842",
+    "name": "Рт760 №2",
+    "volume": 500,
+    "isAvailable": false
+  },
+  {
+    "id": "0eccc43b-afc2-44cb-ba31-5f4571ca15f1",
+    "code": "1821",
+    "name": "Нутч фильтр 3",
+    "volume": 250,
+    "isAvailable": false
+  },
+  {
+    "id": "09216945-02bb-433d-b88c-575fc98c1269",
+    "code": "1822",
+    "name": "Нутч фильтр 4",
+    "volume": 250,
+    "isAvailable": false
+  },
+  {
+    "id": "f2cdee8d-1dec-40eb-8a41-4f7798efdd22",
+    "code": "1823",
+    "name": "Нутч фильтр 5",
+    "volume": 250,
+    "isAvailable": false
+  },
+  {
+    "id": "d6254149-fc58-46e8-a694-b364eda1aca0",
+    "code": "1824",
+    "name": "Нутч фильтр 6",
+    "volume": 250,
+    "isAvailable": false
+  },
+  {
+    "id": "a035e717-67b9-465d-9a1a-90153d9e68ec",
+    "code": "1843",
+    "name": "Рт760 №3",
+    "volume": 500,
+    "isAvailable": false
+  },
+  {
+    "id": "effa9b1e-1283-4206-9dc8-1f59d552d875",
+    "code": "1844",
+    "name": "Рт760 №4",
+    "volume": 500,
+    "isAvailable": false
+  },
+  {
+    "id": "98f78f38-d712-4104-97da-10665ee862b4",
+    "code": "1825",
+    "name": "Нутч фильтр 7",
+    "volume": 250,
+    "isAvailable": false
+  },
+  {
+    "id": "a0afbe1f-e402-40aa-a506-ce8de96caa85",
+    "code": "1826",
+    "name": "Нутч фильтр 8",
+    "volume": 250,
+    "isAvailable": false
+  },
+  {
+    "id": "d8b39752-7f0f-4924-a2e7-360efa0d6953",
+    "code": "1827",
+    "name": "Нутч фильтр 9",
+    "volume": 250,
+    "isAvailable": false
+  },
+  {
+    "id": "357e7794-41b1-4305-9d36-06fbc87fcf3b",
+    "code": "1828",
+    "name": "Нутч фильтр 10",
+    "volume": 250,
+    "isAvailable": false
+  },
+  {
+    "id": "e143f95b-cf6b-4c16-b06d-d31c35e89882",
+    "code": "1852",
+    "name": "Емкость 2",
+    "volume": 1000,
+    "isAvailable": false
+  },
+  {
+    "id": "9068be3b-bf3a-432f-ad8e-ca4973322e25",
+    "code": "1853",
+    "name": "Емкость 2*",
+    "volume": 1000,
+    "isAvailable": false
+  },
+  {
+    "id": "02ed0d2f-0d0d-4197-bff8-2360e9ce143d",
+    "code": "1854",
+    "name": "Емкость 3",
+    "volume": 1000,
+    "isAvailable": false
+  },
+  {
+    "id": "7aac2239-1194-4693-a736-7841f3e953a6",
+    "code": "1855",
+    "name": "Емкость 3*",
+    "volume": 1000,
+    "isAvailable": false
+  }
+]

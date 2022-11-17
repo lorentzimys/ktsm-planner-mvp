@@ -1,33 +1,32 @@
-import { useSelector } from "react-redux";
+import { useSelector } from 'react-redux';
 
 import { RootState } from '@store';
 import { selectViewVariant } from '@store/slice';
-import { useAppDispatch } from "@hooks/hooks";
+import { useAppDispatch } from '@hooks/hooks';
 
 import styles from './styles.module.css';
-
 
 export const ViewVariants: ViewVariant[] = [
   {
     name: 'Расписание',
-    value: 'timeline'
+    value: 'timeline',
   },
   {
     name: 'Лома и порошки',
-    value: 'scrapPowderConversionInfo'
+    value: 'scrapPowderConversionInfo',
   },
   {
     name: 'Учет Fe',
-    value: 'feConversionInfo'
+    value: 'feConversionInfo',
   },
   {
     name: 'Консолидация',
-    value: 'consolidationInfo'
-  }
-]
+    value: 'consolidationInfo',
+  },
+];
 
 export const getViewVariant = (value: ViewVariantValue): ViewVariant => {
-  return ViewVariants.find(item => item.value === value) as ViewVariant;
+  return ViewVariants.find((item) => item.value === value) as ViewVariant;
 };
 
 export const ViewVariantDropdown = () => {
@@ -37,14 +36,18 @@ export const ViewVariantDropdown = () => {
     const type = e.target.getAttribute('data-id');
 
     dispatch(selectViewVariant(type));
-  }
-
+  };
 
   const buttonPreIcon = (
-    <svg className="h-4 w-4 text-blue-600"  fill="none" viewBox="0 0 24 24" stroke="currentColor">
-      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"/>
+    <svg className="h-4 w-4 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+      <path
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="2"
+        d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"
+      />
     </svg>
-  )
+  );
 
   const buttonIcon = (
     <svg
@@ -62,7 +65,7 @@ export const ViewVariantDropdown = () => {
         d="M31.3 192h257.3c17.8 0 26.7 21.5 14.1 34.1L174.1 354.8c-7.8 7.8-20.5 7.8-28.3 0L17.2 226.1C4.6 213.5 13.5 192 31.3 192z"
       ></path>
     </svg>
-  )
+  );
 
   return (
     <div className="flex justify-center">
@@ -77,11 +80,8 @@ export const ViewVariantDropdown = () => {
           {getViewVariant(viewVariant).name}
           {buttonIcon}
         </button>
-        <ul
-          aria-labelledby="dropdownMenuButton1"
-          className={`${styles.Dropdown} dropdown-menu`}
-        >
-          {ViewVariants.map(({value, name}) => (
+        <ul aria-labelledby="dropdownMenuButton1" className={`${styles.Dropdown} dropdown-menu`}>
+          {ViewVariants.map(({ value, name }) => (
             <li
               key={value}
               data-id={value}
@@ -94,5 +94,5 @@ export const ViewVariantDropdown = () => {
         </ul>
       </div>
     </div>
-  )
-}
+  );
+};

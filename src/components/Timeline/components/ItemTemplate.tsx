@@ -1,5 +1,5 @@
-import React from "react";
-import { TimelineItem } from "vis"
+import React from 'react';
+import { TimelineItem } from 'vis';
 
 interface ItemTemplateProps {
   item: TimelineItem;
@@ -8,10 +8,10 @@ interface ItemTemplateProps {
 export const ItemTemplate: React.FC<ItemTemplateProps> = ({ item }: ItemTemplateProps) => {
   return (
     <div
-      className='text-xs overflow-hidden text-ellipsis inline-block w-full'
+      className="text-xs overflow-hidden text-ellipsis inline-block w-full"
       dangerouslySetInnerHTML={{
         __html: item.content,
       }}
     />
-  )
+  );
 };

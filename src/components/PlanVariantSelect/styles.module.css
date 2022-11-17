@@ -1,24 +1,24 @@
 .VariantSelect {
-	@apply appearance-none;
-	@apply block;
-	@apply text-lg;
-	@apply text-gray-700;
-	@apply bg-white bg-clip-padding bg-no-repeat;
-	@apply transition;
-	@apply ease-in-out;
-	@apply m-0;
-	@apply focus:text-gray-700 focus:bg-white focus:border-blue-800 focus:outline-none w-12;
-	padding-right: 1.5rem;
-	white-space: nowrap;
-	text-overflow: ellipsis;
-	width: auto;
-	border: none;
-	cursor: pointer;
-	:focus {
-		border: none;
-		border-color: inherit;
-		-webkit-box-shadow: none;
-		box-shadow: none;
-		outline: none;
-	}
+  @apply appearance-none;
+  @apply block;
+  @apply text-lg;
+  @apply text-gray-700;
+  @apply bg-white bg-clip-padding bg-no-repeat;
+  @apply transition;
+  @apply ease-in-out;
+  @apply m-0;
+  @apply focus:text-gray-700 focus:bg-white focus:border-blue-800 focus:outline-none w-12;
+  padding-right: 1.5rem;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  width: auto;
+  border: none;
+  cursor: pointer;
+  :focus {
+    border: none;
+    border-color: inherit;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    outline: none;
+  }
 }

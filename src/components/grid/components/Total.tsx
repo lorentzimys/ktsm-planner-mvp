@@ -10,8 +10,8 @@ export const Total = ({ selectedLength, totalLength }: TotalProps) => {
     <>
       <span className="">Выбрано</span>
       <span className="font-semibold">
-        {selectedLength} из{' '} {totalLength} 
+        {selectedLength} из {totalLength}
       </span>
     </>
-  )
-}
+  );
+};

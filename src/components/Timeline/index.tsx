@@ -12,20 +12,19 @@ import { TimelineLegend } from './components/TimelineLegend';
 
 import './index.css';
 
-
 import moment from 'moment-with-locales-es6';
 
 moment.locale('ru');
 interface VisTimelineProps {
   data: {
-    totalTime: string | null,
-    groups: TimelineGroup[],
-    items: TimelineItem[],
-    legendItems: TimelineGroup[],
+    totalTime: string | null;
+    groups: TimelineGroup[];
+    items: TimelineItem[];
+    legendItems: TimelineGroup[];
     table: any;
   };
   options?: any;
-};
+}
 
 export const VisTimeline = forwardRef<Timeline, VisTimelineProps>(({ data }: VisTimelineProps, ref) => {
   const defaultOptions = {
@@ -45,33 +44,38 @@ export const VisTimeline = forwardRef<Timeline, VisTimelineProps>(({ data }: Vis
     type: 'range',
     orientation: {
       axis: 'top',
-      item: 'top'
+      item: 'top',
     },
     format: {
       minorLabels: {
         minute: 'H:M',
-        hour: 'HH'
-      }
+        hour: 'HH',
+      },
     },
     template: function (item: TimelineItem, element: HTMLElement) {
-      if (!item) { return }
-        
+      if (!item) {
+        return;
+      }
+
       return createRoot(element).render(<ItemTemplate item={item} />);
     },
   };
 
   const legendVisible = useSelector((state: RootState) => state.plan.showLegend);
 
-  const legendClassNames = clsx('p-4 w-3/12  overflow-hidden relative h-full overflow-hidden collapse-horizontal bg-neutral-200 shadow-sm', {
-    'show': legendVisible,
-    'collapse': !legendVisible,
-  });
+  const legendClassNames = clsx(
+    'p-4 w-3/12  overflow-hidden relative h-full overflow-hidden collapse-horizontal bg-neutral-200 shadow-sm',
+    {
+      show: legendVisible,
+      collapse: !legendVisible,
+    },
+  );
 
   return (
-    <div className='flex flex-1 flex-col'>
-      <div className='flex flex-row flex-1'>
-        <div className='flex flex-col flex-1'>
-          <div className='w-full block h-full timeline__container'>
+    <div className="flex flex-1 flex-col">
+      <div className="flex flex-row flex-1">
+        <div className="flex flex-col flex-1">
+          <div className="w-full block h-full timeline__container">
             <Timeline ref={ref} options={defaultOptions} items={data.items} groups={data.groups} />
           </div>
         </div>
@@ -81,4 +85,4 @@ export const VisTimeline = forwardRef<Timeline, VisTimelineProps>(({ data }: Vis
       </div>
     </div>
   );
-})
+});

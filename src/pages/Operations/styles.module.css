@@ -1,15 +1,15 @@
 .Button {
-	flex: 1;
-	@apply button;
-	@apply button__primary;
-	@apply button--small;
-	@apply button--center;
+  flex: 1;
+  @apply button;
+  @apply button__primary;
+  @apply button--small;
+  @apply button--center;
 }
 
 .SkipButton {
-	flex: 1;
-	@apply button;
-	@apply button--small;
-	@apply button--center;
-	@apply button__secondary;
+  flex: 1;
+  @apply button;
+  @apply button--small;
+  @apply button--center;
+  @apply button__secondary;
 }

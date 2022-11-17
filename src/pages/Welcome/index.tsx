@@ -1,12 +1,13 @@
-import { Link } from "react-router-dom";
+import { Link } from 'react-router-dom';
 
-import { WizardStep } from "@store/slice";
+import { WizardStep } from '@store/slice';
 
 export const WelcomePage = () => (
   <div className="flex-col page-content--center">
     <div className="flex flex-col max-w-sm gap-y-4">
       <span>
-        Добро пожаловать в планировщик ресурсов!<br />
+        Добро пожаловать в планировщик ресурсов!
+        <br />
         Чтобы продолжить "Начать планирование"
       </span>
       <Link to={`${WizardStep.Import.id}`}>

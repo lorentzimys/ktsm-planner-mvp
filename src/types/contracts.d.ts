@@ -36,25 +36,25 @@ interface PlanningResultInfo {
   item_id: string;
   orderIndex: number;
   qty_dry: number;
-  sample_name: string
+  sample_name: string;
   summa_DM: number;
   type: string; // 'Other' | 'LongBranch'
   variants?: [PlanningResultInfo][];
 }
 
 interface PlannigResultTableInfo {
-  columns: string[],
-  rows: string | number[]
+  columns: string[];
+  rows: string | number[];
 }
 
 interface PlanningResults {
-  name: string,
-  totalTime: string | null,
-  groups: PlanningResultGroup[],
-  infos: PlannigResultTableInfo,
-  items: PlanningResultScheduleItem[],
-  legendItems: PlanningResultLegendItem[],
-  feConversionInfo?: PlanningResultInfo[],
-  scrapPowderConversionInfo?: PlanningResultInfo[],
-  consolidationInfo?: PlanningResultInfo[],
+  name: string;
+  totalTime: string | null;
+  groups: PlanningResultGroup[];
+  infos: PlannigResultTableInfo;
+  items: PlanningResultScheduleItem[];
+  legendItems: PlanningResultLegendItem[];
+  feConversionInfo?: PlanningResultInfo[];
+  scrapPowderConversionInfo?: PlanningResultInfo[];
+  consolidationInfo?: PlanningResultInfo[];
 }

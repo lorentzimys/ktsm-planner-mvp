@@ -1,44 +1,42 @@
 .Button {
-	@apply button;
-	@apply button__secondary;
-	@apply button--small;
-	@apply whitespace-nowrap;
-	box-shadow: none;
-	@apply py-2 px-2;
+  @apply button;
+  @apply button__secondary;
+  @apply button--small;
+  @apply whitespace-nowrap;
+  box-shadow: none;
+  @apply py-2 px-2;
 }
 
 .Dropdown {
-	@apply min-w-max;
-	@apply absolute;
-	@apply hidden;
-	@apply bg-white;
-	@apply text-base;
-	@apply z-50;
-	@apply float-left;
-	@apply py-1;
-	@apply list-none;
-	@apply text-left;
-	@apply rounded-lg;
-	/* @apply shadow-lg; */
-	@apply mt-1;
-	@apply hidden;
-	@apply m-0;
-	@apply bg-clip-padding;
-	@apply border-none;
-
+  @apply min-w-max;
+  @apply absolute;
+  @apply hidden;
+  @apply bg-white;
+  @apply text-base;
+  @apply z-50;
+  @apply float-left;
+  @apply py-1;
+  @apply list-none;
+  @apply text-left;
+  @apply rounded-lg;
+  /* @apply shadow-lg; */
+  @apply mt-1;
+  @apply hidden;
+  @apply m-0;
+  @apply bg-clip-padding;
+  @apply border-none;
 }
 
 .DropdownItem {
-	@apply cursor-pointer;
-	@apply text-sm;
-	@apply py-2;
-	@apply px-4;
-	@apply font-normal;
-	@apply block;
-	@apply w-full;
-	@apply whitespace-nowrap;
-	@apply bg-transparent;
-	@apply text-gray-700;
-	@apply hover:bg-gray-100;
-
+  @apply cursor-pointer;
+  @apply text-sm;
+  @apply py-2;
+  @apply px-4;
+  @apply font-normal;
+  @apply block;
+  @apply w-full;
+  @apply whitespace-nowrap;
+  @apply bg-transparent;
+  @apply text-gray-700;
+  @apply hover:bg-gray-100;
 }

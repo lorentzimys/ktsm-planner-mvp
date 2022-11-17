@@ -1,4 +1,4 @@
-import React, { memo, useEffect } from "react";
+import React, { memo, useEffect } from 'react';
 import {
   ColumnDef,
   flexRender,
@@ -6,42 +6,30 @@ import {
   getFilteredRowModel,
   RowSelectionState,
   useReactTable,
-} from '@tanstack/react-table'
+} from '@tanstack/react-table';
 
-import {
-  CheckboxHeaderCell,
-  CheckboxRowCell,
-  Filter,
-  Total
-} from "./components";
+import { CheckboxHeaderCell, CheckboxRowCell, Filter, Total } from './components';
 
 import './index.css';
 
 interface GridProps {
-  data: any,
-  columnsConfig: ColumnDef<any, any>[],
-  useSelection?: boolean |{
-    columnId?: string | null,
-    selectionState: RowSelectionState
-  },
+  data: any;
+  columnsConfig: ColumnDef<any, any>[];
+  useSelection?:
+    | boolean
+    | {
+        columnId?: string | null;
+        selectionState: RowSelectionState;
+      };
   onRowSelectionChange?: (rowSelection: RowSelectionState) => void;
 }
 
-const Grid = ({
-  data,
-  columnsConfig,
-  useSelection = false,
-  onRowSelectionChange
-}: GridProps) => {
+const Grid = ({ data, columnsConfig, useSelection = false, onRowSelectionChange }: GridProps) => {
   const [rowSelection, setRowSelection] = React.useState(
-    useSelection && typeof useSelection === 'object' ? useSelection.selectionState : {}
+    useSelection && typeof useSelection === 'object' ? useSelection.selectionState : {},
   );
 
-  const emptyData = (
-    <div className="flex-col page-content--center overflow-hidden">
-      Данные отсутствуют
-    </div>
-  )
+  const emptyData = <div className="flex-col page-content--center overflow-hidden">Данные отсутствуют</div>;
 
   const createColumns = () => {
     let columns = [...columnsConfig];
@@ -60,7 +48,7 @@ const Grid = ({
               header: CheckboxHeaderCell,
               cell: CheckboxRowCell,
             },
-            ...columns
+            ...columns,
           ];
         }
 
@@ -74,10 +62,9 @@ const Grid = ({
             header: CheckboxHeaderCell,
             cell: CheckboxRowCell,
           },
-          ...columns
-        ]
+          ...columns,
+        ];
       }
-      
     }
     return columns;
   };
@@ -100,7 +87,7 @@ const Grid = ({
     }
   }, [rowSelection]);
 
-  return data ?
+  return data ? (
     <div className="flex flex-1 flex-col overflow-hidden">
       <div className="flex flex-1 flex-col overflow-auto">
         <table className="table table--striped">
@@ -109,29 +96,21 @@ const Grid = ({
               <tr className="table__header-row" key={i}>
                 {headerGroup.headers.map((header, i) => (
                   <th
-                    {
-                    ...{
-                        key: i,
-                        className: "table__header-cell",
-                        colSpan: header.colSpan,
-                        style: {
-                          width: header.column.getSize(),
-                        }
-                      }
-                    }
+                    {...{
+                      key: i,
+                      className: 'table__header-cell',
+                      colSpan: header.colSpan,
+                      style: {
+                        width: header.column.getSize(),
+                      },
+                    }}
                   >
-                    {
-                      header.isPlaceholder
-                        ? null
-                        : flexRender(header.column.columnDef.header, header.getContext())
-                    }
-                    {
-                      header.column.getCanFilter() ? (
-                        <div>
-                          <Filter column={header.column} table={table} />
-                        </div>
-                      ) : null
-                    }
+                    {header.isPlaceholder ? null : flexRender(header.column.columnDef.header, header.getContext())}
+                    {header.column.getCanFilter() ? (
+                      <div>
+                        <Filter column={header.column} table={table} />
+                      </div>
+                    ) : null}
                   </th>
                 ))}
               </tr>
@@ -142,15 +121,13 @@ const Grid = ({
               <tr className="table__body-row" key={i}>
                 {row.getVisibleCells().map((cell, i) => (
                   <td
-                    {
-                      ...{
-                        className: "table__body-cell",
-                        key: i,
-                        style: {
-                          width: cell.column.getSize(),
-                        }
-                      }
-                    }
+                    {...{
+                      className: 'table__body-cell',
+                      key: i,
+                      style: {
+                        width: cell.column.getSize(),
+                      },
+                    }}
                   >
                     {flexRender(cell.column.columnDef.cell, cell.getContext())}
                   </td>
@@ -158,7 +135,7 @@ const Grid = ({
               </tr>
             ))}
           </tbody>
-        
+
           {/* <tfoot>
             {table.getFooterGroups().map((footerGroup, i) => (
               <tr key={i}>
@@ -176,9 +153,7 @@ const Grid = ({
             ))}
           </tfoot> */}
         </table>
-        {
-          data.length === 0 && emptyData 
-        }
+        {data.length === 0 && emptyData}
       </div>
       {useSelection && (
         <div className="flex gap-2 py-1 px-2">
@@ -189,8 +164,9 @@ const Grid = ({
         </div>
       )}
     </div>
-    : emptyData
-   
-}
+  ) : (
+    emptyData
+  );
+};
 
 export default memo(Grid);

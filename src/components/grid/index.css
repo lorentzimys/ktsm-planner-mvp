@@ -1,59 +1,59 @@
 .table {
-	overflow: scroll;
-	border-collapse: separate;
-	border-spacing: 0;
-	@apply table-auto;
-	&--striped {
-		.table__header {
-			tr {
-				@apply bg-blue-300;
-			}
-		}
+  overflow: scroll;
+  border-collapse: separate;
+  border-spacing: 0;
+  @apply table-auto;
+  &--striped {
+    .table__header {
+      tr {
+        @apply bg-blue-300;
+      }
+    }
 
-		.table__body {
-			tr:nth-child(odd) {
-				@apply bg-blue-50;
-			}
-		}
-	}
+    .table__body {
+      tr:nth-child(odd) {
+        @apply bg-blue-50;
+      }
+    }
+  }
 
-	&__header{
-		position: sticky;
-		top: 0;
-		&-group-row {
-			text-align: center;
-		}
-		&-row {
-			/* box-shadow: 1px 1px gray; */
-			text-align: left;
-			border-collapse: separate;
-			border-spacing: 0;
-		}
-		&-cell {
-			border-collapse: separate;
-			border-spacing: 0;
-			font-size: 14px;
-			@apply p-2 pt-1 pb-1 font-semibold;
-			/* @apply border border-collapse dark:border-slate-400; */
-			@apply bg-blue-200 text-slate-800  text-left;
-		}
-	}
-	&__body {
-		&-row {
-			border-collapse: separate;
-			border-spacing: 0;
-		}
-		&-cell {
-			font-size: 12px;
-			border-collapse: separate;
-			border-spacing: 0;
-			@apply p-2;
-			@apply w-1/2;
-			/* @apply border border-collapse; */
-			@apply dark:border-slate-400;
-			@apply text-slate-900  text-left;
-		}
-	}
+  &__header {
+    position: sticky;
+    top: 0;
+    &-group-row {
+      text-align: center;
+    }
+    &-row {
+      /* box-shadow: 1px 1px gray; */
+      text-align: left;
+      border-collapse: separate;
+      border-spacing: 0;
+    }
+    &-cell {
+      border-collapse: separate;
+      border-spacing: 0;
+      font-size: 14px;
+      @apply p-2 pt-1 pb-1 font-semibold;
+      /* @apply border border-collapse dark:border-slate-400; */
+      @apply bg-blue-200 text-slate-800  text-left;
+    }
+  }
+  &__body {
+    &-row {
+      border-collapse: separate;
+      border-spacing: 0;
+    }
+    &-cell {
+      font-size: 12px;
+      border-collapse: separate;
+      border-spacing: 0;
+      @apply p-2;
+      @apply w-1/2;
+      /* @apply border border-collapse; */
+      @apply dark:border-slate-400;
+      @apply text-slate-900  text-left;
+    }
+  }
 }
 
 table,

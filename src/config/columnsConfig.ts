@@ -1,4 +1,4 @@
-import { createColumnHelper } from '@tanstack/react-table'
+import { createColumnHelper } from '@tanstack/react-table';
 
 const columnHelper = createColumnHelper<any>();
 
@@ -12,10 +12,10 @@ export const nomenclatureColumns = [
   columnHelper.accessor('item_id', {
     header: 'Номер',
     size: 50,
-    cell: info => info.getValue(),
+    cell: (info) => info.getValue(),
   }),
   columnHelper.accessor('item_desc', {
-    cell: info => info.getValue(),
+    cell: (info) => info.getValue(),
     header: 'Наименование',
   }),
   // columnHelper.group({
@@ -28,128 +28,128 @@ export const nomenclatureColumns = [
   //   ],
   // }),
   columnHelper.accessor('lot', {
-    cell: info => info.getValue(),
+    cell: (info) => info.getValue(),
     header: 'Партия №',
   }),
   columnHelper.accessor('ent', {
-    cell: info => info.getValue(),
+    cell: (info) => info.getValue(),
     header: 'Участок',
   }),
   columnHelper.accessor('qty', {
-    cell: info => info.getValue(),
+    cell: (info) => info.getValue(),
     header: 'Кол-во',
   }),
   columnHelper.accessor('qty_dry', {
-    cell: info => info.getValue(),
+    cell: (info) => info.getValue(),
     header: 'Масса/объем',
   }),
   columnHelper.accessor('uom', {
-    cell: info => info.getValue(),
+    cell: (info) => info.getValue(),
     header: 'Единица измерения',
   }),
   columnHelper.accessor('uom', {
-    cell: info => info.getValue(),
+    cell: (info) => info.getValue(),
     header: 'Единица измерения',
   }),
   columnHelper.accessor('summa_DM', {
-    cell: info => info.getValue(),
+    cell: (info) => info.getValue(),
     header: 'Стоимость партии',
   }),
   columnHelper.accessor('Pt', {
-    cell: info => info.getValue(),
+    cell: (info) => info.getValue(),
     header: '% Pt в партии',
   }),
   columnHelper.accessor('Pt_HCH', {
-    cell: info => info.getValue(),
+    cell: (info) => info.getValue(),
     header: 'Масса Pt в партии',
   }),
   columnHelper.accessor('Pd', {
-    cell: info => info.getValue(),
+    cell: (info) => info.getValue(),
     header: '% Pd в партии',
   }),
-  columnHelper.accessor("Pd", {
-    cell: info => info.getValue(),
-    header: "Pd"
+  columnHelper.accessor('Pd', {
+    cell: (info) => info.getValue(),
+    header: 'Pd',
   }),
-  columnHelper.accessor("Pd_HCH", {
-    cell: info => info.getValue(),
-    header: "Pd_HCH"
+  columnHelper.accessor('Pd_HCH', {
+    cell: (info) => info.getValue(),
+    header: 'Pd_HCH',
   }),
-  columnHelper.accessor("Rh", {
-    cell: info => info.getValue(),
-    header: "Rh"
+  columnHelper.accessor('Rh', {
+    cell: (info) => info.getValue(),
+    header: 'Rh',
   }),
-  columnHelper.accessor("Rh_HCH", {
-    cell: info => info.getValue(),
-    header: "Rh_HCH"
+  columnHelper.accessor('Rh_HCH', {
+    cell: (info) => info.getValue(),
+    header: 'Rh_HCH',
   }),
-  columnHelper.accessor("Ir", {
-    cell: info => info.getValue(),
-    header: "Ir"
+  columnHelper.accessor('Ir', {
+    cell: (info) => info.getValue(),
+    header: 'Ir',
   }),
-  columnHelper.accessor("Ir_HCH", {
-    cell: info => info.getValue(),
-    header: "Ir_HCH"
+  columnHelper.accessor('Ir_HCH', {
+    cell: (info) => info.getValue(),
+    header: 'Ir_HCH',
   }),
-  columnHelper.accessor("Ru", {
-    cell: info => info.getValue(),
-    header: "Ru"
+  columnHelper.accessor('Ru', {
+    cell: (info) => info.getValue(),
+    header: 'Ru',
   }),
-  columnHelper.accessor("Ru_HCH", {
-    cell: info => info.getValue(),
-    header: "Ru_HCH"
+  columnHelper.accessor('Ru_HCH', {
+    cell: (info) => info.getValue(),
+    header: 'Ru_HCH',
   }),
-  columnHelper.accessor("Os", {
-    cell: info => info.getValue(),
-    header: "Os"
+  columnHelper.accessor('Os', {
+    cell: (info) => info.getValue(),
+    header: 'Os',
   }),
-  columnHelper.accessor("Os_HCH", {
-    cell: info => info.getValue(),
-    header: "Os_HCH"
+  columnHelper.accessor('Os_HCH', {
+    cell: (info) => info.getValue(),
+    header: 'Os_HCH',
   }),
-  columnHelper.accessor("Au", {
-    cell: info => info.getValue(),
-    header: "Au"
+  columnHelper.accessor('Au', {
+    cell: (info) => info.getValue(),
+    header: 'Au',
   }),
-  columnHelper.accessor("Au_HCH", {
-    cell: info => info.getValue(),
-    header: "Au_HCH"
+  columnHelper.accessor('Au_HCH', {
+    cell: (info) => info.getValue(),
+    header: 'Au_HCH',
   }),
-  columnHelper.accessor("Ag", {
-    cell: info => info.getValue(),
-    header: "Ag"
+  columnHelper.accessor('Ag', {
+    cell: (info) => info.getValue(),
+    header: 'Ag',
   }),
-  columnHelper.accessor("Ag_HCH", {
-    cell: info => info.getValue(),
-    header: "Ag_HCH"
+  columnHelper.accessor('Ag_HCH', {
+    cell: (info) => info.getValue(),
+    header: 'Ag_HCH',
   }),
-  columnHelper.accessor("Re", {
-    cell: info => info.getValue(),
-    header: "Re"
+  columnHelper.accessor('Re', {
+    cell: (info) => info.getValue(),
+    header: 'Re',
   }),
-  columnHelper.accessor("Re_HCH", {
-    cell: info => info.getValue(),
-    header: "Re_HCH"
+  columnHelper.accessor('Re_HCH', {
+    cell: (info) => info.getValue(),
+    header: 'Re_HCH',
   }),
-  columnHelper.accessor("Fe", {
-    cell: info => info.getValue(),
-    header: "Fe"
+  columnHelper.accessor('Fe', {
+    cell: (info) => info.getValue(),
+    header: 'Fe',
   }),
-  columnHelper.accessor("Fe_HCH", {
-    cell: info => info.getValue(),
-    header: "Fe_HCH"
+  columnHelper.accessor('Fe_HCH', {
+    cell: (info) => info.getValue(),
+    header: 'Fe_HCH',
   }),
-  columnHelper.accessor("Chloride", {
-    cell: info => info.getValue(),
-    header: "Chloride"
+  columnHelper.accessor('Chloride', {
+    cell: (info) => info.getValue(),
+    header: 'Chloride',
   }),
-  columnHelper.accessor("Chloride_HCH", {
-    cell: info => info.getValue(),
-    header: "Chloride_HCH"
+  columnHelper.accessor('Chloride_HCH', {
+    cell: (info) => info.getValue(),
+    header: 'Chloride_HCH',
   }),
-  columnHelper.accessor("type_result", {
-    cell: info => info.getValue(),
-    header: "type_result"
+  columnHelper.accessor('type_result', {
+    cell: (info) => info.getValue(),
+    header: 'type_result',
   }),
   // columnHelper.accessor('weight', {
   //   cell: info => info.getValue(),
@@ -262,102 +262,101 @@ export const nomenclatureColumns = [
 
 export const operationsColumns = [
   columnHelper.accessor('ent_id', {
-    cell: info => info.getValue(),
+    cell: (info) => info.getValue(),
     header: 'ent_id',
   }),
   columnHelper.accessor('ent_desc', {
-    cell: info => info.getValue(),
+    cell: (info) => info.getValue(),
     header: 'ent_desc',
   }),
   columnHelper.accessor('wo_id', {
-    cell: info => info.getValue(),
+    cell: (info) => info.getValue(),
     header: 'wo_id',
   }),
   columnHelper.accessor('wo_desc', {
-    cell: info => info.getValue(),
+    cell: (info) => info.getValue(),
     header: 'wo_desc',
   }),
   columnHelper.accessor('wo_state', {
-    cell: info => info.getValue(),
+    cell: (info) => info.getValue(),
     header: 'wo_state',
   }),
   columnHelper.accessor('oper_row_id', {
-    cell: info => info.getValue(),
+    cell: (info) => info.getValue(),
     header: 'oper_row_id',
   }),
   columnHelper.accessor('oper_desc', {
-    cell: info => info.getValue(),
+    cell: (info) => info.getValue(),
     header: 'oper_desc',
   }),
   columnHelper.accessor('seq_no', {
-    cell: info => info.getValue(),
+    cell: (info) => info.getValue(),
     header: 'seq_no',
   }),
   columnHelper.accessor('first_job_start_local', {
-    cell: info => info.getValue(),
+    cell: (info) => info.getValue(),
     header: 'first_job_start_local',
   }),
   columnHelper.accessor('job_start_local', {
-    cell: info => info.getValue(),
+    cell: (info) => info.getValue(),
     header: 'job_start_local',
   }),
   columnHelper.accessor('item_id', {
-    cell: info => info.getValue(),
+    cell: (info) => info.getValue(),
     header: 'item_id',
   }),
   columnHelper.accessor('item_desc', {
-    cell: info => info.getValue(),
+    cell: (info) => info.getValue(),
     header: 'item_desc',
   }),
   columnHelper.accessor('lot_no', {
-    cell: info => info.getValue(),
+    cell: (info) => info.getValue(),
     header: 'lot_no',
   }),
   columnHelper.accessor('qty_cons', {
-    cell: info => info.getValue(),
+    cell: (info) => info.getValue(),
     header: 'qty_cons',
   }),
   columnHelper.accessor('abbr_uom', {
-    cell: info => info.getValue(),
+    cell: (info) => info.getValue(),
     header: 'abbr_uom',
   }),
   columnHelper.accessor('oper_seq', {
-    cell: info => info.getValue(),
+    cell: (info) => info.getValue(),
     header: 'oper_seq',
   }),
 ];
 
 export const resourcesColumns = [
   columnHelper.accessor('isAvailable', {
-    cell: info => info.getValue(),
+    cell: (info) => info.getValue(),
     enableColumnFilter: false,
     header: 'Доступность',
   }),
   columnHelper.accessor('id', {
-    cell: info => info.getValue(),
+    cell: (info) => info.getValue(),
     header: 'Id',
   }),
   columnHelper.accessor('code', {
-    cell: info => info.getValue(),
+    cell: (info) => info.getValue(),
     header: 'Код',
   }),
   columnHelper.accessor('name', {
-    cell: info => info.getValue(),
+    cell: (info) => info.getValue(),
     header: 'Наименованиe',
   }),
   columnHelper.accessor('volume', {
-    cell: info => info.getValue(),
+    cell: (info) => info.getValue(),
     header: 'Объем',
   }),
-
 ];
 
 export const createColumnsConfigFromKeys = (keys: string[], enableFilters = false) => {
-  return keys.map(k => (
+  return keys.map((k) =>
     columnHelper.accessor(k, {
-      cell: info => info.getValue(),
+      cell: (info) => info.getValue(),
       enableColumnFilter: enableFilters,
       header: k,
-    })
-  ));
-}
+    }),
+  );
+};
