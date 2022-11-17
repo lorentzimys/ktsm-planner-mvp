@@ -48,6 +48,7 @@ interface PlannigResultTableInfo {
 }
 
 interface PlanningResults {
+  base64: string;
   name: string;
   totalTime: string | null;
   groups: PlanningResultGroup[];

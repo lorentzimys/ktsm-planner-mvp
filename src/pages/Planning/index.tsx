@@ -20,6 +20,7 @@ import { PlanVariantSelect } from '@components/PlanVariantSelect';
 import Lottie from 'react-lottie';
 import * as calendarAnimation from './calendar-animation.json';
 import * as errorOccured from './error-occurred.json';
+import { ExportXlsButton } from '@components/Buttons/ExportXlsButton';
 
 const defaultOptions = {
   loop: true,
@@ -104,11 +105,14 @@ export const PlanningPage = () => {
       )}
       {planningStatus === 'fulfilled' && (
         <div className="flex flex-1 flex-col w-full">
-          <div className="mx-4 my-2 flex flex-row justify-between items-center">
+          <div className="mx-4 my-2 flex flex-row justify-between ">
             <h2 className="header-5 flex flex-col text-gray-800">
               <PlanVariantSelect />
             </h2>
-            <PlanToolbar />
+            <div className="flex flex-row items-center">
+              <ExportXlsButton />
+              <PlanToolbar />
+            </div>
           </div>
           {viewVariant === 'timeline' && (
             <VisTimeline data={data as any} ref={timelineRef} />
