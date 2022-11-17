@@ -11,7 +11,7 @@ import {
 import Grid from '@components/Grid';
 import { UploadButton } from '@components/Buttons/UploadButton';
 
-import { nomenclatureColumns } from '../../config/columnsConfig';
+import { nomenclatureColumns } from '@components/Grid/config/columnsConfig';
 import { useAppDispatch } from '@hooks/hooks';
 
 import ImportNomenclaturePage from './Import';

@@ -6,12 +6,11 @@ import { RootState } from '@store';
 import { refreshOntology, runPlan } from '@store/slice';
 
 import { useAppDispatch } from '@hooks/hooks';
-import { createColumnsConfigFromKeys } from '@config/columnsConfig';
+import { infoColumns } from '@components/Grid/config/columnsConfig';
 
 import Grid from '@components/Grid';
 import { VisTimeline } from '@components/Timeline';
 import { PlanToolbar } from '@components/PlanToolbar';
-import { getViewVariant } from '@components/ViewVariantDropdown';
 import { ZoomInButton } from '@components/Timeline/components/ZoomInButton';
 import { ZoomOutButton } from '@components/Timeline/components/ZoomOutButton';
 import { ToggleLegendButton } from '@components/Timeline/components/ToggleLegendButton';
@@ -54,6 +53,8 @@ export const PlanningPage = () => {
     }
     dispatch(runPlan());
   };
+
+  console.log(data);
 
   const HandlePlanButton = ({ children }) => (
     <button
@@ -121,12 +122,7 @@ export const PlanningPage = () => {
             viewVariant === 'feConversionInfo' ||
             viewVariant === 'scrapPowderConversionInfo') && (
             <div className="px-4 py-2 flex flex-1 flex-col w-full overflow-hidden">
-              <Grid
-                data={data.items}
-                columnsConfig={createColumnsConfigFromKeys(
-                  Object.keys(data[viewVariant as any][0] || {})
-                )}
-              />
+              <Grid data={data[viewVariant]} columnsConfig={infoColumns} />
             </div>
           )}
           {viewVariant === 'timeline' && (

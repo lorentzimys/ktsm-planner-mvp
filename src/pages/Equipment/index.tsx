@@ -3,7 +3,7 @@ import { useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { RowSelectionState } from '@tanstack/react-table';
 
-import { resourcesColumns } from '@config/columnsConfig';
+import { resourcesColumns } from '@components/Grid/config/columnsConfig';
 import { RootState } from '@store';
 import {
   changeEquipmentSelection,

@@ -1,8 +1,10 @@
 import React, { memo, useEffect } from 'react';
 import {
   ColumnDef,
+  ExpandedState,
   flexRender,
   getCoreRowModel,
+  getExpandedRowModel,
   getFilteredRowModel,
   RowSelectionState,
   useReactTable,
@@ -40,6 +42,8 @@ const Grid = ({
       ? useSelection.selectionState
       : {}
   );
+
+  const [expanded, setExpanded] = React.useState<ExpandedState>({});
 
   const emptyData = (
     <div className="flex-col page-content--center overflow-hidden">
@@ -90,10 +94,14 @@ const Grid = ({
     columns: createColumns(),
     state: {
       rowSelection,
+      expanded,
     },
+    onExpandedChange: setExpanded,
     onRowSelectionChange: setRowSelection,
+    getSubRows: (row) => row.children,
     getCoreRowModel: getCoreRowModel(),
     getFilteredRowModel: getFilteredRowModel(),
+    getExpandedRowModel: getExpandedRowModel(),
     // getPaginationRowModel: getPaginationRowModel(),
   });
 
@@ -108,12 +116,12 @@ const Grid = ({
       <div className="flex flex-1 flex-col overflow-auto">
         <table className="table table--striped">
           <thead className="table__header">
-            {table.getHeaderGroups().map((headerGroup, i) => (
-              <tr className="table__header-row" key={i}>
-                {headerGroup.headers.map((header, i) => (
+            {table.getHeaderGroups().map((headerGroup) => (
+              <tr className="table__header-row" key={headerGroup.id}>
+                {headerGroup.headers.map((header) => (
                   <th
                     {...{
-                      key: i,
+                      key: header.id,
                       className: 'table__header-cell',
                       colSpan: header.colSpan,
                       style: {
@@ -127,24 +135,24 @@ const Grid = ({
                           header.column.columnDef.header,
                           header.getContext()
                         )}
-                    {header.column.getCanFilter() ? (
+                    {header.column.getCanFilter() && (
                       <div>
                         <Filter column={header.column} table={table} />
                       </div>
-                    ) : null}
+                    )}
                   </th>
                 ))}
               </tr>
             ))}
           </thead>
           <tbody className="table__body">
-            {table.getRowModel().flatRows.map((row, i) => (
-              <tr className="table__body-row" key={i}>
-                {row.getVisibleCells().map((cell, i) => (
+            {table.getRowModel().rows.map((row) => (
+              <tr className="table__body-row" key={row.id}>
+                {row.getVisibleCells().map((cell) => (
                   <td
                     {...{
                       className: 'table__body-cell',
-                      key: i,
+                      key: cell.id,
                       style: {
                         width: cell.column.getSize(),
                       },

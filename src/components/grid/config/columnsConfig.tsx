@@ -1,3 +1,5 @@
+import { MinusIcon } from '@components/Icons/Minus';
+import { PlusIcon } from '@components/Icons/Plus';
 import { createColumnHelper } from '@tanstack/react-table';
 
 const columnHelper = createColumnHelper<any>();
@@ -348,6 +350,107 @@ export const resourcesColumns = [
   columnHelper.accessor('volume', {
     cell: (info) => info.getValue(),
     header: 'Объем',
+  }),
+];
+
+export const infoColumns = [
+  // columnHelper.accessor('id', {
+  //   cell: ({ row, getValue }) => (
+  //     <div
+  //       style={{
+  //         paddingLeft: `${row.depth * 1}rem`,
+  //       }}
+  //     >
+  //       <>
+  //         {row.getCanExpand() ? (
+  //           <button
+  //             {...{
+  //               onClick: row.getToggleExpandedHandler(),
+  //               style: { cursor: 'pointer' },
+  //             }}
+  //           >
+  //             {row.getIsExpanded() ? '👇' : '👉'}
+  //           </button>
+  //         ) : (
+  //           '🔵'
+  //         )}{' '}
+  //       </>
+  //     </div>
+  //   ),
+  //   enableColumnFilter: false,
+  //   header: 'Id',
+  //   size: 0,
+  // }),
+  {
+    id: 'id',
+    size: 80,
+    header: ({ table }) => (
+      <>
+        <button {...{ onClick: table.getToggleAllRowsExpandedHandler() }}>
+          {table.getIsAllRowsExpanded() ? <MinusIcon /> : <PlusIcon />}
+        </button>
+      </>
+    ),
+    cell: ({ row }) => (
+      <div style={{ paddingLeft: `${row.depth * 1}rem` }}>
+        {row.getCanExpand() && (
+          <button
+            {...{
+              onClick: row.getToggleExpandedHandler(),
+              style: { cursor: 'pointer' },
+            }}
+          >
+            {row.getIsExpanded() ? <MinusIcon /> : <PlusIcon />}
+          </button>
+        )}
+      </div>
+    ),
+    enableColumnFilter: false,
+  },
+  // columnHelper.accessor('index', {
+  //   cell: (info) => info.getValue(),
+  //   enableColumnFilter: false,
+  //   header: 'index',
+  // }),
+  columnHelper.accessor('item_id', {
+    cell: (info) => info.getValue(),
+    enableColumnFilter: false,
+    header: 'item_id',
+  }),
+  columnHelper.accessor('item_desc', {
+    cell: (info) => info.getValue(),
+    enableColumnFilter: false,
+    header: 'item_desc',
+  }),
+  // columnHelper.accessor('orderIndex', {
+  //   cell: (info) => info.getValue(),
+  //   enableColumnFilter: false,
+  //   header: 'orderIndex',
+  // }),
+  columnHelper.accessor('type', {
+    cell: (info) => info.getValue(),
+    enableColumnFilter: false,
+    header: 'type',
+  }),
+  columnHelper.accessor('qty_dry', {
+    cell: (info) => info.getValue(),
+    enableColumnFilter: false,
+    header: 'qty_dry',
+  }),
+  columnHelper.accessor('summa_DM', {
+    cell: (info) => info.getValue(),
+    enableColumnFilter: false,
+    header: 'summa_DM',
+  }),
+  columnHelper.accessor('costPerKg', {
+    cell: (info) => info.getValue(),
+    enableColumnFilter: false,
+    header: 'costPerKg',
+  }),
+  columnHelper.accessor('absorbationCount', {
+    cell: (info) => info.getValue(),
+    enableColumnFilter: false,
+    header: 'absorbationCount',
   }),
 ];
 

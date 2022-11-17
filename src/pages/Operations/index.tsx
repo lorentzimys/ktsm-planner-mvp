@@ -6,7 +6,7 @@ import { nextStep, uploadOperations } from '@store/slice';
 import { UploadButton } from '@components/Buttons/UploadButton';
 import Grid from '@components/Grid';
 
-import { operationsColumns } from '@config/columnsConfig';
+import { operationsColumns } from '@components/Grid/config/columnsConfig';
 import { useAppDispatch } from '@hooks/hooks';
 
 import styles from './styles.module.css';
