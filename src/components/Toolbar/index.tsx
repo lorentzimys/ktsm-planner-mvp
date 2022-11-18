@@ -73,7 +73,6 @@ const Toolbar = () => {
   };
 
   const handleStartDateChange = (date: string) => {
-    console.log(date);
     dispatch(setStartDate(date));
   };
 

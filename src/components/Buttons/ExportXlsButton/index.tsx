@@ -10,7 +10,6 @@ export const ExportXlsButton = () => {
     (state: RootState) => state.plan.data[state.plan.selectedPlan]
   );
   const hadleExportXls = () => {
-    console.log('export xls');
     const target = linkRef.current;
 
     if (target) {

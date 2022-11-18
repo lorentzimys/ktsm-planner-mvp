@@ -125,13 +125,6 @@ export const runPlan = createAsyncThunk(
 
     const operations = state.operations.data || [];
 
-    const timezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
-    const startDateFormatted =
-      startDate ||
-      formatInTimeZone(new Date(), timezone, 'yyyy-MM-ddTHH:mm:ss');
-
-    console.log(startDateFormatted);
-
     const response = await fetch(apiRoutes.runPlan, {
       method: 'post',
       headers: {

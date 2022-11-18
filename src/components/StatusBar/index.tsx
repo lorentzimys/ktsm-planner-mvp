@@ -10,7 +10,6 @@ export const StatusBar = () => {
   const [statusBarOpen, setStatusBarOpen] = useState<boolean>(true);
 
   const handleToggleStatusBar = useCallback(() => {
-    console.log(statusBarOpen);
     setStatusBarOpen(!statusBarOpen);
   }, [statusBarOpen]);
 

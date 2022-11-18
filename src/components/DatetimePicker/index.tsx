@@ -57,7 +57,6 @@ export const DatetimePicker = ({ onChange }: Props) => {
     const timeFormatteed = formatInTimeZone(startDate, timezone, `HH:mm:ss`);
     const dateTimeFormatted = `${dateFormatted}T${timeFormatteed}`;
 
-    console.log(dateTimeFormatted, new Date(dateFormatted));
     if (onChange) {
       onChange(dateTimeFormatted);
     }
