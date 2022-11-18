@@ -452,6 +452,11 @@ export const infoColumns = [
     enableColumnFilter: false,
     header: 'absorbationCount',
   }),
+  columnHelper.accessor('fe', {
+    cell: (info) => info.getValue(),
+    enableColumnFilter: false,
+    header: 'fe',
+  }),
 ];
 
 export const createColumnsConfigFromKeys = (
