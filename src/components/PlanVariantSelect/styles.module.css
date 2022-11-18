@@ -8,7 +8,7 @@
   @apply ease-in-out;
   @apply m-0;
   @apply focus:text-gray-700 focus:bg-white focus:border-blue-800 focus:outline-none w-12;
-  padding-right: 1.5rem;
+  padding-right: 2rem;
   white-space: nowrap;
   text-overflow: ellipsis;
   width: auto;

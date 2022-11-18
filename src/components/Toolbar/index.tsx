@@ -24,14 +24,11 @@ import clsx from 'clsx';
 const Toolbar = () => {
   const dispatch = useAppDispatch();
   const currentStep = useSelector(currStep);
-  const ontologyLoaded = useSelector((state: RootState) => {
-    return state.ontology.status === 'fulfilled';
-  });
   const planningStatus = useSelector((state: RootState) => state.plan.status);
   const planningAllowed = useSelector((state: RootState) => {
     return Boolean(
       (state.nomenclature?.data?.length ?? false) &&
-        state.ontology.status !== 'pending' &&
+        state.ontology.status === 'fulfilled' &&
         planningStatus !== 'pending'
     );
   });
@@ -74,9 +71,6 @@ const Toolbar = () => {
   };
 
   const handlePlan = async () => {
-    if (!ontologyLoaded) {
-      await dispatch(refreshOntology());
-    }
     dispatch(runPlan());
     dispatch(goToStep(4));
   };

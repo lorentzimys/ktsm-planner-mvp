@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux';
 import { Timeline } from 'vis';
 
 import { RootState } from '@store';
-import { refreshOntology, runPlan } from '@store/slice';
+import { runPlan } from '@store/slice';
 
 import { useAppDispatch } from '@hooks/hooks';
 import {
@@ -37,23 +37,17 @@ export const PlanningPage = () => {
   const data = useSelector((state: RootState) => {
     return state.plan.data[state.plan.selectedPlan];
   });
-  const ontologyLoaded = useSelector((state: RootState) => {
-    return state.ontology.status === 'fulfilled';
-  });
   const viewVariant = useSelector((state: RootState) => state.plan.viewVariant);
   const planningStatus = useSelector((state: RootState) => state.plan.status);
   const planningAllowed = useSelector((state: RootState) => {
     return Boolean(
       (state.nomenclature?.data?.length ?? false) &&
-        state.ontology.status !== 'pending' &&
+        state.ontology.status === 'fulfilled' &&
         planningStatus !== 'pending'
     );
   });
   const timelineRef = useRef<Timeline>(null);
   const handlePlan = async () => {
-    if (!ontologyLoaded) {
-      await dispatch(refreshOntology());
-    }
     dispatch(runPlan());
   };
 
