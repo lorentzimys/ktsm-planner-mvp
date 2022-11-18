@@ -13,13 +13,14 @@ import {
   clearWizardState,
   goToStep,
   runPlan,
-  refreshOntology,
+  setStartDate,
 } from '@store/slice';
 
 import { RefreshOntologyButton } from '@components/Buttons/RefreshOntologyButton';
 import { RefreshIcon } from '@components/Icons/Refresh';
 import { StartIcon } from '@components/Icons/Start';
 import clsx from 'clsx';
+import { DatetimePicker } from '@components/DatetimePicker';
 
 const Toolbar = () => {
   const dispatch = useAppDispatch();
@@ -32,6 +33,7 @@ const Toolbar = () => {
         planningStatus !== 'pending'
     );
   });
+  const startDate = useSelector((state: RootState) => state.plan.startDate);
   const prevText = useSelector((state: RootState) => {
     const currentStep = state.currentStep;
     if (currentStep < 1) {
@@ -70,8 +72,13 @@ const Toolbar = () => {
     dispatch(nextStep());
   };
 
+  const handleStartDateChange = (date: string) => {
+    console.log(date);
+    dispatch(setStartDate(date));
+  };
+
   const handlePlan = async () => {
-    dispatch(runPlan());
+    dispatch(runPlan(startDate));
     dispatch(goToStep(4));
   };
 
@@ -96,12 +103,13 @@ const Toolbar = () => {
         <RefreshOntologyButton />
       </div>
       <div className="gap-x-2 flex">
+        <DatetimePicker onChange={handleStartDateChange} />
         <button
           onClick={handlePlan}
           disabled={!planningAllowed}
           className="disabled:opacity-50 gap-2 text-xs disabled:cursor-not-allowed button button__primary button--small"
         >
-          {planningStatus === 'idle' ? (
+          {planningStatus !== 'pending' ? (
             <StartIcon />
           ) : (
             <RefreshIcon className={classNames} />

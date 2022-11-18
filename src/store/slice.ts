@@ -3,6 +3,7 @@ import { RowSelectionState } from '@tanstack/react-table';
 import { at } from 'lodash';
 import { RootState } from './index';
 import { apiRoutes } from '@utils/api';
+import { formatInTimeZone } from 'date-fns-tz';
 
 export interface AppState {
   steps: Array<StepItem>;
@@ -27,6 +28,7 @@ export interface AppState {
     showLegend: boolean;
     status: FetchStatus;
     data: PlanningResults[];
+    startDate: string;
   };
   ontology: {
     status: FetchStatus;
@@ -86,6 +88,7 @@ const initialState: AppState = {
     showLegend: false,
     status: 'idle',
     data: [],
+    startDate: '',
   },
   ontology: {
     status: 'idle',
@@ -108,7 +111,7 @@ export const fetchEquipment = createAsyncThunk(
 
 export const runPlan = createAsyncThunk(
   'runPlan',
-  async (_, { rejectWithValue, getState }) => {
+  async (startDate: string, { rejectWithValue, getState }) => {
     const state = getState() as RootState;
     const meterials = at(
       state.nomenclature.data || [],
@@ -122,6 +125,13 @@ export const runPlan = createAsyncThunk(
 
     const operations = state.operations.data || [];
 
+    const timezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
+    const startDateFormatted =
+      startDate ||
+      formatInTimeZone(new Date(), timezone, 'yyyy-MM-ddTHH:mm:ss');
+
+    console.log(startDateFormatted);
+
     const response = await fetch(apiRoutes.runPlan, {
       method: 'post',
       headers: {
@@ -132,6 +142,7 @@ export const runPlan = createAsyncThunk(
         Materials: meterials,
         Resources: resources,
         Operations: operations,
+        Start: startDate,
       }),
     });
 
@@ -250,6 +261,9 @@ export const appSlice = createSlice({
     selectViewVariant: (state, action) => {
       state.plan.viewVariant = action.payload;
     },
+    setStartDate: (state, action) => {
+      state.plan.startDate = action.payload;
+    },
   },
   extraReducers: (builder) => {
     builder.addCase(fetchEquipment.pending, (state) => {
@@ -303,4 +317,5 @@ export const {
   toggleLegend,
   selectPlanVariant,
   selectViewVariant,
+  setStartDate,
 } = appSlice.actions;

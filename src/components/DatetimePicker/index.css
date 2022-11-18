@@ -1,0 +1,11 @@
+.date-time-picker {
+	&__container {
+		position: relative;
+	}
+
+	&__wrapper {
+		position: absolute;
+		bottom: 46px;
+		left: 0;
+	}
+}

@@ -452,6 +452,10 @@ export const infoColumns = [
     enableColumnFilter: false,
     header: 'absorbationCount',
   }),
+];
+
+export const infoColumnsWithFe = [
+  ...infoColumns,
   columnHelper.accessor('fe', {
     cell: (info) => info.getValue(),
     enableColumnFilter: false,
