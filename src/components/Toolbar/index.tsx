@@ -29,7 +29,7 @@ const Toolbar = () => {
   const planningAllowed = useSelector((state: RootState) => {
     return Boolean(
       (state.nomenclature?.data?.length ?? false) &&
-        state.ontology.status === 'fulfilled' &&
+        state.ontology.status !== 'pending' &&
         planningStatus !== 'pending'
     );
   });
