@@ -49,7 +49,7 @@ export const VisTimeline = forwardRef<Timeline, VisTimelineProps>(
       },
       format: {
         minorLabels: {
-          minute: 'h:m',
+          minute: 'HH:m',
           hour: 'HH',
         },
       },
