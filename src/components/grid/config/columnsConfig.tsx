@@ -1,3 +1,5 @@
+import { ChevronDownIcon } from '@components/Icons/ChevronDown';
+import { ChevronRightIcon } from '@components/Icons/ChevronRight';
 import { MinusIcon } from '@components/Icons/Minus';
 import { PlusIcon } from '@components/Icons/Plus';
 import { createColumnHelper } from '@tanstack/react-table';
@@ -5,12 +7,6 @@ import { createColumnHelper } from '@tanstack/react-table';
 const columnHelper = createColumnHelper<any>();
 
 export const nomenclatureColumns = [
-  // columnHelper.group({
-  //   id: 'nomenclature',
-  //   header: 'Номенклатура',
-  //   columns: [
-  //   ],
-  // }),
   columnHelper.accessor('item_id', {
     header: 'Номер',
     size: 50,
@@ -20,15 +16,6 @@ export const nomenclatureColumns = [
     cell: (info) => info.getValue(),
     header: 'Наименование',
   }),
-  // columnHelper.group({
-  //   id: 'equipment',
-  //   columns: [
-  //     columnHelper.accessor('equipment', {
-  //       header: 'Оборудование',
-  //       cell: info => info.getValue(),
-  //     }),
-  //   ],
-  // }),
   columnHelper.accessor('lot', {
     cell: (info) => info.getValue(),
     header: 'Партия №',
@@ -354,36 +341,9 @@ export const resourcesColumns = [
 ];
 
 export const infoColumns = [
-  // columnHelper.accessor('id', {
-  //   cell: ({ row, getValue }) => (
-  //     <div
-  //       style={{
-  //         paddingLeft: `${row.depth * 1}rem`,
-  //       }}
-  //     >
-  //       <>
-  //         {row.getCanExpand() ? (
-  //           <button
-  //             {...{
-  //               onClick: row.getToggleExpandedHandler(),
-  //               style: { cursor: 'pointer' },
-  //             }}
-  //           >
-  //             {row.getIsExpanded() ? '👇' : '👉'}
-  //           </button>
-  //         ) : (
-  //           '🔵'
-  //         )}{' '}
-  //       </>
-  //     </div>
-  //   ),
-  //   enableColumnFilter: false,
-  //   header: 'Id',
-  //   size: 0,
-  // }),
   {
     id: 'id',
-    size: 80,
+    size: 100,
     header: ({ table }) => (
       <>
         <button {...{ onClick: table.getToggleAllRowsExpandedHandler() }}>
@@ -393,74 +353,77 @@ export const infoColumns = [
     ),
     cell: ({ row }) => (
       <div style={{ paddingLeft: `${row.depth * 1}rem` }}>
-        {row.getCanExpand() && (
+        {row.getCanExpand() ? (
           <button
             {...{
               onClick: row.getToggleExpandedHandler(),
               style: { cursor: 'pointer' },
             }}
           >
-            {row.getIsExpanded() ? <MinusIcon /> : <PlusIcon />}
+            {row.getIsExpanded() ? <ChevronDownIcon /> : <ChevronRightIcon />}
           </button>
+        ) : (
+          '...'
         )}
       </div>
     ),
     enableColumnFilter: false,
   },
-  // columnHelper.accessor('index', {
-  //   cell: (info) => info.getValue(),
-  //   enableColumnFilter: false,
-  //   header: 'index',
-  // }),
+  columnHelper.accessor('lot', {
+    cell: (info) => info.getValue(),
+    enableColumnFilter: false,
+    header: 'Партия, №',
+  }),
   columnHelper.accessor('item_id', {
     cell: (info) => info.getValue(),
     enableColumnFilter: false,
-    header: 'item_id',
+    header: 'Код',
   }),
   columnHelper.accessor('item_desc', {
     cell: (info) => info.getValue(),
     enableColumnFilter: false,
-    header: 'item_desc',
+    header: 'Название',
   }),
-  // columnHelper.accessor('orderIndex', {
-  //   cell: (info) => info.getValue(),
-  //   enableColumnFilter: false,
-  //   header: 'orderIndex',
-  // }),
   columnHelper.accessor('type', {
     cell: (info) => info.getValue(),
     enableColumnFilter: false,
-    header: 'type',
+    header: 'Тип',
   }),
   columnHelper.accessor('qty_dry', {
     cell: (info) => info.getValue(),
     enableColumnFilter: false,
-    header: 'qty_dry',
+    header: 'Объем, кг',
   }),
   columnHelper.accessor('summa_DM', {
     cell: (info) => info.getValue(),
     enableColumnFilter: false,
-    header: 'summa_DM',
+    header: 'Стоимость, руб',
   }),
   columnHelper.accessor('costPerKg', {
     cell: (info) => info.getValue(),
     enableColumnFilter: false,
-    header: 'costPerKg',
+    header: 'Цена, руб./кг',
   }),
   columnHelper.accessor('absorbationCount', {
     cell: (info) => info.getValue(),
     enableColumnFilter: false,
-    header: 'absorbationCount',
+    header: 'Число абсорбций',
+  }),
+  columnHelper.accessor('description', {
+    cell: (info) => info.getValue(),
+    enableColumnFilter: false,
+    header: 'Инфо',
   }),
 ];
 
 export const infoColumnsWithFe = [
-  ...infoColumns,
+  ...infoColumns.slice(0, infoColumns.length - 1),
   columnHelper.accessor('fe', {
     cell: (info) => info.getValue(),
     enableColumnFilter: false,
-    header: 'fe',
+    header: 'Fe, %',
   }),
+  ...infoColumns.slice(infoColumns.length - 1),
 ];
 
 export const createColumnsConfigFromKeys = (

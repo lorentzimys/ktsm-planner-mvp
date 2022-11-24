@@ -51,7 +51,7 @@ const Grid = ({
     </div>
   );
 
-  const createColumns = () => {
+  const createColumns = React.useMemo(() => {
     let columns = [...columnsConfig];
 
     if (useSelection) {
@@ -87,11 +87,11 @@ const Grid = ({
       }
     }
     return columns;
-  };
+  }, [columnsConfig, useSelection]);
 
   const table = useReactTable({
     data: data || [],
-    columns: createColumns(),
+    columns: createColumns,
     state: {
       rowSelection,
       expanded,
@@ -146,23 +146,32 @@ const Grid = ({
             ))}
           </thead>
           <tbody className="table__body">
-            {table.getRowModel().rows.map((row) => (
-              <tr className="table__body-row" key={row.id}>
-                {row.getVisibleCells().map((cell) => (
-                  <td
-                    {...{
-                      className: 'table__body-cell',
-                      key: cell.id,
-                      style: {
-                        width: cell.column.getSize(),
-                      },
-                    }}
-                  >
-                    {flexRender(cell.column.columnDef.cell, cell.getContext())}
-                  </td>
-                ))}
-              </tr>
-            ))}
+            <>
+              {table.getRowModel().rows.map((row) => {
+                return (
+                  <tr className="table__body-row" key={row.id}>
+                    {row.getVisibleCells().map((cell) => {
+                      return (
+                        <td
+                          {...{
+                            className: 'table__body-cell',
+                            key: cell.id,
+                            style: {
+                              width: cell.column.getSize(),
+                            },
+                          }}
+                        >
+                          {flexRender(
+                            cell.column.columnDef.cell,
+                            cell.getContext()
+                          )}
+                        </td>
+                      );
+                    })}
+                  </tr>
+                );
+              })}
+            </>
           </tbody>
 
           {/* <tfoot>

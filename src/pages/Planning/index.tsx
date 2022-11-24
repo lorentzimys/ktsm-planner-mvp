@@ -125,13 +125,13 @@ export const PlanningPage = () => {
               />
             </div>
           )}
-          {(viewVariant === 'consolidationInfo' ||
-            viewVariant === 'scrapPowderConversionInfo') && (
+          {viewVariant === 'scrapPowderConversionInfo' && (
             <div className="px-4 py-2 flex flex-1 flex-col w-full overflow-hidden">
               <Grid data={data[viewVariant]} columnsConfig={infoColumns} />
             </div>
           )}
-          {viewVariant === 'feConversionInfo' && (
+          {(viewVariant === 'feConversionInfo' ||
+            viewVariant === 'consolidationInfo') && (
             <div className="px-4 py-2 flex flex-1 flex-col w-full overflow-hidden">
               <Grid
                 data={data[viewVariant]}

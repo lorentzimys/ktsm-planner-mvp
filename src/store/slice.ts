@@ -3,7 +3,6 @@ import { RowSelectionState } from '@tanstack/react-table';
 import { at } from 'lodash';
 import { RootState } from './index';
 import { apiRoutes } from '@utils/api';
-import { formatInTimeZone } from 'date-fns-tz';
 
 export interface AppState {
   steps: Array<StepItem>;
